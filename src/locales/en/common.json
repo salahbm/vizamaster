@@ -1,0 +1,43 @@
+{
+  "Public": {
+    "no-data": "No data",
+    "copy": "Successfully Copied",
+    "verified": "Verified"
+  },
+  "Errors": {
+    "wrong": "Something went wrong",
+    "2000": "Email address is already registered.",
+    "2001": "Target user does not exist.",
+    "2002": "Login history of requested user does not exist.",
+    "2003": "Too many requests submitted within a short time. please retry in 5 minutes.",
+    "2004": "Submitted UUID is not valid.",
+    "2100": "Password is not provided.",
+    "2101": "Provided Password is invalid.",
+    "2102": "Provided combination of email and password is not existent.",
+    "2103": "Password and password confirmation are not the same.",
+    "2104": "Token is necessary for this request.",
+    "2105": "The token provided is expired.",
+    "2106": "The token provided is used.",
+    "2200": "Email is not in the right format. Please check your email.",
+    "2201": "Email is not provided.",
+    "2202": "Email is not found.",
+    "2203": "Provided email verification code is expired.",
+    "2204": "Email is already verified.",
+    "2205": "Email verification request does not exist.",
+    "2206": "Email verification requests can be submitted only once within 30 seconds.",
+    "2207": "Submitted email address is already registered",
+    "2208": "Email verification code must be provided",
+    "2209": "Email verification code is invalid",
+    "2210": "Empty space cannot be allowed to email",
+    "2211": "Header is not provided",
+    "2212": "Contents is not provided",
+    "2300": "Mobile number is already verified.",
+    "2301": "Provided mobile verification code is expired.",
+    "2302": "Mobile number must be provided.",
+    "2303": "Mobile verification code is invalid."
+  },
+  "Home": {
+    "title": "Welcome to BS GROUP",
+    "description": "The best group management platform for small businesses and freelancers"
+  }
+}
