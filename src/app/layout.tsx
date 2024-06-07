@@ -1,3 +1,4 @@
+import Footer from '@/components/shared/footer';
 import Header from '@/components/shared/header';
 import AppProvider from '@/providers';
 import { Params } from '@/types/global';
@@ -21,6 +22,7 @@ export default function RootLayout({
         <AppProvider locale={locale}>
           <Header />
           {children}
+          <Footer />
         </AppProvider>
       </body>
     </html>

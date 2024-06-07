@@ -1,5 +1,6 @@
 import { createInstance, Resource, i18n } from 'i18next';
 import { initReactI18next } from 'react-i18next';
+import Cookies from 'js-cookie';
 
 import enTranslation from '../locales/en/common.json';
 import uzTranslation from '../locales/uz/common.json';
@@ -25,12 +26,13 @@ export default async function initTranslations(
   i18nInstance?: i18n
 ) {
   const instance = i18nInstance || createInstance();
+  const savedLocale = Cookies.get('NEXT_LOCALE') || locale;
 
   instance.use(initReactI18next);
 
   await instance.init({
     resources,
-    lng: locale,
+    lng: savedLocale,
     fallbackLng: i18nConfig.defaultLocale,
     supportedLngs: i18nConfig.locales,
     defaultNS: namespaces[0],
