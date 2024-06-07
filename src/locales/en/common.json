@@ -39,5 +39,12 @@
   "Home": {
     "title": "Welcome to BS GROUP",
     "description": "The best group management platform for small businesses and freelancers"
+  },
+  "Header": {
+    "languages": {
+      "en": "English",
+      "uz": "Uzbek",
+      "ru": "Russian"
+    }
   }
 }

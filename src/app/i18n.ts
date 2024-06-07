@@ -1,5 +1,5 @@
 import { createInstance, Resource, i18n } from 'i18next';
-import { initReactI18next } from 'react-i18next/initReactI18next';
+import { initReactI18next } from 'react-i18next';
 
 import enTranslation from '../locales/en/common.json';
 import uzTranslation from '../locales/uz/common.json';

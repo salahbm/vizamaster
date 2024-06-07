@@ -10,8 +10,8 @@ const useLocale = () => {
   const currentPathname = usePathname();
 
   const handleLocale = useCallback(
-    (e: string) => {
-      const newLocale = e;
+    (newLocale: string) => {
+      if (newLocale === currentLocale) return;
 
       // Set cookie for next-i18n-router
       const days = 30;
@@ -20,17 +20,12 @@ const useLocale = () => {
       const expires = `; expires=${date.toUTCString()}`;
       document.cookie = `NEXT_LOCALE=${newLocale};expires=${expires};path=/`;
 
-      if (
-        currentLocale === i18nConfig.defaultLocale &&
-        !i18nConfig.prefixDefault
-      ) {
-        router.push(`/${newLocale}${currentPathname}`);
-      } else {
-        // @ts-ignore
-        router.push(
-          currentPathname.replace(`/${currentLocale}`, `/${newLocale}`)
-        );
-      }
+      const newPath =
+        currentLocale === i18nConfig.defaultLocale && !i18nConfig.prefixDefault
+          ? `/${newLocale}${currentPathname}`
+          : currentPathname.replace(`/${currentLocale}`, `/${newLocale}`);
+
+      router.push(newPath);
 
       // For making a new request to the server, re-fetching data requests, and re-rendering Server Components.
       router.refresh();
