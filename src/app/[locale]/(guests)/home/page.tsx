@@ -3,6 +3,7 @@ import Feature from '@/components/_home/Features';
 import FunFact from '@/components/_home/FunFact';
 import PeopleMarquee from '@/components/_home/marquee';
 import { Process } from '@/components/_home/process';
+import Blog from '@/components/Blog';
 import { useTranslations } from 'next-intl';
 import React from 'react';
 
@@ -16,6 +17,7 @@ const Home = () => {
       <Brands />
       <PeopleMarquee />
       <FunFact />
+      <Blog />
     </div>
   );
 };

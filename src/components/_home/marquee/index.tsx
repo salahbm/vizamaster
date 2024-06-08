@@ -11,7 +11,7 @@ const data = [
 const PeopleMarquee = () => {
   return (
     <div className="space-y-4 p-4">
-      <Marquee autoFill>
+      <Marquee autoFill pauseOnHover>
         {data.map((item) => (
           <div key={item.id} className="relative w-36 h-36 md:w-48 md:h-48 m-2">
             <Image
@@ -24,7 +24,7 @@ const PeopleMarquee = () => {
           </div>
         ))}
       </Marquee>
-      <Marquee direction="right" autoFill>
+      <Marquee direction="right" autoFill pauseOnHover>
         {data.map((item) => (
           <div key={item.id} className="relative w-36 h-36 md:w-48 md:h-48 m-2">
             <Image
@@ -37,7 +37,7 @@ const PeopleMarquee = () => {
           </div>
         ))}
       </Marquee>
-      <Marquee autoFill>
+      <Marquee autoFill pauseOnHover>
         {data.map((item) => (
           <div key={item.id} className="relative w-36 h-36 md:w-48 md:h-48 m-2">
             <Image
