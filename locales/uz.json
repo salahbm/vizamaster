@@ -1,8 +1,7 @@
 {
   "Public": {
     "no-data": "No data",
-    "copy": "Successfully Copied",
-    "verified": "Verified"
+    "copy": "Successfully Copied"
   },
   "Errors": {
     "wrong": "Something went wrong",
@@ -36,8 +35,23 @@
     "2302": "Mobile number must be provided.",
     "2303": "Mobile verification code is invalid."
   },
+  "Meta": {
+    "keywords": "Blockchain Crypto Exchange, Cryptocurrency Exchange, Bitcoin Trading, Ethereum price trend, CZ, BTC price, ETH price",
+    "description": "The fairest and safest cryptocurrency exchange.",
+    "home": {
+      "title": "{brand} | Recruitment Agency",
+      "description": "{brand} is your trusted destination for cryptocurrency trading. Start your crypto journey with BTC and ETH on {brand} today!"
+    }
+  },
   "Home": {
     "title": "Welcome to BS GROUP",
     "description": "The best group management platform for small businesses and freelancers"
+  },
+  "Header": {
+    "languages": {
+      "en": "English",
+      "uz": "Uzbek",
+      "ru": "Russian"
+    }
   }
 }

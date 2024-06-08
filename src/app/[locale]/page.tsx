@@ -1,6 +1,9 @@
-import { useTranslations } from 'next-intl';
+import Home from './(guests)/home/page';
 
 export default function Index() {
-  const t = useTranslations();
-  return <h1 className="text-3xl font-italic"> {t('Home.title')}</h1>;
+  return (
+    <>
+      <Home />
+    </>
+  );
 }

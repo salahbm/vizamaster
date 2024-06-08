@@ -1,5 +1,63 @@
+import Header from '@/components/shared/header';
+import { BRAND_NAME } from '@/constants/name';
 import AppProvider from '@/providers';
-import TranslationsProvider from '@/providers/TranslationsProvider';
+import { Params } from '@/types/global';
+import { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
+
+// Can be imported from a shared config
+const locales = ['en', 'ru', 'uz'];
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({
+  params: { locale },
+}: Params): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: 'Meta' });
+  const title = t('home.title', { brand: BRAND_NAME });
+  const description = t('home.description', { brand: BRAND_NAME });
+
+  return {
+    title,
+    description,
+    // keywords: t('Meta.keywords'),
+    metadataBase: new URL(`http://localhost:3000`),
+    // alternates: {
+    // 	canonical: `/${locale}`,
+    // 	languages: {
+    // 		en: '/en',
+    // 	},
+    // },
+    // openGraph: {
+    //   title,
+    //   description,
+    //   url: `/`,
+    //   siteName: BRAND_NAME,
+    //   images: [
+    //     {
+    //       url: `/og/small.png`,
+    //       width: 600,
+    //       height: 315,
+    //     },
+    //     {
+    //       url: `/og/large.png`,
+    //       width: 1200,
+    //       height: 600,
+    //     },
+    //   ],
+    //   type: 'website',
+    // },
+    // twitter: {
+    //   card: 'summary_large_image',
+    //   title,
+    //   description,
+    //   site: BRAND_NAME,
+    //   images: [`/og/twitter.png`],
+    // },
+  };
+}
 
 export default function LocaleLayout({
   children,
@@ -11,7 +69,10 @@ export default function LocaleLayout({
   return (
     <html lang={locale}>
       <body>
-        <AppProvider>{children}</AppProvider>
+        <AppProvider>
+          <Header />
+          {children}
+        </AppProvider>
       </body>
     </html>
   );

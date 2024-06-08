@@ -4,17 +4,17 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import useTranslation from '@/hooks/common/useTranslation';
 import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
 
 const LanguageSelector = () => {
-  // const { t } = useTranslations();
-  // const { locales, currentLocale, handleLocale } = useLocale();
-  // console.log(`currentLocale:`, currentLocale);
+  const t = useTranslations();
+  const { locales, currentLocale, handleLocale } = useTranslation();
 
   return (
     <div className="relative flex items-center">
-      {/* <DropdownMenu>
+      <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <button>
             <span className="text-sm font-bold uppercase">
@@ -40,7 +40,7 @@ const LanguageSelector = () => {
             );
           })}
         </DropdownMenuContent>
-      </DropdownMenu> */}
+      </DropdownMenu>
     </div>
   );
 };
