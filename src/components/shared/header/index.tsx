@@ -1,51 +1,29 @@
 'use client';
-import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
-
-import ThemeToggler from './ThemeToggler';
-import menuData from './menuData';
-import LanguageSelector from './LanguageSelector';
+import MobileNavbar from './mobile-header';
+import Navbar from './nav-bar';
+import { motion } from 'framer-motion';
 
 const Header = () => {
-  const [navigationOpen, setNavigationOpen] = useState(false);
-  const [dropdownToggler, setDropdownToggler] = useState(false);
-  const [stickyMenu, setStickyMenu] = useState(false);
-
-  const pathUrl = usePathname();
-
-  // Sticky menu
-  const handleStickyMenu = () => {
-    if (window.scrollY >= 80) {
-      setStickyMenu(true);
-    } else {
-      setStickyMenu(false);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleStickyMenu);
-  });
-
   return (
-    <header
-      className={`fixed left-0 top-0 z-99999 w-full py-7 ${
-        stickyMenu
-          ? 'bg-white !py-4 shadow transition duration-100 dark:bg-black'
-          : ''
-      }`}
-    >
-      <div className="relative mx-auto max-w-c-1390 items-center justify-between px-4 md:px-8 xl:flex 2xl:px-0">
-        {/* Nav Menu Start   */}
-        <ThemeToggler />
-        <br />
-        <LanguageSelector />
+    <header>
+      <div className="container mx-auto flex flex-row justify-between md:items-center py-4 px-6">
+        <motion.div
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="text-2xl font-bold"
+        >
+          MyLogo
+        </motion.div>
+        <div className="hidden md:block">
+          <Navbar />
+        </div>
+        <div className="md:hidden">
+          <MobileNavbar />
+        </div>
       </div>
     </header>
   );
 };
-
-// w-full delay-300
 
 export default Header;

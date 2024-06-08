@@ -5,6 +5,9 @@ import { Params } from '@/types/global';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import '../../styles/globals.css';
+import Footer from '@/components/shared/footer';
+import { poppins } from '@/styles/fonts';
+import { cn } from '@/lib/utils';
 
 // Can be imported from a shared config
 const locales = ['en', 'ru', 'uz'];
@@ -23,7 +26,6 @@ export async function generateMetadata({
   return {
     title,
     description,
-    // keywords: t('Meta.keywords'),
     metadataBase: new URL(`http://localhost:3000`),
     // alternates: {
     // 	canonical: `/${locale}`,
@@ -69,10 +71,17 @@ export default function LocaleLayout({
 }) {
   return (
     <html lang={locale}>
-      <body>
+      <body
+        className={
+          cn(
+            'absolute inset-0 -z-10 h-full w-full bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)]'
+          ) && poppins.className
+        }
+      >
         <AppProvider>
           <Header />
           {children}
+          <Footer />
         </AppProvider>
       </body>
     </html>

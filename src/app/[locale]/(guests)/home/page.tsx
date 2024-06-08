@@ -5,7 +5,7 @@ const Home = () => {
   const t = useTranslations();
   return (
     <div>
-      <h1 className=" font-italic text-green-100"> {t('Home.title')}</h1>
+      <h1 className=" font-italic text-green-700"> {t('Home.title')}</h1>
     </div>
   );
 };

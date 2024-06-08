@@ -6,8 +6,7 @@ export type Params = {
 
 export type Menu = {
   id: number;
-  title: string;
+  name: string;
   path?: string;
-  newTab: boolean;
   submenu?: Menu[];
 };
