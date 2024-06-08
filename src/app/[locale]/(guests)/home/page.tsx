@@ -1,4 +1,5 @@
 import { Brands } from '@/components/_home/brands';
+import FunFact from '@/components/_home/FunFact';
 import { Process } from '@/components/_home/process';
 import { useTranslations } from 'next-intl';
 import React from 'react';
@@ -10,6 +11,7 @@ const Home = () => {
       <h1 className=" font-italic text-green-700"> {t('Home.title')}</h1>
       <Process />
       <Brands />
+      <FunFact />
     </div>
   );
 };
