@@ -1,39 +1,36 @@
-import { usePathname, useRouter } from 'next/navigation';
-import { useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
-import i18nConfig from '../../../i18n.config';
+// import { usePathname, useRouter } from 'next/navigation';
+// import { useCallback } from 'react';
 
-const useLocale = () => {
-  const { i18n } = useTranslation();
-  const currentLocale = i18n.language;
-  const router = useRouter();
-  const currentPathname = usePathname();
+// import i18nConfig from '../../../i18n.config';
+// import { useTranslations } from 'next-intl';
 
-  const handleLocale = useCallback(
-    (newLocale: string) => {
-      if (newLocale === currentLocale) return;
+// const useLocale = () => {
+//   const i18n  = useTranslations();
+//   const currentLocale = i18n.language;
+//   const router = useRouter();
+//   const currentPathname = usePathname();
 
-      // Set cookie for next-i18n-router
-      const days = 30;
-      const date = new Date();
-      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-      const expires = `; expires=${date.toUTCString()}`;
-      document.cookie = `NEXT_LOCALE=${newLocale};expires=${expires};path=/`;
+//   const handleLocale = useCallback(
+//     (newLocale: string) => {
+//       if (newLocale === currentLocale) return;
 
-      const newPath =
-        currentLocale === i18nConfig.defaultLocale && !i18nConfig.prefixDefault
-          ? `/${newLocale}${currentPathname}`
-          : currentPathname.replace(`/${currentLocale}`, `/${newLocale}`);
+//       // Save to localStorage
+//       localStorage.setItem('NEXT_LOCALE', newLocale);
 
-      router.push(newPath);
+//       const newPath =
+//         currentLocale === i18nConfig.defaultLocale && !i18nConfig.prefixDefault
+//           ? `/${newLocale}${currentPathname}`
+//           : currentPathname.replace(`/${currentLocale}`, `/${newLocale}`);
 
-      // For making a new request to the server, re-fetching data requests, and re-rendering Server Components.
-      router.refresh();
-    },
-    [currentLocale, currentPathname, router]
-  );
+//       router.push(newPath);
 
-  return { locales: i18nConfig.locales, currentLocale, handleLocale };
-};
+//       // For making a new request to the server, re-fetching data requests, and re-rendering Server Components.
+//       router.refresh();
+//     },
+//     [currentLocale, currentPathname, router]
+//   );
 
-export default useLocale;
+//   return { locales: i18nConfig.locales, currentLocale, handleLocale };
+// };
+
+// export default useLocale;

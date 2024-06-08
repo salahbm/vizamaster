@@ -1,14 +1,6 @@
-'use client';
-import { useTranslation } from 'react-i18next';
+import { useTranslations } from 'next-intl';
 
-const Home = () => {
-  const { t } = useTranslation();
-  return (
-    <main className="flex min-h-screen flex-col pb-[17.5rem] pt-header mobile:pb-[6rem]">
-      Home Page
-      {t('Home.title')}
-    </main>
-  );
-};
-
-export default Home;
+export default function Index() {
+  const t = useTranslations();
+  return <h1 className="text-3xl font-italic"> {t('Home.title')}</h1>;
+}

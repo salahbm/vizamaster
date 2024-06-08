@@ -1,5 +1,3 @@
-import { useTranslation } from 'react-i18next';
-import useLocale from '@/hooks/common/useLocale';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,15 +5,16 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { cn } from '@/lib/utils';
+import { useTranslations } from 'next-intl';
 
 const LanguageSelector = () => {
-  const { t } = useTranslation();
-  const { locales, currentLocale, handleLocale } = useLocale();
-  console.log(`currentLocale:`, currentLocale);
+  // const { t } = useTranslations();
+  // const { locales, currentLocale, handleLocale } = useLocale();
+  // console.log(`currentLocale:`, currentLocale);
 
   return (
     <div className="relative flex items-center">
-      <DropdownMenu>
+      {/* <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <button>
             <span className="text-sm font-bold uppercase">
@@ -41,7 +40,7 @@ const LanguageSelector = () => {
             );
           })}
         </DropdownMenuContent>
-      </DropdownMenu>
+      </DropdownMenu> */}
     </div>
   );
 };
