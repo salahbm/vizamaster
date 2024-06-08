@@ -4,6 +4,7 @@ import AppProvider from '@/providers';
 import { Params } from '@/types/global';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
+import '../../styles/globals.css';
 
 // Can be imported from a shared config
 const locales = ['en', 'ru', 'uz'];
