@@ -71,13 +71,7 @@ export default function LocaleLayout({
 }) {
   return (
     <html lang={locale}>
-      <body
-        className={
-          cn(
-            'absolute inset-0 -z-10 h-full w-full bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)]'
-          ) && poppins.className
-        }
-      >
+      <body className={cn('max-w-[2304px]') && poppins.className}>
         <AppProvider>
           <Header />
           {children}

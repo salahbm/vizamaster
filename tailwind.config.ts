@@ -23,6 +23,7 @@ const config = {
     },
     extend: {
       colors: {
+        adobe_purple: '#5f34e0',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',

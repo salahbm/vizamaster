@@ -12,12 +12,19 @@ const LanguageSelector = () => {
   const t = useTranslations();
   const { locales, currentLocale, handleLocale } = useTranslation();
 
+  const flags: Record<string, string> = {
+    en: '🇺🇸',
+    ru: '🇷🇺',
+    uz: '🇺🇿',
+  };
+
   return (
     <div className="relative flex items-center">
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <button>
-            <span className=" uppercase">{currentLocale}</span>
+          <button className="flex items-center">
+            <span className="mr-2">{flags[currentLocale]}</span>
+            <span className="uppercase">{currentLocale}</span>
           </button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>
@@ -28,10 +35,9 @@ const LanguageSelector = () => {
               <DropdownMenuItem
                 key={locale}
                 onClick={() => handleLocale(locale)}
-                className={
-                  cn(isActive && 'text-orange-500') && 'cursor-pointer'
-                }
+                className={cn(isActive && 'text-orange-500', 'cursor-pointer')}
               >
+                <span className="mr-2">{flags[locale]}</span>
                 {t(`Header.languages.${locale}`)}
               </DropdownMenuItem>
             );
