@@ -1,7 +1,9 @@
 'use client';
+import LanguageSelector from './lang-selector';
 import MobileNavbar from './mobile-header';
-import Navbar from './nav-bar';
+
 import { motion } from 'framer-motion';
+import { Navbar } from './nav-bar';
 
 const Header = () => {
   return (
@@ -15,12 +17,27 @@ const Header = () => {
         >
           MyLogo
         </motion.div>
+        <motion.div
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="hidden md:block">
+            <Navbar />
+          </div>
+          <div className="md:hidden">
+            <MobileNavbar />
+          </div>
+        </motion.div>
         <div className="hidden md:block">
-          <Navbar />
-        </div>
-        <div className="md:hidden">
-          <MobileNavbar />
-        </div>
+        <motion.div
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+            <LanguageSelector />
+        </motion.div>
+          </div>
       </div>
     </header>
   );

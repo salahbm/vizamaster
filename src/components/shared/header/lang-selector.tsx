@@ -17,10 +17,7 @@ const LanguageSelector = () => {
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <button>
-            <span className="text-sm font-bold uppercase">
-              {currentLocale}{' '}
-            </span>
-            Down
+            <span className=" uppercase">{currentLocale}</span>
           </button>
         </DropdownMenuTrigger>
         <DropdownMenuContent>

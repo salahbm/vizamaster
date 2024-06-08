@@ -1,6 +1,7 @@
 'use client';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import LanguageSelector from '../header/lang-selector';
 
 const Footer = () => {
   return (
@@ -265,9 +266,7 @@ const Footer = () => {
             >
               <ul className="flex items-center gap-8">
                 <li>
-                  <a href="#" className="hover:text-primary">
-                    English
-                  </a>
+                  <LanguageSelector />
                 </li>
                 <li>
                   <a href="#" className="hover:text-primary">

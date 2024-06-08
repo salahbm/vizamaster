@@ -1,36 +1,94 @@
 'use client';
-import React from 'react';
+
 import { motion } from 'framer-motion';
 import navBars from './nav-list';
-import Link from 'next/link';
-import { cn } from '@/lib/utils';
-import { usePathname } from 'next/navigation';
+import React, { useRef, useState } from 'react';
 
-const Navbar = () => {
+import { usePathname } from 'next/navigation';
+import { Link } from '@/i18n';
+
+export const Navbar = () => {
+  const [position, setPosition] = useState({
+    left: 0,
+    width: 0,
+    opacity: 0,
+  });
   const pathname = usePathname();
 
   return (
-    <nav>
-      <ul className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mt-4 md:mt-0">
-        {navBars.map((item) => (
-          <motion.li
-            key={item.id}
-            initial={{ y: -20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.1, duration: 0.3 }}
-            whileHover={{ scale: 1.1 }}
-            className={cn(
-              'flex items-center gap-x-2 text-slate-500 text-sm  pl-6  hover:text-slate-600 hover:bg-slate-300/20',
-              pathname?.includes(item.path!) &&
-                'text-slate-700 bg-slate-200/20 hover:bg-slate-200/20 hover:text-slate-700'
-            )}
-          >
-            <Link href={item.path!}>{item.name}</Link>
-          </motion.li>
-        ))}
-      </ul>
-    </nav>
+    <ul
+      onMouseLeave={() => {
+        setPosition((pv) => ({
+          ...pv,
+          opacity: 0,
+        }));
+      }}
+      className="relative mx-auto flex w-fit rounded-full border-2 border-black bg-white p-1"
+    >
+      {navBars.map((item) => (
+        <Link href={item.path!} key={item.id}>
+          <Tab setPosition={setPosition}>{item.name}</Tab>
+        </Link>
+      ))}
+
+      <Cursor position={position} />
+    </ul>
   );
 };
 
-export default Navbar;
+const Tab = ({
+  children,
+  setPosition,
+}: {
+  children: React.ReactNode;
+  setPosition: React.Dispatch<
+    React.SetStateAction<{
+      left: number;
+      width: number;
+      opacity: number;
+    }>
+  >;
+}) => {
+  const ref = useRef(null);
+
+  return (
+    <li
+      ref={ref}
+      onMouseEnter={() => {
+        if (!ref?.current) return;
+
+        // @ts-ignore
+        const { width } = ref.current.getBoundingClientRect();
+
+        setPosition({
+          // @ts-ignore
+          left: ref.current.offsetLeft,
+          width,
+          opacity: 1,
+        });
+      }}
+      className="relative z-10 block cursor-pointer uppercase text-white mix-blend-difference px-5 py-3 text-base"
+    >
+      {children}
+    </li>
+  );
+};
+
+const Cursor = ({
+  position,
+}: {
+  position: {
+    left: number;
+    width: number;
+    opacity: number;
+  };
+}) => {
+  return (
+    <motion.li
+      animate={{
+        ...position,
+      }}
+      className="absolute z-0  rounded-full bg-black h-12"
+    />
+  );
+};

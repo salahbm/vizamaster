@@ -2,19 +2,29 @@ import { Menu } from '@/types/global';
 
 const navBars: Menu[] = [
   {
-    name: 'Home',
-    path: '/',
-    id: 0,
-  },
-  {
     name: 'About',
     path: '/about',
-    id: 1,
+    id: 0,
   },
   {
     name: 'Jobs',
     path: '/jobs',
+    id: 1,
+  },
+  {
+    name: 'Blog',
+    path: '/blog',
     id: 2,
+  },
+  {
+    name: 'Contact',
+    path: '/contact',
+    id: 3,
+  },
+  {
+    name: 'Get Started',
+    path: '/get-started',
+    id: 4,
   },
 ];
 

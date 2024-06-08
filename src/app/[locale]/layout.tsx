@@ -81,7 +81,7 @@ export default function LocaleLayout({
         <AppProvider>
           <Header />
           {children}
-          <Footer />
+          {/* <Footer /> */}
         </AppProvider>
       </body>
     </html>
