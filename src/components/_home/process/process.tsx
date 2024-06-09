@@ -121,7 +121,7 @@ export function Process() {
             )}
             <motion.div
               className={styles.background}
-              style={{ backgroundColor: `var(--ez-orange)` }}
+              style={{ backgroundColor: `var(--primary)` }}
               variants={listVariant}
             />
             <motion.div

@@ -1,4 +1,3 @@
-import { poppins } from '@/styles/fonts';
 import type { Config } from 'tailwindcss';
 
 const config = {
@@ -23,7 +22,6 @@ const config = {
     },
     extend: {
       colors: {
-        adobe_purple: '#5f34e0',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
@@ -57,26 +55,6 @@ const config = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
-        current: 'currentColor',
-        transparent: 'transparent',
-        stroke: '#EEEEEE',
-        strokedark: '#2D2F40',
-        hoverdark: '#252A42',
-        titlebg: '#ADFFF8',
-        titlebg2: '#FFEAC2',
-        titlebgdark: '#46495A',
-        btndark: '#292E45',
-        white: '#FFFFFF',
-        black: '#181C31',
-        blackho: '#2C3149',
-        blacksection: '#1C2136',
-        primaryho: '#0063EC',
-        meta: '#20C5A8',
-        waterloo: '#757693',
-        manatee: '#999AA1',
-        alabaster: '#FBFBFB',
-        zumthor: '#EDF5FF',
-        socialicon: '#D1D8E0',
       },
       spacing: {
         4.5: '1.125rem',

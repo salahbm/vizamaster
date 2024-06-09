@@ -22,12 +22,12 @@ const MobileNavbar = () => {
               key={item.id}
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.1, duration: 0.3 }}
+              transition={{ delay: 0.1, duration: 0.6 }}
               whileHover={{ scale: 1.05 }}
               className={cn(
                 'flex items-center justify-center gap-x-2 text-black text-sm p-2  hover:text-sky-600 hover:bg-sky-300/20',
                 pathname?.endsWith(item.path!) &&
-                  'text-[var(--ez-orange)] bg-sky-200/20 hover:bg-sky-200/20 hover:text-[var(--ez-orange)]'
+                  'text-[var(--primary)] bg-sky-200/20 hover:bg-sky-200/20 hover:text-[var(--primary)]'
               )}
             >
               <Link href={item.path!}>{item.name}</Link>

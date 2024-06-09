@@ -7,6 +7,7 @@ import { Navbar } from './nav-bar';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
+import { Link } from '@/i18n';
 
 const Header = () => {
   const [color, setColor] = useState(false);
@@ -36,21 +37,24 @@ const Header = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="w-[50px] flex justify-center items-center">
-            <Image
-              src="/logos/dark_logo.png"
-              alt="logo"
-              width={400}
-              height={10}
-            />
-            <p
-              className={cn(
-                'text-sm md:text-lg font-bold whitespace-nowrap -ml-2'
-              )}
-            >
-              BS <span className="textGradient">GROUP</span>
-            </p>
-          </div>
+          <Link href={'/'}>
+            <div className="w-[50px] flex justify-center items-center">
+              <Image
+                src="/logos/dark_logo.png"
+                alt="logo"
+                width={400}
+                height={10}
+              />
+
+              <p
+                className={cn(
+                  'text-sm md:text-lg font-bold whitespace-nowrap -ml-2'
+                )}
+              >
+                BS <span className="textGradient">GROUP</span>
+              </p>
+            </div>
+          </Link>
         </motion.div>
         <motion.div
           initial={{ y: -100, opacity: 0 }}

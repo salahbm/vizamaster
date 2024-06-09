@@ -99,7 +99,7 @@ const Cursor = ({
         ...position,
       }}
       className={
-        cn('absolute z-0  rounded-full bg-[var(--ez-orange)]') && color
+        cn('absolute z-0  rounded-full bg-[var(--primary)]') && color
           ? 'h-6'
           : 'h-12'
       }
