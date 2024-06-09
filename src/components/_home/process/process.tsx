@@ -7,29 +7,24 @@ import Image from 'next/image';
 import { useMemo, useRef } from 'react';
 import { cn } from '@/lib/utils';
 
-type ProcessPropObj = {
-  id: string;
-  title: string;
-};
-
 export function Process() {
   const content = useMemo(
     () => [
       {
         id: '1',
-        title: 'DISCOVERY',
+        title: 'APPLY',
       },
       {
         id: '2',
-        title: 'AUDIT',
+        title: 'INTERVIEW',
       },
       {
         id: '3',
-        title: 'CONCEPT & CREATION',
+        title: 'VISA APPROVAL',
       },
       {
         id: '4',
-        title: 'REVIEW',
+        title: 'START JOB',
       },
     ],
     []
@@ -38,6 +33,8 @@ export function Process() {
   // TODO: Fix black text color staggering animation on design page
 
   const [windowWidth] = useWindowSize();
+  const noticeRef = useRef(null);
+  const isNoticeInView = useInView(noticeRef);
   const processContainerRef = useRef(null);
   const isInView = useInView(processContainerRef);
 
@@ -68,7 +65,7 @@ export function Process() {
 
   const colorVariant = {
     hidden: {
-      backgroundColor: '#fff',
+      backgroundColor: '#3E3E87',
     },
     visible: {
       backgroundColor: '#000',
@@ -82,6 +79,12 @@ export function Process() {
       <h1 className={cn(styles.processTitle, 'largeText')}>
         OUR <span className="textGradient">PROCESS</span>
       </h1>
+
+      <p className="mx-auto mt-8 md:w-4/5 lg:w-3/5 xl:w-[46%] text-center bg-amber-50 hover:bg-amber-100 px-4 py-2 rounded-2xl shadow-md  shake">
+        NOTE 💡: Depending on the job, country and personal preference process
+        can differ for each applicant
+      </p>
+
       <motion.div
         className={styles.processContainer}
         ref={processContainerRef}
@@ -96,7 +99,7 @@ export function Process() {
         {content.map((item, i) => (
           <motion.div
             key={item.id}
-            className={styles.processCard}
+            className={cn(styles.processCard, 'rounded-2xl shadow-lg')}
             style={{
               top: windowWidth >= 1130 ? i * 50 : '',
             }}
