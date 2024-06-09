@@ -22,19 +22,21 @@ export const Navbar = ({ color }: { color: boolean }) => {
         }));
       }}
       className={cn(
-        'relative flex w-full rounded-full border-black ',
-        color ? 'border-none bg-transparent' : 'border-2 bg-white'
+        'flex w-full rounded-full border-black ',
+        color ? 'border-none bg-transparent' : 'border blurly-white'
       )}
     >
       {navBars.map((item) => (
         <Link href={item.path!} key={item.id}>
-          <Tab setPosition={setPosition} color={color}>
+          <Tab setPosition={setPosition} >
+
             {item.name}
+
           </Tab>
         </Link>
       ))}
 
-      <Cursor position={position} color={color} />
+      <Cursor position={position}  />
     </ul>
   );
 };
@@ -42,10 +44,8 @@ export const Navbar = ({ color }: { color: boolean }) => {
 const Tab = ({
   children,
   setPosition,
-  color,
 }: {
   children: React.ReactNode;
-  color: boolean;
   setPosition: React.Dispatch<
     React.SetStateAction<{
       left: number;
@@ -73,8 +73,7 @@ const Tab = ({
         });
       }}
       className={cn(
-        'relative z-10 block cursor-pointer uppercase text-black blend-difference-enhanced px-5  text-base',
-        !color && 'py-3'
+        'relative z-10 block cursor-pointer uppercase text-black blend-difference-enhanced px-5  text-base py-3'
       )}
     >
       {children}
@@ -84,9 +83,7 @@ const Tab = ({
 
 const Cursor = ({
   position,
-  color,
 }: {
-  color: boolean;
   position: {
     left: number;
     width: number;
@@ -98,11 +95,7 @@ const Cursor = ({
       animate={{
         ...position,
       }}
-      className={
-        cn('absolute z-0  rounded-full bg-[var(--primary)]') && color
-          ? 'h-6'
-          : 'h-12'
-      }
+      className={cn('absolute z-0  rounded-full bg-[var(--primary)] h-12')}
     />
   );
 };

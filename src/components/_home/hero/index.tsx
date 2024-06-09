@@ -1,39 +1,41 @@
-import Image from 'next/image';
-import { useState } from 'react';
+import { BRAND_NAME } from '@/constants/name';
 import HeroBanner from './hero-banner';
+import { Link } from '@/i18n';
 
 const Hero = () => {
   return (
-    <section className="mt-40">
-      <div className="px-4 md:px-8 2xl:px-0 w-full">
-        <div className="flex lg:items-center lg:gap-8 xl:gap-32.5">
-          <div className=" md:w-1/2">
-            <h4 className="mb-4.5 text-lg font-medium text-black dark:text-white">
-              🔥 Solid - A Complete SaaS Web Template
-            </h4>
-            <h1 className="mb-5 pr-16 text-3xl font-bold text-black dark:text-white xl:text-hero ">
-              Free Next.js Template for {'   '}
-              <span className="relative inline-block before:absolute before:bottom-2.5 before:left-0 before:-z-1 before:h-3 before:w-full before:bg-titlebg dark:before:bg-titlebgdark ">
-                SaaS
-              </span>
-            </h1>
-            <p>
-              Solid Pro - Packed with all the key integrations you need for
-              swift SaaS startup launch, including - Auth, Database, Sanity
-              Blog, Essential Components, Pages and More. Built-winth - Next.js
-              13, React 18 and TypeScript.
+    <section className="flex items-center justify-center lg:flex-row flex-col lg:justify-between pt-30 relative w-full">
+      <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]">
+        <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_800px_at_100%_200px,#d5c5ff,transparent)]"></div>
+      </div>
+      <div className=" max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:flex-row flex flex-col items-center justify-between">
+        <div className="mr-auto place-self-center lg:col-span-7">
+          <h1 className="max-w-2xl mb-4 text-4xl  font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl text-black">
+            Unlock Your
+            <span className="textGradient"> Global Career Potential</span>
+          </h1>
+          <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl ">
+            Welcome to {BRAND_NAME}, your trusted partner in securing top-tier
+            internships, exchange programs, and employment opportunities
+            worldwide. Whether you are aiming for prestigious roles in the any
+            spot of the world journey to a rewarding career with us today.
+          </p>
+          <div className="flex items-center justify-start flex-row gap-x-2">
+            <Link href={'/'}>
+              <button
+                type="button"
+                className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
+              >
+                Get Started
+              </button>
+            </Link>
+            <p className=" text-gray-600  md:text-lg lg:text-xl  ">
+              Secure Your Spot Today
             </p>
           </div>
-
-          <div className="animate_right hidden md:w-1/2 lg:block">
-            <div className="relative 2xl:-mr-7.5">
-              <HeroBanner />
-              <div className=" relative aspect-[700/444] w-full">
-                <HeroBanner />
-              </div>
-            </div>
-          </div>
         </div>
+
+        <HeroBanner />
       </div>
     </section>
   );

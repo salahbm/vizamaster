@@ -24,11 +24,13 @@ const Header = () => {
   return (
     <header
       id="navbar"
-      className={cn('fixed top-0 left-0 w-full z-50 ', color && ' top-1 px-4')}
-    >
+      className={cn('fixed top-0 left-0 w-full z-50  ', color && ' top-1 px-4')}
+    >   {!color && <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]">
+    <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_800px_at_100%_200px,#d5c5ff,transparent)]"></div>
+  </div>}
       <div
         className={cn(
-          'container px-10  flex flex-row justify-between items-center  transition duration-600 bg-orange-300 py-3',
+          'container px-10  flex flex-row justify-between items-center  transition duration-600  py-3',
           color && 'blurly-white shadow-md rounded-3xl border border-black py-0'
         )}
       >

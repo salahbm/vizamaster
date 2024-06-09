@@ -1,4 +1,3 @@
-import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import React from 'react';
 
@@ -7,18 +6,29 @@ const ImageFrame = ({
   type,
 }: {
   imgUrl: string;
-  type: 'square' | 'regtangle';
+  type: 'square' | 'rectangle';
 }) => {
   return (
     <div
-      className={cn('w-full', type === 'square' ? 'h-[200px]' : 'h-[400px]')}
+      className={`flex items-center justify-center w-[200px] m-1 rounded-xl ${
+        type === 'square'
+          ? 'h-[200px] '
+          : 'h-[350px] '
+      }`}
     >
-      <Image
-        src={imgUrl}
-        alt="Picture of the author"
-        width={type === 'square' ? 200 : 200}
-        height={type === 'square' ? 200 : 400}
-      />
+      <div
+        className={`relative overflow-hidden rounded-xl ${
+          type === 'square' ? 'w-[180px] h-[180px]' : 'w-[180px] h-[330px]'
+        }`}
+      >
+        <Image
+          src={imgUrl}
+          alt="Picture"
+          layout="fill"
+          objectFit="cover"
+          className="rounded-xl"
+        />
+      </div>
     </div>
   );
 };
