@@ -112,3 +112,9 @@
   background-clip: text;
   color: transparent;
 }
+
+/* NAVBAR */
+.blurly-white {
+  background: rgba(255, 255, 255, 0.6); /* Semi-transparent white */
+  backdrop-filter: blur(10px); /* Apply blur effect */
+}

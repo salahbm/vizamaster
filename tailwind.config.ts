@@ -124,6 +124,9 @@ const config = {
         67.5: '16.875rem',
         90: '22.5rem',
       },
+      maxWidth: {
+        '10xl': '1440px',
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
