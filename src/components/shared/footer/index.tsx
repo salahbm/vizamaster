@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import LanguageSelector from '../header/lang-selector';
+import { Link } from '@/i18n';
 
 const Footer = () => {
   return (
@@ -29,22 +30,22 @@ const Footer = () => {
                 viewport={{ once: true }}
                 className="animate_top w-1/2 lg:w-1/4"
               >
-                <a href="index.html" className="relative">
-                  {/* <Image
+                <Link href="/" className="relative">
+                  <Image
                     width={110}
                     height={80}
-                    src="/images/logo/logo-light.svg"
+                    src="/logos/dark_logo_brand.png"
                     alt="Logo"
                     className="dark:hidden"
                   />
                   <Image
                     width={110}
                     height={80}
-                    src="/images/logo/logo-dark.svg"
+                    src="/logos/dark_logo_brand.png"
                     alt="Logo"
                     className="hidden dark:block"
-                  /> */}
-                </a>
+                  />
+                </Link>
 
                 <p className="mb-10 mt-5">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
