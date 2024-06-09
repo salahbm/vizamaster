@@ -1,5 +1,8 @@
+'use client'
 import Image from 'next/image';
 import React from 'react';
+
+import { motion } from 'framer-motion';
 
 const ImageFrame = ({
   imgUrl,
@@ -9,11 +12,12 @@ const ImageFrame = ({
   type: 'square' | 'rectangle';
 }) => {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1 }}
       className={`flex items-center justify-center w-[200px] m-1 rounded-xl ${
-        type === 'square'
-          ? 'h-[200px] '
-          : 'h-[350px] '
+        type === 'square' ? 'h-[200px]' : 'h-[350px]'
       }`}
     >
       <div
@@ -29,7 +33,7 @@ const ImageFrame = ({
           className="rounded-xl"
         />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

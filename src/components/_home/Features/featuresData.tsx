@@ -1,47 +1,36 @@
-import { Feature } from "@/types/feature";
-
-const featuresData: Feature[] = [
+const featuresData: {
+  id: number;
+  icon: string;
+  title: string;
+  description: string;
+}[] = [
   {
     id: 1,
-    icon: "/images/icon/icon-01.svg",
-    title: "Crafted for SaaS",
+    icon: '/icons/icon-01.svg',
+    title: 'Tailored Internship Programs',
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+      'Our expert consultants design customized internship opportunities to match your career goals.',
   },
   {
     id: 2,
-    icon: "/images/icon/icon-02.svg",
-    title: "High-quality Design",
+    icon: '/icons/icon-02.svg',
+    title: 'Professional Resume Building',
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+      'Stand out with a professionally crafted resume, highlighting your skills and experiences.',
   },
   {
     id: 3,
-    icon: "/images/icon/icon-03.svg",
-    title: "Next.js 13 + TypeScript",
+    icon: '/icons/icon-03.svg',
+    title: 'Global Job Placements',
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+      'Secure job placements in top companies across the USA, Canada, Europe, and more.',
   },
   {
     id: 4,
-    icon: "/images/icon/icon-04.svg",
-    title: "Sanity Blog and Docs",
+    icon: '/icons/icon-04.svg',
+    title: 'Comprehensive Interview Preparation',
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
-  },
-  {
-    id: 5,
-    icon: "/images/icon/icon-05.svg",
-    title: "DB, Auth and Stripe",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
-  },
-  {
-    id: 6,
-    icon: "/images/icon/icon-06.svg",
-    title: "Regular Free Updates",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In convallis tortor.",
+      'Ace your interviews with our comprehensive preparation resources and expert tips.',
   },
 ];
 

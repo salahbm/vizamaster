@@ -71,7 +71,7 @@ export default function LocaleLayout({
 }) {
   return (
     <html lang={locale}>
-      <body className={cn('w-[500px] mx-auto') && poppins.className}>
+      <body className={cn('max-w-screen-xl mx-auto', poppins.className)}>
         <AppProvider>
           <Header />
           {children}

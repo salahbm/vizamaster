@@ -4,7 +4,7 @@ import { Link } from '@/i18n';
 
 const Hero = () => {
   return (
-    <section className="flex items-center justify-center lg:flex-row flex-col lg:justify-between pt-30 relative w-full">
+    <section className="relative flex items-center justify-center lg:flex-row flex-col lg:justify-between pt-30 lg:w-screen lg:-translate-x-[50%] lg:ml-[50%]">
       <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]">
         <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_800px_at_100%_200px,#d5c5ff,transparent)]"></div>
       </div>
