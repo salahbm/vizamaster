@@ -71,12 +71,7 @@ export default function LocaleLayout({
 }) {
   return (
     <html lang={locale}>
-      <body
-        className={
-          cn('flex max-w-screen-2xl items-center justify-center mx-auto') &&
-          poppins.className
-        }
-      >
+      <body className={cn('max-w-screen-10xl mx-auto') && poppins.className}>
         <AppProvider>
           <Header />
           {children}
