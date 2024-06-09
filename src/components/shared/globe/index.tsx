@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import Globe from 'react-globe.gl';
 
 interface Capital {
@@ -33,7 +33,7 @@ const MyGlobe = () => {
     if (globeEl.current) {
       // @ts-ignore
       globeEl.current.pointOfView(
-        { lat: capital.lat, lng: capital.lng, altitude: 0.5 },
+        { lat: capital.lat, lng: capital.lng, altitude: 0.7 },
         1000 // Duration in milliseconds
       );
     }
@@ -48,13 +48,35 @@ const MyGlobe = () => {
     }
   };
 
+  const ringsData = useMemo(
+    () => [
+      {
+        lat: 41.3112,
+        lng: 69.2401,
+        maxRadius: 10,
+        propagationSpeed: 2,
+        repeatPeriod: 1000,
+        color: 'rgba(255, 0, 0, 0.5)',
+      },
+    ],
+    []
+  );
+
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 2000); // Simulate loading
+    if (globeEl.current) {
+      // @ts-ignore
+      globeEl.current.pointOfView(
+        { lat: 41.3112, lng: 69.2401, altitude: 1.6 },
+        1000 // Initial duration in milliseconds
+      );
+    }
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="relative w-full pb-12">
+      <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
       {loading && (
         <div
           style={{
@@ -85,7 +107,7 @@ const MyGlobe = () => {
           </div>
         ))}
       </div>
-      <div className="relative max-w-screen-xl mx-auto">
+      <div className="relative max-w-screen-xl mx-auto overflow-x-hidden">
         <button
           onClick={handleReset}
           style={{
@@ -120,6 +142,11 @@ const MyGlobe = () => {
           }
           onGlobeClick={() => handleReset()}
           height={500}
+          ringsData={ringsData}
+          ringColor={() => '#ff6947'}
+          ringMaxRadius={5}
+          ringPropagationSpeed={2}
+          ringRepeatPeriod={1000}
         />
       </div>
     </div>
