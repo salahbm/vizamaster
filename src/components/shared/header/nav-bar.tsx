@@ -1,19 +1,17 @@
 'use client';
-
 import { motion } from 'framer-motion';
 import navBars from './nav-list';
 import React, { useRef, useState } from 'react';
 
-import { usePathname } from 'next/navigation';
 import { Link } from '@/i18n';
+import { cn } from '@/lib/utils';
 
-export const Navbar = () => {
+export const Navbar = ({ color }: { color: boolean }) => {
   const [position, setPosition] = useState({
     left: 0,
     width: 0,
     opacity: 0,
   });
-  const pathname = usePathname();
 
   return (
     <ul
@@ -23,15 +21,20 @@ export const Navbar = () => {
           opacity: 0,
         }));
       }}
-      className="relative mx-auto flex w-fit rounded-full border-2 border-black bg-white p-1"
+      className={cn(
+        'relative flex w-full rounded-full border-black ',
+        color ? 'border-none bg-transparent' : 'border-2 bg-white'
+      )}
     >
       {navBars.map((item) => (
         <Link href={item.path!} key={item.id}>
-          <Tab setPosition={setPosition}>{item.name}</Tab>
+          <Tab setPosition={setPosition} color={color}>
+            {item.name}
+          </Tab>
         </Link>
       ))}
 
-      <Cursor position={position} />
+      <Cursor position={position} color={color} />
     </ul>
   );
 };
@@ -39,8 +42,10 @@ export const Navbar = () => {
 const Tab = ({
   children,
   setPosition,
+  color,
 }: {
   children: React.ReactNode;
+  color: boolean;
   setPosition: React.Dispatch<
     React.SetStateAction<{
       left: number;
@@ -67,7 +72,10 @@ const Tab = ({
           opacity: 1,
         });
       }}
-      className="relative z-10 block cursor-pointer uppercase text-white mix-blend-difference px-5 py-3 text-base"
+      className={cn(
+        'relative z-10 block cursor-pointer uppercase text-black blend-difference-enhanced px-5  text-base',
+        !color && 'py-3'
+      )}
     >
       {children}
     </li>
@@ -76,7 +84,9 @@ const Tab = ({
 
 const Cursor = ({
   position,
+  color,
 }: {
+  color: boolean;
   position: {
     left: number;
     width: number;
@@ -88,7 +98,11 @@ const Cursor = ({
       animate={{
         ...position,
       }}
-      className="absolute z-0  rounded-full bg-black h-12"
+      className={
+        cn('absolute z-0  rounded-full bg-[var(--ez-orange)]') && color
+          ? 'h-6'
+          : 'h-12'
+      }
     />
   );
 };

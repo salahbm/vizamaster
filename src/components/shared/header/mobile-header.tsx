@@ -25,15 +25,15 @@ const MobileNavbar = () => {
               transition={{ delay: 0.1, duration: 0.3 }}
               whileHover={{ scale: 1.05 }}
               className={cn(
-                'flex items-center justify-center gap-x-2 text-black text-sm p-2  hover:text-slate-600 hover:bg-slate-300/20',
+                'flex items-center justify-center gap-x-2 text-black text-sm p-2  hover:text-sky-600 hover:bg-sky-300/20',
                 pathname?.endsWith(item.path!) &&
-                  'text-slate-700 bg-slate-200/20 hover:bg-slate-200/20 hover:text-slate-700'
+                  'text-[var(--ez-orange)] bg-sky-200/20 hover:bg-sky-200/20 hover:text-[var(--ez-orange)]'
               )}
             >
               <Link href={item.path!}>{item.name}</Link>
             </motion.li>
           ))}
-          <li className="flex items-center justify-center gap-x-2 text-black text-sm p-2 hover:text-slate-600 hover:bg-slate-300/20">
+          <li className="flex items-center justify-center gap-x-2 text-black text-sm p-2 hover:text-sky-600 hover:bg-sky-300/20">
             <LanguageSelector />
           </li>
         </ul>
