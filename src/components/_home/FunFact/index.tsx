@@ -2,33 +2,30 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import SectionHeader from '@/components/shared/SectionHeader';
+import { BRAND_NAME } from '@/constants/name';
 
 const FunFact = () => {
   return (
     <>
       {/* <!-- ===== Funfact Start ===== --> */}
-      <section className="px-4 py-20 md:px-8 lg:py-22.5 2xl:px-0">
-        <div className="relative z-1 mx-auto max-w-c-1390 rounded-lg bg-gradient-to-t from-[#F8F9FF] to-[#DEE7FF] py-22.5 dark:bg-blacksection dark:bg-gradient-to-t dark:from-transparent dark:to-transparent dark:stroke-strokedark xl:py-27.5">
-          <Image
-            width={335}
-            height={384}
-            src="/images/happy_funfact.svg"
-            alt="Man"
-            className="absolute -left-15 -top-25 -z-1 lg:left-0"
-          />
+      <section className="px-4 py-20 md:px-8 lg:py-22.5 2xl:px-0 relative rounded-2xl">
+        <SectionHeader
+          headerInfo={{
+            subtitle: `${BRAND_NAME} in numbers`,
+            description: `We are growing. Check out our numbers below.`,
+          }}
+        />
+        <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
+          <div className="absolute left-0 right-0 top-40 -z-10 m-auto h-[500px] w-[500px] rounded-full bg-purple-400 opacity-30 blur-[100px]"></div>
+        </div>
+        <div className="relative z-1 mx-auto max-w-c-1390  xl:py-27.5">
           <Image
             width={132}
             height={132}
             src="/shapes/shape-05.png"
             alt="Doodle"
             className="absolute bottom-0 right-0 -z-1"
-          />
-
-          <Image
-            fill
-            src="/shapes/shape-dotted-light-02.svg"
-            alt="Dotted"
-            className="absolute left-0 top-0 -z-1 "
           />
 
           <motion.div
@@ -49,13 +46,13 @@ const FunFact = () => {
             viewport={{ once: true }}
             className="animate_top mx-auto mb-12.5 px-4 text-center md:w-4/5 md:px-0 lg:mb-17.5 lg:w-2/3 xl:w-1/2"
           >
-            <h2 className="mb-4 text-3xl font-bold text-black dark:text-white xl:text-sectiontitle3">
-              Trusted by Global Companies.
+            <h2 className="mb-4 text-3xl font-bold text-neutral-600 dark:text-white xl:text-sectiontitle3">
+              Trusted by MANY.
             </h2>
             <p className="mx-auto lg:w-11/12">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-              convallis tortor eros. Donec vitae tortor lacus. Phasellus aliquam
-              ante in maximus.
+              We are growing. Check out our numbers below. We are growing. Check
+              out our numbers below. We are growing. Check out our numbers
+              below. We are growing. Check out our numbers below.
             </p>
           </motion.div>
 
