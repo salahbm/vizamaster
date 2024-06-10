@@ -1,6 +1,6 @@
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
-import { Menu } from 'lucide-react';
+import { EllipsisVertical } from 'lucide-react';
 import navBars from './nav-list';
 import { Link, usePathname } from '@/i18n';
 import { motion } from 'framer-motion';
@@ -11,8 +11,8 @@ const MobileNavbar = () => {
   const pathname = usePathname();
   return (
     <Sheet>
-      <SheetTrigger className="md:hidden pr-4 hover:opacity-75 transition">
-        <Menu />
+      <SheetTrigger className="md:hidden hover:scale-110  transition mt-1 ">
+        <EllipsisVertical />
       </SheetTrigger>
 
       <SheetContent side={'right'} className="p-0 bg-white w-72 pt-10">

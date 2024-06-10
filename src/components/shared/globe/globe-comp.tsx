@@ -43,27 +43,26 @@ const GlobeView = ({ data }: { data: Capital }) => {
   );
 
   useEffect(() => {
-    console.log('entered to globe');
-
     const timer = setTimeout(() => setLoading(false), 2000); // Simulate loading
-    if (globeEl.current) {
-      console.log('UZBEKISTAN');
 
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
+    if (globeEl.current) {
+      handleClick(data);
+    }
+  }, [data]);
+
+  useEffect(() => {
+    if (globeEl.current) {
       // @ts-ignore
       globeEl.current.pointOfView(
         { lat: 41.3112, lng: 69.2401, altitude: 1.6 },
         1000 // Initial duration in milliseconds
       );
     }
-    console.log('set to uzbekistan');
-
-    return () => clearTimeout(timer);
-  }, []);
-  useEffect(() => {
-    if (globeEl.current) {
-      handleClick(data);
-    }
-  }, [data]);
+  }, [loading]);
 
   return (
     <>

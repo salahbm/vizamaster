@@ -1,4 +1,3 @@
-import { Brands } from '@/components/_home/brands';
 import Feature from '@/components/_home/Features';
 import FunFact from '@/components/_home/FunFact';
 import Hero from '@/components/_home/hero';
@@ -14,7 +13,6 @@ const Home = () => {
       <Feature />
       <MyGlobe />
       <Process />
-      <Brands />
       <PeopleMarquee />
       <FunFact />
       <Blog />
