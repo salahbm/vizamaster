@@ -12,6 +12,7 @@ export const capitals: Capital[] = [
   { lat: 52.52, lng: 13.405, country: 'Germany', flag: '🇩🇪' }, // Berlin
   { lat: 39.9334, lng: 32.8597, country: 'Turkey', flag: '🇹🇷' }, // Ankara
   { lat: 45.815, lng: 15.9819, country: 'Croatia', flag: '🇭🇷' }, // Zagreb
+  { lat: 37.5665, lng: 126.978, country: 'Korea', flag: '🇰🇷' },
   { lat: 35.6895, lng: 139.6917, country: 'Japan', flag: '🇯🇵' }, // Tokyo
   { lat: 55.6761, lng: 12.5683, country: 'Denmark', flag: '🇩🇰' }, // Copenhagen
   { lat: 55.7558, lng: 37.6173, country: 'Russia', flag: '🇷🇺' }, // Moscow

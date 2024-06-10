@@ -1,15 +1,17 @@
-"use client";
-import { motion } from "framer-motion";
+'use client';
+import { motion } from 'framer-motion';
 
 type HeaderInfo = {
-  title: string;
+  title?: string;
   subtitle: string;
   description: string;
 };
 
 const SectionHeader = ({ headerInfo }: { headerInfo: HeaderInfo }) => {
   const { title, subtitle, description } = headerInfo;
-
+  const words = subtitle.split(' ');
+  const firstWord = words[0];
+  const restOfWords = words.slice(1).join(' ');
   return (
     <>
       {/* <!-- Section Title Start --> */}
@@ -29,17 +31,26 @@ const SectionHeader = ({ headerInfo }: { headerInfo: HeaderInfo }) => {
         whileInView="visible"
         transition={{ duration: 1, delay: 0.1 }}
         viewport={{ once: true }}
-        className="animate_top mx-auto text-center"
+        className="animate_top mx-auto text-center "
       >
-        <div className="mb-4 inline-block rounded-full bg-purple-300 px-4.5 py-1.5 dark:border dark:border-strokedark dark:bg-blacksection">
-          <span className="text-sectiontitle font-medium text-black dark:text-white">
-            {title}
-          </span>
+        {title && (
+          <div className="mb-4 inline-block rounded-full bg-purple-400 px-4.5 py-1.5 dark:border dark:border-strokedark dark:bg-blacksection">
+            <span className="text-sectiontitle font-medium text-white dark:text-white">
+              {title}
+            </span>
+          </div>
+        )}
+        <div className="px-2 text-center mt-16">
+          <h1 className="largeText font-bold text-gray-900 leading-tight mb-2 pb-4 relative">
+            {firstWord}
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-purple-500 ">
+              {` ${restOfWords}`}
+            </span>
+          </h1>
+          <p className="text-lg md:text-2xl text-gray-500 my-8 md:w-4/5 lg:w-3/5 xl:w-[46%]">
+            {description}
+          </p>
         </div>
-        <h2 className="mx-auto mb-4 text-3xl font-bold text-black dark:text-white md:w-4/5 xl:w-1/2 xl:text-sectiontitle3">
-          {subtitle}
-        </h2>
-        <p className="mx-auto md:w-4/5 lg:w-3/5 xl:w-[46%]">{description}</p>
       </motion.div>
       {/* <!-- Section Title End --> */}
     </>

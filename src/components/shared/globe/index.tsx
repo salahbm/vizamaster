@@ -5,6 +5,7 @@ import { Capital, capitals } from './globe-data';
 import { useMemo, useState } from 'react';
 
 import dynamic from 'next/dynamic';
+import SectionHeader from '@/components/_home/Features/SectionHeader';
 
 const MyGlobe = () => {
   const GlobeView = useMemo(
@@ -22,7 +23,13 @@ const MyGlobe = () => {
     <div className="relative w-full pb-12">
       <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
 
-      <div className="flex flex-wrap justify-center items-center p-4  ">
+      <SectionHeader
+        headerInfo={{
+          subtitle: 'Our Destinations',
+          description: `   Here are some of the countries you consider to visit.`,
+        }}
+      />
+      <div className="flex flex-wrap justify-center items-center p-4 mb-16 mt-8">
         {capitals.map((capital) => (
           <div
             key={capital.lat}

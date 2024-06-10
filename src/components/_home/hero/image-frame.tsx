@@ -18,7 +18,7 @@ const ImageFrame = ({
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1 }}
       className={cn(
-        `flex items-center justify-center w-[150px] sm:w-[170px] md:w-[190px] lg:w-[200px] m-1 rounded-xl overflow-x-hidden`,
+        `flex items-center justify-center  w-[155px] sm:w-[180px] md:w-[190px] lg:w-[200px] sm:m-1 rounded-xl overflow-x-hidden`,
         type === 'square' ? 'h-[200px]' : 'h-[350px]'
       )}
     >

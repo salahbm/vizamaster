@@ -77,7 +77,7 @@ const GlobeView = ({ data }: { data: Capital }) => {
         </div>
       ) : (
         <>
-          <div className="relative max-w-screen-xl  overflow-x-hidden cursor-move flex justify-center items-center">
+          <div className="relative max-w-screen-xl  overflow-x-hidden cursor-move flex justify-center items-center rounded-2xl shadow-xl">
             <button
               onClick={handleReset}
               type="button"

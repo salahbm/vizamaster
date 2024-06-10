@@ -37,8 +37,10 @@ const LanguageSelector = () => {
                 onClick={() => handleLocale(locale)}
                 className={cn(isActive && 'text-orange-500', 'cursor-pointer')}
               >
-                <span className="mr-2">{flags[locale]}</span>
-                {t(`Header.languages.${locale}`)}
+                <p>
+                  <span className="mr-2">{flags[locale]}</span>
+                  {t(`Header.languages.${locale}`)}
+                </p>
               </DropdownMenuItem>
             );
           })}
