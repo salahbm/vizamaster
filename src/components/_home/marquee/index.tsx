@@ -17,9 +17,9 @@ const PeopleMarquee = () => {
             <Image
               src={item.src}
               alt="image"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-lg shadow-lg"
+              fill
+              className="rounded-lg shadow-lg object-cover"
+              sizes="(100vw, 100vh)"
             />
           </div>
         ))}
@@ -30,9 +30,9 @@ const PeopleMarquee = () => {
             <Image
               src={item.src}
               alt="image"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-lg shadow-lg"
+              fill
+              className="rounded-lg shadow-lg object-cover"
+              sizes="(100vw, 100vh)"
             />
           </div>
         ))}
@@ -43,9 +43,9 @@ const PeopleMarquee = () => {
             <Image
               src={item.src}
               alt="image"
-              layout="fill"
-              objectFit="cover"
-              className="rounded-lg shadow-lg"
+              fill
+              className="rounded-lg shadow-lg object-cover"
+              sizes="(100vw, 100vh)"
             />
           </div>
         ))}

@@ -31,9 +31,9 @@ const ImageFrame = ({
         <Image
           src={imgUrl}
           alt="Picture"
-          layout="fill"
-          objectFit="cover"
-          className="rounded-xl"
+          fill
+          className="rounded-xl object-cover"
+          sizes="(100vw, 100vh)"
         />
       </div>
     </motion.div>

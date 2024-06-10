@@ -43,6 +43,8 @@ const GlobeView = ({ data }: { data: Capital }) => {
   );
 
   useEffect(() => {
+    console.log('entered to globe');
+
     const timer = setTimeout(() => setLoading(false), 2000); // Simulate loading
     if (globeEl.current) {
       console.log('UZBEKISTAN');
@@ -53,6 +55,8 @@ const GlobeView = ({ data }: { data: Capital }) => {
         1000 // Initial duration in milliseconds
       );
     }
+    console.log('set to uzbekistan');
+
     return () => clearTimeout(timer);
   }, []);
   useEffect(() => {
