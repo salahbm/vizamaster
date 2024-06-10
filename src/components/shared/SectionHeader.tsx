@@ -40,14 +40,14 @@ const SectionHeader = ({ headerInfo }: { headerInfo: HeaderInfo }) => {
             </span>
           </div>
         )}
-        <div className="px-2 text-center mt-16">
+        <div className="px-2 text-center mt-8">
           <h1 className="largeText font-bold text-gray-900 leading-tight mb-2 pb-4 relative">
             {firstWord}
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-purple-500 ">
               {` ${restOfWords}`}
             </span>
           </h1>
-          <p className="text-lg md:text-2xl text-gray-500 my-8 md:w-4/5 lg:w-3/5 xl:w-[46%]">
+          <p className="text-lg md:text-2xl text-gray-500 my-8">
             {description}
           </p>
         </div>

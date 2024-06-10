@@ -1,3 +1,4 @@
+import SectionHeader from '@/components/shared/SectionHeader';
 import Image from 'next/image';
 import React from 'react';
 import Marquee from 'react-fast-marquee';
@@ -10,8 +11,15 @@ const data = [
 
 const PeopleMarquee = () => {
   return (
-    <div className="space-y-4 p-4">
-      <Marquee autoFill pauseOnHover>
+    <div className="space-y-4 p-4 mt-16">
+      <SectionHeader
+        headerInfo={{
+          title: 'OUR CANDIDATES',
+          subtitle: 'Happy Clients',
+          description: `We are proud of our team. Here are some of our happy clients.`,
+        }}
+      />
+      <Marquee autoFill pauseOnHover className="mt-8">
         {data.map((item) => (
           <div key={item.id} className="relative w-36 h-36 md:w-48 md:h-48 m-2">
             <Image

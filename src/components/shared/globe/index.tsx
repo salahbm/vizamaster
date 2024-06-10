@@ -5,7 +5,7 @@ import { Capital, capitals } from './globe-data';
 import { useMemo, useState } from 'react';
 
 import dynamic from 'next/dynamic';
-import SectionHeader from '@/components/_home/Features/SectionHeader';
+import SectionHeader from '@/components/shared/SectionHeader';
 
 const MyGlobe = () => {
   const GlobeView = useMemo(

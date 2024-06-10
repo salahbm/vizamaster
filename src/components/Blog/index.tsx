@@ -2,7 +2,7 @@ import React from 'react';
 
 import BlogItem from './BlogItem';
 import BlogData from './blogData';
-import SectionHeader from '../_home/Features/SectionHeader';
+import SectionHeader from '../shared/SectionHeader';
 
 const Blog = async () => {
   return (
