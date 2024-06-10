@@ -80,7 +80,7 @@ export function Process() {
         OUR <span className="textGradient">PROCESS</span>
       </h1>
 
-      <p className="mx-auto mt-8 md:w-4/5 lg:w-3/5 xl:w-[46%] text-center bg-amber-50 hover:bg-amber-100 px-4 py-2 rounded-2xl shadow-md  shake">
+      <p className="mx-auto mt-8 md:w-4/5 lg:w-3/5 xl:w-[46%] text-center bg-amber-50 hover:bg-amber-100 px-4 py-2 rounded-2xl shadow-md cursor-pointer">
         NOTE 💡: Depending on the job, country and personal preference process
         can differ for each applicant
       </p>

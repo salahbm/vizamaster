@@ -3,7 +3,7 @@ import ImageFrame from './image-frame';
 
 const HeroBanner = () => {
   return (
-    <div className="flex flex-row justify-center items-center lg:ml-4  ml-0 mt-8 lg:mt-0">
+    <div className="flex flex-row justify-center items-center lg:ml-4  ml-0 mt-8 lg:mt-0 gap-x-4">
       <div className="flex flex-col items-center">
         <ImageFrame imgUrl="/images/welder.jpeg" type="square" />
         <ImageFrame imgUrl="/images/worker.jpeg" type="rectangle" />

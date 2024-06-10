@@ -28,15 +28,11 @@ export const Navbar = ({ color }: { color: boolean }) => {
     >
       {navBars.map((item) => (
         <Link href={item.path!} key={item.id}>
-          <Tab setPosition={setPosition} >
-
-            {item.name}
-
-          </Tab>
+          <Tab setPosition={setPosition}>{item.name}</Tab>
         </Link>
       ))}
 
-      <Cursor position={position}  />
+      <Cursor position={position} />
     </ul>
   );
 };
