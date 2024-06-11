@@ -1,11 +1,8 @@
-import Header from '@/components/shared/header';
 import { BRAND_NAME } from '@/constants/name';
 import AppProvider from '@/providers';
 import { Params } from '@/types/global';
 import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
-import '../../styles/globals.css';
-import Footer from '@/components/shared/footer';
 import { poppins } from '@/styles/fonts';
 import { cn } from '@/lib/utils';
 import { Suspense } from 'react';
@@ -80,11 +77,7 @@ export default function LocaleLayout({
         )}
       >
         <AppProvider>
-          <Suspense fallback={<Loader />}>
-            <Header />
-            {children}
-            <Footer />
-          </Suspense>
+          <Suspense fallback={<Loader />}>{children}</Suspense>
         </AppProvider>
       </body>
     </html>

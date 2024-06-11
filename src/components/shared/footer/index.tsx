@@ -3,6 +3,7 @@ import LanguageSelector from '../header/lang-selector';
 import { Link } from '@/i18n';
 import MotionDiv from '../motions/motion-div';
 import { cn } from '@/lib/utils';
+import { footerList_2 } from './footer-list';
 
 const Footer = () => {
   return (
@@ -55,19 +56,19 @@ const Footer = () => {
               <div className="flex flex-col items-start mt-5 space-y-2">
                 <Link
                   href="#"
-                  className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                  className="text-gray-600 transition-colors duration-300 dark:text-gray-300  hover:underline "
                 >
                   Home
                 </Link>
                 <Link
                   href="#"
-                  className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                  className="text-gray-600 transition-colors duration-300 dark:text-gray-300  hover:underline "
                 >
                   Who We Are
                 </Link>
                 <Link
                   href="#"
-                  className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
+                  className="text-gray-600 transition-colors duration-300 dark:text-gray-300  hover:underline "
                 >
                   Contact
                 </Link>
@@ -80,24 +81,15 @@ const Footer = () => {
               </p>
 
               <div className="flex flex-col items-start mt-5 space-y-2">
-                <Link
-                  href="#"
-                  className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
-                >
-                  Blogs
-                </Link>
-                <Link
-                  href="#"
-                  className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
-                >
-                  Jobs
-                </Link>
-                <Link
-                  href="#"
-                  className="text-gray-600 transition-colors duration-300 dark:text-gray-300 dark:hover:text-blue-400 hover:underline hover:text-blue-500"
-                >
-                  Admin
-                </Link>
+                {footerList_2.map((item) => (
+                  <Link
+                    key={item.id}
+                    href={item.path!}
+                    className="text-gray-600 transition-colors duration-300 dark:text-gray-300  hover:underline "
+                  >
+                    {item.name}
+                  </Link>
+                ))}
               </div>
             </div>
           </div>
@@ -129,7 +121,7 @@ const Footer = () => {
             <div className="flex -mx-2">
               <Link
                 href="#"
-                className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 "
                 aria-label="Reddit"
               >
                 <svg
@@ -144,7 +136,7 @@ const Footer = () => {
 
               <Link
                 href="#"
-                className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 "
                 aria-label="Facebook"
               >
                 <svg
@@ -159,7 +151,7 @@ const Footer = () => {
 
               <Link
                 href="#"
-                className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400"
+                className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 "
                 aria-label="Github"
               >
                 <svg
