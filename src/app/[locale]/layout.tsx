@@ -8,6 +8,8 @@ import '../../styles/globals.css';
 import Footer from '@/components/shared/footer';
 import { poppins } from '@/styles/fonts';
 import { cn } from '@/lib/utils';
+import { Suspense } from 'react';
+import Loader from '@/components/shared/loader';
 
 // Can be imported from a shared config
 const locales = ['en', 'ru', 'uz'];
@@ -62,7 +64,7 @@ export async function generateMetadata({
   };
 }
 
-export default function LocaleLayout({
+export default function RootLayout({
   children,
   params: { locale },
 }: {
@@ -78,9 +80,11 @@ export default function LocaleLayout({
         )}
       >
         <AppProvider>
-          <Header />
-          {children}
-          <Footer />
+          <Suspense fallback={<Loader />}>
+            <Header />
+            {children}
+            <Footer />
+          </Suspense>
         </AppProvider>
       </body>
     </html>

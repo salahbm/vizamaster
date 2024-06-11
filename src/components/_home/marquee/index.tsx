@@ -15,7 +15,7 @@ const PeopleMarquee = () => {
       <SectionHeader
         headerInfo={{
           title: 'OUR CANDIDATES',
-          subtitle: 'Happy Clients',
+          subtitle: 'SATISFIED Clients',
           description: `We are proud of our team. Here are some of our happy clients.`,
         }}
       />

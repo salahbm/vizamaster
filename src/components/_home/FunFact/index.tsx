@@ -12,7 +12,7 @@ const FunFact = () => {
       <section className="px-4 py-20 md:px-8 lg:py-22.5 2xl:px-0 relative rounded-2xl">
         <SectionHeader
           headerInfo={{
-            subtitle: `${BRAND_NAME} in numbers`,
+            subtitle: `our work in numbers`,
             description: `We are growing. Check out our numbers below.`,
           }}
         />

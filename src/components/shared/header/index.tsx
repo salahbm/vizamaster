@@ -38,16 +38,17 @@ const Header = () => {
           <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_800px_at_100%_200px,#d5c5ff,transparent)]"></div>
         </div>
       )}
-      <div
-        className={cn(
-          'container px-12  flex flex-row justify-between items-center  transition duration-600  py-3',
-          color && 'blurly-white shadow-md rounded-3xl border border-black py-0'
-        )}
+      <motion.div
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5 }}
       >
-        <motion.div
-          initial={{ y: -100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
+        <div
+          className={cn(
+            'container px-12  flex flex-row justify-between items-center  transition duration-600  py-3',
+            color &&
+              'blurly-white shadow-md rounded-3xl border border-black py-0'
+          )}
         >
           <Link href={'/'}>
             <div className="w-[50px] flex justify-center items-center">
@@ -67,29 +68,19 @@ const Header = () => {
               </p>
             </div>
           </Link>
-        </motion.div>
-        <motion.div
-          initial={{ y: -100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5 }}
-        >
+
           <div className="hidden md:block">
             <Navbar color={color} />
           </div>
           <div className="md:hidden">
             <MobileNavbar />
           </div>
-        </motion.div>
-        <div className="hidden md:block">
-          <motion.div
-            initial={{ y: -100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5 }}
-          >
+
+          <div className="hidden md:block">
             <LanguageSelector />
-          </motion.div>
+          </div>
         </div>
-      </div>
+      </motion.div>
     </header>
   );
 };
