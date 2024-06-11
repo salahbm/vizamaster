@@ -7,16 +7,5 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html>
-      <body
-        className={cn(
-          'max-w-screen-xl mx-auto overflow-x-hidden',
-          poppins.className
-        )}
-      >
-        {children}
-      </body>
-    </html>
-  );
+  return <>{children}</>;
 }
