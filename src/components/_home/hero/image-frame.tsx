@@ -1,9 +1,8 @@
-'use client';
 import Image from 'next/image';
 import React from 'react';
 
-import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import MotionDiv from '@/components/shared/motions/motion-div';
 
 const ImageFrame = ({
   imgUrl,
@@ -13,7 +12,7 @@ const ImageFrame = ({
   type: 'square' | 'rectangle';
 }) => {
   return (
-    <motion.div
+    <MotionDiv
       initial={{ opacity: 0, scale: 0 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1 }}
@@ -36,7 +35,7 @@ const ImageFrame = ({
           sizes="(100vw, 100vh)"
         />
       </div>
-    </motion.div>
+    </MotionDiv>
   );
 };
 

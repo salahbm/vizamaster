@@ -64,7 +64,7 @@ export async function generateMetadata({
   };
 }
 
-export default function RootLayout({
+export default function LocaleLayout({
   children,
   params: { locale },
 }: {

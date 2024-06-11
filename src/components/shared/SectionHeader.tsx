@@ -1,5 +1,4 @@
-'use client';
-import { motion } from 'framer-motion';
+import MotionDiv from './motions/motion-div';
 
 type HeaderInfo = {
   title?: string;
@@ -15,7 +14,7 @@ const SectionHeader = ({ headerInfo }: { headerInfo: HeaderInfo }) => {
   return (
     <>
       {/* <!-- Section Title Start --> */}
-      <motion.div
+      <MotionDiv
         variants={{
           hidden: {
             opacity: 0,
@@ -51,7 +50,7 @@ const SectionHeader = ({ headerInfo }: { headerInfo: HeaderInfo }) => {
             {description}
           </p>
         </div>
-      </motion.div>
+      </MotionDiv>
       {/* <!-- Section Title End --> */}
     </>
   );

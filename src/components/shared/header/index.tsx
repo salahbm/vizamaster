@@ -1,13 +1,12 @@
 'use client';
 import LanguageSelector from './lang-selector';
 import MobileNavbar from './mobile-header';
-
-import { motion } from 'framer-motion';
 import { Navbar } from './nav-bar';
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { Link } from '@/i18n';
+import MotionDiv from '../motions/motion-div';
 
 const Header = () => {
   const [color, setColor] = useState(false);
@@ -38,7 +37,7 @@ const Header = () => {
           <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_800px_at_100%_200px,#d5c5ff,transparent)]"></div>
         </div>
       )}
-      <motion.div
+      <MotionDiv
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
@@ -80,7 +79,7 @@ const Header = () => {
             <LanguageSelector />
           </div>
         </div>
-      </motion.div>
+      </MotionDiv>
     </header>
   );
 };

@@ -1,9 +1,8 @@
-'use client';
 import React from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import SectionHeader from '@/components/shared/SectionHeader';
 import { BRAND_NAME } from '@/constants/name';
+import MotionDiv from '@/components/shared/motions/motion-div';
 
 const FunFact = () => {
   return (
@@ -28,7 +27,7 @@ const FunFact = () => {
             className="absolute bottom-0 right-0 -z-1"
           />
 
-          <motion.div
+          <MotionDiv
             variants={{
               hidden: {
                 opacity: 0,
@@ -54,10 +53,10 @@ const FunFact = () => {
               out our numbers below. We are growing. Check out our numbers
               below. We are growing. Check out our numbers below.
             </p>
-          </motion.div>
+          </MotionDiv>
 
           <div className="flex flex-wrap justify-center gap-8 lg:gap-42.5">
-            <motion.div
+            <MotionDiv
               variants={{
                 hidden: {
                   opacity: 0,
@@ -76,11 +75,11 @@ const FunFact = () => {
               className="animate_top text-center"
             >
               <h3 className="mb-2.5 text-3xl font-bold text-black dark:text-white xl:text-sectiontitle3">
-                500K
+                5000
               </h3>
               <p className="text-lg lg:text-para2">World Wide Clients</p>
-            </motion.div>
-            <motion.div
+            </MotionDiv>
+            <MotionDiv
               variants={{
                 hidden: {
                   opacity: 0,
@@ -102,8 +101,8 @@ const FunFact = () => {
                 1M+
               </h3>
               <p className="text-lg lg:text-para2">Downloads</p>
-            </motion.div>
-            <motion.div
+            </MotionDiv>
+            <MotionDiv
               variants={{
                 hidden: {
                   opacity: 0,
@@ -125,7 +124,7 @@ const FunFact = () => {
                 865
               </h3>
               <p className="text-lg lg:text-para2">Winning Award</p>
-            </motion.div>
+            </MotionDiv>
           </div>
         </div>
       </section>

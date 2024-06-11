@@ -1,8 +1,7 @@
-'use client';
-import { motion } from 'framer-motion';
 import Image from 'next/image';
 import LanguageSelector from '../header/lang-selector';
 import { Link } from '@/i18n';
+import MotionDiv from '../motions/motion-div';
 
 const Footer = () => {
   return (
@@ -12,7 +11,7 @@ const Footer = () => {
           {/* <!-- Footer Top --> */}
           <div className="py-20 lg:py-25">
             <div className="flex flex-wrap gap-8 lg:justify-between lg:gap-0">
-              <motion.div
+              <MotionDiv
                 variants={{
                   hidden: {
                     opacity: 0,
@@ -60,10 +59,10 @@ const Footer = () => {
                 >
                   hello@solid.com
                 </a>
-              </motion.div>
+              </MotionDiv>
 
               <div className="flex w-full flex-col gap-8 md:flex-row md:justify-between md:gap-0 lg:w-2/3 xl:w-7/12">
-                <motion.div
+                <MotionDiv
                   variants={{
                     hidden: {
                       opacity: 0,
@@ -119,9 +118,9 @@ const Footer = () => {
                       </a>
                     </li>
                   </ul>
-                </motion.div>
+                </MotionDiv>
 
-                <motion.div
+                <MotionDiv
                   variants={{
                     hidden: {
                       opacity: 0,
@@ -177,9 +176,9 @@ const Footer = () => {
                       </a>
                     </li>
                   </ul>
-                </motion.div>
+                </MotionDiv>
 
-                <motion.div
+                <MotionDiv
                   variants={{
                     hidden: {
                       opacity: 0,
@@ -239,7 +238,7 @@ const Footer = () => {
                       </button>
                     </div>
                   </form>
-                </motion.div>
+                </MotionDiv>
               </div>
             </div>
           </div>
@@ -247,7 +246,7 @@ const Footer = () => {
 
           {/* <!-- Footer Bottom --> */}
           <div className="flex flex-col flex-wrap items-center justify-center gap-5 border-t border-stroke py-7 dark:border-strokedark lg:flex-row lg:justify-between lg:gap-0">
-            <motion.div
+            <MotionDiv
               variants={{
                 hidden: {
                   opacity: 0,
@@ -280,9 +279,9 @@ const Footer = () => {
                   </a>
                 </li>
               </ul>
-            </motion.div>
+            </MotionDiv>
 
-            <motion.div
+            <MotionDiv
               variants={{
                 hidden: {
                   opacity: 0,
@@ -303,9 +302,9 @@ const Footer = () => {
               <p>
                 &copy; {new Date().getFullYear()} Solid. All rights reserved
               </p>
-            </motion.div>
+            </MotionDiv>
 
-            <motion.div
+            <MotionDiv
               variants={{
                 hidden: {
                   opacity: 0,
@@ -417,7 +416,7 @@ const Footer = () => {
                   </a>
                 </li>
               </ul>
-            </motion.div>
+            </MotionDiv>
           </div>
           {/* <!-- Footer Bottom --> */}
         </div>
