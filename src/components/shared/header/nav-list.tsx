@@ -11,9 +11,10 @@ const navBars: Menu[] = [
     path: '/jobs',
     id: 1,
   },
+
   {
-    name: 'Blog',
-    path: '/blog',
+    name: 'Results',
+    path: '/results',
     id: 2,
   },
   {
@@ -22,8 +23,8 @@ const navBars: Menu[] = [
     id: 3,
   },
   {
-    name: 'Get Started',
-    path: '/get-started',
+    name: 'Partners',
+    path: '/partners',
     id: 4,
   },
 ];
