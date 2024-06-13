@@ -1,3 +1,7 @@
-export { auth as middleware } from './auth';
+import { clerkMiddleware } from '@clerk/nextjs/server';
 
-export const config = { matcher: ['/en/dashboard'] };
+export default clerkMiddleware();
+
+export const config = {
+  matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
+};

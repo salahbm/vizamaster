@@ -4,6 +4,8 @@ import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { Suspense } from 'react';
 import Loader from '@/components/shared/loader';
+import AdminProvider from '@/providers/admin-root-provider';
+import { SignIn } from '@clerk/nextjs';
 
 export async function generateMetadata({
   params: { locale },
@@ -23,7 +25,14 @@ export default function AdminLayout({
 }: React.PropsWithChildren<Params>) {
   return (
     <div>
-      <Suspense fallback={<Loader />}>{children}</Suspense>
+      <Suspense fallback={<Loader />}>
+        {/* <SignIn> */}
+
+        {/* <AdminProvider> */}
+        {children}
+        {/* </AdminProvider> */}
+        {/* </SignIn> */}
+      </Suspense>
     </div>
   );
 }
