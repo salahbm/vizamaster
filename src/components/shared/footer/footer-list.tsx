@@ -32,7 +32,7 @@ const footerList_2: Menu[] = [
 
   {
     name: 'Admin',
-    path: '/dashboard',
+    path: '/admin',
     id: 2,
   },
 ];
