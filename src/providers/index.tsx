@@ -7,9 +7,7 @@ import { ClerkProvider } from '@clerk/nextjs';
 const AppProvider = ({ children }: PropsWithChildren) => {
   return (
     <TranslationsProvider>
-      <ClerkProvider>
-        <ThemeProviders>{children}</ThemeProviders>
-      </ClerkProvider>
+      <ThemeProviders>{children}</ThemeProviders>
     </TranslationsProvider>
   );
 };

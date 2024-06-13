@@ -1,14 +1,22 @@
+import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
 import createMiddleware from 'next-intl/middleware';
+import { NextResponse } from 'next/server';
+import { defaultLocale, locales } from '../i18n.config';
 
-export default createMiddleware({
-  // A list of all locales that are supported
-  locales: ['ru', 'uz', 'en'],
+const intlMiddleware = createMiddleware({
+  locales: locales,
+  defaultLocale: defaultLocale,
+});
 
-  // Used when no locale matches
-  defaultLocale: 'en',
+const isProtectedRoute = createRouteMatcher(['/dashboard']);
+
+export default clerkMiddleware((auth, req) => {
+  if (isProtectedRoute(req)) auth().protect();
+
+  // Apply the internationalization middleware
+  return intlMiddleware(req);
 });
 
 export const config = {
-  // Match only internationalized pathnames
-  matcher: ['/', '/(ru|en|uz)/:path*'],
+  matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
 };
