@@ -49,14 +49,16 @@ export default function UserAuthForm() {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="w-full space-y-2"
+          className="w-full space-y-6"
         >
           <FormField
             control={form.control}
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-xl">Email</FormLabel>
+                <FormLabel className="text-xl text-neutral-600">
+                  Email
+                </FormLabel>
                 <FormControl>
                   <Input
                     type="email"
@@ -75,7 +77,9 @@ export default function UserAuthForm() {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-xl">Password</FormLabel>
+                <FormLabel className="text-xl text-neutral-600">
+                  Password
+                </FormLabel>
                 <FormControl>
                   <Input
                     type="password"
