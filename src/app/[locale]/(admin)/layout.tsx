@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { Suspense } from 'react';
 import Loader from '@/components/shared/loader';
+import Sidebar from './_components/sidebar';
 
 export async function generateMetadata({
   params: { locale },
@@ -22,8 +23,13 @@ export default function AdminLayout({
   children,
 }: React.PropsWithChildren<Params>) {
   return (
-    <div>
-      <Suspense fallback={<Loader />}>{children}</Suspense>
-    </div>
+    <>
+      <Suspense fallback={<Loader />}>
+        <div className="flex h-screen overflow-hidden">
+          <Sidebar />
+          <main className="flex-1 overflow-hidden pt-16">{children}</main>
+        </div>
+      </Suspense>
+    </>
   );
 }
