@@ -1,4 +1,4 @@
-import { ClerkProvider } from '@clerk/nextjs';
+
 import '../styles/globals.css';
 
 export default function RootLayout({
@@ -6,5 +6,5 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <ClerkProvider>{children}</ClerkProvider>;
+  return <>{children}</>;
 }
