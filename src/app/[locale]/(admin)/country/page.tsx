@@ -1,10 +1,8 @@
 'use client';
-
 import * as z from 'zod';
 
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -17,7 +15,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { formSchema } from '@/hooks/admin/use-create-country';
-import DescriptionForm from '../_components/description-form';
+import { Editor } from '@/components/shared/editor';
 
 const CreateCountryPage = () => {
   //   const { mutate } = useCreateCourse();
@@ -42,7 +40,7 @@ const CreateCountryPage = () => {
   return (
     <div className="max-w-5xl mx-auto flex md:items-center md:justify-center h-full p-6">
       <div>
-        <h1 className="text-2xl">Name the country</h1>
+        <h1 className="textGradient text-2xl">Name the country</h1>
 
         <p className="text-sm text-slate-600">
           This section will help you name the country and its related data.
@@ -104,30 +102,26 @@ const CreateCountryPage = () => {
                 </FormItem>
               )}
             />
+
             <FormField
               control={form.control}
               name="description"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Description</FormLabel>
-
                   <FormControl>
-                    <Input disabled={isSubmitting} {...field} />
+                    <Editor {...field} />
                   </FormControl>
+                  <FormDescription>
+                    Write about what vacancies this country offers in the
+                    description
+                  </FormDescription>
+                  <FormMessage />
                 </FormItem>
               )}
             />
-            <DescriptionForm />
-            <FormDescription>
-              Write about what vacancies this country offers in the description
-            </FormDescription>
-            <div className="flex items-center gap-x-2">
-              <Link href="/dashboard">
-                <Button type="button" variant="ghost">
-                  Cancel
-                </Button>
-              </Link>
 
+            <div className="flex items-center gap-x-2">
               <Button type="submit">Continue</Button>
             </div>
           </form>

@@ -25,11 +25,11 @@ export default function AdminLayout({
   children,
 }: React.PropsWithChildren<Params>) {
   return (
-    <main className="relative">
+    <main className="relative max-w-screen-[1440px] mx-auto">
       <SessionProvider>
         <Suspense fallback={<Loader />}>
           <Header />
-          <div className="flex h-screen overflow-hidden">
+          <div className="flex  overflow-hidden">
             <Sidebar />
             <main className="flex-1 overflow-hidden pt-16">{children}</main>
           </div>

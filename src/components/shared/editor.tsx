@@ -17,7 +17,7 @@ export const Editor = ({ value, onChange }: EditorProps) => {
   );
 
   return (
-    <div className="bg-white">
+    <div className=" overflow-y-scroll max-h-[450px] ">
       <ReactQuill theme="snow" value={value} onChange={onChange} />
     </div>
   );
