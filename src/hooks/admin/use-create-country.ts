@@ -5,9 +5,21 @@ import { z } from 'zod';
 // import { useRouter } from 'next/navigation';
 
 export const formSchema = z.object({
-  title: z.string().min(1, {
-    message: 'Title is required',
+  country: z.string().min(1, {
+    message: 'Country emoji is required',
   }),
+  name: z.string().min(1, {
+    message: 'Country name is required',
+  }),
+  description: z.string().min(10, {
+    message: 'Country description is required',
+  }),
+  title: z
+    .string()
+    .min(1, {
+      message: 'Country title is required',
+    })
+    .optional(),
 });
 
 // export const createCourse = async (courseData: z.infer<typeof formSchema>) => {

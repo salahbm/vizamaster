@@ -17,13 +17,17 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { formSchema } from '@/hooks/admin/use-create-country';
+import DescriptionForm from '../_components/description-form';
 
-const CreatePage = () => {
+const CreateCountryPage = () => {
   //   const { mutate } = useCreateCourse();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
+      country: '',
+      name: '',
+      description: '',
       title: '',
     },
   });
@@ -38,11 +42,10 @@ const CreatePage = () => {
   return (
     <div className="max-w-5xl mx-auto flex md:items-center md:justify-center h-full p-6">
       <div>
-        <h1 className="text-2xl">Name your course</h1>
+        <h1 className="text-2xl">Name the country</h1>
 
         <p className="text-sm text-slate-600">
-          {`What would you like to name your course? Don't worry, you can change
-    this later.`}
+          This section will help you name the country and its related data.
         </p>
 
         <Form {...form}>
@@ -52,30 +55,74 @@ const CreatePage = () => {
           >
             <FormField
               control={form.control}
-              name="title"
+              name="country"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Course title</FormLabel>
+                  <FormLabel>Country Emoji</FormLabel>
 
                   <FormControl>
                     <Input
                       disabled={isSubmitting}
-                      placeholder={`e.g. "Advance web development"`}
+                      placeholder={`e.g. "🇺🇿" `}
                       {...field}
                     />
                   </FormControl>
-
-                  <FormDescription>
-                    What will you teach in this course?
-                  </FormDescription>
-
-                  <FormMessage />
                 </FormItem>
               )}
             />
+            <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Country Name</FormLabel>
 
+                  <FormControl>
+                    <Input
+                      disabled={isSubmitting}
+                      placeholder={`e.g. "Uzbekistan" `}
+                      {...field}
+                    />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="title"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Title</FormLabel>
+
+                  <FormControl>
+                    <Input
+                      disabled={isSubmitting}
+                      placeholder={`Write some interesting title`}
+                      {...field}
+                    />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="description"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Description</FormLabel>
+
+                  <FormControl>
+                    <Input disabled={isSubmitting} {...field} />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+            <DescriptionForm />
+            <FormDescription>
+              Write about what vacancies this country offers in the description
+            </FormDescription>
             <div className="flex items-center gap-x-2">
-              <Link href="/">
+              <Link href="/dashboard">
                 <Button type="button" variant="ghost">
                   Cancel
                 </Button>
@@ -90,4 +137,4 @@ const CreatePage = () => {
   );
 };
 
-export default CreatePage;
+export default CreateCountryPage;
