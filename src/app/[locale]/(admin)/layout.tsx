@@ -5,6 +5,8 @@ import { getTranslations } from 'next-intl/server';
 import { Suspense } from 'react';
 import Loader from '@/components/shared/loader';
 import Sidebar from './_components/sidebar';
+import Header from './_components/header';
+import { SessionProvider } from 'next-auth/react';
 
 export async function generateMetadata({
   params: { locale },
@@ -23,13 +25,14 @@ export default function AdminLayout({
   children,
 }: React.PropsWithChildren<Params>) {
   return (
-    <>
+    <SessionProvider>
       <Suspense fallback={<Loader />}>
+        <Header />
         <div className="flex h-screen overflow-hidden">
           <Sidebar />
           <main className="flex-1 overflow-hidden pt-16">{children}</main>
         </div>
       </Suspense>
-    </>
+    </SessionProvider>
   );
 }
