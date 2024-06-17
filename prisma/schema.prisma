@@ -1,0 +1,50 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("NEXT_PUBLIC_DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Country {
+  id          String     @id @default(uuid())
+
+  name        String
+  title       String?
+  description String @db.Text
+
+  imgUrl      String
+  isNew       Boolean
+
+  jobId       String
+  jobs        Job[]
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([jobId])
+}
+
+model Job {
+  id          String     @id @default(uuid())
+
+  name        String
+  title       String?
+  description String @db.Text
+  imgUrl      String
+
+  isNew       Boolean @default(true)
+  isTrend     Boolean @default(true)
+  isActive    Boolean @default(true)
+  isDeadline  Boolean @default(false)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  countryId   String
+  country     Country @relation(fields: [countryId], references: [id], onDelete: Cascade)
+
+  @@index([countryId])
+  @@unique([name, countryId])
+}
