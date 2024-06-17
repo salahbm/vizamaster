@@ -2,11 +2,14 @@ import { PropsWithChildren } from 'react';
 
 import TranslationsProvider from './TranslationsProvider';
 import ThemeProviders from './ThemeProvider';
+import QueryProvider from './QueryProvider';
 
 const AppProvider = ({ children }: PropsWithChildren) => {
   return (
     <TranslationsProvider>
-      <ThemeProviders>{children}</ThemeProviders>
+      <QueryProvider>
+        <ThemeProviders>{children}</ThemeProviders>
+      </QueryProvider>
     </TranslationsProvider>
   );
 };
