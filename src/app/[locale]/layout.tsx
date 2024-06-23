@@ -7,6 +7,7 @@ import { poppins } from '@/styles/fonts';
 import { cn } from '@/lib/utils';
 import { Suspense } from 'react';
 import Loader from '@/components/shared/loader';
+import { Toaster } from '@/components/ui/toaster';
 
 // Can be imported from a shared config
 const locales = ['en', 'ru', 'uz'];
@@ -78,6 +79,7 @@ export default function LocaleLayout({
       >
         <AppProvider>
           <Suspense fallback={<Loader />}>{children}</Suspense>
+          <Toaster />
         </AppProvider>
       </body>
     </html>

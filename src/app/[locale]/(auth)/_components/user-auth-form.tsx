@@ -37,11 +37,11 @@ export default function UserAuthForm() {
   });
 
   const onSubmit = async (data: UserFormValue) => {
-    signIn('credentials', {
-      email: data.email,
-      password: data.password,
-      callbackUrl: callbackUrl ?? '/dashboard',
-    });
+    // signIn('credentials', {
+    //   email: data.email,
+    //   password: data.password,
+    //   callbackUrl: callbackUrl ?? '/dashboard',
+    // });
   };
 
   return (
