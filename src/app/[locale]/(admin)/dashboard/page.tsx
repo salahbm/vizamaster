@@ -8,11 +8,13 @@ import {
 } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { auth } from '../../../../../auth';
 
-export default function Dashboard() {
-  console.log('====================================');
-  console.log('NEXT_PUBLIC_SUPABASE_URL', process.env.DATABASE_URL);
-  console.log('====================================');
+export default async function Dashboard() {
+  // const session = await auth();
+  // console.log('====================================');
+  // console.log('Data', session);
+  // console.log('====================================');
 
   return (
     <ScrollArea className="h-full">

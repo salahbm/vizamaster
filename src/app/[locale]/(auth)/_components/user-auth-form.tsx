@@ -16,12 +16,12 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
-const formSchema = z.object({
+export const authSchema = z.object({
   email: z.string().email({ message: 'Enter a valid email address' }),
   password: z.string().min(6, { message: 'Password is required' }),
 });
 
-type UserFormValue = z.infer<typeof formSchema>;
+type UserFormValue = z.infer<typeof authSchema>;
 
 export default function UserAuthForm() {
   const searchParams = useSearchParams();
@@ -32,7 +32,7 @@ export default function UserAuthForm() {
     password: '',
   };
   const form = useForm<UserFormValue>({
-    resolver: zodResolver(formSchema),
+    resolver: zodResolver(authSchema),
     defaultValues,
   });
 

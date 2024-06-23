@@ -11,7 +11,7 @@ export const formSchema = z.object({
 });
 
 export const signUp = async (courseData: z.infer<typeof formSchema>) => {
-  const response = await axios.post('/api/admins', courseData);
+  const response = await axios.post('/api/admins/sign-up/', courseData);
   return response.data;
 };
 
@@ -24,7 +24,7 @@ export const useCreateAdmin = () => {
     mutationFn: signUp,
     async onSuccess(data) {
       await queryClient.invalidateQueries({ queryKey: ['admins'] });
-      router.push(`/teacher/admins/${data.id}`);
+      router.push(`/teacher/admins/sign-up/${data.id}`);
       toast({ title: 'Sign up successfully' });
     },
     async onError() {

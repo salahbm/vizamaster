@@ -1,6 +1,4 @@
-import { defaultLocale } from './../i18n.config';
-import { locales } from '../i18n.config';
-
+import { defaultLocale, locales } from '../i18n.config';
 import createIntlMiddleware from 'next-intl/middleware';
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '../auth';
@@ -13,30 +11,30 @@ const intlMiddleware = createIntlMiddleware({
   defaultLocale,
 });
 
+// Define auth routes
+const authRoutes = ['/sing-in', '/sign-up'];
+
 export async function middleware(request: NextRequest) {
-  let response = NextResponse.next();
-  const session = await auth();
+  const isLoggedIn = !!request.cookies.get('next-auth.session-token');
+  const isAuthRoute = authRoutes.includes(request.nextUrl.pathname);
+  const isApiAuthRoute = request.nextUrl.pathname.startsWith('/api/auth');
 
-  const isProtectedRoute = protectedPages.some((prefix) =>
-    request.nextUrl.pathname.startsWith(prefix)
-  );
-
-  // Redirect to sign-in if trying to access protected route without session
-  if (isProtectedRoute && !session) {
-    const signInURL = new URL('/sign-in', request.nextUrl.origin);
-    return NextResponse.redirect(signInURL.toString());
+  if (isApiAuthRoute) {
+    return NextResponse.next();
   }
 
-  // Check if the user is trying to access sign-in or sign-up page
-  if (publicPages.some((page) => request.nextUrl.pathname.startsWith(page))) {
-    const { email } = session?.user || {};
-
-    // Allow access to sign-in or sign-up only if the email is salahbm.001@gmail.com
-    if (email !== 'salahbm.001@gmail.com') {
-      const homeURL = new URL('/', request.nextUrl.origin);
-      return NextResponse.redirect(homeURL.toString());
+  if (isAuthRoute) {
+    if (isLoggedIn) {
+      return NextResponse.redirect(new URL('/dashboard', request.nextUrl));
     }
+    return NextResponse.next();
   }
+
+  // if (!isLoggedIn && !publicPages.includes(request.nextUrl.pathname)) {
+  //   return NextResponse.redirect(
+  //     new URL(`/${defaultLocale}/sign-in`, request.nextUrl)
+  //   );
+  // }
 
   // Exclude specific paths from further processing
   if (
@@ -48,8 +46,7 @@ export async function middleware(request: NextRequest) {
     return intlMiddleware(request);
   }
 
-  // Return the response object directly
-  return response;
+  return NextResponse.next();
 }
 
 export const config = {
