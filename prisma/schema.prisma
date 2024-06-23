@@ -1,6 +1,6 @@
 datasource db {
   provider = "postgresql"
-  url      = env("NEXT_PUBLIC_SUPABASE_URL")
+  url      = env("DATABASE_URL")
   relationMode = "prisma"
 }
 
