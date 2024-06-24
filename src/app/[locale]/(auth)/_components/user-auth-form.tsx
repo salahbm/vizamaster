@@ -17,6 +17,7 @@ import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import { toast } from '@/components/ui/use-toast';
 import { signIn } from 'next-auth/react';
+import Link from 'next/link';
 
 export const authSchema = z.object({
   email: z.string().email({ message: 'Enter a valid email address' }),
@@ -136,10 +137,14 @@ export default function UserAuthForm() {
         <div className="absolute inset-0 flex items-center">
           <span className="w-full border-t" />
         </div>
-        <div className="relative flex justify-center text-xs uppercase">
-          <span className="bg-background px-2 text-muted-foreground">
-            Or continue with
-          </span>
+        <div className="relative flex justify-center text-xs uppercase ">
+          <button className="text-center ">
+            <Link href="/">
+              <span className=" bg-background hover:text-secondary text-xl text-muted-foreground">
+                Go Home
+              </span>
+            </Link>
+          </button>
         </div>
       </div>
     </>

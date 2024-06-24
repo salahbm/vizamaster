@@ -5,7 +5,7 @@ export const handleAdmin = async () => {
   const session = await auth();
 
   if (!session?.user) {
-    throw new Error(' Admin not found');
+    return false;
   }
 
   const getAdmin = await DB.admin.findUnique({
@@ -17,13 +17,8 @@ export const handleAdmin = async () => {
     },
   });
 
-  if (!getAdmin) {
-    throw new Error(' Admin not found');
-  }
+  if (!getAdmin) return false;
   const isAdmin = getAdmin.isAdmin;
 
-  if (!isAdmin) {
-    throw new Error(' User is not an admin');
-  }
   return isAdmin;
 };
