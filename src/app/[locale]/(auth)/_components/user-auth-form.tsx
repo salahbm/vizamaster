@@ -50,6 +50,10 @@ export default function UserAuthForm() {
 
       setLoading(false);
 
+      toast({
+        title: 'Success',
+        description: 'Sign in successful',
+      });
       if (result?.error) {
         toast({
           title: 'Error',
@@ -59,9 +63,12 @@ export default function UserAuthForm() {
       } else {
         window.location.href = callbackUrl ?? '/dashboard';
       }
-    } catch (error) {
-      console.log(`error:`, error);
-      setLoading(false);
+    } catch (error: any) {
+      toast({
+        title: 'Error',
+        description: error?.message,
+        variant: 'destructive',
+      });
     }
   };
 

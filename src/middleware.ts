@@ -33,7 +33,6 @@ export async function middleware(request: NextRequest) {
   if (isApiAuthRoute) {
     return NextResponse.next();
   }
-
   // Handle authenticated user on auth routes
   if (isAuthRoute) {
     if (isLoggedIn) {

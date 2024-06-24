@@ -1,5 +1,4 @@
 'use client';
-
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import {
@@ -11,7 +10,7 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { User } from 'lucide-react';
+
 import { signOut, useSession } from 'next-auth/react';
 import { redirect, useRouter } from 'next/navigation';
 export function UserNav() {
