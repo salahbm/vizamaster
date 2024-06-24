@@ -23,7 +23,7 @@ export const authSchema = z.object({
   password: z.string().min(6, { message: 'Password is required' }),
 });
 
-type UserFormValue = z.infer<typeof authSchema>;
+export type UserFormValue = z.infer<typeof authSchema>;
 
 export default function UserAuthForm() {
   const searchParams = useSearchParams();

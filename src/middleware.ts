@@ -2,7 +2,7 @@ import { defaultLocale, locales } from '../i18n.config';
 import createIntlMiddleware from 'next-intl/middleware';
 import { NextRequest, NextResponse } from 'next/server';
 
-const publicPages = ['/sign-in', '/sign-up'];
+const publicPages = ['/sign-in'];
 const protectedPages = ['/dashboard'];
 
 const intlMiddleware = createIntlMiddleware({
@@ -11,22 +11,14 @@ const intlMiddleware = createIntlMiddleware({
 });
 
 // Define auth routes
-const authRoutes = ['/sign-in', '/sign-up'];
+const authRoutes = ['/sign-in'];
 
 export async function middleware(request: NextRequest) {
   // Check for authentication cookie
-  const isLoggedIn =
-    !!request.cookies.get('authjs.session-token') ||
-    !!request.cookies.get('authjs.csrf-token');
+  const isLoggedIn = !!request.cookies.get('authjs.session-token');
 
   // Extract locale from the pathname
-  console.log('====================================');
-  console.log(
-    'isLoggedIn',
-    isLoggedIn,
-    request.cookies.get('authjs.session-token')
-  );
-  console.log('====================================');
+
   const pathname = request.nextUrl.pathname;
   const locale = pathname.split('/')[1];
 
@@ -34,9 +26,7 @@ export async function middleware(request: NextRequest) {
   const isAuthRoute = authRoutes.includes(
     `/${locale}${pathname.replace(`/${locale}`, '')}`
   );
-  console.log('====================================');
-  console.log('isAuthRoute', isAuthRoute);
-  console.log('====================================');
+
   const isApiAuthRoute = pathname.startsWith('/api/auth');
 
   // Allow API auth routes to proceed
