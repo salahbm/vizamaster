@@ -8,6 +8,7 @@ import Sidebar from './_components/sidebar';
 import Header from './_components/header';
 import { SessionProvider } from 'next-auth/react';
 import { handleAdmin } from '@/hooks/admin/fetchAdmin';
+import NoAdminPage from './_components/no-admin';
 
 export async function generateMetadata({
   params: { locale },
@@ -31,21 +32,19 @@ export default async function AdminLayout({
       <SessionProvider>
         <Suspense fallback={<Loader />}>
           {isAdmin ? (
-            <>
+            <div className="relative">
               <Header />
               <div className="flex  overflow-hidden">
                 <Sidebar />
                 <main className="flex-1 overflow-hidden pt-16">{children}</main>
               </div>
-            </>
-          ) : (
-            <div>
-              <p>Unauthorized</p>
+              <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
             </div>
+          ) : (
+            <NoAdminPage />
           )}
         </Suspense>
       </SessionProvider>
-      <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
     </main>
   );
 }
