@@ -10,14 +10,18 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { signIn } from 'next-auth/react';
+
 import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
+import { signIn } from '../../../../../auth';
+import { toast } from '@/components/ui/use-toast';
+import { headers } from 'next/headers';
 
 export const authSchema = z.object({
   email: z.string().email({ message: 'Enter a valid email address' }),
+  name: z.string().min(4, { message: 'Enter a valid name' }),
   password: z.string().min(6, { message: 'Password is required' }),
 });
 
@@ -30,6 +34,7 @@ export default function UserAuthForm() {
   const defaultValues = {
     email: '',
     password: '',
+    name: '',
   };
   const form = useForm<UserFormValue>({
     resolver: zodResolver(authSchema),
@@ -37,11 +42,31 @@ export default function UserAuthForm() {
   });
 
   const onSubmit = async (data: UserFormValue) => {
-    // signIn('credentials', {
-    //   email: data.email,
-    //   password: data.password,
-    //   callbackUrl: callbackUrl ?? '/dashboard',
-    // });
+    setLoading(true);
+    try {
+      const result = await signIn('credentials', {
+        redirect: false,
+        email: data.email,
+        password: data.password,
+        name: data.name,
+        callbackUrl: callbackUrl ?? '/dashboard',
+      });
+
+      setLoading(false);
+
+      if (result?.error) {
+        toast({
+          title: 'Error',
+          description: result.error,
+          variant: 'destructive',
+        });
+      } else {
+        window.location.href = callbackUrl ?? '/dashboard';
+      }
+    } catch (error) {
+      console.log(`error:`, error);
+      setLoading(false);
+    }
   };
 
   return (
@@ -51,6 +76,25 @@ export default function UserAuthForm() {
           onSubmit={form.handleSubmit(onSubmit)}
           className="w-full space-y-6"
         >
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-xl text-neutral-600">Name</FormLabel>
+                <FormControl>
+                  <Input
+                    type="name"
+                    placeholder="Enter your name..."
+                    disabled={loading}
+                    className="w-full text-xl"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
           <FormField
             control={form.control}
             name="email"
@@ -100,7 +144,7 @@ export default function UserAuthForm() {
             className="ml-auto w-full textGradient text-xl mt-8"
             type="submit"
           >
-            Continue With Email
+            Continue
           </Button>
         </form>
       </Form>
