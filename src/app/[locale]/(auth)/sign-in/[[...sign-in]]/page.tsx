@@ -1,9 +1,6 @@
 import { Metadata } from 'next';
 
-import { buttonVariants } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
 import UserAuthForm from '../../_components/user-auth-form';
-import { Link } from '@/i18n';
 
 export const metadata: Metadata = {
   title: 'Admin Sign Up',
@@ -25,15 +22,6 @@ export default function AuthenticationPage() {
           </div>
 
           <UserAuthForm />
-          <Link
-            href="/sign-up"
-            className={cn(
-              buttonVariants({ variant: 'link' }),
-              'hover:underline hover:underline-offset-8 text-lg text-secondary'
-            )}
-          >
-            Sign up
-          </Link>
         </div>
       </div>
       <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">

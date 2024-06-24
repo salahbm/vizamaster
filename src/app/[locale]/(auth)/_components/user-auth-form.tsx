@@ -15,13 +15,12 @@ import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
-import { signIn } from '../../../../../auth';
 import { toast } from '@/components/ui/use-toast';
 import { headers } from 'next/headers';
+import { signIn } from 'next-auth/react';
 
 export const authSchema = z.object({
   email: z.string().email({ message: 'Enter a valid email address' }),
-  name: z.string().min(4, { message: 'Enter a valid name' }),
   password: z.string().min(6, { message: 'Password is required' }),
 });
 
@@ -34,7 +33,6 @@ export default function UserAuthForm() {
   const defaultValues = {
     email: '',
     password: '',
-    name: '',
   };
   const form = useForm<UserFormValue>({
     resolver: zodResolver(authSchema),
@@ -76,25 +74,6 @@ export default function UserAuthForm() {
           onSubmit={form.handleSubmit(onSubmit)}
           className="w-full space-y-6"
         >
-          <FormField
-            control={form.control}
-            name="name"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel className="text-xl text-neutral-600">Name</FormLabel>
-                <FormControl>
-                  <Input
-                    type="name"
-                    placeholder="Enter your name..."
-                    disabled={loading}
-                    className="w-full text-xl"
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
           <FormField
             control={form.control}
             name="email"

@@ -1,46 +1,67 @@
+// auth.config.ts
+import CredentialsProvider from 'next-auth/providers/credentials';
 import bcrypt from 'bcryptjs';
 import { DB } from '@/lib/db';
-import credentials from 'next-auth/providers/credentials';
 
-import { authSchema } from '@/app/[locale]/(auth)/_components/user-auth-form';
-import { NextAuthConfig } from 'next-auth';
-import { PrismaAdapter } from '@auth/prisma-adapter';
-
-const authConfig: NextAuthConfig = {
-  adapter: PrismaAdapter(DB),
-  session: { strategy: 'jwt' },
+export const authOptions: any = {
   providers: [
-    credentials({
+    CredentialsProvider({
+      id: 'credentials',
       name: 'Credentials',
       credentials: {
         email: { label: 'Email', type: 'email' },
         password: { label: 'Password', type: 'password' },
-        name: { label: 'Name', type: 'text' },
       },
       async authorize(credentials) {
-        const validatedFields = authSchema.safeParse(credentials);
+        if (!credentials) return null;
 
-        if (!validatedFields.success) {
-          return null;
+        const { email, password } = credentials;
+
+        // Check if user exists
+        const user = await DB.admin.findUnique({
+          where: { email },
+        });
+
+        if (user) {
+          // Verify password
+          const isPasswordCorrect = await bcrypt.compare(
+            password,
+            user.password
+          );
+          if (!isPasswordCorrect) return null;
+          return user;
+        } else {
+          // Sign-up new user
+          const hashedPassword = await bcrypt.hash(password, 10);
+          const newUser = await DB.admin.create({
+            data: {
+              email,
+              password: hashedPassword,
+            },
+          });
+          return newUser;
         }
-
-        const { email, password } = validatedFields.data;
-        const user = await DB.admin.findUnique({ where: { email } });
-
-        if (!user || !user.password) {
-          return null;
-        }
-
-        const passwordsMatch = await bcrypt.compare(password, user.password);
-
-        if (!passwordsMatch) {
-          return null;
-        }
-
-        return user;
       },
     }),
   ],
+  callbacks: {
+    async jwt({ token, user }: { token: any; user: any }) {
+      if (user) {
+        token.id = user.id;
+      }
+      return token;
+    },
+    async session({ session, token }: { session: any; token: any }) {
+      session.user.id = token.id;
+      return session;
+    },
+  },
+  pages: {
+    signIn: '/sign-in',
+    signOut: '/',
+  },
+  session: {
+    strategy: 'jwt',
+    maxAge: 60 * 60 * 24 * 30, // 30 days
+  },
 };
-
-export default authConfig;
