@@ -27,6 +27,7 @@ export default async function AdminLayout({
   children,
 }: React.PropsWithChildren<Params>) {
   const isAdmin = await handleAdmin();
+  console.log(`isAdmin:`, isAdmin);
   return (
     <main className="relative max-w-screen-[1440px] mx-auto">
       <SessionProvider>
@@ -41,7 +42,9 @@ export default async function AdminLayout({
               <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
             </div>
           ) : (
-            <NoAdminPage />
+            <>
+              <NoAdminPage />
+            </>
           )}
         </Suspense>
       </SessionProvider>

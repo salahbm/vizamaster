@@ -12,16 +12,18 @@ export const handleAdmin = async () => {
     where: {
       email: session.user.email as string,
     },
+    select: {
+      isAdmin: true,
+    },
   });
 
   if (!getAdmin) {
     throw new Error(' Admin not found');
   }
   const isAdmin = getAdmin.isAdmin;
-  console.log(`isAdmin:`, isAdmin);
 
-  // if (!isAdmin) {
-  //   throw new Error(' Admin not found');
-  // }
+  if (!isAdmin) {
+    throw new Error(' User is not an admin');
+  }
   return isAdmin;
 };

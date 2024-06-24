@@ -1,4 +1,7 @@
+'use client';
+import { signOut } from 'next-auth/react';
 import Link from 'next/link';
+import { redirect } from 'next/navigation';
 
 const NoAdminPage = () => {
   return (
@@ -12,7 +15,13 @@ const NoAdminPage = () => {
         <br /> Please contact your administrator <br />
         to get access to this page
       </h1>
-      <button className="mt-5">
+      <button
+        className="mt-5"
+        onClick={() => {
+          signOut();
+          redirect('/');
+        }}
+      >
         <Link
           href="/"
           className=" relative inline-block text-sm font-medium text-[#FF6A3D] group active:text-orange-500 focus:outline-none focus:ring"

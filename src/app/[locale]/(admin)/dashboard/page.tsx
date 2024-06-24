@@ -12,9 +12,6 @@ import { auth } from '../../../../../auth';
 
 export default async function Dashboard() {
   const session = await auth();
-  console.log('====================================');
-  console.log('Data', session);
-  console.log('====================================');
 
   return (
     <ScrollArea className="h-full">
