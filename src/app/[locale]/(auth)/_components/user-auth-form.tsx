@@ -16,7 +16,6 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import { toast } from '@/components/ui/use-toast';
-import { headers } from 'next/headers';
 import { signIn } from 'next-auth/react';
 
 export const authSchema = z.object({
@@ -46,7 +45,6 @@ export default function UserAuthForm() {
         redirect: false,
         email: data.email,
         password: data.password,
-        name: data.name,
         callbackUrl: callbackUrl ?? '/dashboard',
       });
 

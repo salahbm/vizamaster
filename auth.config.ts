@@ -1,3 +1,4 @@
+import { authSchema } from '@/app/[locale]/(auth)/_components/user-auth-form';
 // auth.config.ts
 import CredentialsProvider from 'next-auth/providers/credentials';
 import bcrypt from 'bcryptjs';
@@ -15,7 +16,7 @@ export const authOptions: any = {
       async authorize(credentials) {
         if (!credentials) return null;
 
-        const { email, password } = credentials;
+        const { email, password } = credentials as any;
 
         // Check if user exists
         const user = await DB.admin.findUnique({

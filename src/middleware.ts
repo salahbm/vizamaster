@@ -14,17 +14,37 @@ const intlMiddleware = createIntlMiddleware({
 const authRoutes = ['/sign-in', '/sign-up'];
 
 export async function middleware(request: NextRequest) {
-  const isLoggedIn = !!request.cookies.get('next-auth.session-token');
-  const locale = request.nextUrl.pathname.split('/')[1];
-  const isAuthRoute = authRoutes.includes(
-    `/${locale}${request.nextUrl.pathname}`
-  );
-  const isApiAuthRoute = request.nextUrl.pathname.startsWith('/api/auth');
+  // Check for authentication cookie
+  const isLoggedIn =
+    !!request.cookies.get('authjs.session-token') ||
+    !!request.cookies.get('authjs.csrf-token');
 
+  // Extract locale from the pathname
+  console.log('====================================');
+  console.log(
+    'isLoggedIn',
+    isLoggedIn,
+    request.cookies.get('authjs.session-token')
+  );
+  console.log('====================================');
+  const pathname = request.nextUrl.pathname;
+  const locale = pathname.split('/')[1];
+
+  // Check if the request is for an auth route
+  const isAuthRoute = authRoutes.includes(
+    `/${locale}${pathname.replace(`/${locale}`, '')}`
+  );
+  console.log('====================================');
+  console.log('isAuthRoute', isAuthRoute);
+  console.log('====================================');
+  const isApiAuthRoute = pathname.startsWith('/api/auth');
+
+  // Allow API auth routes to proceed
   if (isApiAuthRoute) {
     return NextResponse.next();
   }
 
+  // Handle authenticated user on auth routes
   if (isAuthRoute) {
     if (isLoggedIn) {
       return NextResponse.redirect(
@@ -34,9 +54,10 @@ export async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
+  // Handle unauthenticated user on protected routes
   if (
     !isLoggedIn &&
-    protectedPages.includes(request.nextUrl.pathname.replace(`/${locale}`, ''))
+    protectedPages.includes(pathname.replace(`/${locale}`, ''))
   ) {
     return NextResponse.redirect(
       new URL(`/${locale}/sign-in`, request.nextUrl)
@@ -45,10 +66,10 @@ export async function middleware(request: NextRequest) {
 
   // Exclude specific paths from further processing
   if (
-    !publicPages.some((page) => request.nextUrl.pathname.startsWith(page)) &&
-    !request.nextUrl.pathname.startsWith('/api') &&
-    !request.nextUrl.pathname.startsWith('/_next') &&
-    !request.nextUrl.pathname.includes('/(*.)')
+    !publicPages.some((page) => pathname.startsWith(page)) &&
+    !pathname.startsWith('/api') &&
+    !pathname.startsWith('/_next') &&
+    !pathname.includes('/favicon.ico')
   ) {
     return intlMiddleware(request);
   }
