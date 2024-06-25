@@ -22,8 +22,8 @@ export const formSchema = z.object({
     .optional(),
 });
 
-export const createCountry = async (courseData: z.infer<typeof formSchema>) => {
-  const response = await axios.post('/api/country', courseData);
+export const createCountry = async (data: z.infer<typeof formSchema>) => {
+  const response = await axios.post('/api/country', data);
   return response.data;
 };
 

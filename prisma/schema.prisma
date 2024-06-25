@@ -1,60 +1,50 @@
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-  relationMode = "prisma"
-}
-
 generator client {
   provider = "prisma-client-js"
 }
 
+datasource db {
+  provider     = "postgresql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
 model Country {
-  id          String     @id @default(uuid())
-
+  id          String   @id @default(uuid())
   name        String
-  title       String? @db.Text
-  description String @db.Text
-
-  emoji       String 
-  isNew       Boolean @default(true)
-
-
-  jobs        Job[]
-
+  title       String?
+  description String
+  emoji       String
+  isNew       Boolean? @default(true)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-
+  jobs        Job[]
 }
 
 model Job {
-  id          String     @id @default(uuid())
-
+  id          String   @id @default(uuid())
   name        String
   title       String?
-  description String @db.Text
+  description String
   imgUrl      String
-
-  isNew       Boolean @default(true)
-  isTrend     Boolean @default(true)
-  isActive    Boolean @default(true)
-  isDeadline  Boolean @default(false)
-
+  isNew       Boolean  @default(true)
+  isTrend     Boolean  @default(true)
+  isActive    Boolean  @default(true)
+  isDeadline  Boolean  @default(false)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-
   countryId   String
-  country     Country @relation(fields: [countryId], references: [id], onDelete: Cascade)
+  country     Country  @relation(fields: [countryId], references: [id], onDelete: Cascade)
 
-  @@index([countryId])
   @@unique([name, countryId])
+  @@index([countryId])
 }
+
 model Admin {
-  id            String   @id @default(cuid())
-  name          String?
-  email         String   @unique
-  password      String
-  isAdmin       Boolean  @default(false)
-  
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
+  id        String   @id @default(cuid())
+  name      String?
+  email     String   @unique
+  password  String
+  isAdmin   Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

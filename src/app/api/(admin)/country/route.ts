@@ -14,16 +14,16 @@ export async function POST(req: Request) {
 
     const country = await DB.country.create({
       data: {
-        name,
-        description,
-        title,
         emoji,
+        name,
+        title,
+        description,
       },
     });
 
     return NextResponse.json(country);
   } catch (error) {
-    console.log('[Courses] Error: ', error);
+    console.log('[Country] Error: ', error);
     return new NextResponse('Internal Server Error', { status: 500 });
   }
 }

@@ -131,7 +131,7 @@ export const navItems: NavItem[] = [
   },
   {
     title: 'All Posts',
-    href: '/all-posts',
+    href: '/posts',
     icon: 'blogs',
     label: 'blogs',
   },
