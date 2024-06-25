@@ -1,19 +1,12 @@
 'use client';
-
 import { Button } from '@/components/ui/button';
 import { ColumnDef } from '@tanstack/react-table';
-import { ArrowUpDown, MoreHorizontal, Pencil } from 'lucide-react';
+import { ArrowUpDown, Pencil } from 'lucide-react';
 
 import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
 import { Country } from '@prisma/client';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
 
 export const columns: ColumnDef<Country>[] = [
   {
@@ -79,29 +72,29 @@ export const columns: ColumnDef<Country>[] = [
       const { id } = row.original;
 
       return (
-        // <Button variant={'ghost'} className="h-4 w-8 p-0">
-        //   <Link href={`/teacher/courses/${id}`}>
-        //     <Pencil className="h-4 w-4 mr-2 hover:text-sky-700" />
-        //   </Link>
-        // </Button>
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant={'ghost'} className="h-4 w-8 p-0">
-              <span className="sr-only">Open menu</span>
+        <Button variant={'ghost'} className="h-4 w-8 p-0">
+          <Link href={`/country/${id}`}>
+            <Pencil className="h-4 w-4 mr-2 hover:text-secondary" />
+          </Link>
+        </Button>
+        // <DropdownMenu>
+        //   <DropdownMenuTrigger asChild>
+        //     <Button variant={'ghost'} className="h-4 w-8 p-0">
+        //       <span className="sr-only">Open menu</span>
 
-              <MoreHorizontal className="h-4 w-4" />
-            </Button>
-          </DropdownMenuTrigger>
+        //       <MoreHorizontal className="h-4 w-4" />
+        //     </Button>
+        //   </DropdownMenuTrigger>
 
-          <DropdownMenuContent>
-            <Link href={`/country/${id}`}>
-              <DropdownMenuItem>
-                <Pencil className="h-4 w-4 mr-2" />
-                Edit
-              </DropdownMenuItem>
-            </Link>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        //   <DropdownMenuContent>
+        //     <Link href={`/country/${id}`}>
+        //       <DropdownMenuItem>
+        //         <Pencil className="h-4 w-4 mr-2" />
+        //         Edit
+        //       </DropdownMenuItem>
+        //     </Link>
+        //   </DropdownMenuContent>
+        // </DropdownMenu>
       );
     },
   },
