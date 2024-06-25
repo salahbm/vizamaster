@@ -35,8 +35,8 @@ export const useCreateCountry = () => {
     mutationFn: createCountry,
     async onSuccess(data) {
       await queryClient.invalidateQueries({ queryKey: ['countries'] });
-      // router.push(`/teacher/courses/${data.id}`);
       toast({ title: 'Course created successfully' });
+      router.push(`/posts`);
     },
     async onError() {
       toast({ title: 'Something went wrong' });

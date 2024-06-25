@@ -14,11 +14,11 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { formSchema } from '@/hooks/admin/use-create-country';
+import { formSchema, useCreateCountry } from '@/hooks/admin/use-create-country';
 import { Editor } from '@/components/shared/editor';
 
 const CreateCountryPage = () => {
-  //   const { mutate } = useCreateCourse();
+  const { mutateAsync: createCountry, isPending } = useCreateCountry();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -33,8 +33,7 @@ const CreateCountryPage = () => {
   const { isSubmitting, isValid } = form.formState;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    // mutate(values);
-    console.log(values);
+    createCountry(values);
   };
 
   return (
@@ -122,7 +121,12 @@ const CreateCountryPage = () => {
             />
 
             <div className="flex items-center gap-x-2">
-              <Button type="submit">Continue</Button>
+              <Button
+                disabled={!isValid || isSubmitting || isPending}
+                type="submit"
+              >
+                Continue
+              </Button>
             </div>
           </form>
         </Form>
