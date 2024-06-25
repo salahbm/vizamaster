@@ -24,7 +24,7 @@ const SingleFeature = ({
       }}
       initial="hidden"
       whileInView="visible"
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.3 }}
       viewport={{ once: true }}
       className="bg-white z-40 rounded-lg border border-gray-200 p-8 shadow-lg transform transition-transform duration-600  dark:border-gray-700 dark:bg-gray-800 hover:bg-slate-100 dark:hover:bg-gray-700 cursor-pointer"
     >

@@ -23,7 +23,7 @@ const CreateCountryPage = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      country: '',
+      emoji: '',
       name: '',
       description: '',
       title: '',
@@ -53,7 +53,7 @@ const CreateCountryPage = () => {
           >
             <FormField
               control={form.control}
-              name="country"
+              name="emoji"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Country Emoji</FormLabel>

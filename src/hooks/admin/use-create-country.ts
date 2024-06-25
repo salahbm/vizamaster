@@ -1,11 +1,11 @@
-// import axios from 'axios';
+import { toast } from '@/components/ui/use-toast';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
 import { z } from 'zod';
-// import { useMutation, useQueryClient } from '@tanstack/react-query';
-// import toast from 'react-hot-toast';
-// import { useRouter } from 'next/navigation';
 
 export const formSchema = z.object({
-  country: z.string().min(1, {
+  emoji: z.string().min(1, {
     message: 'Country emoji is required',
   }),
   name: z.string().min(1, {
@@ -22,24 +22,24 @@ export const formSchema = z.object({
     .optional(),
 });
 
-// export const createCourse = async (courseData: z.infer<typeof formSchema>) => {
-//   const response = await axios.post('/api/courses', courseData);
-//   return response.data;
-// };
+export const createCountry = async (courseData: z.infer<typeof formSchema>) => {
+  const response = await axios.post('/api/country', courseData);
+  return response.data;
+};
 
-// export const useCreateCourse = () => {
-//   const queryClient = useQueryClient();
-//   const router = useRouter();
+export const useCreateCountry = () => {
+  const queryClient = useQueryClient();
+  const router = useRouter();
 
-//   return useMutation({
-//     mutationFn: createCourse,
-//     async onSuccess(data) {
-//       await queryClient.invalidateQueries({ queryKey: ['courses'] });
-//       router.push(`/teacher/courses/${data.id}`);
-//       toast.success('Course created successfully');
-//     },
-//     async onError() {
-//       toast.error('Something went wrong');
-//     },
-//   });
-// };
+  return useMutation({
+    mutationFn: createCountry,
+    async onSuccess(data) {
+      await queryClient.invalidateQueries({ queryKey: ['countries'] });
+      // router.push(`/teacher/courses/${data.id}`);
+      toast({ title: 'Course created successfully' });
+    },
+    async onError() {
+      toast({ title: 'Something went wrong' });
+    },
+  });
+};

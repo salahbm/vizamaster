@@ -12,19 +12,18 @@ model Country {
   id          String     @id @default(uuid())
 
   name        String
-  title       String?
+  title       String? @db.Text
   description String @db.Text
 
-  imgUrl      String
-  isNew       Boolean
+  emoji       String 
+  isNew       Boolean @default(true)
 
-  jobId       String
+
   jobs        Job[]
 
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  @@index([jobId])
 }
 
 model Job {
