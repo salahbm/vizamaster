@@ -60,17 +60,17 @@ export function DataTable<TData, TValue>({
     <div className="px-2">
       <div className="flex items-center py-4 justify-between">
         <Input
-          placeholder="Filter courses..."
-          value={(table.getColumn('title')?.getFilterValue() as string) ?? ''}
+          placeholder="Filter countries..."
+          value={(table.getColumn('name')?.getFilterValue() as string) ?? ''}
           onChange={(event) =>
-            table.getColumn('title')?.setFilterValue(event.target.value)
+            table.getColumn('name')?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />
-        <Link href={`/teacher/create`}>
-          <Button className="flex items-center  justify-between flex-row">
-            <PlusCircle className="h-4 w-4 mr-2 hover:text-sky-700" />
-            New Course
+        <Link href={`/country`}>
+          <Button className="flex items-center  justify-between flex-row text-white">
+            <PlusCircle className="h-4 w-4 mr-2" />
+            New Country
           </Button>
         </Link>
       </div>
@@ -102,7 +102,10 @@ export function DataTable<TData, TValue>({
                   data-state={row.getIsSelected() && 'selected'}
                 >
                   {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id} className="text-center">
+                    <TableCell
+                      key={cell.id}
+                      className="whitespace-nowrap w-auto text-left pl-8"
+                    >
                       {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()
@@ -124,7 +127,7 @@ export function DataTable<TData, TValue>({
           </TableBody>
         </Table>
       </div>
-      <div className="flex items-center justify-end space-x-2 py-4">
+      <div className="flex items-center justify-end space-x-2 py-6">
         <Button
           variant="outline"
           size="sm"
