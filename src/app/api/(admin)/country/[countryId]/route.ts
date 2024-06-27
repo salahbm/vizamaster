@@ -9,7 +9,6 @@ export async function PATCH(
   try {
     const session = await auth();
     const { countryId } = params;
-    console.log(`countryId:`, countryId);
     const { emoji, title, description, name } = await req.json();
 
     if (!session?.user?.id) {
@@ -25,6 +24,33 @@ export async function PATCH(
         name,
         title,
         description,
+      },
+    });
+
+    return NextResponse.json(country);
+  } catch (error) {
+    console.log('[Country] Error: ', error);
+    return new NextResponse('Internal Server Error', { status: 500 });
+  }
+}
+
+export async function DELETE(
+  req: Request,
+  { params }: { params: { countryId: string } }
+) {
+  try {
+    const session = await auth();
+    const { countryId } = params;
+    if (!session?.user?.id) {
+      return new NextResponse('Unauthorized', { status: 401 });
+    }
+
+    const country = await DB.country.delete({
+      where: {
+        id: countryId,
+      },
+      include: {
+        jobs: true,
       },
     });
 

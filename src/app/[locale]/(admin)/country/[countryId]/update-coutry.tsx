@@ -14,9 +14,16 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { formSchema, useUpdateCountry } from '@/hooks/admin/useCountry';
+import {
+  formSchema,
+  useDeleteCountry,
+  useUpdateCountry,
+} from '@/hooks/admin/useCountry';
 import { Editor } from '@/components/shared/editor';
 import { Country } from '@prisma/client';
+import ConfirmModal from '@/components/shared/modals/confirm-modal';
+import { Trash } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const UpdateCountryForm = ({
   initialData,
@@ -26,6 +33,11 @@ const UpdateCountryForm = ({
   countryId: string;
 }) => {
   const { mutateAsync: updateCountry, isPending } = useUpdateCountry();
+
+  const { mutateAsync: mutateAsyncDeleteCourse, isPending: isPendingDelete } =
+    useDeleteCountry();
+
+  const router = useRouter();
 
   if (!initialData || !countryId) {
     return null;
@@ -45,16 +57,34 @@ const UpdateCountryForm = ({
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     await updateCountry({ data: values, countryId });
+    router.refresh();
   };
 
+  // delete country
+
+  const onDelete = async () => {
+    await mutateAsyncDeleteCourse(countryId);
+    router.push(`/posts`);
+  };
   return (
     <div className="flex justify-center h-full p-6">
       <div>
-        <h1 className="textGradient text-2xl">Name the country</h1>
+        <div className="flex items-center justify-between flex-wrap gap-y-2">
+          <div>
+            <h1 className="textGradient text-2xl">Name the country</h1>
 
-        <p className="text-sm text-slate-600">
-          This section will help you name the country and its related data.
-        </p>
+            <p className="text-sm text-slate-600">
+              This section will help you name the country and its related data.
+            </p>
+          </div>
+          <div className="flex items-center ">
+            <ConfirmModal onConfirm={onDelete}>
+              <Button size={'sm'} disabled={isPendingDelete || isSubmitting}>
+                <Trash className="w-4 h-4 text-white" />
+              </Button>
+            </ConfirmModal>
+          </div>
+        </div>
 
         <Form {...form}>
           <form
