@@ -76,3 +76,30 @@ export const useUpdateCountry = () => {
     },
   });
 };
+
+// delete country
+export const deleteCountry = async (countryId: string) => {
+  if (!countryId) {
+    throw new Error('Country ID is required for deleting');
+  }
+  const response = await axios.delete(`/api/country/${countryId}`);
+  return response.data;
+};
+
+export const useDeleteCountry = () => {
+  const queryClient = useQueryClient();
+  const router = useRouter();
+
+  return useMutation({
+    mutationFn: deleteCountry,
+    async onSuccess(data) {
+      await queryClient.invalidateQueries({ queryKey: ['countries'] });
+      toast({ title: 'Country deleted successfully' });
+      router.push(`/posts`);
+    },
+    async onError() {
+      toast({ title: 'Something went wrong' });
+    },
+  });
+};
+// end of hooks
