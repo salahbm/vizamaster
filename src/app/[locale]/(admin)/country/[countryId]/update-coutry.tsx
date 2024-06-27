@@ -16,17 +16,18 @@ import {
 import { Input } from '@/components/ui/input';
 import { formSchema, useCreateCountry } from '@/hooks/admin/use-create-country';
 import { Editor } from '@/components/shared/editor';
+import { Country } from '@prisma/client';
 
-const CreateCountryPage = () => {
+const UpdateCountryForm = ({ initialData }: { initialData: Country }) => {
   const { mutateAsync: createCountry, isPending } = useCreateCountry();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      emoji: '',
-      name: '',
-      description: '',
-      title: '',
+      emoji: initialData?.emoji || '',
+      name: initialData?.name || '',
+      description: initialData?.description || '',
+      title: initialData?.title || '',
     },
   });
 
@@ -126,7 +127,7 @@ const CreateCountryPage = () => {
                 type="submit"
                 className="text-white"
               >
-                Continue
+                Update
               </Button>
             </div>
           </form>
@@ -136,4 +137,4 @@ const CreateCountryPage = () => {
   );
 };
 
-export default CreateCountryPage;
+export default UpdateCountryForm;
