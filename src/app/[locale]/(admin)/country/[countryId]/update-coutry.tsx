@@ -14,12 +14,22 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { formSchema, useCreateCountry } from '@/hooks/admin/useCountry';
+import { formSchema, useUpdateCountry } from '@/hooks/admin/useCountry';
 import { Editor } from '@/components/shared/editor';
 import { Country } from '@prisma/client';
 
-const UpdateCountryForm = ({ initialData }: { initialData: Country }) => {
-  const { mutateAsync: createCountry, isPending } = useCreateCountry();
+const UpdateCountryForm = ({
+  initialData,
+  countryId,
+}: {
+  initialData: Country;
+  countryId: string;
+}) => {
+  const { mutateAsync: updateCountry, isPending } = useUpdateCountry();
+
+  if (!initialData || !countryId) {
+    return null;
+  }
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -34,7 +44,7 @@ const UpdateCountryForm = ({ initialData }: { initialData: Country }) => {
   const { isSubmitting, isValid } = form.formState;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    createCountry(values);
+    await updateCountry({ data: values, countryId });
   };
 
   return (

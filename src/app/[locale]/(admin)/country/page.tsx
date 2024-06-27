@@ -33,7 +33,7 @@ const CreateCountryPage = () => {
   const { isSubmitting, isValid } = form.formState;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    createCountry(values);
+    await createCountry(values);
   };
 
   return (

@@ -11,7 +11,10 @@ const CountryIdPage = async ({ params }: { params: { countryId: string } }) => {
 
   return (
     <div className="flex justify-center h-full p-6">
-      <UpdateCountryForm initialData={country as Country} />
+      <UpdateCountryForm
+        initialData={country as Country}
+        countryId={country?.id as string}
+      />
     </div>
   );
 };

@@ -46,11 +46,17 @@ export const useCreateCountry = () => {
 };
 
 // update country
-export const updateCountry = async (data: z.infer<typeof formSchema>) => {
-  if (!data.id) {
+export const updateCountry = async ({
+  data,
+  countryId,
+}: {
+  data: z.infer<typeof formSchema>;
+  countryId: string;
+}) => {
+  if (!countryId) {
     throw new Error('Country ID is required for updating');
   }
-  const response = await axios.put(`/api/country/${data.id}`, data);
+  const response = await axios.patch(`/api/country/${countryId}`, data);
   return response.data;
 };
 
@@ -63,7 +69,7 @@ export const useUpdateCountry = () => {
     async onSuccess(data) {
       await queryClient.invalidateQueries({ queryKey: ['countries'] });
       toast({ title: 'Country updated successfully' });
-      router.push(`/vacancy`);
+      router.push(`/posts`);
     },
     async onError() {
       toast({ title: 'Something went wrong' });
