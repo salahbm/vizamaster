@@ -14,7 +14,7 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { formSchema, useCreateCountry } from '@/hooks/admin/use-create-country';
+import { formSchema, useCreateCountry } from '@/hooks/admin/useCountry';
 import { Editor } from '@/components/shared/editor';
 import { Country } from '@prisma/client';
 

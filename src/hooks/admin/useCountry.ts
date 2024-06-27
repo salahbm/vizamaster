@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { z } from 'zod';
 
 export const formSchema = z.object({
+  id: z.string().optional(),
   emoji: z.string().min(1, {
     message: 'Country emoji is required',
   }),
@@ -35,8 +36,34 @@ export const useCreateCountry = () => {
     mutationFn: createCountry,
     async onSuccess(data) {
       await queryClient.invalidateQueries({ queryKey: ['countries'] });
-      toast({ title: 'Course created successfully' });
+      toast({ title: 'Country created successfully' });
       router.push(`/posts`);
+    },
+    async onError() {
+      toast({ title: 'Something went wrong' });
+    },
+  });
+};
+
+// update country
+export const updateCountry = async (data: z.infer<typeof formSchema>) => {
+  if (!data.id) {
+    throw new Error('Country ID is required for updating');
+  }
+  const response = await axios.put(`/api/country/${data.id}`, data);
+  return response.data;
+};
+
+export const useUpdateCountry = () => {
+  const queryClient = useQueryClient();
+  const router = useRouter();
+
+  return useMutation({
+    mutationFn: updateCountry,
+    async onSuccess(data) {
+      await queryClient.invalidateQueries({ queryKey: ['countries'] });
+      toast({ title: 'Country updated successfully' });
+      router.push(`/vacancy`);
     },
     async onError() {
       toast({ title: 'Something went wrong' });
