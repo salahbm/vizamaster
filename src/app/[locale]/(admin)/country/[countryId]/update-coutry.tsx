@@ -50,6 +50,7 @@ const UpdateCountryForm = ({
       name: initialData?.name || '',
       description: initialData?.description || '',
       title: initialData?.title || '',
+      isNew: initialData?.isNew || true,
     },
   });
 
@@ -57,7 +58,6 @@ const UpdateCountryForm = ({
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     await updateCountry({ data: values, countryId });
-    router.refresh();
   };
 
   // delete country

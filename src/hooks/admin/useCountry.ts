@@ -21,6 +21,7 @@ export const formSchema = z.object({
       message: 'Country title is required',
     })
     .optional(),
+  isNew: z.boolean().optional(),
 });
 
 export const createCountry = async (data: z.infer<typeof formSchema>) => {
