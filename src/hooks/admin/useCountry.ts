@@ -96,7 +96,7 @@ export const useDeleteCountry = () => {
     async onSuccess(data) {
       await queryClient.invalidateQueries({ queryKey: ['countries'] });
       toast({ title: 'Country deleted successfully' });
-      router.push(`/posts`);
+      router.replace(`/posts`);
     },
     async onError() {
       toast({ title: 'Something went wrong' });

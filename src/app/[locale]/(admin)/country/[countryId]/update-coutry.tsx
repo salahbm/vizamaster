@@ -24,6 +24,9 @@ import { Country } from '@prisma/client';
 import ConfirmModal from '@/components/shared/modals/confirm-modal';
 import { Trash } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { Switch } from '@/components/ui/switch';
+import { Separator } from '@/components/ui/separator';
+import dayjs from 'dayjs';
 
 const UpdateCountryForm = ({
   initialData,
@@ -40,7 +43,7 @@ const UpdateCountryForm = ({
   const router = useRouter();
 
   if (!initialData || !countryId) {
-    return null;
+    return <p>Country not found</p>;
   }
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -50,7 +53,7 @@ const UpdateCountryForm = ({
       name: initialData?.name || '',
       description: initialData?.description || '',
       title: initialData?.title || '',
-      isNew: initialData?.isNew || true,
+      isNew: initialData?.isNew!!,
     },
   });
 
@@ -71,13 +74,17 @@ const UpdateCountryForm = ({
       <div>
         <div className="flex items-center justify-between flex-wrap gap-y-2">
           <div>
-            <h1 className="textGradient text-2xl">Name the country</h1>
+            <h1 className="textGradient text-2xl">Update the country</h1>
 
             <p className="text-sm text-slate-600">
-              This section will help you name the country and its related data.
+              Update the country information here and click on update button.
             </p>
           </div>
-          <div className="flex items-center ">
+          <Separator className="my-2" />
+          <div className="flex sm:flex-row sm:items-center sm:justify-between flex-col items-start w-full gap-2">
+            <div className="text-sm md:text-lg  text-neutral-700">
+              Last Updated: {dayjs(initialData?.updatedAt).format('DD-MM-YYYY')}
+            </div>
             <ConfirmModal onConfirm={onDelete}>
               <Button size={'sm'} disabled={isPendingDelete || isSubmitting}>
                 <Trash className="w-4 h-4 text-white" />
@@ -160,6 +167,26 @@ const UpdateCountryForm = ({
                 </FormItem>
               )}
             />
+
+            <FormField
+              control={form.control}
+              name="isNew"
+              render={({ field }) => (
+                <FormItem className=" justify-between flex items-center">
+                  <FormLabel>Is New?</FormLabel>
+                  <FormControl>
+                    <Switch
+                      disabled={isSubmitting}
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                      className=" mt-2"
+                    />
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+
+            <Separator className="my-6" />
 
             <div className="flex items-center gap-x-2">
               <Button

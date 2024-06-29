@@ -2,6 +2,7 @@ import { DB } from '@/lib/db';
 
 import { NextResponse } from 'next/server';
 import { auth } from '../../../../../auth';
+import { revalidatePath } from 'next/cache';
 
 export async function POST(req: Request) {
   try {
@@ -20,7 +21,7 @@ export async function POST(req: Request) {
         description,
       },
     });
-
+    revalidatePath('/country');
     return NextResponse.json(country);
   } catch (error) {
     console.log('[Country] Error: ', error);

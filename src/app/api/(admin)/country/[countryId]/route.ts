@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { auth } from '../../../../../../auth';
 import { DB } from '@/lib/db';
+import { revalidatePath } from 'next/cache';
 
 export async function PATCH(
   req: Request,
@@ -9,7 +10,7 @@ export async function PATCH(
   try {
     const session = await auth();
     const { countryId } = params;
-    const { emoji, title, description, name } = await req.json();
+    const { emoji, title, description, name, isNew } = await req.json();
 
     if (!session?.user?.id) {
       return new NextResponse('Unauthorized', { status: 401 });
@@ -24,9 +25,10 @@ export async function PATCH(
         name,
         title,
         description,
+        isNew,
       },
     });
-
+    revalidatePath('/country');
     return NextResponse.json(country);
   } catch (error) {
     console.log('[Country] Error: ', error);
@@ -53,7 +55,7 @@ export async function DELETE(
         jobs: true,
       },
     });
-
+    revalidatePath('/country');
     return NextResponse.json(country);
   } catch (error) {
     console.log('[Country] Error: ', error);
