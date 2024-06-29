@@ -27,7 +27,6 @@ export default async function AdminLayout({
   children,
 }: React.PropsWithChildren<Params>) {
   const isAdmin = await handleAdmin();
-  console.log(`isAdmin:`, isAdmin);
   return (
     <main className="relative max-w-screen-[1440px] mx-auto">
       <SessionProvider>

@@ -26,6 +26,10 @@ import {
 import { useCreateVacancy, vacancyFormSchema } from '@/hooks/admin/useVacancy';
 import { Switch } from '@/components/ui/switch';
 import { Separator } from '@/components/ui/separator';
+import { useState } from 'react';
+import FileUpload from '@/components/shared/file-upload';
+import Image from 'next/image';
+import { ImageIcon, Pencil, PlusCircle } from 'lucide-react';
 
 const CreateVacancyForm = ({
   countries,
@@ -50,11 +54,20 @@ const CreateVacancyForm = ({
     },
   });
 
+  console.log('====================================');
+  console.log(form.getValues('imgUrl'));
+  console.log('====================================');
+
   const { isSubmitting, isValid } = form.formState;
+
+  const [isEditing, setIsEditing] = useState(false);
+
+  const toggleEdit = () => setIsEditing((prev) => !prev);
 
   const onSubmit = async (values: z.infer<typeof vacancyFormSchema>) => {
     console.log(`values:`, values);
     // await createVacancy(values);
+    toggleEdit();
   };
 
   return (
@@ -91,6 +104,54 @@ const CreateVacancyForm = ({
                         ))}
                       </SelectContent>
                     </Select>
+                  </FormControl>
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="countryName"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="flex justify-between items-center">
+                    Image
+                    {!isEditing && (
+                      <Button variant={'ghost'} onClick={toggleEdit}>
+                        <PlusCircle className="h-4 w-4 mr-2" />
+                      </Button>
+                    )}
+                  </FormLabel>
+
+                  <FormControl>
+                    {form.getValues('imgUrl') !== '' ? (
+                      <div className="relative aspect-video mt-2">
+                        <Image
+                          fill
+                          alt="Upload"
+                          src={form.getValues('imgUrl') as string}
+                          className="object-cover rounded-md"
+                        />
+                      </div>
+                    ) : isEditing ? (
+                      <div>
+                        <FileUpload
+                          endpoint="courseImage"
+                          onChange={(url?: string) => {
+                            if (url) {
+                              form.setValue('imgUrl', url);
+                            }
+                          }}
+                        />
+
+                        <div className="text-xs text-muted-foreground mt-4">
+                          16:9 aspect ratio recommended
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="flex items-center justify-center h-60 bg-slate-100 rounded-md">
+                        <ImageIcon className="h-10 w-10 text-slate-400" />
+                      </div>
+                    )}
                   </FormControl>
                 </FormItem>
               )}
