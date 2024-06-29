@@ -31,11 +31,36 @@ export const createVacancy = async (
   return response.data;
 };
 
+const deleteUploadImg = async (value: string) => {
+  const url = value.split('/').pop() ?? ''; // Extracts the filename with extension
+  console.log(`url:`, url);
+
+  const response = await axios.delete('/api/uploadthing', {
+    data: {
+      url,
+    },
+  });
+
+  return response.data;
+};
+
 export const useCreateVacancy = () => {
   const queryClient = useQueryClient();
   const router = useRouter();
 
-  return useMutation({
+  const mutateAsyncDeleteUploadImg = useMutation({
+    mutationFn: deleteUploadImg,
+    async onSuccess() {
+      await queryClient.invalidateQueries({ queryKey: ['vacancies'] });
+      toast({ title: 'Deleted successfully' });
+      router.refresh();
+    },
+    async onError() {
+      toast({ title: 'Something went wrong' });
+    },
+  });
+
+  const mutateCreateVacancy = useMutation({
     mutationFn: createVacancy,
     async onSuccess(data) {
       await queryClient.invalidateQueries({ queryKey: ['vacancies'] });
@@ -46,4 +71,6 @@ export const useCreateVacancy = () => {
       toast({ title: 'Something went wrong' });
     },
   });
+
+  return { mutateAsyncDeleteUploadImg, mutateCreateVacancy };
 };

@@ -29,14 +29,15 @@ import { Separator } from '@/components/ui/separator';
 import { useState } from 'react';
 import FileUpload from '@/components/shared/file-upload';
 import Image from 'next/image';
-import { ImageIcon, Pencil, PlusCircle } from 'lucide-react';
+import { ImageIcon, Pencil, PlusCircle, Trash2Icon } from 'lucide-react';
 
 const CreateVacancyForm = ({
   countries,
 }: {
   countries: { name: string; id: string; emoji: string }[];
 }) => {
-  const { mutateAsync: createVacancy, isPending } = useCreateVacancy();
+  const { mutateCreateVacancy, mutateAsyncDeleteUploadImg } =
+    useCreateVacancy();
 
   const form = useForm<z.infer<typeof vacancyFormSchema>>({
     resolver: zodResolver(vacancyFormSchema),
@@ -54,15 +55,20 @@ const CreateVacancyForm = ({
     },
   });
 
-  console.log('====================================');
-  console.log(form.getValues('imgUrl'));
-  console.log('====================================');
-
   const { isSubmitting, isValid } = form.formState;
 
   const [isEditing, setIsEditing] = useState(false);
 
   const toggleEdit = () => setIsEditing((prev) => !prev);
+
+  const handleDeleteImg = async () => {
+    await mutateAsyncDeleteUploadImg.mutateAsync(
+      form.getValues('imgUrl') as string
+    );
+    toggleEdit();
+    form.setValue('imgUrl', '');
+    form.trigger('imgUrl');
+  };
 
   const onSubmit = async (values: z.infer<typeof vacancyFormSchema>) => {
     console.log(`values:`, values);
@@ -115,15 +121,21 @@ const CreateVacancyForm = ({
                 <FormItem>
                   <FormLabel className="flex justify-between items-center">
                     Image
-                    {!isEditing && (
-                      <Button variant={'ghost'} onClick={toggleEdit}>
-                        <PlusCircle className="h-4 w-4 mr-2" />
+                    {form.getValues('imgUrl') ? (
+                      <Button variant="ghost" onClick={handleDeleteImg}>
+                        <Trash2Icon className="h-4 w-4  text-primary" />
                       </Button>
+                    ) : (
+                      !isEditing && (
+                        <Button variant="ghost" onClick={toggleEdit}>
+                          <PlusCircle className="h-4 w-4 " />
+                        </Button>
+                      )
                     )}
                   </FormLabel>
 
                   <FormControl>
-                    {form.getValues('imgUrl') !== '' ? (
+                    {form.getValues('imgUrl') ? (
                       <div className="relative aspect-video mt-2">
                         <Image
                           fill
@@ -136,13 +148,13 @@ const CreateVacancyForm = ({
                       <div>
                         <FileUpload
                           endpoint="courseImage"
-                          onChange={(url?: string) => {
+                          onChange={(url) => {
                             if (url) {
                               form.setValue('imgUrl', url);
+                              form.trigger('imgUrl'); // Automatically trigger validation
                             }
                           }}
                         />
-
                         <div className="text-xs text-muted-foreground mt-4">
                           16:9 aspect ratio recommended
                         </div>
@@ -284,7 +296,12 @@ const CreateVacancyForm = ({
 
             <div className="flex items-center gap-x-2">
               <Button
-                disabled={!isValid || isSubmitting || isPending}
+                disabled={
+                  !isValid ||
+                  isSubmitting ||
+                  mutateCreateVacancy.isPending ||
+                  mutateAsyncDeleteUploadImg.isPending
+                }
                 type="submit"
                 className="text-white"
               >
