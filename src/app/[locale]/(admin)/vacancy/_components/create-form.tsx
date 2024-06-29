@@ -23,21 +23,38 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { vacancyFormSchema } from '@/hooks/admin/useVacancy';
+import { useCreateVacancy, vacancyFormSchema } from '@/hooks/admin/useVacancy';
+import { Switch } from '@/components/ui/switch';
+import { Separator } from '@/components/ui/separator';
 
-const CreateVacancyForm = ({ countries }: { countries: string[] }) => {
-  console.log(`countries:`, countries);
-  const { mutateAsync: createCountry, isPending } = useCreateCountry();
+const CreateVacancyForm = ({
+  countries,
+}: {
+  countries: { name: string; id: string; emoji: string }[];
+}) => {
+  const { mutateAsync: createVacancy, isPending } = useCreateVacancy();
 
   const form = useForm<z.infer<typeof vacancyFormSchema>>({
     resolver: zodResolver(vacancyFormSchema),
-    defaultValues: {},
+    defaultValues: {
+      name: '',
+      title: '',
+      description: '',
+      imgUrl: '',
+      countryId: '',
+      countryName: '',
+      isNew: true,
+      isTrend: false,
+      isActive: true,
+      isDeadline: false,
+    },
   });
 
   const { isSubmitting, isValid } = form.formState;
 
   const onSubmit = async (values: z.infer<typeof vacancyFormSchema>) => {
-    await createCountry(values);
+    console.log(`values:`, values);
+    // await createVacancy(values);
   };
 
   return (
@@ -56,23 +73,20 @@ const CreateVacancyForm = ({ countries }: { countries: string[] }) => {
           >
             <FormField
               control={form.control}
-              name="country"
+              name="countryName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Country Emoji</FormLabel>
+                  <FormLabel>Country</FormLabel>
 
                   <FormControl>
                     <Select>
-                      <SelectTrigger className="w-[180px]">
-                        <SelectValue placeholder="Theme" />
+                      <SelectTrigger className="w-full">
+                        <SelectValue placeholder="Choose the country" />
                       </SelectTrigger>
                       <SelectContent>
-                        {countries.map((country, index) => (
-                          <SelectItem
-                            value={country}
-                            key={`${country}-${index}`}
-                          >
-                            {country}
+                        {countries.map((country) => (
+                          <SelectItem value={country.name} key={country.id}>
+                            {country.name} {country.emoji}
                           </SelectItem>
                         ))}
                       </SelectContent>
@@ -81,34 +95,18 @@ const CreateVacancyForm = ({ countries }: { countries: string[] }) => {
                 </FormItem>
               )}
             />
-            <FormField
-              control={form.control}
-              name="emoji"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Country Emoji</FormLabel>
 
-                  <FormControl>
-                    <Input
-                      disabled={isSubmitting}
-                      placeholder={`e.g. "🇺🇿" `}
-                      {...field}
-                    />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
             <FormField
               control={form.control}
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Country Name</FormLabel>
+                  <FormLabel>Vacancy Name</FormLabel>
 
                   <FormControl>
                     <Input
                       disabled={isSubmitting}
-                      placeholder={`e.g. "Uzbekistan" `}
+                      placeholder={`e.g. "Restaurant Chef Assistant" `}
                       {...field}
                     />
                   </FormControl>
@@ -150,6 +148,78 @@ const CreateVacancyForm = ({ countries }: { countries: string[] }) => {
                 </FormItem>
               )}
             />
+
+            <div className="grid grid-cols-2 items-center gap-x-2">
+              <FormField
+                control={form.control}
+                name="isNew"
+                render={({ field }) => (
+                  <FormItem className=" justify-between flex items-center">
+                    <FormLabel> New</FormLabel>
+                    <FormControl>
+                      <Switch
+                        disabled={isSubmitting}
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                        className=" mt-2"
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="isActive"
+                render={({ field }) => (
+                  <FormItem className=" justify-between flex items-center">
+                    <FormLabel>Active</FormLabel>
+                    <FormControl>
+                      <Switch
+                        disabled={isSubmitting}
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                        className=" mt-2"
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="isDeadline"
+                render={({ field }) => (
+                  <FormItem className=" justify-between flex items-center">
+                    <FormLabel>Deadline</FormLabel>
+                    <FormControl>
+                      <Switch
+                        disabled={isSubmitting}
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                        className=" mt-2"
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="isTrend"
+                render={({ field }) => (
+                  <FormItem className=" justify-between flex items-center">
+                    <FormLabel>Trending</FormLabel>
+                    <FormControl>
+                      <Switch
+                        disabled={isSubmitting}
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                        className=" mt-2"
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+            </div>
+            <Separator className="my-6" />
 
             <div className="flex items-center gap-x-2">
               <Button

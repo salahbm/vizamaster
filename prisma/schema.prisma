@@ -33,6 +33,7 @@ model Job {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   countryId   String
+  countryName String
   country     Country  @relation(fields: [countryId], references: [id], onDelete: Cascade)
 
   @@unique([name, countryId])

@@ -5,7 +5,6 @@ import { useRouter } from 'next/navigation';
 import { z } from 'zod';
 
 export const vacancyFormSchema = z.object({
-  id: z.string().optional(),
   name: z.string().min(1, {
     message: 'Vacancy name is required',
   }),
@@ -19,17 +18,16 @@ export const vacancyFormSchema = z.object({
   isTrend: z.boolean().optional(),
   isActive: z.boolean().optional(),
   isDeadline: z.boolean().optional(),
-  createdAt: z.string().optional(),
-  updatedAt: z.string().optional(),
+  countryName: z.string(),
 });
 
-interface TVacancyProps {
-  data: z.infer<typeof vacancyFormSchema>;
-  countryId: string;
-}
-
-export const createVacancy = async ({ data, countryId }: TVacancyProps) => {
-  const response = await axios.post(`/api/vacancy/${countryId}vacancy`, data);
+export const createVacancy = async (
+  data: z.infer<typeof vacancyFormSchema>
+) => {
+  const response = await axios.post(
+    `/api/vacancy/${data.countryId}/vacancy`,
+    data
+  );
   return response.data;
 };
 

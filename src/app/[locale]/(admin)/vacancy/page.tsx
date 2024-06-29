@@ -4,9 +4,16 @@ import { fetchAllCountries } from '@/hooks/admin/fetch-country';
 
 const CreateVacancyPage = async () => {
   const countries = await fetchAllCountries();
+
   return (
     <div>
-      <CreateVacancyForm countries={countries.map((country) => country.name)} />
+      <CreateVacancyForm
+        countries={countries.map(({ name, id, emoji }) => ({
+          name,
+          id,
+          emoji,
+        }))}
+      />
     </div>
   );
 };
