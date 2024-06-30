@@ -1,14 +1,15 @@
 import { Link } from '@/i18n';
+import { Country } from '@prisma/client';
 import React from 'react';
 
-const CountryCard = () => {
+const CountryCard = ({ country }: { country: Country }) => {
   return (
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg  dark:bg-gray-800 dark:border-gray-700  my-2 hover:scale-105 transition-transform duration-500">
       <Link href={'/jobs'}>
         <div
           className={`w-full h-[150px] md:h-[200px] flex items-center justify-center bg-slate-100`}
         >
-          <p className="text-[140px] md:text-[180px] ">🇺🇸</p>
+          <p className="text-[140px] md:text-[180px] ">{country.emoji}</p>
         </div>
 
         <div className="p-5">
