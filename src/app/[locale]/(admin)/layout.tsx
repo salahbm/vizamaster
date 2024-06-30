@@ -28,7 +28,7 @@ export default async function AdminLayout({
 }: React.PropsWithChildren<Params>) {
   const isAdmin = await handleAdmin();
   return (
-    <main className="relative max-w-screen-[1440px] mx-auto">
+    <main className="relative  mx-auto">
       <SessionProvider>
         <Suspense fallback={<Loader />}>
           {isAdmin ? (

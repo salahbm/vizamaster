@@ -98,7 +98,7 @@ const CreateVacancyForm = ({
                   <FormLabel>Country</FormLabel>
 
                   <FormControl>
-                    <Select>
+                    <Select onValueChange={field.onChange} value={field.value}>
                       <SelectTrigger className="w-full">
                         <SelectValue placeholder="Choose the country" />
                       </SelectTrigger>
