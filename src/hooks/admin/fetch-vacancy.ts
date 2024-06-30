@@ -11,6 +11,21 @@ export const fetchAllVacancies = async () => {
   return jobs;
 };
 
+export const fetchCountryVacancies = async (
+  countryId: string
+): Promise<Job[]> => {
+  const jobs = await DB.job.findMany({
+    where: {
+      countryId,
+    },
+    orderBy: {
+      createdAt: 'desc',
+    },
+  });
+
+  return jobs;
+};
+
 export const fetchVacancy = async (vacancyId: string): Promise<Job | null> => {
   const vacancy = await DB.job.findUnique({
     where: {

@@ -12,7 +12,7 @@ const Jobs = async () => {
   return (
     <div>
       {countries ? (
-        <div className="mt-35 px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-3 place-items-center ">
+        <div className="my-35 px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-3 place-items-center ">
           {countries.map((item) => (
             <CountryCard key={item.id} country={item as Country} />
           ))}
