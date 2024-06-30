@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { z } from 'zod';
 
 export const vacancyFormSchema = z.object({
+  id: z.string().optional(),
   name: z.string().min(1, {
     message: 'Vacancy name is required',
   }),
@@ -26,6 +27,23 @@ export const createVacancy = async (
 ) => {
   const response = await axios.post(
     `/api/country/${data.countryId}/vacancy`,
+    data
+  );
+  return response.data;
+};
+
+export const updateVacancy = async ({
+  data,
+  vacancyId,
+}: {
+  data: z.infer<typeof vacancyFormSchema>;
+  vacancyId: string;
+}) => {
+  if (!vacancyId) {
+    throw new Error('Vacancy ID is required for updating');
+  }
+  const response = await axios.patch(
+    `/api/country/${data.countryId}/vacancy/${vacancyId}`,
     data
   );
   return response.data;
@@ -72,5 +90,21 @@ export const useCreateVacancy = () => {
     },
   });
 
-  return { mutateAsyncDeleteUploadImg, mutateCreateVacancy };
+  const mutateUpdateVacancy = useMutation({
+    mutationFn: updateVacancy,
+    async onSuccess(data) {
+      await queryClient.invalidateQueries({ queryKey: ['vacancies'] });
+      toast({ title: 'Vacancy updated successfully' });
+      router.push(`/posts`);
+    },
+    async onError() {
+      toast({ title: 'Something went wrong' });
+    },
+  });
+
+  return {
+    mutateAsyncDeleteUploadImg,
+    mutateCreateVacancy,
+    mutateUpdateVacancy,
+  };
 };

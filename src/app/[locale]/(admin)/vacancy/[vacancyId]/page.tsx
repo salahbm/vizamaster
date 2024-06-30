@@ -12,7 +12,7 @@ const VacancyDetail = async ({ params }: { params: { vacancyId: string } }) => {
 
   return (
     <div>
-      <UpdateVacancyForm vacancy={vacancy} />
+      <UpdateVacancyForm vacancy={vacancy} vacancyId={params.vacancyId} />
     </div>
   );
 };

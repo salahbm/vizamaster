@@ -31,8 +31,14 @@ import Image from 'next/image';
 import { ImageIcon, PlusCircle, Trash2Icon } from 'lucide-react';
 import { Job } from '@prisma/client';
 
-const UpdateVacancyForm = ({ vacancy }: { vacancy: Job }) => {
-  const { mutateCreateVacancy, mutateAsyncDeleteUploadImg } =
+const UpdateVacancyForm = ({
+  vacancy,
+  vacancyId,
+}: {
+  vacancy: Job;
+  vacancyId: string;
+}) => {
+  const { mutateUpdateVacancy, mutateAsyncDeleteUploadImg } =
     useCreateVacancy();
 
   const form = useForm<z.infer<typeof vacancyFormSchema>>({
@@ -67,25 +73,10 @@ const UpdateVacancyForm = ({ vacancy }: { vacancy: Job }) => {
   };
 
   const onSubmit = async (values: z.infer<typeof vacancyFormSchema>) => {
-    await mutateCreateVacancy.mutateAsync(values);
+    console.log(`values:`, values);
+    // await mutateCreateVacancy.mutateAsync(values);
     toggleEdit();
   };
-
-  //   const handleUpdCountryId = useCallback(() => {
-  //     const countryName = form.getValues('countryName');
-
-  //     if (countryName) {
-  //       const country = countries.find((c) => c.name === countryName);
-  //       if (country) {
-  //         form.setValue('countryId', country.id);
-  //         form.trigger('countryId');
-  //       }
-  //     }
-  //   }, [form]);
-
-  //   useEffect(() => {
-  //     handleUpdCountryId();
-  //   }, [form.getValues('countryName')]);
 
   return (
     <div className="flex justify-center h-full p-6">
@@ -101,30 +92,6 @@ const UpdateVacancyForm = ({ vacancy }: { vacancy: Job }) => {
             onSubmit={form.handleSubmit(onSubmit)}
             className="space-y-8 mt-8"
           >
-            {/* <FormField
-              control={form.control}
-              name="countryName"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Country</FormLabel>
-
-                  <FormControl>
-                    <Select onValueChange={field.onChange} value={field.value}>
-                      <SelectTrigger className="w-full">
-                        <SelectValue placeholder="Choose the country" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {countries.map((country) => (
-                          <SelectItem value={country.name} key={country.id}>
-                            {country.name} {country.emoji}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </FormControl>
-                </FormItem>
-              )}
-            /> */}
             <FormField
               control={form.control}
               name="countryName"
@@ -310,7 +277,6 @@ const UpdateVacancyForm = ({ vacancy }: { vacancy: Job }) => {
                 disabled={
                   !isValid ||
                   isSubmitting ||
-                  mutateCreateVacancy.isPending ||
                   mutateAsyncDeleteUploadImg.isPending
                 }
                 type="submit"
