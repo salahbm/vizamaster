@@ -49,9 +49,24 @@ export const updateVacancy = async ({
   return response.data;
 };
 
+export const deleteVacancy = async ({
+  vacancyId,
+  countryId,
+}: {
+  vacancyId: string;
+  countryId: string;
+}) => {
+  if (!vacancyId) {
+    throw new Error('Vacancy ID is required for deleting');
+  }
+  const response = await axios.delete(
+    `/api/country/${countryId}/vacancy/${vacancyId}`
+  );
+  return response.data;
+};
+
 const deleteUploadImg = async (value: string) => {
-  const url = value.split('/').pop() ?? ''; // Extracts the filename with extension
-  console.log(`url:`, url);
+  const url = value.split('/').pop() ?? '';
 
   const response = await axios.delete('/api/uploadthing', {
     data: {
@@ -71,7 +86,6 @@ export const useCreateVacancy = () => {
     async onSuccess() {
       await queryClient.invalidateQueries({ queryKey: ['vacancies'] });
       toast({ title: 'Deleted successfully' });
-      router.refresh();
     },
     async onError() {
       toast({ title: 'Something went wrong' });
@@ -101,10 +115,22 @@ export const useCreateVacancy = () => {
       toast({ title: 'Something went wrong' });
     },
   });
+  const mutateDeleteVacancy = useMutation({
+    mutationFn: deleteVacancy,
+    async onSuccess(data) {
+      await queryClient.invalidateQueries({ queryKey: ['vacancies'] });
+      toast({ title: 'Vacancy deleted successfully' });
+      router.replace(`/posts`);
+    },
+    async onError() {
+      toast({ title: 'Something went wrong' });
+    },
+  });
 
   return {
     mutateAsyncDeleteUploadImg,
     mutateCreateVacancy,
     mutateUpdateVacancy,
+    mutateDeleteVacancy,
   };
 };

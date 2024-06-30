@@ -72,14 +72,14 @@ const UpdateCountryForm = ({
   return (
     <div className="flex justify-center h-full p-6">
       <div>
-        <div className="flex items-center justify-between flex-wrap gap-y-2">
-          <div>
-            <h1 className="textGradient text-2xl">Update the country</h1>
+        <div>
+          <h1 className="textGradient text-2xl">Update the country</h1>
 
-            <p className="text-sm text-slate-600">
-              Update the country information here and click on update button.
-            </p>
-          </div>
+          <p className="text-sm text-slate-600">
+            Update the country information here and click on update button.
+          </p>
+        </div>
+        <div className="flex items-center justify-between flex-wrap gap-y-2">
           <Separator className="my-2" />
           <div className="flex sm:flex-row sm:items-center sm:justify-between flex-col items-start w-full gap-2">
             <div className="text-sm md:text-lg  text-neutral-700">

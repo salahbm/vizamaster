@@ -15,21 +15,16 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Editor } from '@/components/shared/editor';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
 import { useCreateVacancy, vacancyFormSchema } from '@/hooks/admin/useVacancy';
 import { Switch } from '@/components/ui/switch';
 import { Separator } from '@/components/ui/separator';
-import { useCallback, useEffect, useState } from 'react';
+import { useState } from 'react';
 import FileUpload from '@/components/shared/file-upload';
 import Image from 'next/image';
-import { ImageIcon, PlusCircle, Trash2Icon } from 'lucide-react';
+import { ImageIcon, PlusCircle, Trash, Trash2Icon } from 'lucide-react';
 import { Job } from '@prisma/client';
+import ConfirmModal from '@/components/shared/modals/confirm-modal';
+import dayjs from 'dayjs';
 
 const UpdateVacancyForm = ({
   vacancy,
@@ -38,8 +33,11 @@ const UpdateVacancyForm = ({
   vacancy: Job;
   vacancyId: string;
 }) => {
-  const { mutateUpdateVacancy, mutateAsyncDeleteUploadImg } =
-    useCreateVacancy();
+  const {
+    mutateUpdateVacancy,
+    mutateAsyncDeleteUploadImg,
+    mutateDeleteVacancy,
+  } = useCreateVacancy();
 
   const form = useForm<z.infer<typeof vacancyFormSchema>>({
     resolver: zodResolver(vacancyFormSchema),
@@ -47,7 +45,7 @@ const UpdateVacancyForm = ({
       name: vacancy.name,
       title: vacancy.title || 'No title',
       description: vacancy.description,
-      imgUrl: vacancy.imgUrl,
+      imgUrl: vacancy.imgUrl || '',
       countryId: vacancy.countryId,
       countryName: vacancy.countryName,
       isNew: vacancy.isNew,
@@ -63,7 +61,8 @@ const UpdateVacancyForm = ({
 
   const toggleEdit = () => setIsEditing((prev) => !prev);
 
-  const handleDeleteImg = async () => {
+  const handleDeleteImg = async (e: React.SyntheticEvent) => {
+    e.preventDefault();
     await mutateAsyncDeleteUploadImg.mutateAsync(
       form.getValues('imgUrl') as string
     );
@@ -73,9 +72,15 @@ const UpdateVacancyForm = ({
   };
 
   const onSubmit = async (values: z.infer<typeof vacancyFormSchema>) => {
-    console.log(`values:`, values);
-    // await mutateCreateVacancy.mutateAsync(values);
+    await mutateUpdateVacancy.mutateAsync({ data: values, vacancyId });
     toggleEdit();
+  };
+
+  const onDelete = async () => {
+    await mutateDeleteVacancy.mutateAsync({
+      vacancyId: vacancyId,
+      countryId: vacancy.countryId,
+    });
   };
 
   return (
@@ -86,7 +91,22 @@ const UpdateVacancyForm = ({
         <p className="text-sm text-slate-600">
           This section will help you name the country and its related data.
         </p>
-
+        <div className="flex items-center justify-between flex-wrap gap-y-2">
+          <Separator className="my-2" />
+          <div className="flex sm:flex-row sm:items-center sm:justify-between flex-col items-start w-full gap-2">
+            <div className="text-sm md:text-lg  text-neutral-700">
+              Last Updated: {dayjs(vacancy?.updatedAt).format('DD-MM-YYYY')}
+            </div>
+            <ConfirmModal onConfirm={onDelete}>
+              <Button
+                size={'sm'}
+                disabled={mutateDeleteVacancy.isPending || isSubmitting}
+              >
+                <Trash className="w-4 h-4 text-white" />
+              </Button>
+            </ConfirmModal>
+          </div>
+        </div>
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
@@ -282,7 +302,7 @@ const UpdateVacancyForm = ({
                 type="submit"
                 className="text-white"
               >
-                Continue
+                Update
               </Button>
             </div>
           </form>
