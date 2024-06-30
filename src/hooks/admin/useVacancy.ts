@@ -25,7 +25,7 @@ export const createVacancy = async (
   data: z.infer<typeof vacancyFormSchema>
 ) => {
   const response = await axios.post(
-    `/api/vacancy/${data.countryId}/vacancy`,
+    `/api/country/${data.countryId}/vacancy`,
     data
   );
   return response.data;

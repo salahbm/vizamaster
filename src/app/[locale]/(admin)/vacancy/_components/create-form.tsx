@@ -70,7 +70,6 @@ const CreateVacancyForm = ({
   };
 
   const onSubmit = async (values: z.infer<typeof vacancyFormSchema>) => {
-    console.log(`values:`, values);
     await mutateCreateVacancy.mutateAsync(values);
     toggleEdit();
   };
