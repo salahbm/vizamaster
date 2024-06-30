@@ -3,10 +3,10 @@ import { Country, Job } from '@prisma/client';
 import Image from 'next/image';
 import React from 'react';
 
-const VacancyCard = ({ vacancy }: { vacancy: Job }) => {
+const VacancyCard = ({ vacancy, jobId }: { vacancy: Job; jobId: string }) => {
   return (
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg  dark:bg-gray-800 dark:border-gray-700  my-2 hover:scale-105 transition-transform duration-500">
-      <Link href={`/jobs/${vacancy.id}`}>
+      <Link href={`/jobs/${jobId}/${vacancy.id}`}>
         <div
           className={`relative w-full h-[250px] md:h-[300px] flex items-center justify-center bg-slate-100`}
         >

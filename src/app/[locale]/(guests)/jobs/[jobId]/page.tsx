@@ -3,17 +3,11 @@ import EmptyState from '@/components/shared/no-data';
 import { Preview } from '@/components/shared/preview';
 import { Separator } from '@/components/ui/separator';
 import { fetchCountry } from '@/hooks/admin/fetch-country';
-import {
-  fetchAllVacancies,
-  fetchCountryVacancies,
-} from '@/hooks/admin/fetch-vacancy';
-import { Link } from '@/i18n';
-import React from 'react';
+import { fetchCountryVacancies } from '@/hooks/admin/fetch-vacancy';
 
 const JobIdPage = async ({ params }: { params: { jobId: string } }) => {
   const country = await fetchCountry(params.jobId);
   const vacancies = await fetchCountryVacancies(params.jobId);
-  console.log(`vacancies:`, vacancies);
 
   return (
     <section className="my-35 px-4">
@@ -41,9 +35,13 @@ const JobIdPage = async ({ params }: { params: { jobId: string } }) => {
       )}
       <Separator className="my-4 bg-neutral-400" />
       {vacancies && (
-        <div className="flex flex-col gap-4">
+        <div className=" px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2 md:gap-3 place-items-center">
           {vacancies.map((vacancy) => (
-            <VacancyCard vacancy={vacancy} key={vacancy.id} />
+            <VacancyCard
+              vacancy={vacancy}
+              key={vacancy.id}
+              jobId={params.jobId}
+            />
           ))}
         </div>
       )}
