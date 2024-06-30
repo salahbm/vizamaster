@@ -14,7 +14,6 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { useCreateCountry } from '@/hooks/admin/useCountry';
 import { Editor } from '@/components/shared/editor';
 import {
   Select,
@@ -26,10 +25,10 @@ import {
 import { useCreateVacancy, vacancyFormSchema } from '@/hooks/admin/useVacancy';
 import { Switch } from '@/components/ui/switch';
 import { Separator } from '@/components/ui/separator';
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import FileUpload from '@/components/shared/file-upload';
 import Image from 'next/image';
-import { ImageIcon, Pencil, PlusCircle, Trash2Icon } from 'lucide-react';
+import { ImageIcon, PlusCircle, Trash2Icon } from 'lucide-react';
 
 const CreateVacancyForm = ({
   countries,
@@ -72,9 +71,25 @@ const CreateVacancyForm = ({
 
   const onSubmit = async (values: z.infer<typeof vacancyFormSchema>) => {
     console.log(`values:`, values);
-    // await createVacancy(values);
+    await mutateCreateVacancy.mutateAsync(values);
     toggleEdit();
   };
+
+  const handleUpdCountryId = useCallback(() => {
+    const countryName = form.getValues('countryName');
+
+    if (countryName) {
+      const country = countries.find((c) => c.name === countryName);
+      if (country) {
+        form.setValue('countryId', country.id);
+        form.trigger('countryId');
+      }
+    }
+  }, [form]);
+
+  useEffect(() => {
+    handleUpdCountryId();
+  }, [form.getValues('countryName')]);
 
   return (
     <div className="flex justify-center h-full p-6">
