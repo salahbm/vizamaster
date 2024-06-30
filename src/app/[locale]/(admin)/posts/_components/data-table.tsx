@@ -58,14 +58,14 @@ export function DataTable<TData, TValue>({
 
   return (
     <div className="px-2">
-      <div className="flex items-center py-4 justify-between">
+      <div className="flex items-center p-4 justify-center">
         <Input
           placeholder="Filter by name..."
           value={(table.getColumn('name')?.getFilterValue() as string) ?? ''}
           onChange={(event) =>
             table.getColumn('name')?.setFilterValue(event.target.value)
           }
-          className="max-w-md"
+          className="w-full"
         />
         {/* <Link href={`/country`}>
           <Button className="flex items-center  justify-between flex-row text-white">

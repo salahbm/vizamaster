@@ -73,7 +73,7 @@ export const vacancyColumns: ColumnDef<Job>[] = [
 
       return (
         <Button variant={'ghost'} className="h-4 w-8 p-0">
-          <Link href={`/country/${id}`}>
+          <Link href={`/vacancy/${id}`}>
             <Pencil className="h-4 w-4 mr-2 hover:text-secondary" />
           </Link>
         </Button>

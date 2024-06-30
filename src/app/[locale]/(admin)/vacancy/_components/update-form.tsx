@@ -29,28 +29,25 @@ import { useCallback, useEffect, useState } from 'react';
 import FileUpload from '@/components/shared/file-upload';
 import Image from 'next/image';
 import { ImageIcon, PlusCircle, Trash2Icon } from 'lucide-react';
+import { Job } from '@prisma/client';
 
-const CreateVacancyForm = ({
-  countries,
-}: {
-  countries: { name: string; id: string; emoji: string }[];
-}) => {
+const UpdateVacancyForm = ({ vacancy }: { vacancy: Job }) => {
   const { mutateCreateVacancy, mutateAsyncDeleteUploadImg } =
     useCreateVacancy();
 
   const form = useForm<z.infer<typeof vacancyFormSchema>>({
     resolver: zodResolver(vacancyFormSchema),
     defaultValues: {
-      name: '',
-      title: '',
-      description: '',
-      imgUrl: '',
-      countryId: '',
-      countryName: '',
-      isNew: true,
-      isTrend: false,
-      isActive: true,
-      isDeadline: false,
+      name: vacancy.name,
+      title: vacancy.title || 'No title',
+      description: vacancy.description,
+      imgUrl: vacancy.imgUrl,
+      countryId: vacancy.countryId,
+      countryName: vacancy.countryName,
+      isNew: vacancy.isNew,
+      isTrend: vacancy.isTrend,
+      isActive: vacancy.isActive,
+      isDeadline: vacancy.isDeadline,
     },
   });
 
@@ -74,21 +71,21 @@ const CreateVacancyForm = ({
     toggleEdit();
   };
 
-  const handleUpdCountryId = useCallback(() => {
-    const countryName = form.getValues('countryName');
+  //   const handleUpdCountryId = useCallback(() => {
+  //     const countryName = form.getValues('countryName');
 
-    if (countryName) {
-      const country = countries.find((c) => c.name === countryName);
-      if (country) {
-        form.setValue('countryId', country.id);
-        form.trigger('countryId');
-      }
-    }
-  }, [form]);
+  //     if (countryName) {
+  //       const country = countries.find((c) => c.name === countryName);
+  //       if (country) {
+  //         form.setValue('countryId', country.id);
+  //         form.trigger('countryId');
+  //       }
+  //     }
+  //   }, [form]);
 
-  useEffect(() => {
-    handleUpdCountryId();
-  }, [form.getValues('countryName')]);
+  //   useEffect(() => {
+  //     handleUpdCountryId();
+  //   }, [form.getValues('countryName')]);
 
   return (
     <div className="flex justify-center h-full p-6">
@@ -104,7 +101,7 @@ const CreateVacancyForm = ({
             onSubmit={form.handleSubmit(onSubmit)}
             className="space-y-8 mt-8"
           >
-            <FormField
+            {/* <FormField
               control={form.control}
               name="countryName"
               render={({ field }) => (
@@ -127,7 +124,7 @@ const CreateVacancyForm = ({
                   </FormControl>
                 </FormItem>
               )}
-            />
+            /> */}
             <FormField
               control={form.control}
               name="countryName"
@@ -329,4 +326,4 @@ const CreateVacancyForm = ({
   );
 };
 
-export default CreateVacancyForm;
+export default UpdateVacancyForm;

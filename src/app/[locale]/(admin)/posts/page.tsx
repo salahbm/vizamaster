@@ -14,7 +14,7 @@ const Posts = async () => {
       <div className="min-h-screen/2 max-h-screen/2">
         <DataTable columns={columns} data={data} />
       </div>
-      <Separator className="my-4" />
+      <Separator className="my-4 bg-secondary" />
       <div className="max-h-screen/2 min-h-screen/2">
         <DataTable columns={vacancyColumns} data={vacancy} />
       </div>
