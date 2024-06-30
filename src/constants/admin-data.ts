@@ -130,7 +130,7 @@ export const navItems: NavItem[] = [
     label: 'Vacancy',
   },
   {
-    title: 'All Posts',
+    title: 'Posts',
     href: '/posts',
     icon: 'blogs',
     label: 'blogs',

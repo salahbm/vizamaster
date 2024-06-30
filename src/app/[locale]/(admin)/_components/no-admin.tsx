@@ -9,7 +9,7 @@ const NoAdminPage = () => {
       <div className="bg-[#FF6A3D] px-2 text-3xl rounded rotate-12  text-white">
         Oops :/
       </div>
-      <h1 className="text-2xl textGradient text-center font-extrabold text-white tracking-widest">
+      <h1 className="text-2xl textGradient text-center font-extrabold text-secondary tracking-widest">
         You are not an admin,
         <br /> Please contact your administrator <br />
         to get access to this page

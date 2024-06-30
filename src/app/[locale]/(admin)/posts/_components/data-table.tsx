@@ -60,19 +60,19 @@ export function DataTable<TData, TValue>({
     <div className="px-2">
       <div className="flex items-center py-4 justify-between">
         <Input
-          placeholder="Filter countries..."
+          placeholder="Filter by name..."
           value={(table.getColumn('name')?.getFilterValue() as string) ?? ''}
           onChange={(event) =>
             table.getColumn('name')?.setFilterValue(event.target.value)
           }
-          className="max-w-sm"
+          className="max-w-md"
         />
-        <Link href={`/country`}>
+        {/* <Link href={`/country`}>
           <Button className="flex items-center  justify-between flex-row text-white">
             <PlusCircle className="h-4 w-4 mr-2" />
             New Country
           </Button>
-        </Link>
+        </Link> */}
       </div>
       <div className="rounded-md border">
         <Table>
