@@ -1,7 +1,5 @@
-import React from 'react';
 import Image from 'next/image';
 import SectionHeader from '@/components/shared/SectionHeader';
-import { BRAND_NAME } from '@/constants/name';
 import MotionDiv from '@/components/shared/motions/motion-div';
 
 const FunFact = () => {
@@ -49,9 +47,9 @@ const FunFact = () => {
               Trusted by MANY.
             </h2>
             <p className="mx-auto lg:w-11/12">
-              We are growing. Check out our numbers below. We are growing. Check
-              out our numbers below. We are growing. Check out our numbers
-              below. We are growing. Check out our numbers below.
+              We are a well-established recruitment and agency company with over
+              a decade of experience, and here are some key statistics that
+              showcase our work:
             </p>
           </MotionDiv>
 
@@ -98,9 +96,9 @@ const FunFact = () => {
               className="animate_top text-center"
             >
               <h3 className="mb-2.5 text-3xl font-bold text-black dark:text-white xl:text-sectiontitle3">
-                1M+
+                10+
               </h3>
-              <p className="text-lg lg:text-para2">Downloads</p>
+              <p className="text-lg lg:text-para2">Locations</p>
             </MotionDiv>
             <MotionDiv
               variants={{
@@ -121,9 +119,9 @@ const FunFact = () => {
               className="animate_top text-center"
             >
               <h3 className="mb-2.5 text-3xl font-bold text-black dark:text-white xl:text-sectiontitle3">
-                865
+                30+
               </h3>
-              <p className="text-lg lg:text-para2">Winning Award</p>
+              <p className="text-lg lg:text-para2">Vacancies</p>
             </MotionDiv>
           </div>
         </div>

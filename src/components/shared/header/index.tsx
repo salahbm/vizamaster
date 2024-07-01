@@ -49,13 +49,13 @@ const Header = () => {
       >
         <div
           className={cn(
-            'container px-12  flex flex-row justify-between items-center  transition duration-600  py-3',
+            'container px-2 md:px-12  flex flex-row justify-between items-center  transition duration-600  py-3',
             color &&
               'blurly-white shadow-md rounded-3xl border border-black py-0'
           )}
         >
           <Link href={'/'}>
-            <div className="w-[50px] flex justify-center items-center">
+            <div className="w-[40px] lg:w-[50px] flex justify-center items-center">
               <Image
                 src="/logos/dark_logo.png"
                 alt="logo"
@@ -65,7 +65,7 @@ const Header = () => {
 
               <p
                 className={cn(
-                  'text-sm md:text-lg font-bold whitespace-nowrap -ml-1'
+                  'text-sm md:text-md lg:text-lg font-bold whitespace-nowrap -ml-1'
                 )}
               >
                 BS <span className="textGradient">GROUP</span>

@@ -4,7 +4,6 @@ import { Preview } from '@/components/shared/preview';
 import { Separator } from '@/components/ui/separator';
 import { fetchVacancy } from '@/hooks/admin/fetch-vacancy';
 import Image from 'next/image';
-import React from 'react';
 
 const VacancyId = async ({ params }: { params: { vacancyId: string } }) => {
   const vacancy = await fetchVacancy(params.vacancyId);
@@ -34,6 +33,7 @@ const VacancyId = async ({ params }: { params: { vacancyId: string } }) => {
           <Preview value={vacancy.description} />
 
           <Separator className="my-15 bg-neutral-400" />
+
           <ContactForm />
         </div>
       ) : (

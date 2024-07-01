@@ -13,7 +13,7 @@ const featuresData: {
   },
   {
     id: 2,
-    icon: '/icons/icon-02.svg',
+    icon: '/icons/icon-05.svg',
     title: 'Professional Resume Building',
     description:
       'Stand out with a professionally crafted resume, highlighting your skills and experiences.',
