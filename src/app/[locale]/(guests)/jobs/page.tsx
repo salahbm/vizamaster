@@ -16,7 +16,6 @@ const Jobs = async () => {
         <div className="my-35 px-4 flex flex-wrap items-center justify-center gap-4">
           <SectionHeader
             headerInfo={{
-              title: `NEWS & Vacancies`,
               subtitle: `Latest News & Vacancies`,
               description: `Search for internships, jobs, and more. Select the country you are interested in.`,
             }}

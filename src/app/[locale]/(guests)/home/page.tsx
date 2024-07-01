@@ -11,11 +11,11 @@ const Home = () => {
     <>
       <Hero />
       <Feature />
+      <Blog />
       <MyGlobe />
       <Process />
       <PeopleMarquee />
       <FunFact />
-      <Blog />
     </>
   );
 };
