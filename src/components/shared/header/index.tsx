@@ -49,7 +49,7 @@ const Header = () => {
       >
         <div
           className={cn(
-            'container px-2 md:px-12  flex flex-row justify-between items-center  transition duration-600  py-3',
+            'container lg:pl-16 pl-12  flex flex-row justify-between items-center  transition duration-600 transform  py-3',
             color &&
               'blurly-white shadow-md rounded-3xl border border-black py-0'
           )}

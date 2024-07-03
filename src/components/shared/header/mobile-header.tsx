@@ -20,7 +20,7 @@ const MobileNavbar = () => {
             <li
               key={item.id}
               className={cn(
-                'flex items-center justify-center gap-x-2 text-black text-sm p-2  hover:text-sky-600 hover:bg-sky-300/20',
+                'flex items-center justify-center gap-x-2 text-black text-sm p-2  hover:text-orange-500 hover:bg-sky-600/20 transform duration-300 transition-colors',
                 pathname?.endsWith(item.path!) &&
                   'text-[var(--primary)] bg-sky-200/20 hover:bg-sky-200/20 hover:text-[var(--primary)]'
               )}
@@ -28,7 +28,7 @@ const MobileNavbar = () => {
               <Link href={item.path!}>{item.name}</Link>
             </li>
           ))}
-          <li className="flex items-center justify-center gap-x-2 text-black text-sm p-2 hover:text-sky-600 hover:bg-sky-300/20">
+          <li className="flex items-center justify-center gap-x-2  text-sm p-2 ">
             <LanguageSelector />
           </li>
         </ul>

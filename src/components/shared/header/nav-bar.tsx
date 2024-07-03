@@ -69,7 +69,7 @@ const Tab = ({
         });
       }}
       className={cn(
-        'relative z-10 block cursor-pointer uppercase text-black blend-difference-enhanced px-5  text-base py-3'
+        'relative z-10 block cursor-pointer uppercase hover:text-white text-black px-5  text-base py-3 transform duration-700 transition-colors'
       )}
     >
       {children}
