@@ -20,13 +20,13 @@ const footerList_1: Menu[] = [
 ];
 const footerList_2: Menu[] = [
   {
-    name: 'Blogs',
-    path: '/blogs',
+    name: 'Jobs',
+    path: '/jobs',
     id: 0,
   },
   {
-    name: 'Jobs',
-    path: '/jobs',
+    name: 'Partners',
+    path: '/partners',
     id: 1,
   },
 
