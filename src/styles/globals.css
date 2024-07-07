@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import '@uploadthing/react/styles.css';
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -105,5 +107,33 @@
   background: rgba(255, 255, 255, 0.6); /* Semi-transparent white */
   backdrop-filter: blur(10px); /* Apply blur effect */
 }
+@keyframes slideIn {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 
-@import '@uploadthing/react/styles.css';
+.animate-slide-in {
+  animation: slideIn 0.5s ease-in-out forwards;
+}
+
+/* HERO */
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-scale {
+  animation: fadeInScale 1s;
+}

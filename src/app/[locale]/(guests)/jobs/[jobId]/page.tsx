@@ -12,7 +12,7 @@ const JobIdPage = async ({ params }: { params: { jobId: string } }) => {
   return (
     <section className="my-35 px-4">
       {country ? (
-        <div className=" bg-white border border-gray-200 rounded-lg shadow-lg  dark:bg-gray-800 dark:border-gray-700  my-2 hover:scale-105 transition-transform duration-500 flex flex-col md:flex-row justify-between  items-center p-4">
+        <div className=" bg-white border border-gray-200 rounded-lg shadow-lg  dark:bg-gray-800 dark:border-gray-700  my-2  flex flex-col md:flex-row justify-between  items-center p-4">
           <div className="w-1/2">
             <h5 className="my-2 text-xl font-bold tracking-tight textGradient text-center">
               {country.name}
@@ -20,7 +20,9 @@ const JobIdPage = async ({ params }: { params: { jobId: string } }) => {
             <div
               className={`w-full h-[150px] md:h-[200px] flex items-center justify-center`}
             >
-              <p className="text-[140px] md:text-[180px] ">{country.emoji}</p>
+              <p className="text-[140px] md:text-[180px] hover:scale-110 transition-transform duration-500 cursor-default">
+                {country.emoji}
+              </p>
             </div>
           </div>
           <div className="md:w-1/2 text-center">
