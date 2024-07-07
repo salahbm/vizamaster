@@ -1,5 +1,6 @@
 import ContactForm from '@/components/shared/contact-form.';
 import SectionHeader from '@/components/shared/SectionHeader';
+import SocialMediaCard from '@/components/shared/social-media';
 import { BookUser, Clock3, Mail, PhoneCall } from 'lucide-react';
 
 const Contact = () => {
@@ -80,7 +81,7 @@ const Contact = () => {
                 </li>
               </ul>
             </div>
-
+            <SocialMediaCard />
             <ContactForm />
           </div>
         </div>

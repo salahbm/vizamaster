@@ -120,7 +120,7 @@ const Footer = () => {
 
             <div className="flex -mx-2">
               <Link
-                href="#"
+                href="https://www.instagram.com/bsglobal_official/"
                 className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 "
                 aria-label="Reddit"
               >
@@ -128,7 +128,7 @@ const Footer = () => {
               </Link>
 
               <Link
-                href="#"
+                href="https://telegram.me/BSGlobal"
                 className="mx-2 text-gray-600 transition-colors duration-300 dark:text-gray-300 "
                 aria-label="Facebook"
               >

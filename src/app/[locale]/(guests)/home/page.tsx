@@ -5,6 +5,7 @@ import PeopleMarquee from '@/components/_home/marquee';
 import { Process } from '@/components/_home/process';
 import Blog from '@/components/Blog';
 import MyGlobe from '@/components/shared/globe';
+import SocialMediaCard from '@/components/shared/social-media';
 import { unstable_setRequestLocale } from 'next-intl/server';
 
 const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
@@ -13,6 +14,7 @@ const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
     <>
       <Hero />
       <Feature />
+      <SocialMediaCard />
       <Blog />
       <MyGlobe />
       <Process />
