@@ -43,7 +43,7 @@ const Results: React.FC = () => {
   };
 
   return (
-    <div className="my-35">
+    <div className="my-35 px-4">
       <SectionHeader
         headerInfo={{
           subtitle: `Successful candidates`,
@@ -55,8 +55,8 @@ const Results: React.FC = () => {
           <Image
             src={mainImage}
             alt="Main"
-            className="object-cover rounded-lg shadow-lg border-2 border-secondary h-[550px] w-full"
-            width={1000}
+            className="object-cover rounded-lg shadow-lg border-2 border-secondary h-[300px]  md:h-[400px] lg:h-[550px] w-full"
+            width={500}
             height={350}
           />
         </div>
