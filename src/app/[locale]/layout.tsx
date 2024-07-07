@@ -26,7 +26,7 @@ export async function generateMetadata({
   return {
     title,
     description,
-    metadataBase: new URL(`http://localhost:3000`),
+    metadataBase: new URL(`https://bsgroup.vercel.app/en`),
     // alternates: {
     // 	canonical: `/${locale}`,
     // 	languages: {
@@ -71,7 +71,7 @@ export default function LocaleLayout({
 }) {
   unstable_setRequestLocale(locale);
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
       <body
         className={cn(
           'max-w-screen-xl mx-auto overflow-x-hidden',

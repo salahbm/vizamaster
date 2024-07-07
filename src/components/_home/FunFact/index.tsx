@@ -4,18 +4,16 @@ import MotionDiv from '@/components/shared/motions/motion-div';
 
 const FunFact = () => {
   return (
-    <>
+    <section className="relative">
       {/* <!-- ===== Funfact Start ===== --> */}
-      <section className="px-4 py-20 md:px-8 lg:py-22.5 2xl:px-0 relative rounded-2xl">
+      <div className="px-4 py-20 md:px-8 lg:py-22.5 2xl:px-0  rounded-2xl">
         <SectionHeader
           headerInfo={{
             subtitle: `our work in numbers`,
             description: `We are growing. Check out our numbers below.`,
           }}
         />
-        <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
-          <div className="absolute left-0 right-0 top-40 -z-10 m-auto h-[500px] w-[500px] rounded-full bg-purple-400 opacity-30 blur-[100px]"></div>
-        </div>
+
         <div className="relative z-1 mx-auto max-w-c-1390  xl:py-27.5">
           <Image
             width={132}
@@ -125,9 +123,12 @@ const FunFact = () => {
             </MotionDiv>
           </div>
         </div>
-      </section>
+      </div>
       {/* <!-- ===== Funfact End ===== --> */}
-    </>
+      <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
+        <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-fuchsia-400 opacity-20 blur-[100px]"></div>
+      </div>
+    </section>
   );
 };
 

@@ -58,7 +58,7 @@ const GlobeView = ({ data }: { data: Capital }) => {
     if (globeEl.current) {
       // @ts-ignore
       globeEl.current.pointOfView(
-        { lat: 41.3112, lng: 69.2401, altitude: 1.6 },
+        { lat: 41.3112, lng: 69.2401, altitude: 2 },
         1000 // Initial duration in milliseconds
       );
     }
