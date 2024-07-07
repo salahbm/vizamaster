@@ -1,7 +1,7 @@
 import ContactForm from '@/components/shared/contact-form.';
 import SectionHeader from '@/components/shared/SectionHeader';
 import { BRAND_NAME } from '@/constants/name';
-import { BookUser, Clock3, PhoneCall } from 'lucide-react';
+import { BookUser, Clock3, Mail, PhoneCall } from 'lucide-react';
 import React from 'react';
 
 const Contact = () => {
@@ -50,14 +50,24 @@ const Contact = () => {
                     <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">
                       Contact
                     </h3>
+
                     <p className="text-gray-600 dark:text-slate-400">
-                      Mobile:
-                      <br /> +998 95 608-70-70
+                      +998 95 608-70-70
                       <br /> +998 95 608-00-70 <br />
                       +998 95 506-70-07
                     </p>
+                  </div>
+                </li>
+                <li className="flex">
+                  <div className="flex h-10 w-10 items-center justify-center rounded bg-primary text-gray-50">
+                    <Mail />
+                  </div>
+                  <div className="ml-4 mb-4">
+                    <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">
+                      Mail:
+                    </h3>
                     <p className="text-gray-600 dark:text-slate-400">
-                      Mail: bsglobalinfo@mail.ru
+                      bsglobalinfo@mail.ru <br /> main@bsglobal.uz
                     </p>
                   </div>
                 </li>
