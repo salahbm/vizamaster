@@ -2,7 +2,7 @@ import { BRAND_NAME } from '@/constants/name';
 import AppProvider from '@/providers';
 import { Params } from '@/types/global';
 import { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import { poppins } from '@/styles/fonts';
 import { cn } from '@/lib/utils';
 import { Suspense } from 'react';
@@ -69,6 +69,7 @@ export default function LocaleLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
+  unstable_setRequestLocale(locale);
   return (
     <html lang={locale}>
       <body

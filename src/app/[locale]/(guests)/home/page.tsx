@@ -5,8 +5,10 @@ import PeopleMarquee from '@/components/_home/marquee';
 import { Process } from '@/components/_home/process';
 import Blog from '@/components/Blog';
 import MyGlobe from '@/components/shared/globe';
+import { unstable_setRequestLocale } from 'next-intl/server';
 
-const Home = () => {
+const Home = async ({ params: { locale } }: { params: { locale: string } }) => {
+  unstable_setRequestLocale(locale);
   return (
     <>
       <Hero />
