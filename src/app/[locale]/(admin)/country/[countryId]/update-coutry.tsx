@@ -42,10 +42,6 @@ const UpdateCountryForm = ({
 
   const router = useRouter();
 
-  if (!initialData || !countryId) {
-    return <p>Country not found</p>;
-  }
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -56,6 +52,10 @@ const UpdateCountryForm = ({
       isNew: initialData?.isNew!!,
     },
   });
+
+  if (!initialData || !countryId) {
+    return <p>Country not found</p>;
+  }
 
   const { isSubmitting, isValid } = form.formState;
 
