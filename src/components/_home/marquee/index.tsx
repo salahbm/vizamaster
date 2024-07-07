@@ -30,7 +30,7 @@ const data_2 = [
 
 const PeopleMarquee = () => {
   return (
-    <div className="space-y-4 p-4 mt-16">
+    <div className="space-y-4 p-4 mt-16 relative">
       <SectionHeader
         headerInfo={{
           title: 'OUR CANDIDATES',
@@ -38,9 +38,10 @@ const PeopleMarquee = () => {
           description: `We are proud of our team. Here are some of our happy clients.`,
         }}
       />
+
       <Marquee autoFill pauseOnHover className="mt-8">
         {data.map((item) => (
-          <div key={item.id} className="relative w-70 h-50 md:w-90 md:h-60 m-2">
+          <div key={item.id} className="relative w-60 h-50 md:w-90 md:h-60 m-2">
             <Image
               src={item.src}
               alt="image"
@@ -53,7 +54,7 @@ const PeopleMarquee = () => {
       </Marquee>
       <Marquee direction="right" autoFill pauseOnHover>
         {data_2.map((item) => (
-          <div key={item.id} className="relative w-70 h-50 md:w-90 md:h-60 m-2">
+          <div key={item.id} className="relative w-60 h-50 md:w-90 md:h-60 m-2">
             <Image
               src={item.src}
               alt="image"
@@ -64,6 +65,9 @@ const PeopleMarquee = () => {
           </div>
         ))}
       </Marquee>
+      <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
+        <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-fuchsia-400 opacity-20 blur-[100px]"></div>
+      </div>
     </div>
   );
 };
