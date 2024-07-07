@@ -6,8 +6,8 @@ import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import { poppins } from '@/styles/fonts';
 import { cn } from '@/lib/utils';
 import { Suspense } from 'react';
-import Loader from '@/components/shared/loader';
 import { Toaster } from '@/components/ui/toaster';
+import Loading from './loading';
 
 // Can be imported from a shared config
 const locales = ['en', 'ru', 'uz'];
@@ -79,7 +79,7 @@ export default function LocaleLayout({
         )}
       >
         <AppProvider>
-          <Suspense fallback={<Loader />}>{children}</Suspense>
+          <Suspense fallback={<Loading />}>{children}</Suspense>
           <Toaster />
         </AppProvider>
       </body>
