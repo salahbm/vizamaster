@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 import { Suspense } from 'react';
 import { Toaster } from '@/components/ui/toaster';
 import Loading from './loading';
+import { Analytics } from '@vercel/analytics/react';
 
 // Can be imported from a shared config
 const locales = ['en', 'ru', 'uz'];
@@ -81,6 +82,7 @@ export default function LocaleLayout({
         <AppProvider>
           <Suspense fallback={<Loading />}>{children}</Suspense>
           <Toaster />
+          <Analytics />
         </AppProvider>
       </body>
     </html>
