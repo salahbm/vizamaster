@@ -15,9 +15,11 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { emailSchema, useSendEmail } from '@/hooks/email/useEmail';
+import { useRouter } from 'next/navigation';
 
 export default function ContactForm() {
   const { mutateAsync: sendEmail, isPending } = useSendEmail();
+  const router = useRouter();
 
   const { register, handleSubmit, formState } = useForm<
     z.infer<typeof emailSchema>
@@ -29,6 +31,7 @@ export default function ContactForm() {
 
   const onSubmit = async (values: z.infer<typeof emailSchema>) => {
     await sendEmail(values);
+    router.refresh();
   };
 
   return (

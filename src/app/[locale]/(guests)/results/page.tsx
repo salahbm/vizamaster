@@ -43,7 +43,7 @@ const Results: React.FC = () => {
   };
 
   return (
-    <div className="my-35 px-4">
+    <div className="my-35 px-4 relative">
       <SectionHeader
         headerInfo={{
           subtitle: `Successful candidates`,
@@ -51,11 +51,11 @@ const Results: React.FC = () => {
         }}
       />
       <div className="">
-        <div className="mb-4 flex justify-center">
+        <div className="mb-4 flex justify-center h-[350px]">
           <Image
             src={mainImage}
             alt="Main"
-            className="object-cover rounded-lg shadow-lg border-2 border-secondary h-[300px]  md:h-[400px] lg:h-[550px] w-full"
+            className="object-contain rounded-lg shadow-lg border-2 border-secondary "
             width={500}
             height={350}
           />
@@ -96,6 +96,9 @@ const Results: React.FC = () => {
         </div>
       </div>
       <PeopleMarquee />
+      <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
+        <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-fuchsia-400 opacity-20 blur-[100px]"></div>
+      </div>
     </div>
   );
 };

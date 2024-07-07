@@ -42,11 +42,7 @@ const Header = () => {
           <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_800px_at_100%_200px,#d5c5ff,transparent)]"></div>
         </div>
       )}
-      <MotionDiv
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.5 }}
-      >
+      <div className="animate-slide-in">
         <div
           className={cn(
             'container lg:pl-16 pl-12  flex flex-row justify-between items-center  transition duration-600 transform  py-3',
@@ -84,7 +80,7 @@ const Header = () => {
             <LanguageSelector />
           </div>
         </div>
-      </MotionDiv>
+      </div>
     </header>
   );
 };

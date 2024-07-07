@@ -1,6 +1,5 @@
 import { toast } from '@/components/ui/use-toast';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { useRouter } from 'next/navigation';
 import { z } from 'zod';
 import emailjs from '@emailjs/browser';
 
@@ -35,11 +34,10 @@ export const sendEmail = async (data: z.infer<typeof emailSchema>) => {
 
 export const useSendEmail = () => {
   const queryClient = useQueryClient();
-  const router = useRouter();
 
   return useMutation({
     mutationFn: sendEmail,
-    async onSuccess(data) {
+    async onSuccess() {
       await queryClient.invalidateQueries({ queryKey: ['email'] });
       toast({ title: 'Email sent successfully' });
     },

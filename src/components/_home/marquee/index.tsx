@@ -40,7 +40,7 @@ const PeopleMarquee = () => {
       />
       <Marquee autoFill pauseOnHover className="mt-8">
         {data.map((item) => (
-          <div key={item.id} className="relative w-60 h-40 md:w-70 md:h-50 m-2">
+          <div key={item.id} className="relative w-70 h-50 md:w-90 md:h-60 m-2">
             <Image
               src={item.src}
               alt="image"
@@ -53,7 +53,7 @@ const PeopleMarquee = () => {
       </Marquee>
       <Marquee direction="right" autoFill pauseOnHover>
         {data_2.map((item) => (
-          <div key={item.id} className="relative w-60 h-40 md:w-70 md:h-50 m-2">
+          <div key={item.id} className="relative w-70 h-50 md:w-90 md:h-60 m-2">
             <Image
               src={item.src}
               alt="image"
