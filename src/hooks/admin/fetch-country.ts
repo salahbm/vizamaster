@@ -1,6 +1,6 @@
 import { DB } from '@/lib/db';
 import { Country } from '@prisma/client';
-
+export const dynamic = 'force-dynamic';
 export const fetchAllCountries = async () => {
   const countries = await DB.country.findMany({
     orderBy: {
@@ -18,18 +18,6 @@ export const fetchCountry = async (
     where: {
       id: countryId,
     },
-    //   include: {
-    //     attachments: {
-    //       orderBy: {
-    //         createdAt: 'desc',
-    //       },
-    //     },
-    //     chapters: {
-    //       orderBy: {
-    //         position: 'desc',
-    //       },
-    //     },
-    //   },
   });
 
   return country;

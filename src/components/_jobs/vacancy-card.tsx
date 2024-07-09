@@ -5,7 +5,7 @@ import React from 'react';
 
 const VacancyCard = ({ vacancy, jobId }: { vacancy: Job; jobId: string }) => {
   return (
-    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg  dark:bg-gray-800 dark:border-gray-700  my-2 ">
+    <div className="w-[350px] bg-white border border-gray-200 rounded-lg shadow-lg  dark:bg-gray-800 dark:border-gray-700  my-2 ">
       <Link href={`/jobs/${jobId}/${vacancy.id}`}>
         <div
           className={`relative w-full h-[250px] md:h-[300px] flex items-center justify-center bg-slate-100`}

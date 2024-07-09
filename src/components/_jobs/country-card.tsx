@@ -4,7 +4,7 @@ import React from 'react';
 
 const CountryCard = ({ country }: { country: Country }) => {
   return (
-    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow-lg  dark:bg-gray-800 dark:border-gray-700  my-2 hover:scale-105 transition-transform duration-500">
+    <div className="w-[350px] bg-white border border-gray-200 rounded-lg shadow-lg  my-2 md:hover:scale-105 transition-transform duration-500">
       <Link href={`/jobs/${country.id}`}>
         <div
           className={`w-full h-[150px] md:h-[200px] flex items-center justify-center bg-slate-100`}

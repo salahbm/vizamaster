@@ -1,6 +1,7 @@
 import { DB } from '@/lib/db';
 import { Job } from '@prisma/client';
 
+export const dynamic = 'force-dynamic';
 export const fetchAllVacancies = async () => {
   const jobs = await DB.job.findMany({
     orderBy: {
@@ -31,18 +32,6 @@ export const fetchVacancy = async (vacancyId: string): Promise<Job | null> => {
     where: {
       id: vacancyId,
     },
-    //   include: {
-    //     attachments: {
-    //       orderBy: {
-    //         createdAt: 'desc',
-    //       },
-    //     },
-    //     chapters: {
-    //       orderBy: {
-    //         position: 'desc',
-    //       },
-    //     },
-    //   },
   });
 
   return vacancy;
