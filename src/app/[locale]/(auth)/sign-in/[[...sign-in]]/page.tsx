@@ -9,8 +9,8 @@ export const metadata: Metadata = {
 
 export default function AuthenticationPage() {
   return (
-    <div className="relative h-screen flex-col items-center justify-center flex">
-      <div className="flex  items-center p-4 lg:p-8 shadow-xl bg-white h-fit rounded-xl hover:scale-110 transition-transform duration-500 ">
+    <div className="relative h-screen flex-col items-center justify-center flex px-8">
+      <div className="flex  items-center p-4 lg:p-8 shadow-xl bg-white h-fit rounded-xl lg:hover:scale-110 transition-transform duration-500 ">
         <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
           <div className="flex flex-col space-y-2 text-center">
             <h1 className="text-3xl font-semibold tracking-tight text-neutral-700">

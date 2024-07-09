@@ -15,7 +15,9 @@ const authRoutes = ['/sign-in'];
 
 export async function middleware(request: NextRequest) {
   // Check for authentication cookie
-  const isLoggedIn = !!request.cookies.get('authjs.session-token');
+  const isLoggedIn =
+    !!request.cookies.get('__Secure-authjs.session-token') ||
+    !!request.cookies.get('authjs.session-token');
 
   // Extract locale from the pathname
 
