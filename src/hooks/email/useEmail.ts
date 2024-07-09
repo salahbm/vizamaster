@@ -16,8 +16,8 @@ export const emailSchema = z.object({
 export const sendEmail = async (data: z.infer<typeof emailSchema>) => {
   try {
     await emailjs.send(
-      process.env.NEXT_PUBLIC_MAIL_SERVICE_ID!,
-      process.env.NEXT_PUBLIC_MAIL_TEMPLATE_ID!,
+      process.env.MAIL_SERVICE_ID!,
+      process.env.MAIL_TEMPLATE_ID!,
       {
         from_name: data.name,
         to_name: 'BS GROUP',
@@ -25,7 +25,7 @@ export const sendEmail = async (data: z.infer<typeof emailSchema>) => {
         to_email: 'main@bsglobal.uz',
         message: data.message,
       },
-      process.env.NEXT_PUBLIC_MAIL_ACCOUNT_PK!
+      process.env.MAIL_ACCOUNT_PK!
     );
   } catch (error: any) {
     console.log(error);
