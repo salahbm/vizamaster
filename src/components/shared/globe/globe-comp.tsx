@@ -64,6 +64,20 @@ const GlobeView = ({ data }: { data: Capital }) => {
     }
   }, [loading]);
 
+  const [isWindows, setIsWindows] = useState(false);
+
+  useEffect(() => {
+    // Function to detect if the user is on Windows
+    const detectWindows = () => {
+      const platform = window.navigator.platform;
+      if (platform.indexOf('Win') > -1) {
+        setIsWindows(true);
+      }
+    };
+
+    detectWindows();
+  }, []);
+
   return (
     <>
       {loading ? (
@@ -93,8 +107,11 @@ const GlobeView = ({ data }: { data: Capital }) => {
               htmlLng={(d: any) => d?.lng}
               htmlElement={(d: any) => {
                 const el = document.createElement('div');
-                el.innerHTML = `${d.flag}`;
+                el.innerHTML = isWindows ? `${d.country}` : `${d.flag}`;
                 el.style.cursor = 'pointer';
+                el.style.color = 'white';
+                el.style.textShadow = '0px 0px 10px white';
+                el.style.fontSize = isWindows ? '12px' : '20px';
                 return el;
               }}
               htmlTransitionDuration={1000}

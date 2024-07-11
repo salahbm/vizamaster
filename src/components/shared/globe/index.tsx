@@ -2,7 +2,7 @@
 
 import { Capital, capitals } from './globe-data';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import dynamic from 'next/dynamic';
 import SectionHeader from '@/components/shared/SectionHeader';
@@ -18,6 +18,20 @@ const MyGlobe = () => {
   function handleClick(capital: any) {
     setCapitalToPass(capital);
   }
+
+  const [isWindows, setIsWindows] = useState(false);
+
+  useEffect(() => {
+    // Function to detect if the user is on Windows
+    const detectWindows = () => {
+      const platform = window.navigator.platform;
+      if (platform.indexOf('Win') > -1) {
+        setIsWindows(true);
+      }
+    };
+
+    detectWindows();
+  }, []);
 
   return (
     <div className="relative w-full pb-12">
@@ -38,7 +52,7 @@ const MyGlobe = () => {
           >
             <div className="text-center">
               <div className="font-semibold text-lg">{capital.country}</div>
-              <div className="text-3xl">{capital.flag}</div>
+              {!isWindows && <div className="text-3xl">{capital.flag}</div>}
             </div>
           </div>
         ))}
