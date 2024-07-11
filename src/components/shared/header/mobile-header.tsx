@@ -1,4 +1,9 @@
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetTrigger,
+} from '@/components/ui/sheet';
 
 import { EllipsisVertical } from 'lucide-react';
 import navBars from './nav-list';
@@ -25,7 +30,9 @@ const MobileNavbar = () => {
                   'text-[var(--primary)] bg-sky-200/20 hover:bg-sky-200/20 hover:text-[var(--primary)]'
               )}
             >
-              <Link href={item.path!}>{item.name}</Link>
+              <SheetClose asChild>
+                <Link href={item.path!}>{item.name}</Link>
+              </SheetClose>
             </li>
           ))}
           <li className="flex items-center justify-center gap-x-2  text-sm p-2 ">

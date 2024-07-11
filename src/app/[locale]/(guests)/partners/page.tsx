@@ -23,10 +23,11 @@ const Partners = () => {
             to assist you every step of the way.
           </p>
         </div>
-        <div className="flex items-stretch justify-center">
-          <div className="grid md:grid-cols-2">
+        <div className="flex items-center justify-center">
+          <div className="grid md:grid-cols-2 mt-12 place-content-center items-center  justify-center">
             <div className="h-full pr-6">
               <ul className="mb-6 md:mb-0">
+                <br />
                 <li className="flex">
                   <div className="flex h-10 w-10 items-center justify-center rounded bg-primary text-gray-50">
                     <BookUser />
@@ -43,6 +44,7 @@ const Partners = () => {
                     </p>
                   </div>
                 </li>
+                <br />
                 <li className="flex">
                   <div className="flex h-10 w-10 items-center justify-center rounded bg-primary text-gray-50">
                     <PhoneCall />
@@ -58,7 +60,8 @@ const Partners = () => {
                       +998 95 506-70-07
                     </p>
                   </div>
-                </li>
+                </li>{' '}
+                <br />
                 <li className="flex">
                   <div className="flex h-10 w-10 items-center justify-center rounded bg-primary text-gray-50">
                     <Mail />
@@ -71,7 +74,8 @@ const Partners = () => {
                       bsglobalinfo@mail.ru <br /> main@bsglobal.uz
                     </p>
                   </div>
-                </li>
+                </li>{' '}
+                <br />
                 <li className="flex">
                   <div className="flex h-10 w-10 items-center justify-center rounded bg-primary text-gray-50">
                     <Clock3 />
@@ -90,7 +94,6 @@ const Partners = () => {
                 </li>
               </ul>
             </div>
-
             <ContactForm />
           </div>
         </div>
