@@ -14,10 +14,12 @@ const Contact = () => {
             description: `Get in touch with us. We will get back to you as soon as possible.`,
           }}
         />
-        <div className="flex items-stretch justify-center">
-          <div className="grid md:grid-cols-2 mt-12">
+        <div className="flex items-center justify-center">
+          <div className="grid md:grid-cols-2 mt-12 place-content-center items-center  justify-center">
             <div className="h-full pr-6">
               <ul className="mb-6 md:mb-0">
+                <br />
+                <br />
                 <li className="flex">
                   <div className="flex h-10 w-10 items-center justify-center rounded bg-primary text-gray-50">
                     <BookUser />
@@ -34,6 +36,7 @@ const Contact = () => {
                     </p>
                   </div>
                 </li>
+                <br />
                 <li className="flex">
                   <div className="flex h-10 w-10 items-center justify-center rounded bg-primary text-gray-50">
                     <PhoneCall />
@@ -49,7 +52,8 @@ const Contact = () => {
                       +998 95 506-70-07
                     </p>
                   </div>
-                </li>
+                </li>{' '}
+                <br />
                 <li className="flex">
                   <div className="flex h-10 w-10 items-center justify-center rounded bg-primary text-gray-50">
                     <Mail />
@@ -62,7 +66,8 @@ const Contact = () => {
                       bsglobalinfo@mail.ru <br /> main@bsglobal.uz
                     </p>
                   </div>
-                </li>
+                </li>{' '}
+                <br />
                 <li className="flex">
                   <div className="flex h-10 w-10 items-center justify-center rounded bg-primary text-gray-50">
                     <Clock3 />
@@ -81,11 +86,11 @@ const Contact = () => {
                 </li>
               </ul>
             </div>
-            <SocialMediaCard />
             <ContactForm />
           </div>
         </div>
       </div>
+      <SocialMediaCard />
     </section>
   );
 };
