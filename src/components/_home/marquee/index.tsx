@@ -1,4 +1,5 @@
 import SectionHeader from '@/components/shared/SectionHeader';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import React from 'react';
 import Marquee from 'react-fast-marquee';
@@ -29,13 +30,14 @@ const data_2 = [
 ];
 
 const PeopleMarquee = () => {
+  const t = useTranslations('PeopleMarquee');
   return (
     <div className="space-y-4 p-4 mt-16 relative">
       <SectionHeader
         headerInfo={{
-          title: 'OUR CANDIDATES',
-          subtitle: 'SATISFIED Clients',
-          description: `We are proud of our team. Here are some of our happy clients.`,
+          title: t('header.title'),
+          subtitle: t('header.subtitle'),
+          description: t('header.description'),
         }}
       />
 

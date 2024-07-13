@@ -1,6 +1,7 @@
 'use client';
 import PeopleMarquee from '@/components/_home/marquee';
 import SectionHeader from '@/components/shared/SectionHeader';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import React, { useState, useRef } from 'react';
 
@@ -29,7 +30,7 @@ const images: string[] = [
 const Results: React.FC = () => {
   const [mainImage, setMainImage] = useState<string>(images[0]);
   const carouselRef = useRef<HTMLDivElement>(null);
-
+  const t = useTranslations('Results');
   const scrollLeft = () => {
     if (carouselRef.current) {
       carouselRef.current.scrollBy({ left: -200, behavior: 'smooth' });
@@ -46,8 +47,8 @@ const Results: React.FC = () => {
     <div className="my-35 px-4 relative">
       <SectionHeader
         headerInfo={{
-          subtitle: `Successful candidates`,
-          description: `We are glad that you are interested in our company. We are looking forward to working with you.`,
+          subtitle: t('header.subtitle'),
+          description: t('header.description'),
         }}
       />
       <div className="">

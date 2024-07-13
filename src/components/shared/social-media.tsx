@@ -2,10 +2,13 @@ import React from 'react';
 import { Instagram, Send } from 'lucide-react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import { useTranslations } from 'next-intl';
 
-const SocialMediaCard = () => {
+const SocialMediaCard: React.FC = () => {
+  const t = useTranslations('SocialMediaCard');
+
   return (
-    <div className="relative flex flex-col items-center justify-center p-8 bg-white rounded-lg  transform transition-transform hover:scale-105">
+    <div className="relative flex flex-col items-center justify-center p-8 bg-white rounded-lg transform transition-transform hover:scale-105">
       <div className="absolute top-0 -z-10 h-full w-full bg-white">
         <div className="absolute bottom-auto left-auto right-0 top-0 h-[500px] w-[500px] -translate-x-[30%] translate-y-[20%] rounded-full bg-[rgba(173,109,244,0.5)] opacity-50 blur-[80px]"></div>
       </div>
@@ -19,10 +22,10 @@ const SocialMediaCard = () => {
         />
       </div>
       <h2 className="text-2xl font-bold mb-2 textGradient" translate="no">
-        BS GROUP
+        {t('companyName')}
       </h2>
       <p className="text-lg mb-6 text-center text-gray-600">
-        We are always looking for talented and creative people.
+        {t('description')}
       </p>
       <div className="flex space-x-4">
         <a
@@ -34,7 +37,7 @@ const SocialMediaCard = () => {
           )}
         >
           <Instagram className="w-6 h-6" />
-          <span>Instagram</span>
+          <span>{t('instagram')}</span>
         </a>
         <a
           href="https://telegram.me/BSGlobal"
@@ -45,7 +48,7 @@ const SocialMediaCard = () => {
           )}
         >
           <Send className="w-6 h-6" />
-          <span>Telegram</span>
+          <span>{t('telegram')}</span>
         </a>
       </div>
     </div>

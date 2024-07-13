@@ -1,9 +1,11 @@
 import BlogItem from './BlogItem';
 import SectionHeader from '../shared/SectionHeader';
 import { fetchAllVacancies } from '@/hooks/admin/fetch-vacancy';
+import { getTranslations } from 'next-intl/server';
 
 const Blog = async () => {
   const vacancies = await fetchAllVacancies();
+  const t = await getTranslations('Blog');
   return (
     <section className="py-20 lg:py-25 xl:py-30">
       <div className="mx-auto max-w-c-1315 px-4 md:px-8 xl:px-0">
@@ -11,9 +13,9 @@ const Blog = async () => {
         <div className="animate_top mx-auto text-center">
           <SectionHeader
             headerInfo={{
-              title: `NEWS & Vacancies`,
-              subtitle: `Latest News & Vacancies`,
-              description: `Search for internships, jobs, and more. Select the country you are interested in.`,
+              title: t('header.title'),
+              subtitle: t('header.subtitle'),
+              description: t('header.description'),
             }}
           />
         </div>

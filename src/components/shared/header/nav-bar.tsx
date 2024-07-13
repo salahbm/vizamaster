@@ -5,6 +5,7 @@ import React, { useRef, useState } from 'react';
 
 import { Link } from '@/i18n';
 import { cn } from '@/lib/utils';
+import { useTranslations } from 'next-intl';
 
 export const Navbar = ({ color }: { color: boolean }) => {
   const [position, setPosition] = useState({
@@ -12,6 +13,7 @@ export const Navbar = ({ color }: { color: boolean }) => {
     width: 0,
     opacity: 0,
   });
+  const t = useTranslations('Header');
 
   return (
     <ul
@@ -28,7 +30,9 @@ export const Navbar = ({ color }: { color: boolean }) => {
     >
       {navBars.map((item) => (
         <Link href={item.path!} key={item.id}>
-          <Tab setPosition={setPosition}>{item.name}</Tab>
+          <Tab setPosition={setPosition}>
+            {t(`nav.${item.name.toLocaleLowerCase()}`)}
+          </Tab>
         </Link>
       ))}
 

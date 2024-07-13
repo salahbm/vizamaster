@@ -10,9 +10,11 @@ import navBars from './nav-list';
 import { Link, usePathname } from '@/i18n';
 import { cn } from '@/lib/utils';
 import LanguageSelector from './lang-selector';
+import { useTranslations } from 'next-intl';
 
 const MobileNavbar = () => {
   const pathname = usePathname();
+  const t = useTranslations('Header');
   return (
     <Sheet>
       <SheetTrigger className="md:hidden hover:scale-110  transition mt-1 ">
@@ -31,7 +33,9 @@ const MobileNavbar = () => {
               )}
             >
               <SheetClose asChild>
-                <Link href={item.path!}>{item.name}</Link>
+                <Link href={item.path!}>
+                  {t(`nav.${item.name.toLocaleLowerCase()}`)}
+                </Link>
               </SheetClose>
             </li>
           ))}

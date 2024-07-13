@@ -6,8 +6,10 @@ import { useEffect, useMemo, useState } from 'react';
 
 import dynamic from 'next/dynamic';
 import SectionHeader from '@/components/shared/SectionHeader';
+import { useTranslations } from 'next-intl';
 
 const MyGlobe = () => {
+  const t = useTranslations('Globe');
   const GlobeView = useMemo(
     () => dynamic(() => import('./globe-comp'), { ssr: false }),
     []
@@ -39,8 +41,8 @@ const MyGlobe = () => {
 
       <SectionHeader
         headerInfo={{
-          subtitle: 'Our Destinations',
-          description: `   Here are some of the countries you consider to visit.`,
+          subtitle: t('title'),
+          description: t('description'),
         }}
       />
       <div className="flex flex-wrap justify-center items-center p-4 mb-16 mt-8">
@@ -52,7 +54,7 @@ const MyGlobe = () => {
           >
             <div className="text-center">
               <div className="font-semibold text-lg">{capital.country}</div>
-              {!isWindows && <div className="text-3xl">{capital.flag}</div>}
+              {isWindows && <div className="text-3xl">{capital.flag}</div>}
             </div>
           </div>
         ))}

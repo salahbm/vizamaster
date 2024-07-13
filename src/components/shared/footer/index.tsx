@@ -4,8 +4,10 @@ import MotionDiv from '../motions/motion-div';
 import { cn } from '@/lib/utils';
 import { footerList_2 } from './footer-list';
 import { Instagram, Send } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 const Footer = () => {
+  const t = useTranslations('Footer');
   return (
     <MotionDiv
       variants={{
@@ -31,7 +33,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-y-10 lg:grid-cols-4">
             <div className="sm:col-span-2">
               <h1 className="max-w-lg text-xl font-semibold tracking-tight text-gray-800 xl:text-2xl dark:text-white">
-                Subscribe our newsletter to get update.
+                {t('contactUs')}
               </h1>
 
               <div className="flex flex-col mx-auto mt-6 space-y-3 md:space-y-0 md:flex-row">
@@ -43,41 +45,41 @@ const Footer = () => {
                 />
 
                 <button className="w-full px-6 py-2.5 text-sm font-medium tracking-wider text-white transition-colors duration-300 transform md:w-auto md:mx-4 focus:outline-none bg-gray-800 rounded-lg hover:bg-gray-700 focus:ring focus:ring-gray-300 focus:ring-opacity-80">
-                  Subscribe
+                  {t('subscribe')}
                 </button>
               </div>
             </div>
 
             <div>
               <p className="font-semibold text-gray-800 dark:text-white">
-                Quick Link
+                {t('quickLinks')}
               </p>
 
               <div className="flex flex-col items-start mt-5 space-y-2">
                 <Link
-                  href="#"
+                  href="/"
                   className="text-gray-600 transition-colors duration-300 dark:text-gray-300  hover:underline "
                 >
-                  Home
+                  {t('home')}
                 </Link>
                 <Link
-                  href="#"
+                  href="/about"
                   className="text-gray-600 transition-colors duration-300 dark:text-gray-300  hover:underline "
                 >
-                  Who We Are
+                  {t('about')}
                 </Link>
                 <Link
-                  href="#"
+                  href="/contact"
                   className="text-gray-600 transition-colors duration-300 dark:text-gray-300  hover:underline "
                 >
-                  Contact
+                  {t('contact')}
                 </Link>
               </div>
             </div>
 
             <div>
               <p className="font-semibold text-gray-800 dark:text-white">
-                Pages
+                {t('pages')}
               </p>
 
               <div className="flex flex-col items-start mt-5 space-y-2">
@@ -87,7 +89,7 @@ const Footer = () => {
                     href={item.path!}
                     className="text-gray-600 transition-colors duration-300 dark:text-gray-300  hover:underline "
                   >
-                    {item.name}
+                    {t(item.name.toLocaleLowerCase())}
                   </Link>
                 ))}
               </div>

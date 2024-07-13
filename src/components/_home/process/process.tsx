@@ -6,35 +6,29 @@ import { motion, useInView } from 'framer-motion';
 import Image from 'next/image';
 import { useMemo, useRef } from 'react';
 import { cn } from '@/lib/utils';
+import { useTranslations } from 'next-intl';
+
+interface StepType {
+  id: string;
+  title: string;
+}
 
 export function Process() {
-  const content = useMemo(
+  const t = useTranslations('Process');
+
+  const content: StepType[] = useMemo(
     () => [
-      {
-        id: '1',
-        title: 'APPLY',
-      },
-      {
-        id: '2',
-        title: 'INTERVIEW',
-      },
-      {
-        id: '3',
-        title: 'VISA APPROVAL',
-      },
-      {
-        id: '4',
-        title: 'START JOB',
-      },
+      { id: '1', title: t('steps.1.title') },
+      { id: '2', title: t('steps.2.title') },
+      { id: '3', title: t('steps.3.title') },
+      { id: '4', title: t('steps.4.title') },
     ],
-    []
+    [t]
   );
 
   // TODO: Fix black text color staggering animation on design page
 
   const [windowWidth] = useWindowSize();
-  const noticeRef = useRef(null);
-  const isNoticeInView = useInView(noticeRef);
   const processContainerRef = useRef(null);
   const isInView = useInView(processContainerRef);
 
@@ -80,12 +74,11 @@ export function Process() {
     >
       <div className="absolute h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] -z-10" />
       <h1 className={cn(styles.processTitle, 'largeText')}>
-        OUR <span className="textGradient">PROCESS</span>
+        <span className="textGradient"> {t('title')}</span>
       </h1>
 
       <p className="mx-auto mt-8 md:w-4/5 lg:w-3/5 xl:w-[46%] text-center bg-amber-50 hover:bg-amber-100 px-4 py-2 rounded-2xl shadow-md cursor-pointer z-50 text-neutral-600">
-        NOTE 💡: Depending on the job, country and personal preference process
-        can differ for each applicant
+        {t('note')}
       </p>
 
       <motion.div

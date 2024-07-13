@@ -52,6 +52,211 @@
       "en": "English",
       "uz": "Uzbek",
       "ru": "Russian"
+    },
+    "nav": {
+      "about": "About",
+      "jobs": "Jobs",
+      "results": "Results",
+      "contact": "Contact",
+      "partners": "Partners"
     }
+  },
+  "About": {
+    "header": {
+      "title": "About Us"
+    },
+    "scrollDown": "Scroll Down",
+    "sections": {
+      "mission": {
+        "title": "Our Mission",
+        "content": "Our mission is to connect exceptional talent with outstanding career opportunities. We strive to bridge the gap between job seekers and employers by providing personalized, high-quality recruitment services."
+      },
+      "history": {
+        "title": "Our History",
+        "content": "Founded in 2017, BS GROUP has grown from a small startup into a leading recruitment agency."
+      },
+      "values": {
+        "title": "Our Values",
+        "content": "Integrity, Excellence, Respect, and Innovation guide everything we do."
+      },
+      "team": {
+        "title": "Our Team",
+        "content": "Our team of experienced recruiters is dedicated to helping you succeed by matching the right talent with the right opportunities."
+      },
+      "services": {
+        "title": "Our Services",
+        "content": "We offer a wide range of recruitment services tailored to meet the unique needs of both job seekers and employers."
+      }
+    }
+  },
+  "Contact": {
+    "sectionHeader": {
+      "title": "Contacts",
+      "subtitle": "Get in touch",
+      "description": "Get in touch with us. We will get back to you as soon as possible."
+    },
+    "details": {
+      "addressTitle": "Our Address",
+      "address": "Otaboy Eshonov 40 A\nBukhara, Uzbekistan",
+      "contactTitle": "Contact",
+      "contactNumbers": "+998 95 608-70-70\n+998 95 608-00-70\n+998 95 506-70-07",
+      "mailTitle": "Mail:",
+      "emails": "bsglobalinfo@mail.ru\nmain@bsglobal.uz",
+      "hoursTitle": "Working hours",
+      "workingHours": "Monday - Friday: 09:00 - 17:00\nSaturday & Sunday: 09:00 - 13:00"
+    }
+  },
+  "ContactForm": {
+    "title": "Contact us",
+    "description": "Fill out the form below and we'll get back to you as soon as possible.",
+    "labels": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message"
+    },
+    "placeholders": {
+      "name": "Enter your name",
+      "email": "Enter your email",
+      "message": "Enter your message"
+    },
+    "errors": {
+      "name": "Please enter your name.",
+      "email": "Please enter a valid email address.",
+      "message": "Please enter your message."
+    },
+    "submit": {
+      "sending": "Sending...",
+      "default": "Send message"
+    }
+  },
+  "Partners": {
+    "description": "At {BRAND_NAME}, we are dedicated to connecting exceptional talent with outstanding opportunities. Whether you are a job seeker looking to take the next step in your career, or an employer seeking the perfect candidate to join your team, our expert recruiters are here to assist you every step of the way.",
+    "details": {
+      "addressTitle": "Our Address",
+      "address": "Otaboy Eshonov 40 A\nBukhara, Uzbekistan",
+      "contactTitle": "Contact",
+      "contactNumbers": "+998 95 608-70-70\n+998 95 608-00-70\n+998 95 506-70-07",
+      "mailTitle": "Mail:",
+      "emails": "bsglobalinfo@mail.ru\nmain@bsglobal.uz",
+      "hoursTitle": "Working hours",
+      "workingHours": "Monday - Friday: 09:00 - 17:00\nSaturday & Sunday: 09:00 - 13:00"
+    }
+  },
+  "Results": {
+    "header": {
+      "subtitle": "Successful candidates",
+      "description": "We are glad that you are interested in our company.We are looking forward to working with you."
+    }
+  },
+  "Feature": {
+    "header": {
+      "title": "SOLID FEATURES",
+      "subtitle": "Core Services We Offer",
+      "description": "Success Begins with a solid foundation."
+    },
+    "features": {
+      "tailoredInternshipPrograms": {
+        "title": "Tailored Internship Programs",
+        "description": "Our expert consultants design customized internship opportunities to match your career goals."
+      },
+      "professionalResumeBuilding": {
+        "title": "Professional Resume Building",
+        "description": "Stand out with a professionally crafted resume, highlighting your skills and experiences."
+      },
+      "globalJobPlacements": {
+        "title": "Global Job Placements",
+        "description": "Secure job placements in top companies across the USA, Canada, Europe, and more."
+      },
+      "comprehensiveInterviewPreparation": {
+        "title": "Comprehensive Interview Preparation",
+        "description": "Ace your interviews with our comprehensive preparation resources and expert tips."
+      }
+    }
+  },
+  "FunFact": {
+    "header": {
+      "subtitle": "our work in numbers",
+      "description": "We are growing. Check out our numbers below."
+    },
+    "trustedBy": "Trusted by MANY.",
+    "trustedDescription": "We are a well-established recruitment and agency company with over a decade of experience, and here are some key statistics that showcase our work:",
+    "stats": {
+      "clients": {
+        "count": "5000",
+        "label": "World Wide Clients"
+      },
+      "locations": {
+        "count": "10+",
+        "label": "Locations"
+      },
+      "vacancies": {
+        "count": "30+",
+        "label": "Vacancies"
+      }
+    }
+  },
+  "Hero": {
+    "title": "Unlock Your Global Career Potential",
+    "description": "Welcome to {BRAND_NAME}, your trusted partner in securing top-tier internships, exchange programs, and employment opportunities worldwide. Whether you are aiming for prestigious roles in any spot of the world, journey to a rewarding career with us today.",
+    "getStarted": "Get Started",
+    "secureSpot": "Secure Your Spot Today"
+  },
+  "PeopleMarquee": {
+    "header": {
+      "title": "OUR CANDIDATES",
+      "subtitle": "SATISFIED Clients",
+      "description": "We are proud of our team. Here are some of our happy clients."
+    }
+  },
+  "Process": {
+    "title": "OUR PROCESS",
+    "note": "NOTE 💡: Depending on the job, country and personal preference process can differ for each applicant",
+    "steps": {
+      "1": {
+        "title": "APPLY"
+      },
+      "2": {
+        "title": "INTERVIEW"
+      },
+      "3": {
+        "title": "VISA APPROVAL"
+      },
+      "4": {
+        "title": "START JOB"
+      }
+    }
+  },
+  "Blog": {
+    "header": {
+      "title": "NEWS & Vacancies",
+      "subtitle": "Latest News & Vacancies",
+      "description": "Search for internships, jobs, and more. Select the country you are interested in."
+    }
+  },
+  "EmptyState": {
+    "title": "No Data",
+    "description": "We’re working hard to bring new opportunities. Check back soon or add your first job!"
+  },
+  "SocialMediaCard": {
+    "companyName": "BS GROUP",
+    "description": "We are always looking for talented and creative people.",
+    "instagram": "Instagram",
+    "telegram": "Telegram"
+  },
+  "Globe": {
+    "title": "Our Destinations",
+    "description": "Here are some of the countries you consider to visit."
+  },
+  "Footer": {
+    "subscribe": "Subscribe",
+    "quickLinks": "Quick Links",
+    "contactUs": "Subscribe our newsletter to get update.",
+    "pages": "Pages",
+    "about": "Who We Are",
+    "jobs": "Jobs",
+    "contact": "Contact",
+    "partners": "Partners",
+    "home": "Home",
+    "admin": "Admin"
   }
 }

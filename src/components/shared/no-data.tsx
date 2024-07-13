@@ -1,7 +1,9 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
-const EmptyState = () => {
+const EmptyState: React.FC = () => {
+  const t = useTranslations('EmptyState');
+
   return (
     <div className="flex flex-col items-center justify-center h-full text-center p-4 my-20">
       <Image
@@ -11,10 +13,16 @@ const EmptyState = () => {
         height={200}
         className="object-cover"
       />
-      <h2 className="text-2xl font-semibold mb-2 textGradient">No Data </h2>
+      <h2 className="text-2xl font-semibold mb-2 textGradient">{t('title')}</h2>
       <p className="text-gray-600 mb-4">
-        We’re working hard to bring new opportunities. <br /> Check back soon or
-        add your first job!
+        {t('description')
+          .split('\n')
+          .map((line, index) => (
+            <span key={index}>
+              {line}
+              <br />
+            </span>
+          ))}
       </p>
     </div>
   );
