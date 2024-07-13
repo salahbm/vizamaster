@@ -46,7 +46,7 @@ const About = () => {
           </span>
         </div>
         <p className="textGradient largeText text-black dark:text-white">
-          We are driven by the vision of a sustainable future.
+          {t('header.description')}
         </p>
         <div className="my-16 animate-bounce text-primary rounded-full blurly-white px-4 py-1.5 flex flex-row">
           <span className="text-sectiontitle font-medium text-black dark:text-white">

@@ -36,16 +36,12 @@
     "2303": "Mobile verification code is invalid."
   },
   "Meta": {
-    "keywords": "Blockchain Crypto Exchange, Cryptocurrency Exchange, Bitcoin Trading, Ethereum price trend, CZ, BTC price, ETH price",
-    "description": "The fairest and safest cryptocurrency exchange.",
-    "home": {
-      "title": "{brand} | Recruitment Agency",
-      "description": "{brand} is your trusted destination for cryptocurrency trading. Start your crypto journey with BTC and ETH on {brand} today!"
-    }
+    "keywords": "Build your future with BS GROUP",
+    "description": "The best recruitment agency in the world"
   },
   "Home": {
     "title": "Welcome to BS GROUP",
-    "description": "The best group management platform for small businesses and freelancers"
+    "description": "The best recruitment agency in the world"
   },
   "Header": {
     "languages": {
@@ -63,7 +59,8 @@
   },
   "About": {
     "header": {
-      "title": "About Us"
+      "title": "About Us",
+      "description": "We are driven by the vision of a sustainable future."
     },
     "scrollDown": "Scroll Down",
     "sections": {
@@ -258,5 +255,11 @@
     "partners": "Partners",
     "home": "Home",
     "admin": "Admin"
+  },
+  "Jobs": {
+    "header": {
+      "subtitle": "Latest News & Vacancies",
+      "description": "Search for internships, jobs, and more. Select the country you are interested in."
+    }
   }
 }

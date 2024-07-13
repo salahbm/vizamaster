@@ -1,57 +1,265 @@
 {
   "Public": {
-    "no-data": "No data",
-    "copy": "Successfully Copied"
+    "no-data": "Ma'lumot yo'q",
+    "copy": "Muvaffaqiyatli nusxalandi"
   },
   "Errors": {
-    "wrong": "Something went wrong",
-    "2000": "Email address is already registered.",
-    "2001": "Target user does not exist.",
-    "2002": "Login history of requested user does not exist.",
-    "2003": "Too many requests submitted within a short time. please retry in 5 minutes.",
-    "2004": "Submitted UUID is not valid.",
-    "2100": "Password is not provided.",
-    "2101": "Provided Password is invalid.",
-    "2102": "Provided combination of email and password is not existent.",
-    "2103": "Password and password confirmation are not the same.",
-    "2104": "Token is necessary for this request.",
-    "2105": "The token provided is expired.",
-    "2106": "The token provided is used.",
-    "2200": "Email is not in the right format. Please check your email.",
-    "2201": "Email is not provided.",
-    "2202": "Email is not found.",
-    "2203": "Provided email verification code is expired.",
-    "2204": "Email is already verified.",
-    "2205": "Email verification request does not exist.",
-    "2206": "Email verification requests can be submitted only once within 30 seconds.",
-    "2207": "Submitted email address is already registered",
-    "2208": "Email verification code must be provided",
-    "2209": "Email verification code is invalid",
-    "2210": "Empty space cannot be allowed to email",
-    "2211": "Header is not provided",
-    "2212": "Contents is not provided",
-    "2300": "Mobile number is already verified.",
-    "2301": "Provided mobile verification code is expired.",
-    "2302": "Mobile number must be provided.",
-    "2303": "Mobile verification code is invalid."
+    "wrong": "Nimadir xato ketdi",
+    "2000": "Elektron pochta manzili allaqachon ro'yxatdan o'tgan.",
+    "2001": "Maqsadli foydalanuvchi mavjud emas.",
+    "2002": "Talab qilingan foydalanuvchining kirish tarixi mavjud emas.",
+    "2003": "Qisqa vaqt ichida juda ko'p so'rovlar yuborildi. Iltimos, 5 daqiqadan keyin qayta urinib ko'ring.",
+    "2004": "Yuborilgan UUID haqiqiy emas.",
+    "2100": "Parol kiritilmagan.",
+    "2101": "Kiritilgan parol noto'g'ri.",
+    "2102": "Kiritilgan elektron pochta va parol kombinatsiyasi mavjud emas.",
+    "2103": "Parol va parolni tasdiqlash bir xil emas.",
+    "2104": "Ushbu so'rov uchun token kerak.",
+    "2105": "Berilgan token muddati tugagan.",
+    "2106": "Berilgan token ishlatilgan.",
+    "2200": "Elektron pochta to'g'ri formatda emas. Iltimos, elektron pochtangizni tekshiring.",
+    "2201": "Elektron pochta kiritilmagan.",
+    "2202": "Elektron pochta topilmadi.",
+    "2203": "Kiritilgan elektron pochta tasdiqlash kodi muddati tugagan.",
+    "2204": "Elektron pochta allaqachon tasdiqlangan.",
+    "2205": "Elektron pochta tasdiqlash so'rovi mavjud emas.",
+    "2206": "Elektron pochta tasdiqlash so'rovlari har 30 soniyada bir marta yuborilishi mumkin.",
+    "2207": "Yuborilgan elektron pochta manzili allaqachon ro'yxatdan o'tgan.",
+    "2208": "Elektron pochta tasdiqlash kodi taqdim etilishi kerak.",
+    "2209": "Elektron pochta tasdiqlash kodi noto'g'ri.",
+    "2210": "Elektron pochtaga bo'sh joy kiritilishi mumkin emas.",
+    "2211": "Sarlavha kiritilmagan.",
+    "2212": "Mundarija kiritilmagan.",
+    "2300": "Mobil raqam allaqachon tasdiqlangan.",
+    "2301": "Kiritilgan mobil tasdiqlash kodi muddati tugagan.",
+    "2302": "Mobil raqam kiritilishi kerak.",
+    "2303": "Mobil tasdiqlash kodi noto'g'ri."
   },
   "Meta": {
-    "keywords": "Blockchain Crypto Exchange, Cryptocurrency Exchange, Bitcoin Trading, Ethereum price trend, CZ, BTC price, ETH price",
-    "description": "The fairest and safest cryptocurrency exchange.",
-    "home": {
-      "title": "{brand} | Recruitment Agency",
-      "description": "{brand} is your trusted destination for cryptocurrency trading. Start your crypto journey with BTC and ETH on {brand} today!"
-    }
+    "keywords": "Kelajagingizni BS GROUP bilan qurib oling",
+    "description": "Dunyodagi eng yaxshi kadrlar agentligi"
   },
   "Home": {
-    "title": "Welcome to BS GROUP",
-    "description": "The best group management platform for small businesses and freelancers"
+    "title": "BS GROUP ga xush kelibsiz",
+    "description": "Dunyodagi eng yaxshi kadrlar agentligi"
   },
   "Header": {
     "languages": {
-      "en": "English",
-      "uz": "Uzbek",
-      "ru": "Russian"
+      "en": "Inglizcha",
+      "uz": "O'zbekcha",
+      "ru": "Ruscha"
+    },
+    "nav": {
+      "about": "Biz haqimizda",
+      "jobs": "Ishlar",
+      "results": "Natijalar",
+      "contact": "Aloqa",
+      "partners": "Hamkorlar"
+    }
+  },
+  "About": {
+    "header": {
+      "title": "Biz haqimizda",
+      "description": "Biz  porloq kelajak uchun imkonyatlar taqdim etamiz."
+    },
+    "scrollDown": "Pastga tushing",
+    "sections": {
+      "mission": {
+        "title": "Bizning missiyamiz",
+        "content": "Bizning missiyamiz - ajoyib iste'dodlarni ajoyib ish imkoniyatlari bilan bog'lash. Biz shaxsiy, yuqori sifatli kadrlar xizmatlarini taqdim etish orqali ish qidiruvchilar va ish beruvchilar o'rtasidagi bo'shliqni to'ldirishga intilamiz."
+      },
+      "history": {
+        "title": "Bizning tariximiz",
+        "content": "2017 yilda tashkil etilgan BS GROUP kichik startapdan etakchi kadrlar agentligiga aylandi."
+      },
+      "values": {
+        "title": "Bizning qadriyatlarimiz",
+        "content": "Halollik, Mukammallik, Hurmat va Innovatsiya biz qilayotgan barcha ishlarni boshqaradi."
+      },
+      "team": {
+        "title": "Bizning jamoamiz",
+        "content": "Bizning tajribali kadrlarimiz sizni muvaffaqiyatga erishishingizga yordam berish uchun to'g'ri iste'dodlarni to'g'ri imkoniyatlar bilan bog'lashga sodiqdir."
+      },
+      "services": {
+        "title": "Bizning xizmatlarimiz",
+        "content": "Biz ish qidiruvchilar va ish beruvchilarning o'ziga xos ehtiyojlariga moslashtirilgan keng ko'lamli kadrlar xizmatlarini taklif etamiz."
+      }
+    }
+  },
+  "Contact": {
+    "sectionHeader": {
+      "title": "Kontaktlar",
+      "subtitle": "Biz bilan bog'laning",
+      "description": "Biz bilan bog'laning. Biz sizga imkon qadar tezroq javob beramiz."
+    },
+    "details": {
+      "addressTitle": "Bizning manzilimiz",
+      "address": "Otaboy Eshonov 40 A\nBuxoro, O'zbekiston",
+      "contactTitle": "Aloqa",
+      "contactNumbers": "+998 95 608-70-70\n+998 95 608-00-70\n+998 95 506-70-07",
+      "mailTitle": "Elektron pochta:",
+      "emails": "bsglobalinfo@mail.ru\nmain@bsglobal.uz",
+      "hoursTitle": "Ish vaqti",
+      "workingHours": "Dushanba - Juma: 09:00 - 17:00\nShanba & Yakshanba: 09:00 - 13:00"
+    }
+  },
+  "ContactForm": {
+    "title": "Biz bilan bog'laning",
+    "description": "Quyidagi shaklni to'ldiring va biz sizga imkon qadar tezroq javob beramiz.",
+    "labels": {
+      "name": "Ism",
+      "email": "Elektron pochta",
+      "message": "Xabar"
+    },
+    "placeholders": {
+      "name": "Ismingizni kiriting",
+      "email": "Elektron pochtangizni kiriting",
+      "message": "Xabaringizni kiriting"
+    },
+    "errors": {
+      "name": "Iltimos, ismingizni kiriting.",
+      "email": "Iltimos, to'g'ri elektron pochta manzilini kiriting.",
+      "message": "Iltimos, xabaringizni kiriting."
+    },
+    "submit": {
+      "sending": "Yuborilmoqda...",
+      "default": "Xabarni yuboring"
+    }
+  },
+  "Partners": {
+    "description": "{BRAND_NAME} da biz ajoyib iste'dodlarni ajoyib imkoniyatlar bilan bog'lashga intilamiz. Agar siz martabangizda keyingi qadamni qo'yishni xohlayotgan ish qidiruvchi bo'lsangiz yoki jamoangizga mukammal nomzodni qo'shishni xohlayotgan ish beruvchi bo'lsangiz, bizning tajribali kadrlarimiz sizga har qadamda yordam berishadi.",
+    "details": {
+      "addressTitle": "Bizning manzilimiz",
+      "address": "Otaboy Eshonov 40 A\nBuxoro, O'zbekiston",
+      "contactTitle": "Aloqa",
+      "contactNumbers": "+998 95 608-70-70\n+998 95 608-00-70\n+998 95 506-70-07",
+      "mailTitle": "Elektron pochta:",
+      "emails": "bsglobalinfo@mail.ru\nmain@bsglobal.uz",
+      "hoursTitle": "Ish vaqti",
+      "workingHours": "Dushanba - Juma: 09:00 - 17:00\nShanba & Yakshanba: 09:00 - 13:00"
+    }
+  },
+  "Results": {
+    "header": {
+      "subtitle": "Muvaffaqiyatli nomzodlar",
+      "description": "Bizning kompaniyamizga qiziqishingiz uchun minnatdormiz. Biz siz bilan ishlashni intiqlik bilan kutyapmiz."
+    }
+  },
+  "Feature": {
+    "header": {
+      "title": "SOLID XUSUSIYATLAR",
+      "subtitle": "Biz taklif qiladigan asosiy xizmatlar",
+      "description": "Muvaffaqiyat mustahkam asos bilan boshlanadi."
+    },
+    "features": {
+      "tailoredInternshipPrograms": {
+        "title": "Moslashtirilgan amaliyot dasturlari",
+        "description": "Bizning tajribali maslahatchilarimiz martaba maqsadlaringizga moslashtirilgan amaliyot imkoniyatlarini yaratadilar."
+      },
+      "professionalResumeBuilding": {
+        "title": "Professional rezyume yaratish",
+        "description": "Ko'nikmalaringiz va tajribangizni ta'kidlovchi professional tarzda tayyorlangan rezyume bilan ajralib turing."
+      },
+      "globalJobPlacements": {
+        "title": "Global ish joylashtirish",
+        "description": "AQSh, Kanada, Evropa va boshqa mamlakatlardagi yetakchi kompaniyalarda ish joylarini ta'minlang."
+      },
+      "comprehensiveInterviewPreparation": {
+        "title": "Kompleks intervyu tayyorgarligi",
+        "description": "Bizning keng qamrovli tayyorgarlik resurslarimiz va tajribali maslahatlarimiz bilan intervyularingizni muvaffaqiyatli yakunlang."
+      }
+    }
+  },
+  "FunFact": {
+    "header": {
+      "subtitle": "bizning ishimiz raqamlarda",
+      "description": "Biz o'syapmiz. Quyidagi raqamlarimizni ko'rib chiqing."
+    },
+    "trustedBy": "KO'PLAR TOMONIDAN ISHONILGAN.",
+    "trustedDescription": "Biz o'n yildan ortiq tajribaga ega bo'lgan yaxshi tashkil etilgan kadrlar agentligi bo'lib, bizning ishimizni ko'rsatadigan ba'zi asosiy statistikalar:",
+    "stats": {
+      "clients": {
+        "count": "5000",
+        "label": "Dunyo bo'ylab mijozlar"
+      },
+      "locations": {
+        "count": "10+",
+        "label": "Joylar"
+      },
+      "vacancies": {
+        "count": "30+",
+        "label": "Vakansiyalar"
+      }
+    }
+  },
+  "Hero": {
+    "title": "Global  imkoniyatlarni yarating",
+    "description": "{BRAND_NAME} ga xush kelibsiz, sizning ishonchli hamkoringiz yetakchi amaliyot, almashinuv dasturlari va butun dunyo bo'ylab ish imkoniyatlarini ta'minlashda. Agar siz dunyoning istalgan joyidagi nufuzli rollarni maqsad qilib qo'ygan bo'lsangiz, bugun biz bilan muvaffaqiyatli martabaga sayohat qiling.",
+    "getStarted": "Boshlash",
+    "secureSpot": "O'zingizning joyingizni bugun ta'minlang"
+  },
+  "PeopleMarquee": {
+    "header": {
+      "title": "BIZNING NOMZODLAR",
+      "subtitle": "QONIQQAN Mijozlar",
+      "description": "Biz jamoamiz bilan faxrlanamiz. Mana ba'zi baxtli mijozlarimiz."
+    }
+  },
+  "Process": {
+    "title": "BIZNING JARAYON",
+    "note": "ESLATMA 💡: Ish, mamlakat va shaxsiy xohishlarga qarab jarayon har bir nomzod uchun farq qilishi mumkin",
+    "steps": {
+      "1": {
+        "title": "ARIZA BERISH"
+      },
+      "2": {
+        "title": "Suhbat"
+      },
+      "3": {
+        "title": "VIZA TASDIQLASH"
+      },
+      "4": {
+        "title": "ISHNI BOSHLASH"
+      }
+    }
+  },
+  "Blog": {
+    "header": {
+      "title": "YANGILIKLAR & Vakansiyalar",
+      "subtitle": "Eng so'nggi yangiliklar va vakansiyalar",
+      "description": "Amaliyot, ish joylari va boshqa narsalarni qidiring. Qiziqqan mamlakatingizni tanlang."
+    }
+  },
+  "EmptyState": {
+    "title": "Ma'lumot yo'q",
+    "description": "Biz yangi imkoniyatlarni taqdim etish uchun astoydil ishlayapmiz. Yaqinda qaytib keling yoki birinchi ishingizni qo'shing!"
+  },
+  "SocialMediaCard": {
+    "companyName": "BS GROUP",
+    "description": "Biz har doim iste'dodli va ijodkor odamlarni qidirmoqdamiz.",
+    "instagram": "Instagram",
+    "telegram": "Telegram"
+  },
+  "Globe": {
+    "title": "Bizning yo'nalishlarimiz",
+    "description": "Mana tashrif buyurishingiz mumkin bo'lgan ba'zi mamlakatlar."
+  },
+  "Footer": {
+    "subscribe": "Obuna bo'lish",
+    "quickLinks": "Tezkor havolalar",
+    "contactUs": "Yangilanishlarni olish uchun  obuna bo'ling.",
+    "pages": "Sahifalar",
+    "about": "Biz kimmiz",
+    "jobs": "Ishlar",
+    "contact": "Aloqa",
+    "partners": "Hamkorlar",
+    "home": "Bosh sahifa",
+    "admin": "Administrator"
+  },
+  "Jobs": {
+    "header": {
+      "subtitle": "Eng so'nggi yangiliklar va vakansiyalar",
+      "description": "Amaliyot, ish joylari va boshqa narsalarni qidiring. Qiziqqan mamlakatingizni tanlang."
     }
   }
 }
