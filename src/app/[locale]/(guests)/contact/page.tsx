@@ -2,10 +2,15 @@ import ContactForm from '@/components/shared/contact-form.';
 import SectionHeader from '@/components/shared/SectionHeader';
 import SocialMediaCard from '@/components/shared/social-media';
 import { BookUser, Clock3, Mail, PhoneCall } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
-const Contact = () => {
-  const t = useTranslations('Contact');
+const Contact = async ({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) => {
+  unstable_setRequestLocale(locale);
+  const t = await getTranslations('Contact');
 
   return (
     <section className="my-20" id="contact">

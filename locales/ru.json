@@ -37,15 +37,15 @@
   },
   "Meta": {
     "keywords": "Постройте свое будущее с BS GROUP",
-    "description": "Лучшее кадровое агентство в мире"
-  },
-  "Home": {
-    "title": "Добро пожаловать в BS GROUP",
     "description": "Лучшее кадровое агентство в мире",
     "home": {
       "title": "{brand} | Добро пожаловать в BS GROUP",
       "description": "{brand} Лучшее кадровое агентство в мире"
     }
+  },
+  "Home": {
+    "title": "Добро пожаловать в BS GROUP",
+    "description": "Лучшее кадровое агентство в мире"
   },
   "Header": {
     "languages": {

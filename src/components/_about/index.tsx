@@ -1,3 +1,4 @@
+'use client';
 import MotionDiv from '../shared/motions/motion-div';
 import { ArrowDown } from 'lucide-react';
 import { Separator } from '../ui/separator';

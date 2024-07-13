@@ -1,11 +1,16 @@
 import ContactForm from '@/components/shared/contact-form.';
 import { BRAND_NAME } from '@/constants/name';
 import { BookUser, Clock3, Mail, PhoneCall } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
 
-const Partners = () => {
-  const t = useTranslations('Partners');
+const Partners = async ({
+  params: { locale },
+}: {
+  params: { locale: string };
+}) => {
+  unstable_setRequestLocale(locale);
+  const t = await getTranslations('Partners');
 
   return (
     <section className="my-20" id="contact">
