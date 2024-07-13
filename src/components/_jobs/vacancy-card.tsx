@@ -1,7 +1,6 @@
 import { Link } from '@/i18n';
-import { Country, Job } from '@prisma/client';
+import { Job } from '@prisma/client';
 import Image from 'next/image';
-import React from 'react';
 
 const VacancyCard = ({ vacancy, jobId }: { vacancy: Job; jobId: string }) => {
   return (

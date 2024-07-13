@@ -26,11 +26,11 @@ const CountryCard = ({ country }: { country: Country }) => {
           className={cn(
             'w-full h-[150px] md:h-[200px] flex items-center justify-center rounded-lg ',
             isWindows
-              ? 'bg-slate-100'
-              : ' bg-gradient-to-r from-fuchsia-100 to-blue-100 group-hover:from-blue-200 group-hover:to-pink-200  '
+              ? ' bg-gradient-to-r from-fuchsia-100 to-blue-100 group-hover:from-blue-200 group-hover:to-pink-200  '
+              : 'bg-slate-100'
           )}
         >
-          {!isWindows ? (
+          {isWindows ? (
             <p className="largeText textGradient">{country.name}</p>
           ) : (
             <p className="text-[140px] md:text-[180px]">{country.emoji}</p>
