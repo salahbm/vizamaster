@@ -41,7 +41,11 @@
   },
   "Home": {
     "title": "Добро пожаловать в BS GROUP",
-    "description": "Лучшее кадровое агентство в мире"
+    "description": "Лучшее кадровое агентство в мире",
+    "home": {
+      "title": "{brand} | Добро пожаловать в BS GROUP",
+      "description": "{brand} Лучшее кадровое агентство в мире"
+    }
   },
   "Header": {
     "languages": {

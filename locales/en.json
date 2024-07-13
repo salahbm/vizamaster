@@ -37,7 +37,11 @@
   },
   "Meta": {
     "keywords": "Build your future with BS GROUP",
-    "description": "The best recruitment agency in the world"
+    "description": "The best recruitment agency in the world",
+    "home": {
+      "title": "{brand} | Build your future with BS GROUP",
+      "description": "{brand} The best recruitment agency in the world"
+    }
   },
   "Home": {
     "title": "Welcome to BS GROUP",

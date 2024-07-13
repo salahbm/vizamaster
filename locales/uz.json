@@ -37,7 +37,11 @@
   },
   "Meta": {
     "keywords": "Kelajagingizni BS GROUP bilan qurib oling",
-    "description": "Dunyodagi eng yaxshi kadrlar agentligi"
+    "description": "Dunyodagi eng yaxshi kadrlar agentligi",
+    "home": {
+      "title": "{brand} | Kelajagingizni BS GROUP bilan qurib oling",
+      "description": "{brand} Dunyodagi eng yaxshi kadrlar agentligi"
+    }
   },
   "Home": {
     "title": "BS GROUP ga xush kelibsiz",
