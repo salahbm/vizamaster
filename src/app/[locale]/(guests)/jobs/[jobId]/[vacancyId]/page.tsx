@@ -19,7 +19,7 @@ const VacancyId = async ({ params }: { params: { vacancyId: string } }) => {
               alt="Vacancy image"
               fill
               sizes="(100vw, 100vh)"
-              className="rounded-lg shadow-lg object-cover transition-transform duration-300 hover:scale-105"
+              className="rounded-lg shadow-lg object-contain transition-transform duration-300 hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-800 opacity-60 rounded-lg"></div>
           </div>
