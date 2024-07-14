@@ -12,7 +12,7 @@ const VacancyCard = ({ vacancy, jobId }: { vacancy: Job; jobId: string }) => {
         vacancy.isActive ? 'cursor-pointer' : 'cursor-not-allowed'
       )}
     >
-      <Link href={vacancy.isActive ? `/jobs/${jobId}/${vacancy.id}` : '#'}>
+      <Link href={`/jobs/${jobId}/${vacancy.id}`}>
         <div className="relative w-full h-[250px] md:h-[300px] flex items-center justify-center bg-slate-100">
           <Image
             src={vacancy.imgUrl}
@@ -32,20 +32,20 @@ const VacancyCard = ({ vacancy, jobId }: { vacancy: Job; jobId: string }) => {
           </p>
         </div>
       </Link>
-      <div
-        className={cn(
-          vacancy.isActive ? 'opacity-0' : 'opacity-100',
-          'absolute top-0 right-0 bg-slate-300/40 z-50 w-full h-full rounded-lg'
-        )}
-      />
       {vacancy.isActive === false && (
-        <Badge
+        <div
           className={cn(
-            'absolute top-2 right-2 rounded-md z-50 bg-rose-600 text-white'
+            'opacity-100 absolute top-0 right-0 bg-slate-300/40 z-50 w-full h-full rounded-lg'
           )}
         >
-          Not Active
-        </Badge>
+          <Badge
+            className={cn(
+              'absolute top-2 right-2 rounded-md z-50 bg-rose-600 text-white'
+            )}
+          >
+            Not Active
+          </Badge>
+        </div>
       )}
       {vacancy.isDeadline && (
         <Badge

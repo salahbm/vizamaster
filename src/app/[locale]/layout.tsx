@@ -81,6 +81,7 @@ export default function LocaleLayout({
       >
         <AppProvider>
           <Suspense fallback={<Loading />}>{children}</Suspense>
+
           <Toaster />
           <Analytics />
         </AppProvider>
