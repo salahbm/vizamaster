@@ -5,6 +5,8 @@ import { Separator } from '@/components/ui/separator';
 import { fetchCountry } from '@/hooks/admin/fetch-country';
 import { fetchCountryVacancies } from '@/hooks/admin/fetch-vacancy';
 
+export const dynamic = 'force-dynamic';
+
 const JobIdPage = async ({ params }: { params: { jobId: string } }) => {
   const country = await fetchCountry(params.jobId);
   const vacancies = await fetchCountryVacancies(params.jobId);

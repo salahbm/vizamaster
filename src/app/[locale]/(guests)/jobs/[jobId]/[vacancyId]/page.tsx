@@ -5,6 +5,8 @@ import { Separator } from '@/components/ui/separator';
 import { fetchVacancy } from '@/hooks/admin/fetch-vacancy';
 import Image from 'next/image';
 
+export const dynamic = 'force-dynamic';
+
 const VacancyId = async ({ params }: { params: { vacancyId: string } }) => {
   const vacancy = await fetchVacancy(params.vacancyId);
   return (

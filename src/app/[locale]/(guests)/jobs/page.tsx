@@ -8,6 +8,8 @@ import { getTranslations } from 'next-intl/server';
 
 import React from 'react';
 
+export const dynamic = 'force-dynamic';
+
 const Jobs = async () => {
   const countries = await fetchAllCountries();
   const t = await getTranslations('Jobs');
