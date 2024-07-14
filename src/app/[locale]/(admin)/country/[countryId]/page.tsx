@@ -2,11 +2,12 @@ import { toast } from '@/components/ui/use-toast';
 import { fetchCountry } from '@/hooks/admin/fetch-country';
 import UpdateCountryForm from './update-coutry';
 import { Country } from '@prisma/client';
+import EmptyState from '@/components/shared/no-data';
 
 const CountryIdPage = async ({ params }: { params: { countryId: string } }) => {
   const country = await fetchCountry(params.countryId);
   if (!country) {
-    toast({ title: 'Country not found' });
+    return <EmptyState />;
   }
 
   return (

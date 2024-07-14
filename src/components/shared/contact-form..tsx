@@ -23,7 +23,7 @@ export default function ContactForm() {
   const router = useRouter();
   const t = useTranslations('ContactForm');
 
-  const { register, handleSubmit, formState } = useForm<
+  const { register, handleSubmit, formState, reset } = useForm<
     z.infer<typeof emailSchema>
   >({
     resolver: zodResolver(emailSchema),
@@ -34,6 +34,7 @@ export default function ContactForm() {
   const onSubmit = async (values: z.infer<typeof emailSchema>) => {
     await sendEmail(values);
     router.refresh();
+    reset();
   };
 
   return (

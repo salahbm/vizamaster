@@ -13,11 +13,22 @@ export const emailSchema = z.object({
   }),
 });
 
+const serviceID = process.env.MAIL_SERVICE_ID;
+const templateID = process.env.MAIL_TEMPLATE_ID;
+const accountID = process.env.MAIL_ACCOUNT_PK;
+
 export const sendEmail = async (data: z.infer<typeof emailSchema>) => {
+  if (!serviceID || !templateID || !accountID) {
+    return toast({
+      title: 'Error',
+      description: 'Email service is not configured',
+      variant: 'destructive',
+    });
+  }
   try {
     await emailjs.send(
-      process.env.MAIL_SERVICE_ID!,
-      process.env.MAIL_TEMPLATE_ID!,
+      serviceID,
+      templateID,
       {
         from_name: data.name,
         to_name: 'BS GROUP',
@@ -25,7 +36,7 @@ export const sendEmail = async (data: z.infer<typeof emailSchema>) => {
         to_email: 'main@bsglobal.uz',
         message: data.message,
       },
-      process.env.MAIL_ACCOUNT_PK!
+      accountID
     );
   } catch (error: any) {
     console.log(error);
