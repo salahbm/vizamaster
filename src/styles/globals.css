@@ -88,7 +88,7 @@
 
 @media screen and (width <=420px) {
   .largeText {
-    font-size: clamp(2.75rem, 12vw, 4rem);
+    font-size: clamp(2rem, 2vw, 4rem);
   }
 }
 

@@ -1,26 +1,14 @@
 'use client';
+import { useIsWindows } from '@/hooks/common/useWindows';
 import { Link } from '@/i18n';
 import { cn } from '@/lib/utils';
 import { Country } from '@prisma/client';
-import React, { useEffect, useState } from 'react';
 
 const CountryCard = ({ country }: { country: Country }) => {
-  const [isWindows, setIsWindows] = useState(false);
-
-  useEffect(() => {
-    // Function to detect if the user is on Windows
-    const detectWindows = () => {
-      const platform = window.navigator.platform;
-      if (platform.indexOf('Win') > -1) {
-        setIsWindows(true);
-      }
-    };
-
-    detectWindows();
-  }, []);
+  const isWindows: boolean = useIsWindows();
 
   return (
-    <div className="w-[350px] bg-white border border-gray-200 rounded-lg shadow-lg my-2 md:hover:scale-105 transition-transform duration-500">
+    <div className="w-[350px] h-fit max-h-[330px] overflow-hidden bg-white border border-gray-200 rounded-lg shadow-lg my-2 md:hover:scale-105 transition-transform duration-500">
       <Link href={`/jobs/${country.id}`} className="group">
         <div
           className={cn(

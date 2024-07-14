@@ -13,7 +13,7 @@ const VacancyId = async ({ params }: { params: { vacancyId: string } }) => {
     <section className="my-20 px-4">
       {vacancy ? (
         <div className="w-full my-4 flex flex-col  p-6">
-          <div className="relative w-full lg:h-[600px] h-[400px] flex items-center justify-center bg-slate-100 rounded-lg overflow-hidden">
+          <div className="  flex items-center justify-center bg-slate-100 rounded-lg overflow-hidden">
             <Image
               src={vacancy.imgUrl}
               alt="Vacancy image"
@@ -21,7 +21,6 @@ const VacancyId = async ({ params }: { params: { vacancyId: string } }) => {
               height={400}
               className="w-full rounded-lg shadow-lg object-center "
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-600 opacity-50 rounded-lg"></div>
           </div>
 
           <h5 className="mt-4 text-2xl font-bold tracking-tight textGradient text-center">

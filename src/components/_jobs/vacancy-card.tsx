@@ -8,7 +8,7 @@ const VacancyCard = ({ vacancy, jobId }: { vacancy: Job; jobId: string }) => {
   return (
     <div
       className={cn(
-        'w-[350px] bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700 my-2 relative',
+        'w-[340px] md:w-[380px] p-2 bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700 my-2 relative',
         vacancy.isActive ? 'cursor-pointer' : 'cursor-not-allowed'
       )}
     >

@@ -7,9 +7,11 @@ import { useEffect, useMemo, useState } from 'react';
 import dynamic from 'next/dynamic';
 import SectionHeader from '@/components/shared/SectionHeader';
 import { useTranslations } from 'next-intl';
+import { useIsWindows } from '@/hooks/common/useWindows';
 
 const MyGlobe = () => {
   const t = useTranslations('Globe');
+  const isWindows = useIsWindows();
   const GlobeView = useMemo(
     () => dynamic(() => import('./globe-comp'), { ssr: false }),
     []
@@ -20,20 +22,6 @@ const MyGlobe = () => {
   function handleClick(capital: any) {
     setCapitalToPass(capital);
   }
-
-  const [isWindows, setIsWindows] = useState(false);
-
-  useEffect(() => {
-    // Function to detect if the user is on Windows
-    const detectWindows = () => {
-      const platform = window.navigator.platform;
-      if (platform.indexOf('Win') > -1) {
-        setIsWindows(true);
-      }
-    };
-
-    detectWindows();
-  }, []);
 
   return (
     <div className="relative w-full pb-12">

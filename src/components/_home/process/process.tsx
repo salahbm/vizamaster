@@ -73,9 +73,9 @@ export function Process() {
       className={cn('relative overflow-x-hidden py-8', styles.processSection)}
     >
       <div className="absolute h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)] -z-10" />
-      <h1 className={cn(styles.processTitle, 'largeText')}>
-        <span className="textGradient"> {t('title')}</span>
-      </h1>
+      <div className="text-center">
+        <p className="textGradient largeText">{t('title')}</p>
+      </div>
 
       <p className="mx-auto mt-8 md:w-4/5 lg:w-3/5 xl:w-[46%] text-center bg-amber-50 hover:bg-amber-100 px-4 py-2 rounded-2xl shadow-md cursor-pointer z-50 text-neutral-600">
         {t('note')}

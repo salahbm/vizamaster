@@ -4,10 +4,12 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Capital, capitals } from './globe-data';
 import Image from 'next/image';
 import Globe from 'react-globe.gl';
+import { useIsWindows } from '@/hooks/common/useWindows';
 
 const GlobeView = ({ data }: { data: Capital }) => {
   const globeEl = useRef(null);
   const [loading, setLoading] = useState(true);
+  const isWindows = useIsWindows();
 
   const handleClick = (capital: Capital) => {
     if (globeEl.current) {
@@ -63,20 +65,6 @@ const GlobeView = ({ data }: { data: Capital }) => {
       );
     }
   }, [loading]);
-
-  const [isWindows, setIsWindows] = useState(false);
-
-  useEffect(() => {
-    // Function to detect if the user is on Windows
-    const detectWindows = () => {
-      const platform = window.navigator.platform;
-      if (platform.indexOf('Win') > -1) {
-        setIsWindows(true);
-      }
-    };
-
-    detectWindows();
-  }, []);
 
   return (
     <>
