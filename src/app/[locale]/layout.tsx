@@ -28,38 +28,19 @@ export async function generateMetadata({
     title,
     description,
     metadataBase: new URL(`https://bsgroup.vercel.app/en`),
-    // alternates: {
-    // 	canonical: `/${locale}`,
-    // 	languages: {
-    // 		en: '/en',
-    // 	},
-    // },
-    // openGraph: {
-    //   title,
-    //   description,
-    //   url: `/`,
-    //   siteName: BRAND_NAME,
-    //   images: [
-    //     {
-    //       url: `/og/small.png`,
-    //       width: 600,
-    //       height: 315,
-    //     },
-    //     {
-    //       url: `/og/large.png`,
-    //       width: 1200,
-    //       height: 600,
-    //     },
-    //   ],
-    //   type: 'website',
-    // },
-    // twitter: {
-    //   card: 'summary_large_image',
-    //   title,
-    //   description,
-    //   site: BRAND_NAME,
-    //   images: [`/og/twitter.png`],
-    // },
+    alternates: {
+      canonical: `/${locale}`,
+      languages: {
+        en: '/en',
+      },
+    },
+    openGraph: {
+      title,
+      description,
+      url: `/`,
+      siteName: BRAND_NAME,
+      type: 'website',
+    },
   };
 }
 
