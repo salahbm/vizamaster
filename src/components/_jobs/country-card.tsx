@@ -8,7 +8,7 @@ const CountryCard = ({ country }: { country: Country }) => {
   const isWindows: boolean = useIsWindows();
 
   return (
-    <div className="w-[350px] h-fit max-h-[330px] overflow-hidden bg-white border border-gray-200 rounded-lg shadow-lg my-2 md:hover:scale-105 transition-transform duration-500">
+    <div className="w-[350px] h-[320px] overflow-hidden bg-white border border-gray-200 rounded-lg shadow-lg my-2 md:hover:scale-105 transition-transform duration-500">
       <Link href={`/jobs/${country.id}`} className="group">
         <div
           className={cn(
@@ -29,7 +29,7 @@ const CountryCard = ({ country }: { country: Country }) => {
           <h5 className="mb-2 text-xl font-bold tracking-tight textGradient">
             {country.name}
           </h5>
-          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 max-h-12 overflow-y-hidden">
+          <p className="mb-3 whitespace-nowrap truncate font-normal text-gray-700 dark:text-gray-400 max-h-12 overflow-y-hidden">
             {country.title}
           </p>
         </div>
