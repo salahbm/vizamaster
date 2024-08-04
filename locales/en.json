@@ -36,15 +36,15 @@
     "2303": "Mobile verification code is invalid."
   },
   "Meta": {
-    "keywords": "Build your future with BS GROUP",
+    "keywords": "Build your future with Inter Obmen",
     "description": "The best recruitment agency in the world",
     "home": {
-      "title": "{brand} | Build your future with BS GROUP",
+      "title": "{brand} | Build your future with Inter Obmen",
       "description": "{brand} The best recruitment agency in the world"
     }
   },
   "Home": {
-    "title": "Welcome to BS GROUP",
+    "title": "Welcome to Inter Obmen",
     "description": "The best recruitment agency in the world"
   },
   "Header": {
@@ -74,7 +74,7 @@
       },
       "history": {
         "title": "Our History",
-        "content": "Founded in 2017, BS GROUP has grown from a small startup into a leading recruitment agency."
+        "content": "Founded in 2017, Inter Obmen has grown from a small startup into a leading recruitment agency."
       },
       "values": {
         "title": "Our Values",
@@ -228,6 +228,7 @@
     }
   },
   "Blog": {
+    "note": "NOTE 💡: Currently, vacancies are listed only in Russian language, please use Google Translate",
     "header": {
       "title": "NEWS & Vacancies",
       "subtitle": "Latest News & Vacancies",
@@ -239,7 +240,7 @@
     "description": "We’re working hard to bring new opportunities. Check back soon or add your first job!"
   },
   "SocialMediaCard": {
-    "companyName": "BS GROUP",
+    "companyName": "Inter Obmen",
     "description": "We are always looking for talented and creative people.",
     "instagram": "Instagram",
     "telegram": "Telegram"

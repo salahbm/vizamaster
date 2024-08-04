@@ -28,12 +28,18 @@ const BlogItem = ({ blog }: { blog: Job }) => {
         className="animate_top rounded-lg bg-white p-2 pb-9 shadow-solid-8 h-[370px] shadow-xl "
       >
         <div className="relative block aspect-[368/239] ">
-          <Image src={imgUrl} alt={title!!} fill className="rounded-lg" />
+          <Image
+            src={imgUrl}
+            alt={title!!}
+            fill
+            className="rounded-lg"
+            sizes="(100vw, 100vh)"
+          />
         </div>
 
         <div className="px-4">
           <h3 className="mb-2 mt-4 line-clamp-2 inline-block text-lg font-medium text-neutral-700 duration-300 hover:text-primary dark:text-white ">
-            <Link href={`/jobs`}>💭 {` ${name.slice(0, 40)}...`}</Link>
+            <p>💭 {` ${name.slice(0, 40)}...`}</p>
           </h3>
           <p className="line-clamp-3 truncate">{title}</p>
         </div>

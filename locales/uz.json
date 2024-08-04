@@ -36,15 +36,15 @@
     "2303": "Mobil tasdiqlash kodi noto'g'ri."
   },
   "Meta": {
-    "keywords": "Kelajagingizni BS GROUP bilan qurib oling",
+    "keywords": "Kelajagingizni Inter Obmen bilan qurib oling",
     "description": "Dunyodagi eng yaxshi kadrlar agentligi",
     "home": {
-      "title": "{brand} | Kelajagingizni BS GROUP bilan qurib oling",
+      "title": "{brand} | Kelajagingizni Inter Obmen bilan qurib oling",
       "description": "{brand} Dunyodagi eng yaxshi kadrlar agentligi"
     }
   },
   "Home": {
-    "title": "BS GROUP ga xush kelibsiz",
+    "title": "Inter Obmen ga xush kelibsiz",
     "description": "Dunyodagi eng yaxshi kadrlar agentligi"
   },
   "Header": {
@@ -74,7 +74,7 @@
       },
       "history": {
         "title": "Bizning tariximiz",
-        "content": "2017 yilda tashkil etilgan BS GROUP kichik startapdan etakchi kadrlar agentligiga aylandi."
+        "content": "2017 yilda tashkil etilgan Inter Obmen kichik startapdan etakchi kadrlar agentligiga aylandi."
       },
       "values": {
         "title": "Bizning qadriyatlarimiz",
@@ -228,6 +228,8 @@
     }
   },
   "Blog": {
+    "note": "Eslatma 💡: Hozirda vakansiyalar faqat rus tilida keltirilgan, iltimos, Google Translate'dan foydalaning.",
+
     "header": {
       "title": "YANGILIKLAR & Vakansiyalar",
       "subtitle": "Eng so'nggi yangiliklar va vakansiyalar",
@@ -239,7 +241,7 @@
     "description": "Biz yangi imkoniyatlarni taqdim etish uchun astoydil ishlayapmiz. Yaqinda qaytib keling yoki birinchi ishingizni qo'shing!"
   },
   "SocialMediaCard": {
-    "companyName": "BS GROUP",
+    "companyName": "Inter Obmen",
     "description": "Biz har doim iste'dodli va ijodkor odamlarni qidirmoqdamiz.",
     "instagram": "Instagram",
     "telegram": "Telegram"

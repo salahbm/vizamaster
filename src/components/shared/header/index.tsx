@@ -64,7 +64,7 @@ const Header = () => {
                   'text-sm md:text-md lg:text-lg font-bold whitespace-nowrap -ml-1'
                 )}
               >
-                BS <span className="textGradient">GROUP</span>
+                Inter <span className="textGradient">Obmen</span>
               </p>
             </div>
           </Link>

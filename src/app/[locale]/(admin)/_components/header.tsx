@@ -26,7 +26,7 @@ export default function Header() {
                 'text-sm md:text-lg font-bold whitespace-nowrap -ml-1'
               )}
             >
-              BS <span className="textGradient">GROUP</span> ADMIN
+              Inter <span className="textGradient">Obmen</span> ADMIN
             </p>
           </Link>
         </div>

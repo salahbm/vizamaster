@@ -116,7 +116,7 @@ const Footer = () => {
                   'text-sm md:text-lg font-bold whitespace-nowrap -ml-1'
                 )}
               >
-                BS <span className="textGradient">GROUP</span>
+                Inter <span className="textGradient">Obmen</span>
               </p>
             </Link>
 

@@ -11,28 +11,33 @@ import React from 'react';
 export const dynamic = 'force-dynamic';
 
 const Jobs = async () => {
-  const countries = await fetchAllCountries();
-  const t = await getTranslations('Jobs');
-  return (
-    <div>
-      {countries ? (
-        <div className="my-35 px-4 flex flex-wrap items-center justify-center gap-4">
-          <SectionHeader
-            headerInfo={{
-              subtitle: t('header.subtitle'),
-              description: t('header.description'),
-            }}
-          />
-          {countries.map((item) => (
-            <CountryCard key={item.id} country={item as Country} />
-          ))}
-        </div>
-      ) : (
-        <EmptyState />
-      )}
-      <MyGlobe />
-    </div>
-  );
+  try {
+    const countries = await fetchAllCountries();
+    const t = await getTranslations('Jobs');
+    return (
+      <div>
+        {countries && countries.length > 0 ? (
+          <div className="my-35 px-4 flex flex-wrap items-center justify-center gap-4">
+            <SectionHeader
+              headerInfo={{
+                subtitle: t('header.subtitle'),
+                description: t('header.description'),
+              }}
+            />
+            {countries.map((item) => (
+              <CountryCard key={item.id} country={item as Country} />
+            ))}
+          </div>
+        ) : (
+          <EmptyState />
+        )}
+        <MyGlobe />
+      </div>
+    );
+  } catch (error) {
+    console.error('Error fetching countries:', error);
+    return <EmptyState />;
+  }
 };
 
 export default Jobs;

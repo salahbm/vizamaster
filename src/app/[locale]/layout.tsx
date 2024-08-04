@@ -27,7 +27,11 @@ export async function generateMetadata({
   return {
     title,
     description,
-    metadataBase: new URL(`https://bsgroup.vercel.app/en`),
+    metadataBase: new URL(
+      process.env.VERCEL_URL
+        ? `https://${process.env.VERCEL_URL}`
+        : 'http://localhost:3000'
+    ),
     alternates: {
       canonical: `/${locale}`,
       languages: {
