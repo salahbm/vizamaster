@@ -116,7 +116,7 @@ const Footer = () => {
                   'text-sm md:text-lg font-bold whitespace-nowrap -ml-1'
                 )}
               >
-                Inter <span className="textGradient">Obmen</span>
+                <span className="textGradient">Interobmen</span>
               </p>
             </Link>
 

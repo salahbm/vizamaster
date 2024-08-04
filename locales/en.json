@@ -36,15 +36,15 @@
     "2303": "Mobile verification code is invalid."
   },
   "Meta": {
-    "keywords": "Build your future with Inter Obmen",
+    "keywords": "Build your future with Interobmen",
     "description": "The best recruitment agency in the world",
     "home": {
-      "title": "{brand} | Build your future with Inter Obmen",
+      "title": "{brand} | Build your future with Interobmen",
       "description": "{brand} The best recruitment agency in the world"
     }
   },
   "Home": {
-    "title": "Welcome to Inter Obmen",
+    "title": "Welcome to Interobmen",
     "description": "The best recruitment agency in the world"
   },
   "Header": {
@@ -74,7 +74,7 @@
       },
       "history": {
         "title": "Our History",
-        "content": "Founded in 2017, Inter Obmen has grown from a small startup into a leading recruitment agency."
+        "content": "Founded in 2017, Interobmen has grown from a small startup into a leading recruitment agency."
       },
       "values": {
         "title": "Our Values",
@@ -228,7 +228,7 @@
     }
   },
   "Blog": {
-    "note": "NOTE 💡: Currently, vacancies are listed only in Russian language, please use Google Translate",
+    "note": "NOTE 💡: Currently, vacancies are listed only in Russian language, please use Google Translate to translate in your language",
     "header": {
       "title": "NEWS & Vacancies",
       "subtitle": "Latest News & Vacancies",
@@ -240,7 +240,7 @@
     "description": "We’re working hard to bring new opportunities. Check back soon or add your first job!"
   },
   "SocialMediaCard": {
-    "companyName": "Inter Obmen",
+    "companyName": "Interobmen",
     "description": "We are always looking for talented and creative people.",
     "instagram": "Instagram",
     "telegram": "Telegram"

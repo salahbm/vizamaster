@@ -36,15 +36,15 @@
     "2303": "Mobil tasdiqlash kodi noto'g'ri."
   },
   "Meta": {
-    "keywords": "Kelajagingizni Inter Obmen bilan qurib oling",
+    "keywords": "Kelajagingizni Interobmen bilan qurib oling",
     "description": "Dunyodagi eng yaxshi kadrlar agentligi",
     "home": {
-      "title": "{brand} | Kelajagingizni Inter Obmen bilan qurib oling",
+      "title": "{brand} | Kelajagingizni Interobmen bilan qurib oling",
       "description": "{brand} Dunyodagi eng yaxshi kadrlar agentligi"
     }
   },
   "Home": {
-    "title": "Inter Obmen ga xush kelibsiz",
+    "title": "Interobmen ga xush kelibsiz",
     "description": "Dunyodagi eng yaxshi kadrlar agentligi"
   },
   "Header": {
@@ -74,7 +74,7 @@
       },
       "history": {
         "title": "Bizning tariximiz",
-        "content": "2017 yilda tashkil etilgan Inter Obmen kichik startapdan etakchi kadrlar agentligiga aylandi."
+        "content": "2017 yilda tashkil etilgan Interobmen kichik startapdan etakchi kadrlar agentligiga aylandi."
       },
       "values": {
         "title": "Bizning qadriyatlarimiz",
@@ -211,7 +211,7 @@
   },
   "Process": {
     "title": "BIZNING JARAYON",
-    "note": "ESLATMA 💡: Ish, mamlakat va shaxsiy xohishlarga qarab jarayon har bir nomzod uchun farq qilishi mumkin",
+    "note": "ESLATMA 💡: Hozirda boʻsh ish oʻrinlari faqat rus tilida berilgan, oʻz tilingizga tarjima qilish uchun Google Translate’dan foydalaning.",
     "steps": {
       "1": {
         "title": "ARIZA BERISH"
@@ -241,7 +241,7 @@
     "description": "Biz yangi imkoniyatlarni taqdim etish uchun astoydil ishlayapmiz. Yaqinda qaytib keling yoki birinchi ishingizni qo'shing!"
   },
   "SocialMediaCard": {
-    "companyName": "Inter Obmen",
+    "companyName": "Interobmen",
     "description": "Biz har doim iste'dodli va ijodkor odamlarni qidirmoqdamiz.",
     "instagram": "Instagram",
     "telegram": "Telegram"
