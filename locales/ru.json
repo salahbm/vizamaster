@@ -104,7 +104,7 @@
       "mailTitle": "Электронная почта:",
       "emails": "bsglobalinfo@mail.ru\nmain@bsglobal.uz",
       "hoursTitle": "Часы работы",
-      "workingHours": "Понедельник - Пятница: 09:00 - 17:00\nСуббота и Воскресенье: 09:00 - 13:00"
+      "workingHours": "Понедельник - Пятница: 09:00 - 17:00\nСуббота: 09:00 - 13:00"
     }
   },
   "ContactForm": {
@@ -140,7 +140,7 @@
       "mailTitle": "Электронная почта:",
       "emails": "bsglobalinfo@mail.ru\nmain@bsglobal.uz",
       "hoursTitle": "Часы работы",
-      "workingHours": "Понедельник - Пятница: 09:00 - 17:00\nСуббота и Воскресенье: 09:00 - 13:00"
+      "workingHours": "Понедельник - Пятница: 09:00 - 17:00\nСуббота: 09:00 - 13:00"
     }
   },
   "Results": {

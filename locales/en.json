@@ -104,7 +104,7 @@
       "mailTitle": "Mail:",
       "emails": "bsglobalinfo@mail.ru\nmain@bsglobal.uz",
       "hoursTitle": "Working hours",
-      "workingHours": "Monday - Friday: 09:00 - 17:00\nSaturday & Sunday: 09:00 - 13:00"
+      "workingHours": "Monday - Friday: 09:00 - 17:00\nSaturday : 09:00 - 13:00"
     }
   },
   "ContactForm": {
@@ -140,7 +140,7 @@
       "mailTitle": "Mail:",
       "emails": "bsglobalinfo@mail.ru\nmain@bsglobal.uz",
       "hoursTitle": "Working hours",
-      "workingHours": "Monday - Friday: 09:00 - 17:00\nSaturday & Sunday: 09:00 - 13:00"
+      "workingHours": "Monday - Friday: 09:00 - 17:00\nSaturday : 09:00 - 13:00"
     }
   },
   "Results": {
