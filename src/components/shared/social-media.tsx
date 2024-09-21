@@ -29,7 +29,7 @@ const SocialMediaCard: React.FC = () => {
       </p>
       <div className="flex space-x-4">
         <a
-          href="https://www.instagram.com/bsglobal_official/"
+          href="https://www.instagram.com/bsgroup.uz/"
           target="_blank"
           rel="noopener noreferrer"
           className={cn(
@@ -40,7 +40,7 @@ const SocialMediaCard: React.FC = () => {
           <span>{t('instagram')}</span>
         </a>
         <a
-          href="https://telegram.me/BSGlobal"
+          href="https://telegram.me/BSGroupUz"
           target="_blank"
           rel="noopener noreferrer"
           className={cn(
