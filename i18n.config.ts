@@ -8,16 +8,5 @@ export const host = process.env.VERCEL_URL
 export const defaultLocale = 'ru' as const;
 export const locales = ['en', 'ru', 'uz'] as string[];
 
-export const pathnames = {
-  '/': '/',
-  '/pathnames': {
-    en: '/pathnames',
-    ru: '/pfadnamen',
-    uz: '/pathnames',
-  },
-} satisfies Pathnames<typeof locales>;
-
 // Use the default: `always`
-export const localePrefix = undefined;
-
-export type AppPathnames = keyof typeof pathnames;
+export const localePrefix = 'never';

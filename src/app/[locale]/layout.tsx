@@ -9,9 +9,8 @@ import { Suspense } from 'react';
 import { Toaster } from '@/components/ui/toaster';
 import Loading from './loading';
 import { Analytics } from '@vercel/analytics/react';
-
-// Can be imported from a shared config
-const locales = ['en', 'ru', 'uz'];
+import '@/styles/globals.css';
+import { locales } from '../../../i18n.config';
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
