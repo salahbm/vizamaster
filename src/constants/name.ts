@@ -1,1 +1,1 @@
-export const BRAND_NAME = 'Interobmen';
+export const BRAND_NAME = 'BS Group';

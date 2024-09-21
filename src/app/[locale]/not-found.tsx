@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Error 404 | Interobmen',
+  title: 'Error 404 | BS Group',
   description: 'Route not found',
 };
 

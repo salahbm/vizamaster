@@ -36,15 +36,15 @@
     "2303": "Mobile verification code is invalid."
   },
   "Meta": {
-    "keywords": "Build your future with Interobmen",
+    "keywords": "Build your future with BS Group",
     "description": "The best recruitment agency in the world",
     "home": {
-      "title": "{brand} | Build your future with Interobmen",
+      "title": "{brand} | Build your future with BS Group",
       "description": "{brand} The best recruitment agency in the world"
     }
   },
   "Home": {
-    "title": "Welcome to Interobmen",
+    "title": "Welcome to BS Group",
     "description": "The best recruitment agency in the world"
   },
   "Header": {
@@ -74,7 +74,7 @@
       },
       "history": {
         "title": "Our History",
-        "content": "Founded in 2017, Interobmen has grown from a small startup into a leading recruitment agency."
+        "content": "Founded in 2017, BS Group has grown from a small startup into a leading recruitment agency."
       },
       "values": {
         "title": "Our Values",
@@ -240,7 +240,7 @@
     "description": "We’re working hard to bring new opportunities. Check back soon or add your first job!"
   },
   "SocialMediaCard": {
-    "companyName": "Interobmen",
+    "companyName": "BS Group",
     "description": "We are always looking for talented and creative people.",
     "instagram": "Instagram",
     "telegram": "Telegram"
