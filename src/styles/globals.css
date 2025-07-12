@@ -77,6 +77,10 @@
   }
 }
 
+.layout-container {
+  @apply max-w-screen-xl mx-auto;
+}
+
 .largeText {
   font-weight: 700;
   font-size: 3.5rem;

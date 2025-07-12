@@ -6,8 +6,7 @@ import { Navbar } from './nav-bar';
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
-import { Link } from '@/i18n';
-import MotionDiv from '../motions/motion-div';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useLocale } from 'use-intl';
 
@@ -53,7 +52,7 @@ const Header = () => {
           <Link href={'/'}>
             <div className="w-[40px] lg:w-[50px] flex justify-center items-center">
               <Image
-                src="/logos/dark_logo.png"
+                src="/logos/logo_3d_nobg.png"
                 alt="logo"
                 width={400}
                 height={10}
@@ -64,7 +63,7 @@ const Header = () => {
                   'text-sm md:text-md lg:text-lg font-bold whitespace-nowrap -ml-1'
                 )}
               >
-                <span className="textGradient">BS Group</span>
+                VIZA <span className="textGradient">MASTER</span>
               </p>
             </div>
           </Link>

@@ -4,27 +4,30 @@ generator client {
 
 datasource db {
   provider     = "postgresql"
-  url          = env("DATABASE_URL")
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
   relationMode = "prisma"
 }
 
 model Country {
   id          String   @id @default(uuid())
-  name        String
+  name        String   @unique
   title       String?
-  description String
+  description String   @db.Text
   emoji       String
-  isNew       Boolean? @default(true)
+  isNew       Boolean  @default(true)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
   jobs        Job[]
+  
+  @@index([name])
 }
 
 model Job {
   id          String   @id @default(uuid())
   name        String
   title       String?
-  description String
+  description String   @db.Text
   imgUrl      String
   isNew       Boolean  @default(true)
   isTrend     Boolean  @default(true)
@@ -38,6 +41,8 @@ model Job {
 
   @@unique([name, countryId])
   @@index([countryId])
+  @@index([isActive])
+  @@index([isTrend])
 }
 
 model Admin {
@@ -48,4 +53,20 @@ model Admin {
   isAdmin   Boolean  @default(false)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  
+  @@index([email])
 }
+
+model Config {
+  id             String   @id @default(cuid())
+  key            String   @unique
+  value          String   @db.Text
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  
+  @@index([key])
+}
+
+// Example of how to use the Config model for your social media credentials:
+// Instagram config entries would have keys like "instagram_url", "instagram_secret", "instagram_api"
+// Telegram config entries would have keys like "telegram_url", "telegram_secret", "telegram_api"

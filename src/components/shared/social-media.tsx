@@ -22,7 +22,7 @@ const SocialMediaCard: React.FC = () => {
         />
       </div>
       <h2 className="text-2xl font-bold mb-2 textGradient" translate="no">
-        {t('companyName')}
+        VIZA MASTER
       </h2>
       <p className="text-lg mb-6 text-center text-gray-600">
         {t('description')}

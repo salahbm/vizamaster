@@ -68,11 +68,9 @@ const FunFact: React.FC = () => {
               className="animate_top text-center"
             >
               <h3 className="mb-2.5 text-3xl font-bold text-black dark:text-white xl:text-sectiontitle3">
-                {t('stats.clients.count')}
+                1000+
               </h3>
-              <p className="text-lg lg:text-para2">
-                {t('stats.clients.label')}
-              </p>
+              <p className="text-lg lg:text-para2">Annually</p>
             </MotionDiv>
             <MotionDiv
               variants={{

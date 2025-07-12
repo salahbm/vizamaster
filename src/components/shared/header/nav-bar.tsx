@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import navBars from './nav-list';
 import React, { useRef, useState } from 'react';
 
-import { Link } from '@/i18n';
+import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
 

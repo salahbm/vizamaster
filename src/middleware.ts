@@ -1,14 +1,11 @@
-import { defaultLocale, locales } from '../i18n.config';
 import createIntlMiddleware from 'next-intl/middleware';
 import { NextRequest, NextResponse } from 'next/server';
+import { routing } from './i18n/routing';
 
 const publicPages = ['/sign-in'];
 const protectedPages = ['/dashboard'];
 
-const intlMiddleware = createIntlMiddleware({
-  locales,
-  defaultLocale,
-});
+const intlMiddleware = createIntlMiddleware(routing);
 
 // Define auth routes
 const authRoutes = ['/sign-in'];

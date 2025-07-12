@@ -11,36 +11,54 @@ import {
 import { Input } from '@/components/ui/input';
 import { zodResolver } from '@hookform/resolvers/zod';
 
-import { useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import { toast } from '@/components/ui/use-toast';
 import { signIn } from 'next-auth/react';
 import Link from 'next/link';
+import { Eye, EyeOff, Loader2 } from 'lucide-react';
 
 export const authSchema = z.object({
   email: z.string().email({ message: 'Enter a valid email address' }),
-  password: z.string().min(6, { message: 'Password is required' }),
+  password: z
+    .string()
+    .min(6, { message: 'Password must be at least 6 characters' }),
 });
 
 export type UserFormValue = z.infer<typeof authSchema>;
 
 export default function UserAuthForm() {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get('callbackUrl');
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [authError, setAuthError] = useState<string | null>(null);
+
   const defaultValues = {
     email: '',
     password: '',
   };
+
   const form = useForm<UserFormValue>({
     resolver: zodResolver(authSchema),
     defaultValues,
   });
 
+  // Clear error when form values change
+  useEffect(() => {
+    if (authError) {
+      const subscription = form.watch(() => setAuthError(null));
+      return () => subscription.unsubscribe();
+    }
+  }, [form, authError]);
+
   const onSubmit = async (data: UserFormValue) => {
     setLoading(true);
+    setAuthError(null);
+
     try {
       const result = await signIn('credentials', {
         redirect: false,
@@ -49,32 +67,62 @@ export default function UserAuthForm() {
         callbackUrl: callbackUrl ?? '/dashboard',
       });
 
-      setLoading(false);
-
-      toast({
-        title: 'Success',
-        description: 'Sign in successful',
-      });
       if (result?.error) {
+        setAuthError(
+          result.error === 'CredentialsSignin'
+            ? 'Invalid email or password'
+            : result.error
+        );
         toast({
-          title: 'Error',
-          description: result.error,
+          title: 'Authentication failed',
+          description:
+            result.error === 'CredentialsSignin'
+              ? 'Invalid email or password'
+              : result.error,
           variant: 'destructive',
         });
       } else {
-        window.location.href = callbackUrl ?? '/dashboard';
+        toast({
+          title: 'Success',
+          description: 'Sign in successful',
+          variant: 'default',
+        });
+
+        // Use router for better navigation experience
+        router.push(callbackUrl ?? '/dashboard');
       }
     } catch (error: any) {
+      setAuthError(error?.message || 'An unexpected error occurred');
       toast({
         title: 'Error',
-        description: error?.message,
+        description: error?.message || 'An unexpected error occurred',
         variant: 'destructive',
       });
+    } finally {
+      setLoading(false);
     }
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
   };
 
   return (
     <>
+      {authError && (
+        <div
+          className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded mb-6"
+          role="alert"
+        >
+          <p className="font-medium">{authError}</p>
+          {authError.includes('permission') && (
+            <p className="text-sm mt-1">
+              Please contact your administrator for access.
+            </p>
+          )}
+        </div>
+      )}
+
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -94,6 +142,8 @@ export default function UserAuthForm() {
                     placeholder="Enter your email..."
                     disabled={loading}
                     className="w-full text-xl"
+                    autoComplete="email"
+                    autoFocus
                     {...field}
                   />
                 </FormControl>
@@ -109,15 +159,33 @@ export default function UserAuthForm() {
                 <FormLabel className="text-xl text-neutral-600">
                   Password
                 </FormLabel>
-                <FormControl>
-                  <Input
-                    type="password"
-                    placeholder="Enter your password..."
-                    disabled={loading}
-                    className="w-full text-xl"
-                    {...field}
-                  />
-                </FormControl>
+                <div className="relative">
+                  <FormControl>
+                    <Input
+                      type={showPassword ? 'text' : 'password'}
+                      placeholder="Enter your password..."
+                      disabled={loading}
+                      className="w-full text-xl pr-10"
+                      autoComplete="current-password"
+                      {...field}
+                    />
+                  </FormControl>
+                  <button
+                    type="button"
+                    onClick={togglePasswordVisibility}
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-700"
+                    tabIndex={-1}
+                  >
+                    {showPassword ? (
+                      <EyeOff size={20} aria-hidden="true" />
+                    ) : (
+                      <Eye size={20} aria-hidden="true" />
+                    )}
+                    <span className="sr-only">
+                      {showPassword ? 'Hide password' : 'Show password'}
+                    </span>
+                  </button>
+                </div>
                 <FormMessage />
               </FormItem>
             )}
@@ -126,25 +194,32 @@ export default function UserAuthForm() {
           <Button
             disabled={loading}
             variant={'outline'}
-            className="ml-auto w-full textGradient text-xl mt-8"
+            className="ml-auto w-full textGradient text-xl mt-8 relative"
             type="submit"
           >
-            Continue
+            {loading ? (
+              <>
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                Signing in...
+              </>
+            ) : (
+              'Sign in'
+            )}
           </Button>
         </form>
       </Form>
-      <div className="relative">
+
+      <div className="relative mt-8">
         <div className="absolute inset-0 flex items-center">
           <span className="w-full border-t" />
         </div>
-        <div className="relative flex justify-center text-xs uppercase ">
-          <button className="text-center ">
-            <Link href="/">
-              <span className=" bg-background hover:text-secondary text-xl text-muted-foreground">
-                Go Home
-              </span>
-            </Link>
-          </button>
+        <div className="relative flex justify-center text-xs uppercase">
+          <Link
+            href="/"
+            className="px-4 py-2 bg-background hover:text-secondary text-muted-foreground rounded-md transition-colors"
+          >
+            Back to Home
+          </Link>
         </div>
       </div>
     </>

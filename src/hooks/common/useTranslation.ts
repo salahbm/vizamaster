@@ -1,47 +1,63 @@
+import { routing } from '@/i18n/routing';
 import { useLocale } from 'next-intl';
 import { usePathname, useRouter } from 'next/navigation';
-import { useCallback } from 'react';
-import { defaultLocale, locales } from '../../../i18n.config';
+import { useCallback, useEffect } from 'react';
 
+/**
+ * Custom hook for handling translations and locale switching
+ * @returns Object containing locales, currentLocale, and handleLocale function
+ */
 const useTranslation = () => {
   const router = useRouter();
   const currentPathname = usePathname();
   const currentLocale = useLocale();
+  const { defaultLocale, locales } = routing;
 
+  // Sync locale with localStorage on mount
+  useEffect(() => {
+    localStorage.setItem('NEXT_LOCALE', currentLocale);
+  }, [currentLocale]);
+
+  /**
+   * Handle locale change and update URL accordingly
+   */
   const handleLocale = useCallback(
     (newLocale: string) => {
-      if (newLocale === currentLocale) return;
+      // Skip if the locale is the same
+      if (!newLocale || newLocale === currentLocale) return;
 
-      // Save to localStorage
-      localStorage.setItem('NEXT_LOCALE', newLocale);
-
-      let newPath;
-      if (
-        currentLocale === defaultLocale &&
-        !currentPathname.startsWith(`/${defaultLocale}`)
-      ) {
-        // Prepend the new locale if the current locale is the default and the path doesn't start with the default locale
-        newPath = `/${newLocale}${currentPathname}`;
-      } else {
-        // Replace the current locale with the new locale in the path
-        newPath = currentPathname.replace(
-          new RegExp(`^/${currentLocale}`),
-          `/${newLocale}`
-        );
+      // Validate locale
+      if (!locales.includes(newLocale as 'en' | 'ru' | 'uz')) {
+        console.error(`Invalid locale: ${newLocale}`);
+        return;
       }
 
-      // Ensure the new path is properly formatted
-      newPath = newPath.replace(/\/{2,}/g, '/');
+      try {
+        // With localePrefix: 'always', we can use a simpler approach
+        // Extract the path without the locale prefix
+        const pathWithoutLocale = currentPathname
+          .replace(new RegExp(`^/${currentLocale}`), '')
+          .replace(/^\/+/, '/'); // Ensure it starts with a single slash
 
-      router.push(newPath);
+        // Construct the new path with the new locale
+        const newPath = `/${newLocale}${pathWithoutLocale}`;
 
-      // For making a new request to the server, re-fetching data requests, and re-rendering Server Components.
-      router.refresh();
+        // Update the URL
+        router.push(newPath);
+        router.refresh();
+      } catch (error) {
+        console.error('Error changing locale:', error);
+      }
     },
-    [currentLocale, currentPathname, router]
+    [currentLocale, currentPathname, router, locales]
   );
 
-  return { locales, currentLocale, handleLocale };
+  return {
+    locales,
+    currentLocale,
+    handleLocale,
+    isDefaultLocale: currentLocale === defaultLocale,
+  };
 };
 
 export default useTranslation;

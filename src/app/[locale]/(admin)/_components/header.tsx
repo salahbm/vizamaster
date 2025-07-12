@@ -9,10 +9,7 @@ export default function Header() {
     <div className="">
       <nav className="flex h-14 items-center justify-between px-4">
         <div className="hidden lg:block">
-          <Link
-            href="/jobs"
-            className="flex items-center justify-start  flex-row"
-          >
+          <Link href="/" className="flex items-center justify-start  flex-row">
             <Image
               src="/logos/dark_logo.png"
               alt="logo"
@@ -26,7 +23,7 @@ export default function Header() {
                 'text-sm md:text-lg font-bold whitespace-nowrap -ml-1'
               )}
             >
-              Admin <span className="textGradient">BS Group</span>
+              VIZA <span className="textGradient">MASTER</span> ADMIN
             </p>
           </Link>
         </div>

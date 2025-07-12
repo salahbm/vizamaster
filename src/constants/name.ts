@@ -1,1 +1,1 @@
-export const BRAND_NAME = 'BS Group';
+export const BRAND_NAME = 'VIZA MASTER';

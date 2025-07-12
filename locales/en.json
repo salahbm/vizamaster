@@ -44,8 +44,13 @@
     }
   },
   "Home": {
+<<<<<<< HEAD
     "title": "Welcome to BS Group",
     "description": "The best recruitment agency in the world"
+=======
+    "title": "Welcome to VIZA MASTER",
+    "description": "The best group management platform for small businesses and freelancers"
+>>>>>>> develop
   },
   "Header": {
     "languages": {

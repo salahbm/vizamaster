@@ -31,9 +31,9 @@ export const sendEmail = async (data: z.infer<typeof emailSchema>) => {
       templateID,
       {
         from_name: data.name,
-        to_name: 'BS Group',
+        to_name: 'VIZA MASTER',
         from_email: data.email,
-        to_email: 'main@bsglobal.uz',
+        to_email: 'main@viza.master.uz',
         message: data.message,
       },
       accountID

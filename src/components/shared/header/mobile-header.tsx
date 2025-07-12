@@ -7,9 +7,11 @@ import {
 
 import { EllipsisVertical } from 'lucide-react';
 import navBars from './nav-list';
-import { Link, usePathname } from '@/i18n';
+
 import { cn } from '@/lib/utils';
 import LanguageSelector from './lang-selector';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
 const MobileNavbar = () => {

@@ -4,6 +4,38 @@ import { ArrowDown } from 'lucide-react';
 import { Separator } from '../ui/separator';
 import { useTranslations } from 'next-intl';
 import { useMemo } from 'react';
+const sections = [
+  {
+    id: 1,
+    title: 'Our Mission',
+    content:
+      'Our mission is to connect exceptional talent with outstanding career opportunities. We strive to bridge the gap between job seekers and employers by providing personalized, high-quality recruitment services.',
+  },
+  {
+    id: 2,
+    title: 'Our History',
+    content:
+      'Founded in 2017, VIZA MASTER has grown from a small startup into a leading recruitment agency.',
+  },
+  {
+    id: 3,
+    title: 'Our Values',
+    content:
+      'Integrity, Excellence, Respect, and Innovation guide everything we do.',
+  },
+  {
+    id: 4,
+    title: 'Our Team',
+    content:
+      'Our team of experienced recruiters is dedicated to helping you succeed by matching the right talent with the right opportunities.',
+  },
+  {
+    id: 5,
+    title: 'Our Services',
+    content:
+      'We offer a wide range of recruitment services tailored to meet the unique needs of both job seekers and employers.',
+  },
+];
 const About = () => {
   const t = useTranslations('About');
 

@@ -1,6 +1,5 @@
-import { Link } from '@/i18n';
-import { cn } from '@/lib/utils';
-import { Job } from '@prisma/client';
+import Link from 'next/link';
+import { Country, Job } from '@prisma/client';
 import Image from 'next/image';
 import { Badge } from '../ui/badge';
 

@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Link } from '@/i18n';
+import Link from 'next/link';
 import MotionDiv from '../motions/motion-div';
 import { cn } from '@/lib/utils';
 import { footerList_2 } from './footer-list';
@@ -116,7 +116,7 @@ const Footer = () => {
                   'text-sm md:text-lg font-bold whitespace-nowrap -ml-1'
                 )}
               >
-                <span className="textGradient">BS Group</span>
+                VIZA <span className="textGradient">MASTER</span>
               </p>
             </Link>
 
