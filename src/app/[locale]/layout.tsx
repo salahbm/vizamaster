@@ -75,7 +75,7 @@ export default function LocaleLayout({
     <html lang={locale} suppressHydrationWarning>
       <body
         className={cn(
-          'max-w-screen-xl mx-auto overflow-x-hidden',
+          'max-w-screen-2xl mx-auto overflow-x-hidden',
           poppins.className
         )}
       >
