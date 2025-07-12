@@ -1,6 +1,10 @@
 import { BRAND_NAME } from '@/constants/name';
 import HeroBanner from './hero-banner';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
+
+const Hero = () => {
+  const t = useTranslations('Hero');
 
   return (
     <section className="relative flex items-center justify-center lg:flex-row flex-col lg:justify-between pt-30 lg:w-screen lg:-translate-x-[50%] lg:ml-[50%]">

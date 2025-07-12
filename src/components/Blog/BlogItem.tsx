@@ -1,8 +1,8 @@
 'use client';
-import { Link } from '@/i18n';
 import { Job } from '@prisma/client';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const BlogItem = ({ blog }: { blog: Job }) => {
   const { imgUrl, title, name } = blog;

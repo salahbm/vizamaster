@@ -10,9 +10,10 @@ import { Toaster } from '@/components/ui/toaster';
 import Loading from './loading';
 import { Analytics } from '@vercel/analytics/react';
 import '@/styles/globals.css';
-import { locales } from '../../../i18n.config';
+import { routing } from '@/i18n/routing';
 
 export function generateStaticParams() {
+  const { locales } = routing;
   return locales.map((locale) => ({ locale }));
 }
 

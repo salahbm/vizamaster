@@ -70,7 +70,9 @@ const FunFact: React.FC = () => {
               <h3 className="mb-2.5 text-3xl font-bold text-black dark:text-white xl:text-sectiontitle3">
                 1000+
               </h3>
-              <p className="text-lg lg:text-para2">Annually</p>
+              <p className="text-lg lg:text-para2">
+                {t('stats.clients.label')}
+              </p>
             </MotionDiv>
             <MotionDiv
               variants={{
