@@ -28,7 +28,7 @@ export default async function AdminLayout({
 }: React.PropsWithChildren<Params>) {
   const isAdmin = await handleAdmin();
   return (
-    <main className="relative  mx-auto">
+    <main className="relative layout-container">
       <SessionProvider>
         <Suspense fallback={<Loader />}>
           {isAdmin ? (

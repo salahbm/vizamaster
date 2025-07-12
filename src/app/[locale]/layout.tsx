@@ -73,12 +73,7 @@ export default function LocaleLayout({
   setRequestLocale(locale);
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body
-        className={cn(
-          'max-w-screen-2xl mx-auto overflow-x-hidden',
-          poppins.className
-        )}
-      >
+      <body className={cn(poppins.className)}>
         <AppProvider>
           <Suspense fallback={<Loading />}>{children}</Suspense>
           <Toaster />

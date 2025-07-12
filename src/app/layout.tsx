@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import '../styles/globals.css';
 
 export default function RootLayout({
@@ -5,5 +6,5 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <Fragment>{children}</Fragment>;
 }

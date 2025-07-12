@@ -9,7 +9,7 @@ export default function Header() {
     <div className="">
       <nav className="flex h-14 items-center justify-between px-4">
         <div className="hidden lg:block">
-          <Link href="#" className="flex items-center justify-start  flex-row">
+          <Link href="/" className="flex items-center justify-start  flex-row">
             <Image
               src="/logos/dark_logo.png"
               alt="logo"
