@@ -53,7 +53,7 @@ const Header = () => {
           <Link href={'/'}>
             <div className="w-[40px] lg:w-[50px] flex justify-center items-center">
               <Image
-                src="/logos/dark_logo.png"
+                src="/logos/logo_3d_nobg.png"
                 alt="logo"
                 width={400}
                 height={10}
@@ -64,7 +64,7 @@ const Header = () => {
                   'text-sm md:text-md lg:text-lg font-bold whitespace-nowrap -ml-1'
                 )}
               >
-                BS <span className="textGradient">GROUP</span>
+                VIZA <span className="textGradient">MASTER</span>
               </p>
             </div>
           </Link>

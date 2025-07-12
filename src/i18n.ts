@@ -1,14 +1,19 @@
 import { notFound } from 'next/navigation';
 import { getRequestConfig } from 'next-intl/server';
-import { createSharedPathnamesNavigation } from 'next-intl/navigation';
+import {
+  createNavigation,
+  createSharedPathnamesNavigation,
+} from 'next-intl/navigation';
 
 // Can be imported from a shared config
 const locales = ['en', 'ru', 'uz'];
 
-export const { Link, useRouter, usePathname, redirect } =
-  createSharedPathnamesNavigation({ locales });
+export const { Link, useRouter, usePathname, redirect } = createNavigation({
+  locales,
+});
 
-export default getRequestConfig(async ({ locale }) => {
+export default getRequestConfig(async ({ requestLocale }) => {
+  const locale = await requestLocale;
   // Validate that the incoming `locale` parameter is valid
   if (!locales.includes(locale as any)) notFound();
 

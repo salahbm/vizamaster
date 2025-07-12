@@ -19,7 +19,7 @@ const SocialMediaCard = () => {
         />
       </div>
       <h2 className="text-2xl font-bold mb-2 textGradient" translate="no">
-        BS GROUP
+        VIZA MASTER
       </h2>
       <p className="text-lg mb-6 text-center text-gray-600">
         We are always looking for talented and creative people.

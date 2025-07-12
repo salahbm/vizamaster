@@ -12,7 +12,7 @@ const sections = [
     id: 2,
     title: 'Our History',
     content:
-      'Founded in 2017, BS GROUP has grown from a small startup into a leading recruitment agency.',
+      'Founded in 2017, VIZA MASTER has grown from a small startup into a leading recruitment agency.',
   },
   {
     id: 3,

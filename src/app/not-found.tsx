@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Error 404 | BS GROUP',
+  title: 'Error 404 | VIZA MASTER',
   description: 'Route not found',
 };
 

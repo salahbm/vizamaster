@@ -20,7 +20,7 @@ export const sendEmail = async (data: z.infer<typeof emailSchema>) => {
       process.env.NEXT_PUBLIC_MAIL_TEMPLATE_ID!,
       {
         from_name: data.name,
-        to_name: 'BS GROUP',
+        to_name: 'VIZA MASTER',
         from_email: data.email,
         to_email: 'main@bsglobal.uz',
         message: data.message,
