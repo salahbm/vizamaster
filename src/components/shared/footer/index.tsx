@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Link } from '@/i18n';
+import Link from 'next/link';
 import MotionDiv from '../motions/motion-div';
 import { cn } from '@/lib/utils';
 import { footerList_2 } from './footer-list';

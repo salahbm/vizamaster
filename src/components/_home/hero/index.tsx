@@ -1,6 +1,6 @@
 import { BRAND_NAME } from '@/constants/name';
 import HeroBanner from './hero-banner';
-import { Link } from '@/i18n';
+import Link from 'next/link';
 
 const Hero = () => {
   return (

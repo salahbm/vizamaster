@@ -6,8 +6,7 @@ import { Navbar } from './nav-bar';
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
-import { Link } from '@/i18n';
-import MotionDiv from '../motions/motion-div';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useLocale } from 'use-intl';
 

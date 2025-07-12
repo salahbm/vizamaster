@@ -1,4 +1,4 @@
-import { Link } from '@/i18n';
+import Link from 'next/link';
 import { Country } from '@prisma/client';
 import React from 'react';
 

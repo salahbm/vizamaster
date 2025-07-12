@@ -1,4 +1,4 @@
-import { Link } from '@/i18n';
+import Link from 'next/link';
 import { Country, Job } from '@prisma/client';
 import Image from 'next/image';
 import React from 'react';
