@@ -13,23 +13,33 @@ export async function GET() {
       return new NextResponse('Unauthorized', { status: 401 });
     }
 
-    // Fetch all social media related configurations
-    const configs = await DB.config.findMany({
-      where: {
-        key: {
-          in: [
-            'instagram_url',
-            'instagram_api',
-            'instagram_secret',
-            'telegram_url',
-            'telegram_api',
-            'telegram_secret',
-          ],
+    try {
+      // Fetch all social media related configurations
+      const configs = await DB.config.findMany({
+        where: {
+          key: {
+            in: [
+              'instagram_url',
+              'instagram_api',
+              'instagram_secret',
+              'telegram_url',
+              'telegram_api',
+              'telegram_secret',
+            ],
+          },
         },
-      },
-    });
+      });
 
-    return NextResponse.json(configs);
+      return NextResponse.json(configs);
+    } catch (error) {
+      // If the Config table doesn't exist yet, return an empty array
+      const prismaError = error as { code?: string };
+      if (prismaError.code === 'P2021') {
+        console.warn('Config table does not exist yet, returning empty array');
+        return NextResponse.json([]);
+      }
+      throw error; // Re-throw if it's a different error
+    }
   } catch (error) {
     console.error('Error fetching social media configurations:', error);
     return new NextResponse('Internal Server Error', { status: 500 });
@@ -67,31 +77,56 @@ export async function POST(req: Request) {
       { key: 'telegram_secret', value: telegram_secret },
     ];
 
-    // Process each configuration
-    for (const { key, value } of configKeys) {
-      // Skip empty values
-      if (value === undefined || value === null || value === '') continue;
+    try {
+      // Process each configuration
+      for (const { key, value } of configKeys) {
+        // Skip empty values
+        if (value === undefined || value === null || value === '') continue;
 
-      // Check if config exists
-      const existingConfig = await DB.config.findUnique({
-        where: { key },
-      });
+        try {
+          // Check if config exists
+          const existingConfig = await DB.config.findUnique({
+            where: { key },
+          });
 
-      if (existingConfig) {
-        // Update existing config
-        await DB.config.update({
-          where: { key },
-          data: { value },
-        });
-      } else {
-        // Create new config
-        await DB.config.create({
-          data: { key, value },
-        });
+          if (existingConfig) {
+            // Update existing config
+            await DB.config.update({
+              where: { key },
+              data: { value },
+            });
+          } else {
+            // Create new config
+            await DB.config.create({
+              data: { key, value },
+            });
+          }
+        } catch (configError) {
+          // Handle the case where the Config table doesn't exist
+          const prismaError = configError as { code?: string };
+          if (prismaError.code === 'P2021') {
+            console.warn(
+              'Config table does not exist yet. Cannot save configuration.'
+            );
+            return NextResponse.json(
+              {
+                success: false,
+                error:
+                  'Config table does not exist yet. Please run database migrations first.',
+              },
+              { status: 503 }
+            );
+          }
+          throw configError; // Re-throw if it's a different error
+        }
       }
-    }
 
-    return NextResponse.json({ success: true });
+      return NextResponse.json({ success: true });
+    } catch (prismaError) {
+      // If there's a Prisma error, handle it appropriately
+      console.error('Prisma error:', prismaError);
+      throw prismaError;
+    }
   } catch (error) {
     console.error('Error updating social media configurations:', error);
     return new NextResponse('Internal Server Error', { status: 500 });
