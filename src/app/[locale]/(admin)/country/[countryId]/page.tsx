@@ -11,7 +11,7 @@ const CountryIdPage = async ({ params }: { params: { countryId: string } }) => {
   }
 
   return (
-    <div className="flex justify-center h-full p-6">
+    <div className="py-6">
       <UpdateCountryForm
         initialData={country as Country}
         countryId={country?.id as string}

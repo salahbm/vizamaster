@@ -1,12 +1,12 @@
-import { unstable_setRequestLocale } from 'next-intl/server';
 import Home from './home/page';
+import { setRequestLocale } from 'next-intl/server';
 
 export default async function GuestIndexPage({
   params: { locale },
 }: {
   params: { locale: string };
 }) {
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   return (
     <>
       <Home params={{ locale }} />

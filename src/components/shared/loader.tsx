@@ -10,7 +10,9 @@ const Loader = () => {
         height={150}
         alt="Loading..."
       />
-      <p className="text-3xl textGradient animate-pulse">Loading...</p>
+      <p className="md:text-xl text-lg textGradient animate-pulse">
+        Loading...
+      </p>
     </div>
   );
 };

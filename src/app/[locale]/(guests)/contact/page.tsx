@@ -108,7 +108,7 @@ const Contact = async () => {
                 </li>
               </ul>
             </div>
-            <ContactForm vacancyName={t('details.vacancyName')} />
+            <ContactForm />
           </div>
         </div>
       </div>

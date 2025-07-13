@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { MapPin } from 'lucide-react';
 import { memo } from 'react';
 import { useIsWindows } from '@/hooks/common/useWindows';
+import { useTranslations } from 'next-intl';
 
 interface CountryCardProps {
   country: Country;
@@ -12,6 +13,7 @@ interface CountryCardProps {
 }
 
 const CountryCard = memo(({ country, jobCount }: CountryCardProps) => {
+  const t = useTranslations('Jobs');
   const isWindows = useIsWindows();
   const { id, name, emoji, isNew, title } = country;
   const jobText = jobCount === 1 ? 'job' : 'jobs';
@@ -75,7 +77,7 @@ const CountryCard = memo(({ country, jobCount }: CountryCardProps) => {
 
           <div className="mt-4 pt-3 border-t border-gray-100 dark:border-gray-700">
             <span className="text-xs font-medium text-blue-600 dark:text-blue-400 group-hover:underline">
-              View opportunities
+              {t('viewOpportunities')}
             </span>
           </div>
         </div>

@@ -16,7 +16,7 @@ const Posts = async () => {
   const vacanciesData = await fetchAllVacancies();
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 py-6">
       <Card className="border-none">
         <CardHeader>
           <CardTitle>Countries</CardTitle>

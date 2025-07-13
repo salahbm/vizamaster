@@ -1,8 +1,8 @@
 import About from '@/components/_about';
-import { unstable_setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 
 const AboutPage = ({ params: { locale } }: { params: { locale: string } }) => {
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   return <About />;
 };
 

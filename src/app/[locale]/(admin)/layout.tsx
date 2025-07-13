@@ -19,7 +19,6 @@ export async function generateMetadata({
   return {
     title: `Admin | ${BRAND_NAME}`,
     description,
-    metadataBase: new URL(`http://localhost:3000`),
   };
 }
 
@@ -36,9 +35,13 @@ export default async function AdminLayout({
           {isAdmin ? (
             <div className="relative">
               <Header />
-              <div className="flex  overflow-hidden">
+              <div className="flex overflow-hidden">
                 <Sidebar />
-                <main className="flex-1 overflow-hidden pt-16">{children}</main>
+                <main className="flex-1 overflow-y-auto overflow-x-hidden px-4 sm:px-6 md:px-8 pt-16 pb-8">
+                  <div className="mx-auto w-full max-w-7xl">
+                    {children}
+                  </div>
+                </main>
               </div>
               <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]"></div>
             </div>

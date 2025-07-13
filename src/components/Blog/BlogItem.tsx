@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { memo } from 'react';
 import { useIsWindows } from '@/hooks/common/useWindows';
+import { useTranslations } from 'next-intl';
 
 interface BlogItemProps {
   blog: Job;
@@ -13,6 +14,7 @@ interface BlogItemProps {
 const BlogItem = memo(({ blog }: BlogItemProps) => {
   const { id, imgUrl, title, name, countryId } = blog;
   const isWindows = useIsWindows();
+  const t = useTranslations('Blog');
 
   // Format the blog title and name for better display
   const displayName = name.length > 40 ? `${name.slice(0, 40)}...` : name;
@@ -63,7 +65,7 @@ const BlogItem = memo(({ blog }: BlogItemProps) => {
 
           <div className="mt-4 pt-2 border-t border-gray-100 dark:border-gray-700">
             <span className="text-xs font-medium text-blue-600 dark:text-blue-400 hover:underline">
-              View details →
+              {t('viewDetails')}
             </span>
           </div>
         </div>

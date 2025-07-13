@@ -125,8 +125,8 @@ export default function SocialMediaSettingsPage() {
   };
 
   return (
-    <div className="container mx-auto py-6">
-      <div className="mb-8">
+    <div>
+      <div className="mb-8 py-6">
         <h1 className="text-3xl font-bold">Social Media Settings</h1>
         <p className="text-muted-foreground mt-2">
           Configure your social media API keys and URLs for integration

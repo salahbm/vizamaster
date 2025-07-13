@@ -158,7 +158,7 @@ const CreateVacancyForm = ({ countries }: CreateVacancyFormProps) => {
   }
 
   return (
-    <div className="container max-w-5xl mx-auto py-6">
+    <div className="py-6">
       <Button variant="ghost" onClick={() => router.back()} className="mb-6">
         <ArrowLeft className="mr-2 h-4 w-4" />
         Back to vacancies

@@ -9,6 +9,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, Calendar, MapPin } from 'lucide-react';
+import { getTranslations } from 'next-intl/server';
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 3600; // Revalidate every hour
@@ -51,6 +52,7 @@ const VacancyDetailPage = async ({
 }: {
   params: { vacancyId: string; jobId: string };
 }) => {
+  const t = await getTranslations('Jobs');
   const vacancy = await fetchVacancy(params.vacancyId);
 
   // If vacancy doesn't exist, show 404
@@ -76,7 +78,7 @@ const VacancyDetailPage = async ({
           className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
         >
           <ArrowLeft className="h-4 w-4 mr-1" />
-          Back to jobs
+          {t('backToJobs')}
         </Link>
       </div>
 
@@ -127,7 +129,7 @@ const VacancyDetailPage = async ({
               </div>
               <div className="flex items-center">
                 <Calendar className="h-4 w-4 mr-1" />
-                Posted on {formattedDate}
+                {t('postedOn')} {formattedDate}
               </div>
             </div>
           </div>
@@ -142,9 +144,9 @@ const VacancyDetailPage = async ({
           {/* Contact form */}
           <div className="bg-gray-50 dark:bg-gray-900/50 p-6 rounded-lg">
             <h2 className="text-xl font-semibold mb-4">
-              Apply for this position
+              {t('applyForThisPosition')}
             </h2>
-            <ContactForm vacancyName={vacancy.name || ''} />
+            <ContactForm />
           </div>
         </div>
       </div>

@@ -74,7 +74,7 @@
       },
       "history": {
         "title": "Our History",
-        "content": "Founded in 2017, VIZA MASTER has grown from a small startup into a leading recruitment agency."
+        "content": "Founded in 2019, VIZA MASTER has grown from a small startup into a leading recruitment agency."
       },
       "values": {
         "title": "Our Values",
@@ -102,7 +102,7 @@
       "contactTitle": "Contact",
       "contactNumbers": "+998 95 608-70-70\n+998 95 608-00-70\n+998 95 506-70-07",
       "mailTitle": "Mail:",
-      "emails": "vizamasterinfo@mail.ru\nmain@vizamaster.uz",
+      "emails": "info@vizamaster.uz\nmain@vizamaster.uz",
       "hoursTitle": "Working hours",
       "workingHours": "Monday - Friday: 09:00 - 17:00\nSaturday : 09:00 - 13:00"
     }
@@ -131,18 +131,7 @@
     }
   },
   "Partners": {
-    "description": "At {BRAND_NAME}, we are dedicated to connecting exceptional talent with outstanding opportunities. Whether you are a job seeker looking to take the next step in your career, or an employer seeking the perfect candidate to join your team, our expert recruiters are here to assist you every step of the way.",
-    "details": {
-      "addressTitle": "Our Address",
-      "address": "Hofiz Tanish Buxoriy 403 A\nBukhara, Uzbekistan",
-      "contactTitle": "Contact",
-      "contactNumbers": "+998 95 608-70-70\n+998 95 608-00-70\n+998 95 506-70-07",
-      "mailTitle": "Mail:",
-      "emails": "vizamasterinfo@mail.ru\nmain@vizamaster.uz",
-      "hoursTitle": "Working hours",
-      "workingHours": "Monday - Friday: 09:00 - 17:00\nSaturday : 09:00 - 13:00",
-      "vacancyName": "Vacancy Name"
-    }
+    "description": "At {BRAND_NAME}, we are dedicated to connecting exceptional talent with outstanding opportunities. Whether you are a job seeker looking to take the next step in your career, or an employer seeking the perfect candidate to join your team, our expert recruiters are here to assist you every step of the way."
   },
   "Results": {
     "header": {
@@ -264,6 +253,13 @@
     "admin": "Admin"
   },
   "Jobs": {
+    "viewOpportunities": "View opportunities",
+    "viewDetails": "View details →",
+    "exploreGlobalOpportunities": "Explore Global Opportunities",
+    "backToJobs": "Back to jobs",
+    "applyForThisPosition": "Apply for this position",
+    "postedOn": "Posted on",
+    "activePositions": "{positions} active positions across {country} countries",
     "header": {
       "subtitle": "Latest News & Vacancies",
       "description": "Search for internships, jobs, and more. Select the country you are interested in."

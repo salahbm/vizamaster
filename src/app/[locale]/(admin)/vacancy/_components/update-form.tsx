@@ -148,7 +148,7 @@ const UpdateVacancyForm = ({
   };
 
   return (
-    <div className="container max-w-5xl mx-auto py-6">
+    <div className="py-6">
       {/* Success message with auto-redirect */}
       {showSuccess && (
         <Alert variant="default" className="mb-6 bg-green-50 border-green-200">

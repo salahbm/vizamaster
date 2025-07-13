@@ -10,7 +10,7 @@ const Partners = async ({
   params: { locale: string };
 }) => {
   setRequestLocale(locale);
-  const t = await getTranslations('Partners');
+  const t = await getTranslations();
 
   return (
     <section className="my-20" id="contact">
@@ -24,7 +24,7 @@ const Partners = async ({
         />
         <div className="text-center justify-center items-center flex">
           <p className="my-16 text-center max-w-3xl text-lg text-gray-600">
-            {t('description', { BRAND_NAME })}
+            {t('Partners.description', { BRAND_NAME })}
           </p>
         </div>
         <div className="flex items-center justify-center">
@@ -38,10 +38,10 @@ const Partners = async ({
                   </div>
                   <div className="ml-4 mb-4">
                     <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">
-                      {t('details.addressTitle')}
+                      {t('Contact.details.addressTitle')}
                     </h3>
                     <p className="text-gray-600 dark:text-slate-400">
-                      {t('details.address')
+                      {t('Contact.details.address')
                         .split('\n')
                         .map((line, index) => (
                           <span key={index}>
@@ -59,10 +59,10 @@ const Partners = async ({
                   </div>
                   <div className="ml-4 mb-4">
                     <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">
-                      {t('details.contactTitle')}
+                      {t('Contact.details.contactTitle')}
                     </h3>
                     <p className="text-gray-600 dark:text-slate-400">
-                      {t('details.contactNumbers')
+                      {t('Contact.details.contactNumbers')
                         .split('\n')
                         .map((line, index) => (
                           <span key={index}>
@@ -80,10 +80,10 @@ const Partners = async ({
                   </div>
                   <div className="ml-4 mb-4">
                     <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">
-                      {t('details.mailTitle')}
+                      {t('Contact.details.mailTitle')}
                     </h3>
                     <p className="text-gray-600 dark:text-slate-400">
-                      {t('details.emails')
+                      {t('Contact.details.emails')
                         .split('\n')
                         .map((line, index) => (
                           <span key={index}>
@@ -101,10 +101,10 @@ const Partners = async ({
                   </div>
                   <div className="ml-4 mb-4">
                     <h3 className="mb-2 text-lg font-medium leading-6 text-gray-900 dark:text-white">
-                      {t('details.hoursTitle')}
+                      {t('Contact.details.hoursTitle')}
                     </h3>
                     <p className="text-gray-600 dark:text-slate-400">
-                      {t('details.workingHours')
+                      {t('Contact.details.workingHours')
                         .split('\n')
                         .map((line, index) => (
                           <span key={index}>
@@ -117,7 +117,7 @@ const Partners = async ({
                 </li>
               </ul>
             </div>
-            <ContactForm vacancyName={t('details.vacancyName')} />
+            <ContactForm />
           </div>
         </div>
       </div>

@@ -8,10 +8,12 @@ import { Country } from '@prisma/client';
 import { Suspense } from 'react';
 import { Globe, Search } from 'lucide-react';
 import { fetchAllVacancies } from '@/hooks/admin/fetch-vacancy';
+import { getTranslations } from 'next-intl/server';
 
 export const revalidate = 3600; // Revalidate this page every hour
 
 const Jobs = async () => {
+  const t = await getTranslations('Jobs');
   // Fetch data in parallel for better performance
   const [countries, vacancies] = await Promise.all([
     fetchAllCountries(),
@@ -48,8 +50,10 @@ const Jobs = async () => {
         <div className="my-10 flex items-center justify-center gap-2">
           <Search className="h-5 w-5 text-muted-foreground" />
           <p className="text-sm text-muted-foreground">
-            {vacancies?.length || 0} active positions across{' '}
-            {countries?.length || 0} countries
+            {t('activePositions', {
+              positions: vacancies?.length || 0,
+              country: countries?.length || 0,
+            })}
           </p>
         </div>
       </section>
@@ -57,7 +61,7 @@ const Jobs = async () => {
       <Suspense
         fallback={
           <div className="h-96 flex items-center justify-center">
-            Loading countries...
+            Loading ...
           </div>
         }
       >
@@ -80,7 +84,7 @@ const Jobs = async () => {
         <div className="flex items-center justify-center gap-2 mb-6">
           <Globe className="h-5 w-5" />
           <h2 className="text-xl font-semibold">
-            Explore Global Opportunities
+            {t('exploreGlobalOpportunities')}
           </h2>
         </div>
         <MyGlobe />

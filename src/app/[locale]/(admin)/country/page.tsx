@@ -63,7 +63,7 @@ const CreateCountryPage = () => {
   };
 
   return (
-    <div className="flex-col space-y-6 p-6 md:p-8">
+    <div className="flex-col space-y-6 py-6">
       <div className="flex items-center justify-between">
         <div className="flex items-center space-x-2">
           <Button onClick={() => router.back()} variant="outline" size="sm">
@@ -102,7 +102,7 @@ const CreateCountryPage = () => {
 
       <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
         <div className="col-span-2">
-          <Card>
+          <Card className="border-none">
             <CardHeader>
               <CardTitle className="flex items-center">
                 <Globe className="mr-2 h-5 w-5" />

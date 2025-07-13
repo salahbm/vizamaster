@@ -36,16 +36,16 @@
     "2303": "Mobil tasdiqlash kodi noto'g'ri."
   },
   "Meta": {
-    "keywords": "Kelajagingizni VIZA MASTER bilan qurib oling",
-    "description": "Dunyodagi eng yaxshi kadrlar agentligi",
+    "keywords": "Kelajagingizni VIZA MASTER bilan qurib boring",
+    "description": "O'zbekistondagi ishonchli ishga yollovchi agentlik",
     "home": {
-      "title": "{brand} | Kelajagingizni VIZA MASTER bilan qurib oling",
-      "description": "{brand} Dunyodagi eng yaxshi kadrlar agentligi"
+      "title": "{brand} | Kelajagingizni VIZA MASTER bilan qurib boring",
+      "description": "{brand} O'zbekistondagi ishonchli ishga yollovchi agentlik"
     }
   },
   "Home": {
-    "title": "Welcome to VIZA MASTER",
-    "description": "The best group management platform for small businesses and freelancers"
+    "title": "VIZA MASTERga xush kelibsiz",
+    "description": "Chet elda ish bilan taminlovchi agentlik"
   },
   "Header": {
     "languages": {
@@ -55,7 +55,7 @@
     },
     "nav": {
       "about": "Biz haqimizda",
-      "jobs": "Ishlar",
+      "jobs": "Ish o‘rinlari",
       "results": "Natijalar",
       "contact": "Aloqa",
       "partners": "Hamkorlar"
@@ -64,128 +64,117 @@
   "About": {
     "header": {
       "title": "Biz haqimizda",
-      "description": "Biz  porloq kelajak uchun imkonyatlar taqdim etamiz."
+      "description": "Biz barqaror kelajak g‘oyasi bilan harakat qilamiz."
     },
-    "scrollDown": "Pastga tushing",
+    "scrollDown": "Pastga aylantiring",
     "sections": {
       "mission": {
-        "title": "Bizning missiyamiz",
-        "content": "Bizning missiyamiz - ajoyib iste'dodlarni ajoyib ish imkoniyatlari bilan bog'lash. Biz shaxsiy, yuqori sifatli kadrlar xizmatlarini taqdim etish orqali ish qidiruvchilar va ish beruvchilar o'rtasidagi bo'shliqni to'ldirishga intilamiz."
+        "title": "Bizning vazifamiz",
+        "content": "Bizning vazifamiz — istedodli insonlarni ajoyib ish imkoniyatlari bilan bog‘lash. Biz ish qidiruvchilar va ish beruvchilar o‘rtasida ko‘prik bo‘lamiz."
       },
       "history": {
-        "title": "Bizning tariximiz",
-        "content": "2017 yilda tashkil etilgan VIZA MASTER kichik startapdan etakchi kadrlar agentligiga aylandi."
+        "title": "Tariximiz",
+        "content": "2019-yilda tashkil etilgan VIZA MASTER kichik startapdan yetakchi agentlikka aylandi."
       },
       "values": {
-        "title": "Bizning qadriyatlarimiz",
-        "content": "Halollik, Mukammallik, Hurmat va Innovatsiya biz qilayotgan barcha ishlarni boshqaradi."
+        "title": "Qadriyatlarimiz",
+        "content": "Halollik, Mukammallik, Hurmat va Innovatsiya — bizning asosimiz."
       },
       "team": {
-        "title": "Bizning jamoamiz",
-        "content": "Bizning tajribali kadrlarimiz sizni muvaffaqiyatga erishishingizga yordam berish uchun to'g'ri iste'dodlarni to'g'ri imkoniyatlar bilan bog'lashga sodiqdir."
+        "title": "Jamoamiz",
+        "content": "Tajribali mutaxassislarimiz sizni kerakli imkoniyatlar bilan bog‘laydi."
       },
       "services": {
-        "title": "Bizning xizmatlarimiz",
-        "content": "Biz ish qidiruvchilar va ish beruvchilarning o'ziga xos ehtiyojlariga moslashtirilgan keng ko'lamli kadrlar xizmatlarini taklif etamiz."
+        "title": "Xizmatlarimiz",
+        "content": "Biz ish qidiruvchilar va ish beruvchilarga moslashtirilgan keng xizmatlar taklif qilamiz."
       }
     }
   },
   "Contact": {
     "sectionHeader": {
       "title": "Kontaktlar",
-      "subtitle": "Biz bilan bog'laning",
-      "description": "Biz bilan bog'laning. Biz sizga imkon qadar tezroq javob beramiz."
+      "subtitle": "Bog‘laning",
+      "description": "Biz bilan bog‘laning. Tez orada javob beramiz."
     },
     "details": {
-      "addressTitle": "Bizning manzilimiz",
-      "address": "Hofiz Tanish Buxoriy 403 A\nBuxoro, O'zbekiston",
+      "addressTitle": "Manzilimiz",
+      "address": "Hofiz Tanish Buxoriy 403 A\nBuxoro, O‘zbekiston",
       "contactTitle": "Aloqa",
       "contactNumbers": "+998 95 608-70-70\n+998 95 608-00-70\n+998 95 506-70-07",
       "mailTitle": "Elektron pochta:",
       "emails": "info@vizamaster.uz\nmain@vizamaster.uz",
       "hoursTitle": "Ish vaqti",
-      "workingHours": "Dushanba - Juma: 09:00 - 17:00\nShanba : 09:00 - 13:00"
+      "workingHours": "Dushanba - Juma: 09:00 - 17:00\nShanba: 09:00 - 13:00"
     }
   },
   "ContactForm": {
-    "title": "Biz bilan bog'laning",
-    "description": "Quyidagi shaklni to'ldiring va biz sizga imkon qadar tezroq javob beramiz.",
+    "title": "Biz bilan bog‘laning",
+    "description": "Quyidagi shaklni to‘ldiring va tez orada siz bilan bog‘lanamiz.",
     "labels": {
       "name": "Ism",
-      "email": "Elektron pochta",
+      "email": "Email",
       "message": "Xabar"
     },
     "placeholders": {
       "name": "Ismingizni kiriting",
-      "email": "Elektron pochtangizni kiriting",
-      "message": "Xabaringizni kiriting"
+      "email": "Email manzilingizni kiriting",
+      "message": "Xabaringizni yozing"
     },
     "errors": {
       "name": "Iltimos, ismingizni kiriting.",
-      "email": "Iltimos, to'g'ri elektron pochta manzilini kiriting.",
+      "email": "Iltimos, to‘g‘ri email kiriting.",
       "message": "Iltimos, xabaringizni kiriting."
     },
     "submit": {
       "sending": "Yuborilmoqda...",
-      "default": "Xabarni yuboring"
+      "default": "Xabar yuborish"
     }
   },
   "Partners": {
-    "description": "{BRAND_NAME} da biz ajoyib iste'dodlarni ajoyib imkoniyatlar bilan bog'lashga intilamiz. Agar siz martabangizda keyingi qadamni qo'yishni xohlayotgan ish qidiruvchi bo'lsangiz yoki jamoangizga mukammal nomzodni qo'shishni xohlayotgan ish beruvchi bo'lsangiz, bizning tajribali kadrlarimiz sizga har qadamda yordam berishadi.",
-    "details": {
-      "addressTitle": "Bizning manzilimiz",
-      "address": "Hofiz Tanish Buxoriy 403 A\nBuxoro, O'zbekiston",
-      "contactTitle": "Aloqa",
-      "contactNumbers": "+998 95 608-70-70\n+998 95 608-00-70\n+998 95 506-70-07",
-      "mailTitle": "Elektron pochta:",
-      "emails": "vizamasterinfo@mail.ru\nmain@vizamaster.uz",
-      "hoursTitle": "Ish vaqti",
-      "workingHours": "Dushanba - Juma: 09:00 - 17:00\nShanba : 09:00 - 13:00",
-      "vacancyName": "Ish Nomi"
-    }
+    "description": "{BRAND_NAME} da biz eng yaxshi nomzodlarni eng yaxshi imkoniyatlar bilan bog‘laymiz. Ish qidirmoqdamisiz yoki jamoangizga a’zo izlayapsizmi — biz sizga yordam beramiz."
   },
   "Results": {
     "header": {
       "subtitle": "Muvaffaqiyatli nomzodlar",
-      "description": "Bizning kompaniyamizga qiziqishingiz uchun minnatdormiz. Biz siz bilan ishlashni intiqlik bilan kutyapmiz."
+      "description": "Kompaniyamizga bo‘lgan qiziqishingizdan mamnunmiz. Hamkorlikni intiqlik bilan kutamiz."
     }
   },
   "Feature": {
     "header": {
-      "title": "SOLID XUSUSIYATLAR",
-      "subtitle": "Biz taklif qiladigan asosiy xizmatlar",
-      "description": "Muvaffaqiyat mustahkam asos bilan boshlanadi."
+      "title": "MUKAMMAL XUSUSIYATLAR",
+      "subtitle": "Asosiy xizmatlarimiz",
+      "description": "Muvaffaqiyat — mustahkam poydevordan boshlanadi."
     },
     "features": {
       "tailoredInternshipPrograms": {
         "title": "Moslashtirilgan amaliyot dasturlari",
-        "description": "Bizning tajribali maslahatchilarimiz martaba maqsadlaringizga moslashtirilgan amaliyot imkoniyatlarini yaratadilar."
+        "description": "Mutaxassislarimiz sizning maqsadlaringizga mos amaliyotlarni tanlab beradi."
       },
       "professionalResumeBuilding": {
-        "title": "Professional rezyume yaratish",
-        "description": "Ko'nikmalaringiz va tajribangizni ta'kidlovchi professional tarzda tayyorlangan rezyume bilan ajralib turing."
+        "title": "Professional rezyume tayyorlash",
+        "description": "Ko‘nikma va tajribangizni aks ettiruvchi rezyume bilan ajralib turing."
       },
       "globalJobPlacements": {
-        "title": "Global ish joylashtirish",
-        "description": "AQSh, Kanada, Evropa va boshqa mamlakatlardagi yetakchi kompaniyalarda ish joylarini ta'minlang."
+        "title": "Xalqaro ish joylari",
+        "description": "AQSh, Kanada, Yevropa va boshqa mamlakatlardagi ish joylariga ega bo‘ling."
       },
       "comprehensiveInterviewPreparation": {
-        "title": "Kompleks intervyu tayyorgarligi",
-        "description": "Bizning keng qamrovli tayyorgarlik resurslarimiz va tajribali maslahatlarimiz bilan intervyularingizni muvaffaqiyatli yakunlang."
+        "title": "Suhbatga tayyorgarlik",
+        "description": "Suhbatdan muvaffaqiyatli o‘tish uchun foydali materiallar va maslahatlar."
       }
     }
   },
   "FunFact": {
     "header": {
-      "subtitle": "bizning ishimiz raqamlarda",
-      "description": "Biz o'syapmiz. Quyidagi raqamlarimizni ko'rib chiqing."
+      "subtitle": "bizning natijalarimiz",
+      "description": "Biz o‘smoqdamiz. Quyidagi raqamlar bilan tanishing."
     },
-    "trustedBy": "KO'PLAR TOMONIDAN ISHONILGAN.",
-    "trustedDescription": "Biz o'n yildan ortiq tajribaga ega bo'lgan yaxshi tashkil etilgan kadrlar agentligi bo'lib, bizning ishimizni ko'rsatadigan ba'zi asosiy statistikalar:",
+    "trustedBy": "KO‘PCHILIK bizga ishonadi.",
+    "trustedDescription": "Biz 10 yildan ortiq tajribaga ega bo‘lgan ishga yollovchi agentlikmiz. Quyida asosiy statistikamiz:",
     "stats": {
       "clients": {
         "count": "5000",
-        "label": "Har yil"
+        "label": "Yiliga"
       },
       "locations": {
         "count": "10+",
@@ -193,32 +182,32 @@
       },
       "vacancies": {
         "count": "30+",
-        "label": "Vakansiyalar"
+        "label": "Bo‘sh ish o‘rinlari"
       }
     }
   },
   "Hero": {
-    "title": "Global  imkoniyatlarni yarating",
-    "description": "{BRAND_NAME} ga xush kelibsiz, sizning ishonchli hamkoringiz yetakchi amaliyot, almashinuv dasturlari va butun dunyo bo'ylab ish imkoniyatlarini ta'minlashda. Agar siz dunyoning istalgan joyidagi nufuzli rollarni maqsad qilib qo'ygan bo'lsangiz, bugun biz bilan muvaffaqiyatli martabaga sayohat qiling.",
+    "title": "Global karyerangizni boshlang",
+    "description": "Dunyo bo‘ylab amaliyot, dasturlar va ish o‘rinlari bo‘yicha ishonchli hamkoringiz {BRAND_NAME} ga xush kelibsiz. Bugunoq muvaffaqiyatli karyerangiz sari yo‘l oching.",
     "getStarted": "Boshlash",
-    "secureSpot": "O'zingizning joyingizni bugun ta'minlang"
+    "secureSpot": "Joyingizni band qiling"
   },
   "PeopleMarquee": {
     "header": {
       "title": "BIZNING NOMZODLAR",
-      "subtitle": "QONIQQAN Mijozlar",
-      "description": "Biz jamoamiz bilan faxrlanamiz. Mana ba'zi baxtli mijozlarimiz."
+      "subtitle": "MAMNUN MIJOZLAR",
+      "description": "Jamoamizdan faxrlanamiz. Bu yerda ba’zi mamnun mijozlarimizni ko‘rishingiz mumkin."
     }
   },
   "Process": {
     "title": "BIZNING JARAYON",
-    "note": "ESLATMA 💡: Hozirda boʻsh ish oʻrinlari faqat rus tilida berilgan, oʻz tilingizga tarjima qilish uchun Google Translate’dan foydalaning.",
+    "note": "Eslatma 💡: Ish turi, mamlakat va shaxsiy tanlovga ko‘ra jarayon farq qilishi mumkin.",
     "steps": {
       "1": {
-        "title": "ARIZA BERISH"
+        "title": "ARIZA BERING"
       },
       "2": {
-        "title": "Suhbat"
+        "title": "SUHBAT"
       },
       "3": {
         "title": "VIZA TASDIQLASH"
@@ -229,44 +218,51 @@
     }
   },
   "Blog": {
-    "note": "Eslatma 💡: Hozirda vakansiyalar faqat rus tilida keltirilgan, iltimos, Google Translate'dan foydalaning.",
+    "note": "Eslatma 💡: Hozircha bo‘sh ish o‘rinlari faqat rus tilida, Google Translate dan foydalaning.",
     "header": {
-      "title": "YANGILIKLAR & Vakansiyalar",
-      "subtitle": "Eng so'nggi yangiliklar va vakansiyalar",
-      "description": "Amaliyot, ish joylari va boshqa narsalarni qidiring. Qiziqqan mamlakatingizni tanlang."
+      "title": "YANGILIKLAR VA ISHLAR",
+      "subtitle": "So‘nggi yangiliklar va bo‘sh ish o‘rinlari",
+      "description": "Amaliyot, ish va boshqalarni izlang. Sizni qiziqtirgan mamlakatni tanlang."
     },
-    "view_all": "Hammasini ko'rish"
+    "view_all": "Barchasini ko‘rish"
   },
   "EmptyState": {
     "title": "Ma'lumot yo'q",
-    "description": "Biz yangi imkoniyatlarni taqdim etish uchun astoydil ishlayapmiz. Yaqinda qaytib keling yoki birinchi ishingizni qo'shing!"
+    "description": "Biz yangi imkoniyatlar ustida ishlayapmiz. Tez orada yangiliklar bilan qayting yoki birinchi ishni qo‘shing!"
   },
   "SocialMediaCard": {
     "companyName": "VIZA MASTER",
-    "description": "Biz har doim iste'dodli va ijodkor odamlarni qidirmoqdamiz.",
+    "description": "Biz har doim iqtidorli va ijodkor odamlarni izlaymiz.",
     "instagram": "Instagram",
     "telegram": "Telegram"
   },
   "Globe": {
-    "title": "Bizning yo'nalishlarimiz",
-    "description": "Mana tashrif buyurishingiz mumkin bo'lgan ba'zi mamlakatlar."
+    "title": "Yo‘nalishlarimiz",
+    "description": "Bu siz tashrif buyurishingiz mumkin bo‘lgan ba’zi davlatlar."
   },
   "Footer": {
-    "subscribe": "Obuna bo'lish",
-    "quickLinks": "Tezkor havolalar",
-    "contactUs": "Yangilanishlarni olish uchun  obuna bo'ling.",
+    "subscribe": "Obuna bo‘ling",
+    "quickLinks": "Tez havolalar",
+    "contactUs": "Yangiliklar uchun obuna bo‘ling.",
     "pages": "Sahifalar",
     "about": "Biz kimmiz",
     "jobs": "Ishlar",
     "contact": "Aloqa",
     "partners": "Hamkorlar",
     "home": "Bosh sahifa",
-    "admin": "Administrator"
+    "admin": "Admin"
   },
   "Jobs": {
+    "viewOpportunities": "Imkoniyatlarni ko‘rish",
+    "viewDetails": "Batafsil →",
+    "exploreGlobalOpportunities": "Global imkoniyatlarni o‘rganing",
+    "backToJobs": "Ishlarga qaytish",
+    "applyForThisPosition": "Ushbu lavozimga ariza bering",
+    "postedOn": "E'lon qilingan sana",
+    "activePositions": "{country} mamlakatdagi {positions} ta faol ish o‘rni",
     "header": {
-      "subtitle": "Eng so'nggi yangiliklar va vakansiyalar",
-      "description": "Amaliyot, ish joylari va boshqa narsalarni qidiring. Qiziqqan mamlakatingizni tanlang."
+      "subtitle": "So‘nggi yangiliklar va bo‘sh ish o‘rinlari",
+      "description": "Amaliyot, ish va boshqalarni izlang. Sizni qiziqtirgan mamlakatni tanlang."
     }
   }
 }

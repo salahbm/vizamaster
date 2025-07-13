@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function AdminsPage() {
   return (
-    <div className="container mx-auto py-10">
+    <div>
       <Card>
         <CardHeader>
           <CardTitle className="text-2xl">Admin Management</CardTitle>
