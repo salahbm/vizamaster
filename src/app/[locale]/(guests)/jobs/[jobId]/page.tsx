@@ -28,7 +28,7 @@ const JobIdPage = async ({ params }: { params: { jobId: string } }) => {
         <EmptyState />
       )}
       <Separator className="my-4 bg-neutral-400" />
-      {vacancies && (
+      {vacancies?.length > 0 ? (
         <div className="flew-wrap grid grid-cols-1 gap-7.5 md:grid-cols-2 lg:grid-cols-3 xl:gap-10">
           {vacancies.map((vacancy) => (
             <VacancyCard
@@ -38,6 +38,8 @@ const JobIdPage = async ({ params }: { params: { jobId: string } }) => {
             />
           ))}
         </div>
+      ) : (
+        <EmptyState />
       )}
     </section>
   );

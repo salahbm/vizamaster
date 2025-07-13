@@ -14,7 +14,7 @@ interface BlogItemProps {
 const BlogItem = memo(({ blog }: BlogItemProps) => {
   const { id, imgUrl, title, name, countryId } = blog;
   const isWindows = useIsWindows();
-  const t = useTranslations('Blog');
+  const t = useTranslations();
 
   // Format the blog title and name for better display
   const displayName = name.length > 40 ? `${name.slice(0, 40)}...` : name;
@@ -65,7 +65,7 @@ const BlogItem = memo(({ blog }: BlogItemProps) => {
 
           <div className="mt-4 pt-2 border-t border-gray-100 dark:border-gray-700">
             <span className="text-xs font-medium text-blue-600 dark:text-blue-400 hover:underline">
-              {t('viewDetails')}
+              {t('Jobs.viewDetails')}
             </span>
           </div>
         </div>

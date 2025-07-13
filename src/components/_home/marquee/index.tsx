@@ -1,36 +1,37 @@
+'use client';
 import SectionHeader from '@/components/shared/SectionHeader';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import React from 'react';
+import React, { useMemo } from 'react';
 import Marquee from 'react-fast-marquee';
 
-const data = [
-  { id: 0, src: '/people/person.jpeg' },
-  { id: 1, src: '/people/person_1.jpeg' },
-  { id: 2, src: '/people/person_2.jpg' },
-  { id: 3, src: '/people/person_3.jpg' },
-  { id: 4, src: '/people/person_4.jpg' },
-  { id: 5, src: '/people/person_5.jpg' },
-  { id: 6, src: '/people/person_6.jpg' },
-  { id: 7, src: '/people/person_7.jpg' },
-  { id: 8, src: '/people/person_8.jpg' },
-  { id: 9, src: '/people/person_9.jpg' },
-];
-
-const data_2 = [
-  { id: 10, src: '/people/person_10.jpg' },
-  { id: 0, src: '/people/person_11.jpg' },
-  { id: 1, src: '/people/person_12.jpg' },
-  { id: 2, src: '/people/person_13.jpg' },
-  { id: 3, src: '/people/person_14.jpg' },
-  { id: 4, src: '/people/person_15.jpg' },
-  { id: 5, src: '/people/person_16.jpg' },
-  { id: 6, src: '/people/person_17.jpg' },
-  { id: 7, src: '/people/person_18.jpg' },
-];
+// Custom image loader for static images from public directory
+const imageLoader = ({ src }: { src: string }) => {
+  return src;
+};
 
 const PeopleMarquee = () => {
   const t = useTranslations('PeopleMarquee');
+
+  // Memoize data arrays to prevent unnecessary re-renders
+  const data = useMemo(
+    () =>
+      Array.from({ length: 17 }, (_, index) => ({
+        id: index,
+        src: `/people/${index + 1}.jpg`,
+      })),
+    []
+  );
+
+  const data_2 = useMemo(
+    () =>
+      Array.from({ length: 17 }, (_, index) => ({
+        id: index,
+        src: `/people/${index + 17}.jpg`,
+      })),
+    []
+  );
+
   return (
     <div className="space-y-4 p-4 mt-16 relative">
       <SectionHeader
@@ -41,28 +42,45 @@ const PeopleMarquee = () => {
         }}
       />
 
-      <Marquee autoFill pauseOnClick className="mt-8">
+      <Marquee
+        autoFill
+        pauseOnClick
+        className="mt-8"
+        speed={100}
+        gradientWidth={50}
+      >
         {data.map((item) => (
-          <div key={item.id} className="relative w-60 h-50 md:w-90 md:h-60 m-2">
+          <div key={item.id} className="relative w-60 h-72 md:w-90 md:h-80 m-2">
             <Image
+              loader={imageLoader}
               src={item.src}
-              alt="image"
+              alt={`Team member ${item.id}`}
               fill
               className="rounded-lg shadow-lg object-cover"
-              sizes="(100vw, 100vh)"
+              sizes="(max-width: 640px) 60px, (max-width: 1024px) 90px, 90px"
+              loading={item.id < 3 ? 'eager' : 'lazy'}
+              priority={item.id < 3} // Prioritize first few images
             />
           </div>
         ))}
       </Marquee>
-      <Marquee direction="right" autoFill pauseOnClick>
+      <Marquee
+        direction="right"
+        autoFill
+        pauseOnClick
+        speed={100}
+        gradientWidth={50}
+      >
         {data_2.map((item) => (
-          <div key={item.id} className="relative w-60 h-50 md:w-90 md:h-60 m-2">
+          <div key={item.id} className="relative w-60 h-72 md:w-90 md:h-80 m-2">
             <Image
+              loader={imageLoader}
               src={item.src}
-              alt="image"
+              alt={`Team member ${item.id}`}
               fill
               className="rounded-lg shadow-lg object-cover"
-              sizes="(100vw, 100vh)"
+              sizes="(max-width: 640px) 60px, (max-width: 1024px) 90px, 90px"
+              loading={item.id < 3 ? 'eager' : 'lazy'}
             />
           </div>
         ))}

@@ -6,7 +6,6 @@ import { fetchVacancy } from '@/hooks/admin/fetch-vacancy';
 import { Badge } from '@/components/ui/badge';
 import Image from 'next/image';
 import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { ArrowLeft, Calendar, MapPin } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
@@ -56,9 +55,7 @@ const VacancyDetailPage = async ({
   const vacancy = await fetchVacancy(params.vacancyId);
 
   // If vacancy doesn't exist, show 404
-  if (!vacancy) {
-    notFound();
-  }
+  if (!vacancy) return <EmptyState />;
 
   // Format date for better readability
   const formattedDate = new Date(vacancy.createdAt).toLocaleDateString(

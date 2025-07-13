@@ -134,6 +134,9 @@
     "description": "At {BRAND_NAME}, we are dedicated to connecting exceptional talent with outstanding opportunities. Whether you are a job seeker looking to take the next step in your career, or an employer seeking the perfect candidate to join your team, our expert recruiters are here to assist you every step of the way."
   },
   "Results": {
+    "loadMore": "Load More",
+    "loading": "Loading...",
+    "view": "View",
     "header": {
       "subtitle": "Successful candidates",
       "description": "We are glad that you are interested in our company.We are looking forward to working with you."
@@ -224,7 +227,8 @@
       "subtitle": "Latest News & Vacancies",
       "description": "Search for internships, jobs, and more. Select the country you are interested in."
     },
-    "view_all": "View All"
+    "view_all": "View All",
+    "view_details": "View Details"
   },
   "EmptyState": {
     "title": "No Data",

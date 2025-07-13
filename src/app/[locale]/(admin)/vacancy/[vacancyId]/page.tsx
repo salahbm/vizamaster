@@ -1,20 +1,15 @@
 import React from 'react';
-import CreateVacancyForm from '../_components/create-form';
-import { fetchAllCountries } from '@/hooks/admin/fetch-country';
 import { fetchVacancy } from '@/hooks/admin/fetch-vacancy';
 import UpdateVacancyForm from '../_components/update-form';
+import EmptyState from '@/components/shared/no-data';
 
 const VacancyDetail = async ({ params }: { params: { vacancyId: string } }) => {
   const vacancy = await fetchVacancy(params.vacancyId);
   if (!vacancy) {
-    return <div>Vacancy not found</div>;
+    return <EmptyState />;
   }
 
-  return (
-    <div>
-      <UpdateVacancyForm vacancy={vacancy} vacancyId={params.vacancyId} />
-    </div>
-  );
+  return <UpdateVacancyForm vacancy={vacancy} vacancyId={params.vacancyId} />;
 };
 
 export default VacancyDetail;
