@@ -11,11 +11,20 @@ import Loading from './loading';
 import { Analytics } from '@vercel/analytics/react';
 import '@/styles/globals.css';
 import { routing } from '@/i18n/routing';
+import { Viewport } from 'next';
 
 export function generateStaticParams() {
   const { locales } = routing;
   return locales.map((locale) => ({ locale }));
 }
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  minimumScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
 
 export async function generateMetadata({
   params: { locale },
