@@ -3,8 +3,8 @@ import FooterContent from './footer-content';
 
 const Footer = async () => {
   // Server-side data fetching
-  let instagramUrl = 'https://www.instagram.com/vizamaster.uz/';
-  let telegramUrl = 'https://t.me/VIZAMASTERXBA';
+  let instagramUrl = '';
+  let telegramUrl = '';
 
   try {
     const data = await DB.config.findMany({

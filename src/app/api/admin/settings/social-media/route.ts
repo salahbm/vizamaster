@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server';
-import { cookies } from 'next/headers';
 import { DB } from '@/lib/db';
 import { auth } from '../../../../../../auth';
 

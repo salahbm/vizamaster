@@ -20,7 +20,7 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json());
 const SocialMediaCard: React.FC = () => {
   const t = useTranslations('SocialMediaCard');
   const { data, error, isLoading } = useSWR<SocialMediaConfig[]>(
-    '/api/admin/settings/social-media',
+    '/api/admin/settings/social-urls',
     fetcher
   );
 
