@@ -232,7 +232,7 @@ export const useDeleteCountry = () => {
         description: 'The country and all its vacancies have been removed.',
       });
 
-      router.push(`/countries`);
+      router.push(`/posts`);
     },
     onError(error, countryId, context) {
       // Rollback to the previous countries list

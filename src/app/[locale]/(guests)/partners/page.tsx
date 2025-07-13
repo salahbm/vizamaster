@@ -117,7 +117,7 @@ const Partners = async ({
                 </li>
               </ul>
             </div>
-            <ContactForm />
+            <ContactForm vacancyName={t('details.vacancyName')} />
           </div>
         </div>
       </div>

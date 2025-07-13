@@ -2,14 +2,9 @@ import ContactForm from '@/components/shared/contact-form.';
 import SectionHeader from '@/components/shared/SectionHeader';
 import SocialMediaCard from '@/components/shared/social-media';
 import { BookUser, Clock3, Mail, PhoneCall } from 'lucide-react';
-import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 
-const Contact = async ({
-  params: { locale },
-}: {
-  params: { locale: string };
-}) => {
-  unstable_setRequestLocale(locale);
+const Contact = async () => {
   const t = await getTranslations('Contact');
 
   return (
@@ -113,7 +108,7 @@ const Contact = async ({
                 </li>
               </ul>
             </div>
-            <ContactForm />
+            <ContactForm vacancyName={t('details.vacancyName')} />
           </div>
         </div>
       </div>

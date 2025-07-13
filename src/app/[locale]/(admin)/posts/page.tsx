@@ -1,23 +1,49 @@
 import { fetchAllCountries } from '@/hooks/admin/fetch-country';
 import React from 'react';
-import { DataTable } from './_components/data-table';
-import { columns } from './_components/columns';
 import { fetchAllVacancies } from '@/hooks/admin/fetch-vacancy';
-import { vacancyColumns } from './_components/vacancy-column';
-import { Separator } from '@/components/ui/separator';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import TableClientWrapper from './_components/table-client-wrapper';
 
 const Posts = async () => {
-  const data = await fetchAllCountries();
-  const vacancy = await fetchAllVacancies();
+  // Fetch data on the server
+  const countriesData = await fetchAllCountries();
+  const vacanciesData = await fetchAllVacancies();
+
   return (
-    <div>
-      <div className="min-h-screen/2 max-h-screen/2">
-        <DataTable columns={columns} data={data} />
-      </div>
-      <Separator className="my-4 bg-secondary" />
-      <div className="max-h-screen/2 min-h-screen/2">
-        <DataTable columns={vacancyColumns} data={vacancy} />
-      </div>
+    <div className="space-y-8">
+      <Card className="border-none">
+        <CardHeader>
+          <CardTitle>Countries</CardTitle>
+          <CardDescription>Manage all countries in the system</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <TableClientWrapper
+            tableType="countries"
+            initialData={countriesData}
+          />
+        </CardContent>
+      </Card>
+
+      <Card className="border-none">
+        <CardHeader>
+          <CardTitle>Vacancies</CardTitle>
+          <CardDescription>
+            Manage all job vacancies in the system
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <TableClientWrapper
+            tableType="vacancies"
+            initialData={vacanciesData}
+          />
+        </CardContent>
+      </Card>
     </div>
   );
 };

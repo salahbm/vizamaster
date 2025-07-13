@@ -4,7 +4,7 @@ import React from 'react';
 import useTranslation from '@/hooks/common/useTranslation';
 import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
-import { Check, Globe } from 'lucide-react';
+import { Check } from 'lucide-react';
 import {
   Popover,
   PopoverContent,

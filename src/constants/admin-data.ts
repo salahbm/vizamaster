@@ -34,4 +34,10 @@ export const navItems: NavItem[] = [
     icon: 'blogs',
     label: 'blogs',
   },
+  {
+    title: 'Social Media',
+    href: '/settings/social-media',
+    icon: 'settings',
+    label: 'Social Media Settings',
+  },
 ];
