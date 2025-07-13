@@ -88,8 +88,9 @@ export default function UserAuthForm() {
           variant: 'default',
         });
 
-        // Use router for better navigation experience
-        router.push(callbackUrl ?? '/dashboard');
+        // Use router.replace for better navigation experience
+        router.refresh(); // Refresh the current page to update session data
+        router.replace(callbackUrl ?? '/dashboard');
       }
     } catch (error: any) {
       setAuthError(error?.message || 'An unexpected error occurred');
@@ -156,9 +157,11 @@ export default function UserAuthForm() {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-xl text-neutral-600">
-                  Password
-                </FormLabel>
+                <div className="flex justify-between items-center">
+                  <FormLabel className="text-xl text-neutral-600">
+                    Password
+                  </FormLabel>
+                </div>
                 <div className="relative">
                   <FormControl>
                     <Input

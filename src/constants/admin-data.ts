@@ -40,4 +40,10 @@ export const navItems: NavItem[] = [
     icon: 'settings',
     label: 'Social Media Settings',
   },
+  {
+    title: 'Admin Management',
+    href: '/admins',
+    icon: 'user',
+    label: 'Admin Management',
+  },
 ];

@@ -46,15 +46,18 @@ model Job {
 }
 
 model Admin {
-  id        String   @id @default(cuid())
-  name      String?
-  email     String   @unique
-  password  String
-  isAdmin   Boolean  @default(false)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id              String    @id @default(cuid())
+  name            String?
+  email           String    @unique
+  password        String
+  isAdmin         Boolean   @default(false)
+  resetToken      String?   
+  resetTokenExpiry DateTime?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
   
   @@index([email])
+  @@index([resetToken])
 }
 
 model Config {
