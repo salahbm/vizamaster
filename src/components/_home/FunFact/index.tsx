@@ -8,6 +8,11 @@ const FunFact: React.FC = () => {
 
   return (
     <section className="relative">
+      {/* Background pattern and gradient */}
+      <div className="absolute top-0 -z-10 h-full w-full bg-white">
+        <div className="absolute bottom-auto left-auto right-0 top-0 h-[500px] w-[500px] -translate-x-[30%] translate-y-[20%] rounded-full bg-[rgba(173,109,244,0.5)] opacity-50 blur-[80px]"></div>
+      </div>
+
       {/* <!-- ===== Funfact Start ===== --> */}
       <div className="px-4 py-20 md:px-8 lg:py-22.5 2xl:px-0 rounded-2xl">
         <SectionHeader
@@ -17,7 +22,7 @@ const FunFact: React.FC = () => {
           }}
         />
 
-        <div className="relative z-1 mx-auto max-w-c-1390 py-8">
+        <div className="relative z-1 mx-auto py-8">
           <Image
             width={132}
             height={132}
