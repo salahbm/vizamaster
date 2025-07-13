@@ -32,6 +32,8 @@ export async function generateMetadata({
       canonical: `/${locale}`,
       languages: {
         en: '/en',
+        ru: '/ru',
+        uz: '/uz',
       },
     },
     openGraph: {
@@ -41,12 +43,7 @@ export async function generateMetadata({
       siteName: BRAND_NAME,
       images: [
         {
-          url: `/og/small.png`,
-          width: 600,
-          height: 315,
-        },
-        {
-          url: `/og/large.png`,
+          url: `/logos/logo_title_3d.png`,
           width: 1200,
           height: 600,
         },
@@ -58,7 +55,11 @@ export async function generateMetadata({
       title,
       description,
       site: BRAND_NAME,
-      images: [`/og/twitter.png`],
+      images: [`/logos/logo_3d_nobg.png`],
+    },
+    icons: {
+      icon: '/favicon.ico',
+      apple: '/logos/logo_3d_nobg.png',
     },
   };
 }

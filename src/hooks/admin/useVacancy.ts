@@ -47,7 +47,7 @@ export const createVacancy = async (data: VacancyFormValues) => {
 
   try {
     const response = await axios.post(
-      `/api/country/${data.countryId}/vacancy`,
+      `/api/admin/country/${data.countryId}/vacancy`,
       data
     );
     return response.data;
@@ -77,7 +77,7 @@ export const updateVacancy = async ({
 
   try {
     const response = await axios.patch(
-      `/api/country/${data.countryId}/vacancy/${vacancyId}`,
+      `/api/admin/country/${data.countryId}/vacancy/${vacancyId}`,
       data
     );
     return response.data;
@@ -107,7 +107,7 @@ export const deleteVacancy = async ({
 
   try {
     const response = await axios.delete(
-      `/api/country/${countryId}/vacancy/${vacancyId}`
+      `/api/admin/country/${countryId}/vacancy/${vacancyId}`
     );
     return response.data;
   } catch (error) {
@@ -127,7 +127,7 @@ export const fetchVacancy = async (vacancyId: string, countryId: string) => {
 
   try {
     const response = await axios.get(
-      `/api/country/${countryId}/vacancy/${vacancyId}`
+      `/api/admin/country/${countryId}/vacancy/${vacancyId}`
     );
     return response.data;
   } catch (error) {

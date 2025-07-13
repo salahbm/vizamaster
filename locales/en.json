@@ -98,11 +98,11 @@
     },
     "details": {
       "addressTitle": "Our Address",
-      "address": "Otaboy Eshonov 40 A\nBukhara, Uzbekistan",
+      "address": "Hofiz Tanish Buxoriy 403 A\nBukhara, Uzbekistan",
       "contactTitle": "Contact",
       "contactNumbers": "+998 95 608-70-70\n+998 95 608-00-70\n+998 95 506-70-07",
       "mailTitle": "Mail:",
-      "emails": "bsglobalinfo@mail.ru\nmain@bsglobal.uz",
+      "emails": "vizamasterinfo@mail.ru\nmain@vizamaster.uz",
       "hoursTitle": "Working hours",
       "workingHours": "Monday - Friday: 09:00 - 17:00\nSaturday : 09:00 - 13:00"
     }
@@ -134,13 +134,14 @@
     "description": "At {BRAND_NAME}, we are dedicated to connecting exceptional talent with outstanding opportunities. Whether you are a job seeker looking to take the next step in your career, or an employer seeking the perfect candidate to join your team, our expert recruiters are here to assist you every step of the way.",
     "details": {
       "addressTitle": "Our Address",
-      "address": "Otaboy Eshonov 40 A\nBukhara, Uzbekistan",
+      "address": "Hofiz Tanish Buxoriy 403 A\nBukhara, Uzbekistan",
       "contactTitle": "Contact",
       "contactNumbers": "+998 95 608-70-70\n+998 95 608-00-70\n+998 95 506-70-07",
       "mailTitle": "Mail:",
-      "emails": "bsglobalinfo@mail.ru\nmain@bsglobal.uz",
+      "emails": "vizamasterinfo@mail.ru\nmain@vizamaster.uz",
       "hoursTitle": "Working hours",
-      "workingHours": "Monday - Friday: 09:00 - 17:00\nSaturday : 09:00 - 13:00"
+      "workingHours": "Monday - Friday: 09:00 - 17:00\nSaturday : 09:00 - 13:00",
+      "vacancyName": "Vacancy Name"
     }
   },
   "Results": {
@@ -233,7 +234,8 @@
       "title": "NEWS & Vacancies",
       "subtitle": "Latest News & Vacancies",
       "description": "Search for internships, jobs, and more. Select the country you are interested in."
-    }
+    },
+    "view_all": "View All"
   },
   "EmptyState": {
     "title": "No Data",

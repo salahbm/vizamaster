@@ -98,11 +98,11 @@
     },
     "details": {
       "addressTitle": "Bizning manzilimiz",
-      "address": "Otaboy Eshonov 40 A\nBuxoro, O'zbekiston",
+      "address": "Hofiz Tanish Buxoriy 403 A\nBuxoro, O'zbekiston",
       "contactTitle": "Aloqa",
       "contactNumbers": "+998 95 608-70-70\n+998 95 608-00-70\n+998 95 506-70-07",
       "mailTitle": "Elektron pochta:",
-      "emails": "bsglobalinfo@mail.ru\nmain@bsglobal.uz",
+      "emails": "info@vizamaster.uz\nmain@vizamaster.uz",
       "hoursTitle": "Ish vaqti",
       "workingHours": "Dushanba - Juma: 09:00 - 17:00\nShanba : 09:00 - 13:00"
     }
@@ -134,13 +134,14 @@
     "description": "{BRAND_NAME} da biz ajoyib iste'dodlarni ajoyib imkoniyatlar bilan bog'lashga intilamiz. Agar siz martabangizda keyingi qadamni qo'yishni xohlayotgan ish qidiruvchi bo'lsangiz yoki jamoangizga mukammal nomzodni qo'shishni xohlayotgan ish beruvchi bo'lsangiz, bizning tajribali kadrlarimiz sizga har qadamda yordam berishadi.",
     "details": {
       "addressTitle": "Bizning manzilimiz",
-      "address": "Otaboy Eshonov 40 A\nBuxoro, O'zbekiston",
+      "address": "Hofiz Tanish Buxoriy 403 A\nBuxoro, O'zbekiston",
       "contactTitle": "Aloqa",
       "contactNumbers": "+998 95 608-70-70\n+998 95 608-00-70\n+998 95 506-70-07",
       "mailTitle": "Elektron pochta:",
-      "emails": "bsglobalinfo@mail.ru\nmain@bsglobal.uz",
+      "emails": "vizamasterinfo@mail.ru\nmain@vizamaster.uz",
       "hoursTitle": "Ish vaqti",
-      "workingHours": "Dushanba - Juma: 09:00 - 17:00\nShanba : 09:00 - 13:00"
+      "workingHours": "Dushanba - Juma: 09:00 - 17:00\nShanba : 09:00 - 13:00",
+      "vacancyName": "Ish Nomi"
     }
   },
   "Results": {
@@ -229,12 +230,12 @@
   },
   "Blog": {
     "note": "Eslatma 💡: Hozirda vakansiyalar faqat rus tilida keltirilgan, iltimos, Google Translate'dan foydalaning.",
-
     "header": {
       "title": "YANGILIKLAR & Vakansiyalar",
       "subtitle": "Eng so'nggi yangiliklar va vakansiyalar",
       "description": "Amaliyot, ish joylari va boshqa narsalarni qidiring. Qiziqqan mamlakatingizni tanlang."
-    }
+    },
+    "view_all": "Hammasini ko'rish"
   },
   "EmptyState": {
     "title": "Ma'lumot yo'q",

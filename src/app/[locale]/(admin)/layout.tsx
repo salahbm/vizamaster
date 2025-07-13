@@ -1,7 +1,7 @@
 import { BRAND_NAME } from '@/constants/name';
 import { Params } from '@/types/global';
 import { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Suspense } from 'react';
 import Loader from '@/components/shared/loader';
 import Sidebar from './_components/sidebar';
@@ -25,8 +25,10 @@ export async function generateMetadata({
 
 export default async function AdminLayout({
   children,
+  params: { locale },
 }: React.PropsWithChildren<Params>) {
   const isAdmin = await handleAdmin();
+  setRequestLocale(locale);
   return (
     <main className="relative layout-container">
       <SessionProvider>

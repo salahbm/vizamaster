@@ -1,7 +1,7 @@
 import ContactForm from '@/components/shared/contact-form.';
 import { BRAND_NAME } from '@/constants/name';
 import { BookUser, Clock3, Mail, PhoneCall } from 'lucide-react';
-import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
+import { getTranslations, setRequestLocale } from 'next-intl/server';
 import Image from 'next/image';
 
 const Partners = async ({
@@ -9,7 +9,7 @@ const Partners = async ({
 }: {
   params: { locale: string };
 }) => {
-  unstable_setRequestLocale(locale);
+  setRequestLocale(locale);
   const t = await getTranslations('Partners');
 
   return (

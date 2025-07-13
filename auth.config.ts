@@ -10,13 +10,14 @@ export const authOptions: any = {
       id: 'credentials',
       name: 'Credentials',
       credentials: {
+        name: { label: 'Name', type: 'text' },
         email: { label: 'Email', type: 'email' },
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials) {
         if (!credentials) return null;
 
-        const { email, password } = credentials as UserFormValue;
+        const { name, email, password } = credentials as UserFormValue;
 
         // Check if user exists
         const user = await DB.admin.findUnique({
@@ -36,6 +37,7 @@ export const authOptions: any = {
           const hashedPassword = await bcrypt.hash(password, 10);
           const newUser = await DB.admin.create({
             data: {
+              name,
               email,
               password: hashedPassword,
             },

@@ -21,6 +21,7 @@ import Link from 'next/link';
 import { Eye, EyeOff, Loader2 } from 'lucide-react';
 
 export const authSchema = z.object({
+  name: z.string().optional(),
   email: z.string().email({ message: 'Enter a valid email address' }),
   password: z
     .string()
@@ -38,6 +39,7 @@ export default function UserAuthForm() {
   const [authError, setAuthError] = useState<string | null>(null);
 
   const defaultValues = {
+    name: '',
     email: '',
     password: '',
   };
@@ -62,6 +64,7 @@ export default function UserAuthForm() {
     try {
       const result = await signIn('credentials', {
         redirect: false,
+        name: data.name,
         email: data.email,
         password: data.password,
         callbackUrl: callbackUrl ?? '/dashboard',
@@ -88,9 +91,14 @@ export default function UserAuthForm() {
           variant: 'default',
         });
 
-        // Use router.replace for better navigation experience
-        router.refresh(); // Refresh the current page to update session data
-        router.replace(callbackUrl ?? '/dashboard');
+        // First refresh to update the session
+        await router.refresh();
+
+        // Use a small delay to ensure session is properly established
+        setTimeout(() => {
+          // Use window.location for a full page navigation to ensure proper session handling
+          window.location.href = callbackUrl ?? '/dashboard';
+        }, 100);
       }
     } catch (error: any) {
       setAuthError(error?.message || 'An unexpected error occurred');
@@ -131,11 +139,34 @@ export default function UserAuthForm() {
         >
           <FormField
             control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-xl text-neutral-600">
+                  Name (optional)
+                </FormLabel>
+                <FormControl>
+                  <Input
+                    type="text"
+                    placeholder="Enter your name..."
+                    disabled={loading}
+                    className="w-full text-xl"
+                    autoComplete="name"
+                    autoFocus
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
             name="email"
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="text-xl text-neutral-600">
-                  Email
+                  Email <span className="text-red-500">*</span>
                 </FormLabel>
                 <FormControl>
                   <Input
@@ -144,7 +175,6 @@ export default function UserAuthForm() {
                     disabled={loading}
                     className="w-full text-xl"
                     autoComplete="email"
-                    autoFocus
                     {...field}
                   />
                 </FormControl>
@@ -159,7 +189,7 @@ export default function UserAuthForm() {
               <FormItem>
                 <div className="flex justify-between items-center">
                   <FormLabel className="text-xl text-neutral-600">
-                    Password
+                    Password <span className="text-red-500">*</span>
                   </FormLabel>
                 </div>
                 <div className="relative">

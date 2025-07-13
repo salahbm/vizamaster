@@ -193,7 +193,7 @@ export default function AdminTable() {
                         : 'bg-blue-100 text-blue-800'
                     }`}
                   >
-                    {admin.isAdmin ? 'Super Admin' : 'Admin'}
+                    {admin.isAdmin ? 'Admin' : 'User'}
                   </span>
                 </TableCell>
                 <TableCell>
@@ -223,12 +223,12 @@ export default function AdminTable() {
                         {admin.isAdmin ? (
                           <>
                             <ShieldOff className="mr-2 h-4 w-4" />
-                            Remove super admin
+                            Remove admin
                           </>
                         ) : (
                           <>
                             <Shield className="mr-2 h-4 w-4" />
-                            Make super admin
+                            Make admin
                           </>
                         )}
                       </DropdownMenuItem>

@@ -56,7 +56,7 @@ const formatErrorMessage = (error: unknown): string => {
 // Create country function
 export const createCountry = async (data: z.infer<typeof formSchema>) => {
   try {
-    const response = await axios.post('/api/country', data);
+    const response = await axios.post('/api/admin/country', data);
     return response.data;
   } catch (error) {
     throw new Error(formatErrorMessage(error));
@@ -103,7 +103,7 @@ export const useCreateCountry = () => {
 export const fetchCountry = async (countryId: string): Promise<Country> => {
   if (!countryId) throw new Error('Country ID is required');
 
-  const response = await axios.get(`/api/country/${countryId}`);
+  const response = await axios.get(`/api/admin/country/${countryId}`);
   return response.data;
 };
 
@@ -129,7 +129,7 @@ export const updateCountry = async ({
   }
 
   try {
-    const response = await axios.patch(`/api/country/${countryId}`, data);
+    const response = await axios.patch(`/api/admin/country/${countryId}`, data);
     return response.data;
   } catch (error) {
     throw new Error(formatErrorMessage(error));
@@ -195,7 +195,7 @@ export const deleteCountry = async (countryId: string) => {
   }
 
   try {
-    const response = await axios.delete(`/api/country/${countryId}`);
+    const response = await axios.delete(`/api/admin/country/${countryId}`);
     return response.data;
   } catch (error) {
     throw new Error(formatErrorMessage(error));
@@ -251,7 +251,7 @@ export const useDeleteCountry = () => {
 
 // Fetch all countries
 export const fetchCountries = async (): Promise<Country[]> => {
-  const response = await axios.get('/api/country');
+  const response = await axios.get('/api/admin/country');
   return response.data;
 };
 
