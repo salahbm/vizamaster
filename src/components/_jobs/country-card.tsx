@@ -1,55 +1,75 @@
+'use client';
 import Link from 'next/link';
 import { Country } from '@prisma/client';
-import React from 'react';
 import { Badge } from '@/components/ui/badge';
 import { MapPin } from 'lucide-react';
+import { memo } from 'react';
+import { useIsWindows } from '@/hooks/common/useWindows';
 
 interface CountryCardProps {
   country: Country;
   jobCount?: number;
 }
 
-const CountryCard = ({ country, jobCount }: CountryCardProps) => {
+const CountryCard = memo(({ country, jobCount }: CountryCardProps) => {
+  const isWindows = useIsWindows();
+  const { id, name, emoji, isNew, title } = country;
+  const jobText = jobCount === 1 ? 'job' : 'jobs';
+
   return (
     <div className="group relative w-full max-w-sm bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 ease-in-out">
       <Link
-        href={`/jobs/${country.id}`}
+        href={`/jobs/${id}`}
         className="block h-full outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 rounded-lg"
-        aria-label={`View jobs in ${country.name}`}
+        aria-label={`View jobs in ${name}`}
       >
-        {country.isNew && (
+        {isNew && (
           <Badge className="absolute top-3 right-3 z-10" variant="default">
             New
           </Badge>
         )}
 
         <div className="w-full h-[160px] md:h-[180px] flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 dark:from-gray-700 dark:to-gray-800 overflow-hidden group-hover:scale-[1.02] transition-transform duration-500">
-          <p
-            className="text-[120px] md:text-[140px] transform group-hover:scale-110 transition-transform duration-500"
-            aria-hidden="true"
-          >
-            {country.emoji}
-          </p>
+          {isWindows ? (
+            <div className="flex flex-col items-center justify-center">
+              <p
+                className="text-4xl md:text-5xl font-bold textGradient"
+                aria-hidden="true"
+              >
+                {name}
+              </p>
+              <p className="mt-2 text-4xl md:text-6xl" aria-hidden="true">
+                {emoji}
+              </p>
+            </div>
+          ) : (
+            <p
+              className="text-[120px] md:text-[140px] transform group-hover:scale-110 transition-transform duration-500"
+              aria-hidden="true"
+            >
+              {emoji}
+            </p>
+          )}
         </div>
 
         <div className="p-5">
           <div className="flex items-center justify-between">
             <h3 className="text-xl font-bold tracking-tight textGradient group-hover:underline">
-              {country.name}
+              {name}
             </h3>
             {jobCount !== undefined && (
               <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
-                <MapPin className="h-3 w-3 mr-1" />
+                <MapPin className="h-3 w-3 mr-1" aria-hidden="true" />
                 <span>
-                  {jobCount} {jobCount === 1 ? 'job' : 'jobs'}
+                  {jobCount} {jobText}
                 </span>
               </div>
             )}
           </div>
 
-          {country.title && (
+          {title && (
             <p className="mt-2 font-normal text-gray-700 dark:text-gray-300 line-clamp-2 text-sm">
-              {country.title}
+              {title}
             </p>
           )}
 
@@ -62,5 +82,8 @@ const CountryCard = ({ country, jobCount }: CountryCardProps) => {
       </Link>
     </div>
   );
-};
+});
+
+CountryCard.displayName = 'CountryCard';
+
 export default CountryCard;

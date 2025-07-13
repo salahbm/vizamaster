@@ -1,39 +1,70 @@
+'use client';
+
 import Image from 'next/image';
 import React from 'react';
-
+import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
-import MotionDiv from '@/components/shared/motions/motion-div';
 
-const ImageFrame = ({
-  imgUrl,
-  type,
-}: {
+interface ImageFrameProps {
   imgUrl: string;
   type: 'square' | 'rectangle';
-}) => {
-  return (
-    <div
-      className={cn(
-        `flex items-center justify-center  w-[155px] sm:w-[180px] md:w-[190px] lg:w-[200px] sm:m-1 rounded-xl overflow-x-hidden`,
-        type === 'square' ? 'h-[200px]' : 'h-[350px]'
-      )}
-    >
-      <div
+  alt: string;
+  index?: number;
+}
+
+const ImageFrame = React.memo(
+  ({ imgUrl, type, alt, index = 0 }: ImageFrameProps) => {
+    // Animation variants
+    const containerVariants = {
+      hidden: { opacity: 0, y: 20 },
+      visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+          duration: 0.6,
+          delay: index * 0.25, // Staggered delay based on index
+          ease: 'easeOut',
+        },
+      },
+    };
+
+    const imageVariants = {
+      hover: {
+        scale: 1.05,
+        transition: { duration: 0.5 },
+      },
+    };
+
+    return (
+      <motion.div
         className={cn(
-          `relative overflow-hidden rounded-xl`,
-          type === 'square' ? 'w-[180px] h-[180px]' : 'w-[180px] h-[330px]'
+          'flex items-center justify-center w-full rounded-xl overflow-hidden',
+          type === 'square' ? 'h-[200px]' : 'h-[350px]'
         )}
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        whileHover="hover"
       >
-        <Image
-          src={imgUrl}
-          alt="Picture"
-          fill
-          className="rounded-xl object-cover"
-          sizes="(100vw, 100vh)"
-        />
-      </div>
-    </div>
-  );
-};
+        <motion.div
+          className={cn('relative w-full h-full overflow-hidden rounded-xl')}
+          variants={imageVariants}
+        >
+          <Image
+            src={imgUrl}
+            alt={alt}
+            fill
+            className="rounded-xl object-cover"
+            sizes="(max-width: 640px) 155px, (max-width: 768px) 180px, (max-width: 1024px) 190px, 200px"
+            priority={false}
+            loading="lazy"
+          />
+        </motion.div>
+      </motion.div>
+    );
+  }
+);
+
+ImageFrame.displayName = 'ImageFrame';
 
 export default ImageFrame;

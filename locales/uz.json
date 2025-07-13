@@ -36,10 +36,10 @@
     "2303": "Mobil tasdiqlash kodi noto'g'ri."
   },
   "Meta": {
-    "keywords": "Kelajagingizni BS Group bilan qurib oling",
+    "keywords": "Kelajagingizni VIZA MASTER bilan qurib oling",
     "description": "Dunyodagi eng yaxshi kadrlar agentligi",
     "home": {
-      "title": "{brand} | Kelajagingizni BS Group bilan qurib oling",
+      "title": "{brand} | Kelajagingizni VIZA MASTER bilan qurib oling",
       "description": "{brand} Dunyodagi eng yaxshi kadrlar agentligi"
     }
   },
@@ -74,7 +74,7 @@
       },
       "history": {
         "title": "Bizning tariximiz",
-        "content": "2017 yilda tashkil etilgan BS Group kichik startapdan etakchi kadrlar agentligiga aylandi."
+        "content": "2017 yilda tashkil etilgan VIZA MASTER kichik startapdan etakchi kadrlar agentligiga aylandi."
       },
       "values": {
         "title": "Bizning qadriyatlarimiz",
@@ -241,7 +241,7 @@
     "description": "Biz yangi imkoniyatlarni taqdim etish uchun astoydil ishlayapmiz. Yaqinda qaytib keling yoki birinchi ishingizni qo'shing!"
   },
   "SocialMediaCard": {
-    "companyName": "BS Group",
+    "companyName": "VIZA MASTER",
     "description": "Biz har doim iste'dodli va ijodkor odamlarni qidirmoqdamiz.",
     "instagram": "Instagram",
     "telegram": "Telegram"

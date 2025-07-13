@@ -18,7 +18,7 @@ import { emailSchema, useSendEmail } from '@/hooks/email/useEmail';
 import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 
-export default function ContactForm() {
+export default function ContactForm({ vacancyName }: { vacancyName: string }) {
   const { mutateAsync: sendEmail, isPending } = useSendEmail();
   const router = useRouter();
   const t = useTranslations('ContactForm');

@@ -1,14 +1,20 @@
 'use client';
-import React, { useState } from 'react';
+
+import React from 'react';
 import useTranslation from '@/hooks/common/useTranslation';
 import { cn } from '@/lib/utils';
 import { useTranslations } from 'next-intl';
-import { X } from 'lucide-react';
+import { Check, Globe } from 'lucide-react';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
+import { Button } from '@/components/ui/button';
 
 const LanguageSelector = () => {
   const t = useTranslations();
   const { locales, currentLocale, handleLocale } = useTranslation();
-  const [isOpen, setIsOpen] = useState(false);
 
   const flags: Record<string, string> = {
     en: '🇺🇸',
@@ -16,29 +22,25 @@ const LanguageSelector = () => {
     uz: '🇺🇿',
   };
 
-  const handleSelectClick = () => {
-    setIsOpen(!isOpen);
-  };
-
   const handleOptionClick = (locale: string) => {
     handleLocale(locale);
-    setIsOpen(false);
   };
 
   return (
-    <div className="relative inline-block">
-      <button onClick={handleSelectClick} className="flex items-center w-8">
-        {isOpen ? (
-          <X className="w-5 h-5" />
-        ) : (
-          <>
-            <span className="mr-1">{flags[currentLocale]}</span>
-            <span className="uppercase">{currentLocale}</span>
-          </>
-        )}
-      </button>
-      {isOpen && (
-        <div className="absolute -right-8 mt-2 w-48 bg-white border border-gray-300 rounded shadow-lg transition transform duration-500">
+    <Popover>
+      <PopoverTrigger asChild>
+        <Button
+          variant="ghost"
+          size="sm"
+          className="flex items-center gap-1 h-8 px-2 hover:bg-accent hover:text-accent-foreground"
+          aria-label="Select language"
+        >
+          <span className="mr-1 text-base">{flags[currentLocale]}</span>
+          <span className="uppercase text-xs font-medium">{currentLocale}</span>
+        </Button>
+      </PopoverTrigger>
+      <PopoverContent className="w-48 p-0" align="end" sideOffset={8}>
+        <div className="py-1">
           {locales.map((locale) => {
             const isActive = locale === currentLocale;
 
@@ -47,18 +49,25 @@ const LanguageSelector = () => {
                 key={locale}
                 onClick={() => handleOptionClick(locale)}
                 className={cn(
-                  isActive ? 'text-orange-500' : 'text-gray-900',
-                  'cursor-pointer px-4 py-2 hover:bg-gray-100'
+                  'flex items-center justify-between cursor-pointer px-3 py-2 hover:bg-accent hover:text-accent-foreground transition-colors',
+                  isActive
+                    ? 'text-primary font-medium bg-accent/50'
+                    : 'text-foreground'
                 )}
+                role="button"
+                tabIndex={0}
               >
-                <span className="mr-2">{flags[locale]}</span>
-                {t(`Header.languages.${locale}`)}
+                <div className="flex items-center gap-2">
+                  <span className="text-base">{flags[locale]}</span>
+                  <span>{t(`Header.languages.${locale}`)}</span>
+                </div>
+                {isActive && <Check className="h-4 w-4" />}
               </div>
             );
           })}
         </div>
-      )}
-    </div>
+      </PopoverContent>
+    </Popover>
   );
 };
 

@@ -36,10 +36,10 @@
     "2303": "Mobile verification code is invalid."
   },
   "Meta": {
-    "keywords": "Build your future with BS Group",
+    "keywords": "Build your future with VIZA MASTER",
     "description": "The best recruitment agency in the world",
     "home": {
-      "title": "{brand} | Build your future with BS Group",
+      "title": "{brand} | Build your future with VIZA MASTER",
       "description": "{brand} The best recruitment agency in the world"
     }
   },
@@ -74,7 +74,7 @@
       },
       "history": {
         "title": "Our History",
-        "content": "Founded in 2017, BS Group has grown from a small startup into a leading recruitment agency."
+        "content": "Founded in 2017, VIZA MASTER has grown from a small startup into a leading recruitment agency."
       },
       "values": {
         "title": "Our Values",
@@ -240,7 +240,7 @@
     "description": "We’re working hard to bring new opportunities. Check back soon or add your first job!"
   },
   "SocialMediaCard": {
-    "companyName": "BS Group",
+    "companyName": "VIZA MASTER",
     "description": "We are always looking for talented and creative people.",
     "instagram": "Instagram",
     "telegram": "Telegram"

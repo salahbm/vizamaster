@@ -3,8 +3,8 @@ import UserAuthForm from '../../_components/user-auth-form';
 import { Suspense } from 'react';
 
 export const metadata: Metadata = {
-  title: 'Sign In | BS Group',
-  description: 'Sign in to your BS Group account',
+  title: 'Sign In | VIZA MASTER',
+  description: 'Sign in to your VIZA MASTER account',
 };
 
 export default function AuthenticationPage() {
