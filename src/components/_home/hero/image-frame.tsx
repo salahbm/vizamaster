@@ -55,9 +55,9 @@ const ImageFrame = React.memo(
             alt={alt}
             fill
             className="rounded-xl object-cover"
-            sizes="(max-width: 640px) 155px, (max-width: 768px) 180px, (max-width: 1024px) 190px, 200px"
-            priority={false}
-            loading="lazy"
+            quality={100}
+            priority={index < 2} // Prioritize loading the first two images
+            loading={index < 2 ? 'eager' : 'lazy'}
           />
         </motion.div>
       </motion.div>
