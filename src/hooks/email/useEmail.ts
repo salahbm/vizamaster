@@ -13,9 +13,9 @@ export const emailSchema = z.object({
   }),
 });
 
-const serviceID = process.env.MAIL_SERVICE_ID;
-const templateID = process.env.MAIL_TEMPLATE_ID;
-const accountID = process.env.MAIL_ACCOUNT_PK;
+const serviceID = process.env.NEXT_PUBLIC_MAIL_SERVICE_ID;
+const templateID = process.env.NEXT_PUBLIC_MAIL_TEMPLATE_ID;
+const accountID = process.env.NEXT_PUBLIC_MAIL_ACCOUNT_PK;
 
 export const sendEmail = async (data: z.infer<typeof emailSchema>) => {
   if (!serviceID || !templateID || !accountID) {
