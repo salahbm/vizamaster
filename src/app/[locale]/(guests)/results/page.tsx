@@ -5,12 +5,6 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { MoreVertical } from 'lucide-react';
-
-// Preload image metadata to optimize loading
-const imageLoader = ({ src }: { src: string }) => {
-  return src; // Using local images from public directory
-};
 
 const Results: React.FC = () => {
   const t = useTranslations('Results');
@@ -109,7 +103,6 @@ const Results: React.FC = () => {
                     onClick={() => handleImageClick(image)}
                   >
                     <Image
-                      loader={imageLoader}
                       src={image}
                       alt={`Result ${colIndex + index * columns}`}
                       fill
@@ -117,6 +110,7 @@ const Results: React.FC = () => {
                       className="object-cover rounded-lg transition-all duration-300 group-hover:scale-105"
                       loading={index < 4 ? 'eager' : 'lazy'}
                       priority={index < 4} // Prioritize first few images
+                      unoptimized // Use unoptimized for local static images
                     />
                     <div className="hidden absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 md:flex items-center justify-center">
                       <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium">
@@ -194,12 +188,12 @@ const Results: React.FC = () => {
             </button>
             <div className="relative w-full h-[80vh]">
               <Image
-                loader={imageLoader}
                 src={selectedImage}
                 alt="Enlarged view"
                 fill
                 className="object-contain"
                 priority={true} // Always prioritize the enlarged view
+                unoptimized // Use unoptimized for local static images
               />
             </div>
           </motion.div>

@@ -168,6 +168,7 @@
     }
   },
   "FunFact": {
+    "viewAll": "Bizning natijalarimizni ko'ring",
     "header": {
       "subtitle": "bizning natijalarimiz",
       "description": "Biz o‘smoqdamiz. Quyidagi raqamlar bilan tanishing."

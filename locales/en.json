@@ -168,6 +168,7 @@
     }
   },
   "FunFact": {
+    "viewAll": "View our results",
     "header": {
       "subtitle": "our work in numbers",
       "description": "We are growing. Check out our numbers below."

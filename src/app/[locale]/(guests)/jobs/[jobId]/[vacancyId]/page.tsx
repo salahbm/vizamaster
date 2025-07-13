@@ -69,14 +69,10 @@ const VacancyDetailPage = async ({
 
   return (
     <section className="py-12 md:py-16 lg:py-20 px-4 max-w-screen-lg mx-auto">
-      <div className="mb-6">
-        <Link
-          href={`/jobs/${params.jobId}`}
-          className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
-        >
-          <ArrowLeft className="h-4 w-4 mr-1" />
-          {t('backToJobs')}
-        </Link>
+      <div className="my-6">
+        <h1 className="text-2xl md:text-3xl font-bold tracking-tight textGradient">
+          {vacancy.name}
+        </h1>
       </div>
 
       <div className="w-full bg-white dark:bg-gray-800 rounded-xl shadow-md overflow-hidden">
@@ -109,10 +105,6 @@ const VacancyDetailPage = async ({
         <div className="p-6 md:p-8">
           {/* Header */}
           <div className="mb-6">
-            <h1 className="text-2xl md:text-3xl font-bold tracking-tight textGradient">
-              {vacancy.name}
-            </h1>
-
             {vacancy.title && (
               <p className="mt-2 text-lg text-gray-700 dark:text-gray-300">
                 {vacancy.title}
