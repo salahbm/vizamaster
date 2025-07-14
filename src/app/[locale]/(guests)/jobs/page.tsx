@@ -2,37 +2,26 @@ import CountryCard from '@/components/_jobs/country-card';
 import MyGlobe from '@/components/shared/globe';
 import EmptyState from '@/components/shared/no-data';
 import SectionHeader from '@/components/shared/SectionHeader';
-import { fetchAllCountries } from '@/hooks/admin/fetch-country';
+import { fetchCountriesWithActiveJobCounts } from '@/hooks/admin/fetch-country';
 
 import { Country } from '@prisma/client';
 import { Suspense } from 'react';
 import { Globe, Search } from 'lucide-react';
-import { fetchAllVacancies } from '@/hooks/admin/fetch-vacancy';
 import { getTranslations } from 'next-intl/server';
 
 export const revalidate = 3600; // Revalidate this page every hour
 
 const Jobs = async () => {
   const t = await getTranslations('Jobs');
-  // Fetch data in parallel for better performance
-  const [countries, vacancies] = await Promise.all([
-    fetchAllCountries(),
-    fetchAllVacancies({ isActive: true }),
-  ]);
+  const countries = await fetchCountriesWithActiveJobCounts();
+  const vacanciesCount = countries.reduce(
+    (total, c) => total + (c._count.jobs || 0),
+    0
+  );
 
-  // Calculate job count per country
-  const jobCountByCountry =
-    vacancies?.reduce((acc, job) => {
-      if (job.countryId) {
-        acc[job.countryId] = (acc[job.countryId] || 0) + 1;
-      }
-      return acc;
-    }, {} as Record<string, number>) || {};
-
-  // Sort countries by job count (most jobs first) and then by name
-  const sortedCountries = [...(countries || [])].sort((a, b) => {
-    const aCount = jobCountByCountry[a.id] || 0;
-    const bCount = jobCountByCountry[b.id] || 0;
+  const sortedCountries = [...countries].sort((a, b) => {
+    const aCount = a._count.jobs;
+    const bCount = b._count.jobs;
     if (bCount !== aCount) return bCount - aCount;
     return a.name.localeCompare(b.name);
   });
@@ -51,8 +40,8 @@ const Jobs = async () => {
           <Search className="h-5 w-5 text-muted-foreground" />
           <p className="text-sm text-muted-foreground">
             {t('activePositions', {
-              positions: vacancies?.length || 0,
-              country: countries?.length || 0,
+              positions: vacanciesCount,
+              country: countries.length,
             })}
           </p>
         </div>
@@ -71,7 +60,7 @@ const Jobs = async () => {
               <CountryCard
                 key={country.id}
                 country={country as Country}
-                jobCount={jobCountByCountry[country.id] || 0}
+                jobCount={country._count.jobs}
               />
             ))}
           </div>
