@@ -31,8 +31,8 @@ const Jobs = async () => {
       <section className="text-center max-w-4xl mx-auto">
         <SectionHeader
           headerInfo={{
-            subtitle: `Global Opportunities`,
-            description: `Explore internships, jobs, and career opportunities across the globe. Select a country to view available positions.`,
+            subtitle: t('subtitle'),
+            description: t('description')
           }}
         />
 
