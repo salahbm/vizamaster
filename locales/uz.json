@@ -258,6 +258,8 @@
     "admin": "Admin"
   },
   "Jobs": {
+    "subtitle": "Global imkoniyatlar",
+    "description": "Dunyo bo'ylab amaliyot, ish joylari va karyera qurish imkoniyatlarini o'rganing. Mavjud lavozimlarni ko'rish uchun mamlakatni tanlang.",
     "viewOpportunities": "Imkoniyatlarni ko‘rish",
     "viewDetails": "Batafsil →",
     "exploreGlobalOpportunities": "Global imkoniyatlarni o‘rganing",
