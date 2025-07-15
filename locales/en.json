@@ -258,6 +258,8 @@
     "admin": "Admin"
   },
   "Jobs": {
+    "subtitle": "Global Opportunities",
+    "description": "Explore internships, jobs, and career opportunities across the globe. Select a country to view available positions.",
     "viewOpportunities": "View opportunities",
     "viewDetails": "View details →",
     "exploreGlobalOpportunities": "Explore Global Opportunities",
