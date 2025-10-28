@@ -58,7 +58,8 @@
       "jobs": "Ish o‘rinlari",
       "results": "Natijalar",
       "contact": "Aloqa",
-      "partners": "Hamkorlar"
+      "partners": "Hamkorlar",
+      "contracts": "Shartnomalar"
     }
   },
   "About": {
@@ -141,6 +142,10 @@
       "subtitle": "Muvaffaqiyatli nomzodlar",
       "description": "Kompaniyamizga bo‘lgan qiziqishingizdan mamnunmiz. Hamkorlikni intiqlik bilan kutamiz."
     }
+  },
+  "Contracts": {
+    "pageNumber": "Sahifa {pageNumber} / {numPages}",
+    "close": "Yopish ✖"
   },
   "Feature": {
     "header": {

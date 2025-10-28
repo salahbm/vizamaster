@@ -39,8 +39,8 @@ export const fetchAllVacancies = cache(
 
       return jobs;
     } catch (error) {
-      console.error('Failed to fetch all vacancies:', error);
-      throw new VacancyError('Failed to fetch vacancies', 500);
+      console.error('Failed to fetch vacancies:', error);
+      return []; // Return empty array instead of throwing
     }
   }
 );
@@ -60,7 +60,8 @@ export const fetchCountryVacancies = cache(
     }
   ): Promise<Job[]> => {
     if (!countryId) {
-      throw new VacancyError('Country ID is required', 400);
+      console.warn('Country ID is required');
+      return []; // Return empty array for invalid input
     }
 
     try {
@@ -79,11 +80,8 @@ export const fetchCountryVacancies = cache(
 
       return jobs;
     } catch (error) {
-      console.error(
-        `Failed to fetch vacancies for country ${countryId}:`,
-        error
-      );
-      throw new VacancyError(`Failed to fetch vacancies for country`, 500);
+      console.error(`Failed to fetch vacancies for country ${countryId}:`, error);
+      return []; // Return empty array instead of throwing
     }
   }
 );
@@ -96,7 +94,8 @@ export const fetchCountryVacancies = cache(
 export const fetchVacancy = cache(
   async (vacancyId: string): Promise<Job | null> => {
     if (!vacancyId) {
-      throw new VacancyError('Vacancy ID is required', 400);
+      console.warn('Vacancy ID is required');
+      return null; // Return null for invalid input
     }
 
     try {
@@ -112,7 +111,7 @@ export const fetchVacancy = cache(
       return vacancy;
     } catch (error) {
       console.error(`Failed to fetch vacancy ${vacancyId}:`, error);
-      throw new VacancyError(`Failed to fetch vacancy details`, 500);
+      return null; // Return null instead of throwing
     }
   }
 );
@@ -135,7 +134,6 @@ export const vacancyExists = cache(
 
       return count > 0;
     } catch (error) {
-      console.error(`Failed to check if vacancy ${vacancyId} exists:`, error);
       return false;
     }
   }

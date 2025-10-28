@@ -58,7 +58,8 @@
       "jobs": "Вакансии",
       "results": "Результаты",
       "contact": "Контакты",
-      "partners": "Партнёры"
+      "partners": "Партнёры",
+      "contracts":"Контракты"
     }
   },
   "About": {
@@ -141,6 +142,10 @@
       "subtitle": "Успешные кандидаты",
       "description": "Мы рады вашему интересу к нашей компании. С нетерпением ждем сотрудничества."
     }
+  },
+  "Contracts": {
+    "pageNumber": "Страница {pageNumber} из {numPages}",
+    "close": "Закрыть ✖"
   },
   "Feature": {
     "header": {

@@ -98,6 +98,7 @@ const FooterContent: React.FC<FooterContentProps> = ({
                   <Link
                     key={item.id}
                     href={item.path!}
+                    prefetch={false}
                     className="text-gray-600 transition-colors duration-300 dark:text-gray-300  hover:underline "
                   >
                     {t(item.name.toLocaleLowerCase())}

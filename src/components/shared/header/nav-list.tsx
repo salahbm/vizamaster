@@ -27,6 +27,11 @@ const navBars: Menu[] = [
     path: '/partners',
     id: 4,
   },
+  {
+    name: 'Contracts',
+    path: '/contracts',
+    id: 5,
+  },
 ];
 
 export default navBars;

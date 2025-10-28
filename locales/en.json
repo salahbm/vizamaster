@@ -58,7 +58,8 @@
       "jobs": "Jobs",
       "results": "Results",
       "contact": "Contact",
-      "partners": "Partners"
+      "partners": "Partners",
+      "contracts": "Contracts"
     }
   },
   "About": {
@@ -141,6 +142,16 @@
       "subtitle": "Successful candidates",
       "description": "We are glad that you are interested in our company.We are looking forward to working with you."
     }
+  },
+  "Contracts": {
+    "pageNumber": "Page {pageNumber} of {numPages}",
+    "close": "Close ✖",
+    "title": "Contracts",
+    "description": "Browse and review employment contracts for different countries. Click on any contract to view the full document.",
+    "clickToView": "Click to view →",
+    "contractViewer": "Contract Viewer",
+    "russia": "Russia",
+    "germany": "Germany"
   },
   "Feature": {
     "header": {
