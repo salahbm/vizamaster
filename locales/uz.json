@@ -143,10 +143,6 @@
       "description": "Kompaniyamizga bo‘lgan qiziqishingizdan mamnunmiz. Hamkorlikni intiqlik bilan kutamiz."
     }
   },
-  "Contracts": {
-    "pageNumber": "Sahifa {pageNumber} / {numPages}",
-    "close": "Yopish ✖"
-  },
   "Feature": {
     "header": {
       "title": "MUKAMMAL XUSUSIYATLAR",
@@ -239,6 +235,20 @@
   "EmptyState": {
     "title": "Ma'lumot yo'q",
     "description": "Biz yangi imkoniyatlar ustida ishlayapmiz. Tez orada yangiliklar bilan qayting yoki birinchi ishni qo‘shing!"
+  },
+  "Contracts": {
+    "pageNumber": "Sahifa {pageNumber} / {numPages}",
+    "close": "Yopish ✖",
+    "title": "Shartnoma",
+    "description": "Shartnomalarni ko‘rish va tahlil qilish uchun mamlakatni tanlang.",
+    "clickToView": "Shartnoma ko‘rish →",
+    "contractViewer": "Shartnoma ko‘rish",
+    "russia": "Rossiya",
+    "bulgaria": "Balgariya",
+    "israel": "Izrael",
+    "germany": "Germaniya",
+    "slovakia": "Slovakiya",
+    "turkey": "Turkiya"
   },
   "SocialMediaCard": {
     "companyName": "VIZA MASTER",

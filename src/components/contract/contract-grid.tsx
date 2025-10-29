@@ -40,6 +40,7 @@ export default function ContractGrid() {
               key={contract.id}
               title={contract.title}
               country={contract.country}
+              pdfSrc={contract.src}
               onClick={() => setSelected(contract.src)}
             />
           ))}
