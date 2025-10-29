@@ -50,21 +50,21 @@ export default function ContractGrid() {
       {/* Modal */}
       {selected && (
         <div
-          className="fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center items-center z-50 p-4"
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm flex justify-center items-center z-50 p-2 sm:p-4"
           onClick={() => setSelected(null)}
         >
           <div
-            className="bg-white rounded-2xl shadow-2xl w-full max-w-5xl max-h-[95vh] overflow-hidden flex flex-col"
+            className="bg-white rounded-xl sm:rounded-2xl shadow-2xl w-full max-w-5xl h-[98vh] sm:max-h-[95vh] overflow-hidden flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b bg-gray-50">
-              <h2 className="text-lg font-semibold text-gray-800">
+            <div className="flex items-center justify-between px-4 sm:px-6 py-3 sm:py-4 border-b bg-gray-50">
+              <h2 className="text-base sm:text-lg font-semibold text-gray-800">
                 {t('contractViewer')}
               </h2>
               <button
                 onClick={() => setSelected(null)}
-                className="p-2 hover:bg-gray-200 rounded-lg transition-colors group"
+                className="p-1.5 sm:p-2 hover:bg-gray-200 rounded-lg transition-colors group"
                 aria-label="Close"
               >
                 <X className="w-5 h-5 text-gray-600 group-hover:text-gray-800" />
@@ -72,7 +72,7 @@ export default function ContractGrid() {
             </div>
 
             {/* Modal Content */}
-            <div className="flex-1 overflow-auto p-6">
+            <div className="flex-1 overflow-auto p-3 sm:p-6">
               <PdfViewer file={selected} />
             </div>
           </div>

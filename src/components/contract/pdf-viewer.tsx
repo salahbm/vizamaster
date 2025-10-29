@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import { PdfControls } from './pdf-control';
 import { ZoomControls } from './zoom-control';
@@ -24,6 +24,24 @@ export default function PdfViewer({ file }: PdfViewerProps) {
   const [scale, setScale] = useState(1.0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [pageWidth, setPageWidth] = useState<number>(600);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Calculate optimal page width based on container size
+  useEffect(() => {
+    const updateWidth = () => {
+      if (containerRef.current) {
+        const containerWidth = containerRef.current.offsetWidth;
+        // Use 90% of container width with max of 800px for desktop
+        const optimalWidth = Math.min(containerWidth * 0.9, 800);
+        setPageWidth(optimalWidth);
+      }
+    };
+
+    updateWidth();
+    window.addEventListener('resize', updateWidth);
+    return () => window.removeEventListener('resize', updateWidth);
+  }, []);
 
   const handleZoom = (direction: 'in' | 'out') => {
     setScale((prev) =>
@@ -45,8 +63,8 @@ export default function PdfViewer({ file }: PdfViewerProps) {
 
   return (
     <div className="flex flex-col items-center gap-4 w-full">
-      {/* Zoom Controls - Top */}
-      <div className="flex items-center gap-4 w-full justify-between px-4">
+      {/* Controls - Responsive Layout */}
+      <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full justify-between px-2 sm:px-4">
         <ZoomControls
           onZoomIn={() => handleZoom('in')}
           onZoomOut={() => handleZoom('out')}
@@ -63,7 +81,10 @@ export default function PdfViewer({ file }: PdfViewerProps) {
       </div>
 
       {/* PDF Document */}
-      <div className="relative w-full flex justify-center bg-gray-100 rounded-lg p-4 min-h-[500px]">
+      <div
+        ref={containerRef}
+        className="relative w-full flex justify-center bg-gray-100 rounded-lg p-2 sm:p-4 min-h-[400px] sm:min-h-[500px] overflow-auto"
+      >
         {loading && (
           <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-90 z-10">
             <div className="flex flex-col items-center gap-3">
@@ -90,14 +111,14 @@ export default function PdfViewer({ file }: PdfViewerProps) {
           onLoadError={onDocumentLoadError}
           loading=""
           error=""
-          className="flex justify-center"
+          className="flex justify-center w-full"
         >
           <Page
             pageNumber={pageNumber}
-            scale={scale}
+            width={pageWidth * scale}
             renderTextLayer={false}
             renderAnnotationLayer={false}
-            className="shadow-lg"
+            className="shadow-lg max-w-full"
           />
         </Document>
       </div>
