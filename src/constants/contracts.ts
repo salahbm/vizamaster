@@ -29,4 +29,16 @@ export const contracts = [
     country: 'turkey',
     src: '/contracts/turkey-contract.pdf',
   },
+  {
+    id: 6,
+    title: 'russia',
+    country: 'russia',
+    src: '/contracts/russia-global-contract.pdf',
+  },
+  {
+    id: 7,
+    title: 'hungary',
+    country: 'hungary',
+    src: '/contracts/hungary-contract.pdf',
+  },
 ];
